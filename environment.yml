@@ -2,6 +2,7 @@ name: example-environment
 
 dependencies:
   - python=2.7
+  - scikit-learn
   - opencv
   - pil
   - numpy
