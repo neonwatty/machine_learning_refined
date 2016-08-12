@@ -1,7 +1,6 @@
 import math
 import numpy as np
 import csv
-from sklearn import preprocessing
 
 # make polynomial kernel using input data
 def make_poly_kernel(X,D):
