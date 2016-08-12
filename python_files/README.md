@@ -1,1 +1,1 @@
-Python background files associated to IPython notebooks and MATLAB files.
+Python files for ipython notebooks, typically run in background
