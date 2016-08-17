@@ -20,70 +20,10 @@ def poly_features(X,D):
    
     return F
     
-def fourier_features(X,D):
-    P,N = np.shape(X)  # of course N = 2 here, just for visualization
-    M = (D+1)**2 + 1
-    F = np.zeros((P,M))
-    
-    # loop over dataset, transforming each input data to fourier feature
-    for p in range(0,P):
-        f = np.zeros((1,M))
-        x = X[p,:]
-        m = 0
-        
-        # enumerate all individual Fourier terms - probably enumerating in complex exponential form is best. 
-        for i in range(0,D+1):
-            for j in range(0,D+1):
-                F[p][m] = np.cos(i*x[0])*np.sin(j*x[1])
-                m+=1
-    return F
-        
-# generate and save parameters for random features
-def make_random_params(X,D):
-    # sizes of things
-    P,N = np.shape(X)  # of course N = 2 here, just for visualization
-    M = D
-    
-    # make random projections and save them
-    R = np.random.randn(M,N+1)
-    np.savetxt('random_projections.txt', R)    
-
-# generate random features
-def random_features(X,D):
-    # create random projections for feature transformations
-    R = np.loadtxt('random_projections.txt')
-    
-    # sizes of things
-    P,N = np.shape(X)  # of course N = 2 here, just for visualization
-    M = D
-    F = np.zeros((P,M+1))  
-
-    # set external biases, then tranform random projection of each point
-    for p in range(0,P):   
-        F[p,0] = 1
-        x_p = X[p,:]
-        for m in range(0,M):
-            r = R[m,:]
-            
-            # compute random projection of x_p onto r
-            proj = r[0] + np.sum(x_p*r[1:])
-            
-            # take nonlinear transformation of random projection
-            # using cosine right now
-            F[p,m+1] = np.cos(proj)
-            
-    return F
-
 # this is the main switch that routes choice of feeatype to its proper function above
 def create_features(X,D,feat_type):
     F = 0
-    # make desired feature type
-    if feat_type == 'poly':
-        F = poly_features(X,D)
-    if feat_type == 'fourier':
-        F = fourier_features(X,D)
-    if feat_type == 'random': 
-        F = random_features(X,D)
+    F = poly_features(X,D)
      
     return F
 
@@ -114,6 +54,8 @@ def compute_grad_and_hess(X,y,w):
         grad+= -s*y_p*x_p
         hess+= np.outer(x_p,x_p)*g
         
+    # add small positive value to diagonal of Hessian to prevent singular systems
+    hess += 0.00001*np.eye(np.shape(hess)[0])q
     grad.shape = (len(grad),1)
     return grad,hess
 
@@ -310,20 +252,19 @@ def animate_nonlinear_classification(x,y,w_history,X,feat_type,degree,max_its):
     
 
 ########## main function ##########
-def run(dataset,feat_type,degree):
+def run(dataset,degree):
     # load data
     x,y = load_data(dataset)
   
     # make random weights and save if feattype == 'random' is chosen
-    if feat_type == 'random':
-        make_random_params(x,degree)
+    feat_type = "poly"
         
     # formulate full input data matrix X - i.e., just pad with single row of ones
     X = create_features(x,degree,feat_type)
     X = X.T
     
     # run Newton's method
-    max_its = 10
+    max_its = 15
     w_history = softmax_2class_newton(X,y,max_its)
 
     # animate each step (or each 2nd, 3rd, etc., step)
