@@ -122,7 +122,7 @@ def softmax_2class_newton(X,y,max_its):
 
     # initialize variables
     N,P = np.shape(X)
-    w = np.random.randn(N,1)
+    w = np.zeros((N,1))
 
     # record number of misclassifications on training set at each epoch 
     w_history = np.zeros((N,max_its+1)) 
