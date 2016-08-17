@@ -55,7 +55,7 @@ def compute_grad_and_hess(X,y,w):
         hess+= np.outer(x_p,x_p)*g
         
     # add small positive value to diagonal of Hessian to prevent singular systems
-    hess += 0.00001*np.eye(np.shape(hess)[0])
+    # hess += 0.00001*np.eye(np.shape(hess)[0])
     grad.shape = (len(grad),1)
     return grad,hess
 
