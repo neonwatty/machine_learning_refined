@@ -264,7 +264,7 @@ def run(dataset,degree):
     X = X.T
     
     # run Newton's method
-    max_its = 15
+    max_its = 10
     w_history = softmax_2class_newton(X,y,max_its)
 
     # animate each step (or each 2nd, 3rd, etc., step)
