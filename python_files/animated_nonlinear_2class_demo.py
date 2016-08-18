@@ -216,6 +216,8 @@ def animate_nonlinear_classification(x,y,w_history,X,feat_type,degree,max_its):
     # make figure and panels
     fig = plt.figure(figsize = (16,5))
     ax1 = fig.add_subplot(121)
+    ax1.grid(b=False)
+
     ax2 = fig.add_subplot(122)
     big_val = calculate_cost_value(X,y,w_history[:,0])
     
@@ -233,17 +235,16 @@ def animate_nonlinear_classification(x,y,w_history,X,feat_type,degree,max_its):
         if current_val > 100000:
             current_val = 100000
         cost_values.append(current_val)
-        steps_shown.append(i+1)
+        steps_shown.append(i)
         plot_costvals(steps_shown,cost_values,ax2)
-        ax2.set_xlim(-1,max_its + 1)
-        ax2.set_ylim(-1,big_val + 2)
+        ax2.set_xlim(-0.5,max_its + 0.5)
+        ax2.set_ylim(0,big_val + 2)
 
         # clear separator / rule from middle panel
         display.clear_output(wait=True)
         display.display(plt.gcf())                 
         ax1.clear()
-        
-                
+              
     # this next line both clears the panels and also prevents a bunch from printing out (a new figure for each new plot in the loop) - I have no idea why it does this, but it does, and it works
     
     display.clear_output(wait=True)
@@ -264,7 +265,7 @@ def run(dataset,degree):
     X = X.T
     
     # run Newton's method
-    max_its = 10
+    max_its = 5
     w_history = softmax_2class_newton(X,y,max_its)
 
     # animate each step (or each 2nd, 3rd, etc., step)
