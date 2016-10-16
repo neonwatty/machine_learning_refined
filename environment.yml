@@ -1,4 +1,4 @@
-name: example-environment
+name: mlrefined-env
 
 dependencies:
   - python=2.7
