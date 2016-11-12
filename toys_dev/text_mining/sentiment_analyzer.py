@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from sklearn.externals import joblib
 
 # library for extracting text from HTML files
 from bs4 import BeautifulSoup   
@@ -17,7 +18,7 @@ Or run for much faster download just
 
 nltk.download("stopwords") 
 
-in python once to grab just stopwords
+in python once to grab just stopwords - downloading the entire corpus takes a lot of time!
 
 '''
 import nltk
@@ -42,6 +43,7 @@ class sentiment_analyzer():
     
     def __init__self(self):
         self.data = []
+        
         self.train_data = []
         self.train_labels = []
         self.clean_train_reviews = []
@@ -49,18 +51,24 @@ class sentiment_analyzer():
         self.trained_model = []
         self.train_accuracy = []
         self.train_accuracy = []
+        
+        self.test_data = []
+        self.test_labels = []
+        self.clean_test_reviews = []
+        self.test_data_features = []
+        self.test_accuracy = []
+        self.test_accuracy = []
 
     # import training data 
-    def load_training_data(self,csvname):
+    def load_data(self,csvname):
         # load in dataframe
-        self.data = pd.read_csv(csvname, header=0, \
-                    delimiter="\t", quoting=3)
+        all_data = pd.read_csv(csvname)
         
-        # grab data
-        self.train_data = self.data['review']
+        # grab training data and labels
+        data = all_data['review']        
+        labels = np.asarray(all_data['sentiment'])
         
-        # grab labels
-        self.train_labels = np.asarray(self.data['sentiment'])
+        return data,labels
         
     # remove document from HTML page, parse, remove stop words, and stem
     def review_to_words(self,raw_review):
@@ -92,58 +100,49 @@ class sentiment_analyzer():
         return( " ".join( stemmed_words )) 
     
     # clean training dataset
-    def clean_train_data(self):
+    def clean_data(self,dataset):
         # Get the number of reviews based on the dataframe column size
-        num_reviews = self.train_data.size
+        num_reviews = dataset.size
 
         # Initialize an empty list to hold the clean reviews
-        self.clean_train_reviews = []
+        cleaned_reviews = []
 
         # Loop over each review; create an index i that goes from 0 to the length
         # of the movie review list 
-        for i in xrange( 0, num_reviews ):
+        for i in xrange( 0,num_reviews):
             # Call our function for each one, and add the result to the list of
             # clean reviews
-            self.clean_train_reviews.append( self.review_to_words( self.train_data[i] ) )
+            cleaned_reviews.append( self.review_to_words(dataset[i]))
         
         # print update
-        print 'done cleaning data, raw text now stored'
+        return cleaned_reviews
         
     ## convert cleaned, stopword removed, stemmed dataset to BoW features
-    def transform_to_BoW(self):
+    def make_BoW_transform(self,train_dataset):
         # Initialize the "CountVectorizer" object, which is scikit-learn's
         # bag of words tool.  Keep only top 5000 most commonly occuring words
-        vectorizer = CountVectorizer(analyzer = "word",   \
+        BoW_transform = CountVectorizer(analyzer = "word",   \
                                      tokenizer = None,    \
                                      preprocessor = None, \
                                      stop_words = None,   \
                                      max_features = 5000) 
 
-        # fit_transform() does two functions: First, it fits the model
-        # and learns the vocabulary; second, it transforms our training data
-        # into feature vectors. The input to fit_transform should be a list of 
-        # strings.
-        train_data_features = vectorizer.fit_transform(self.clean_train_reviews)
-
-        # Numpy arrays are easy to work with, so convert the result to an 
-        # array
-        self.train_data_features = []
-        self.train_data_features = train_data_features.toarray()
+        ## Take BoW features from training data - creating a dictionary of words that will also be used on the testing data
+        BoW_transform.fit(train_dataset)
         
+        ## save our BoW transform (fit to the training data) so we can use it later to transform future data
+        joblib.dump(BoW_transform, 'BoW_transform.pkl') 
+        
+        # to load from file use below
+        ## BoW_transform = joblib.load('BoW_transform.pkl') # load the BoW transform from file
+                
         # Take a look at the words in the vocabulary
         # vocab = vectorizer.get_feature_names()
-        print 'done transforming raw data into BoW features'
 
+        return BoW_transform
 
     # perform classification on training set
-    def perform_classification(self):
-        # split dataset into training and testing sets
-        X_train = self.train_data_features[:20000,:]
-        y_train = self.train_labels[:20000]
-
-        X_test = self.train_data_features[20000:,:]
-        y_test = self.train_labels[20000:]
-        
+    def perform_classification(self,X_train,y_train,X_test,y_test):        
         # load in classifier
         clf = GradientBoostingClassifier(n_estimators=100, learning_rate=1.0, max_depth=1, random_state=0)
         
@@ -151,9 +150,7 @@ class sentiment_analyzer():
         clf.fit(X_train, y_train)
         
         # save model
-        self.trained_model = pickle.dumps(clf)
-        with open('my_dumped_classifier.pkl', 'wb') as fid:
-            cPickle.dump(self.trained_model, fid)  
+        joblib.dump(clf, 'learned_booster.pkl') 
         
         # print scores on training and testing sets
         self.train_accuracy = clf.score(X_train, y_train)
