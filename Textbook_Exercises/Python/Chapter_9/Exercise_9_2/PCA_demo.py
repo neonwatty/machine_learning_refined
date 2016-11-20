@@ -16,7 +16,7 @@ def PCA_demo():
     n = np.shape(X)[0]
     means = np.matlib.repmat(np.mean(X,0), n, 1)
     X = X - means  # center the data
-    X = np.transpose(X)
+    X = X.T
     K = 1
 
     # run PCA
@@ -31,7 +31,7 @@ def PCA_demo():
 
 def your_PCA(X, K):
 
-# ---->  YOUR CODE GOES HERE
+# ---> YOUR CODE GOES HERE.
 
     return C, W
 
@@ -44,7 +44,7 @@ def plot_results(X, C):
         plt.scatter(X[0][:],X[1][:])
 
     s = np.arange(C[0,0],-C[0,0],.001)
-    m = C[0,1]/C[0,0]
+    m = C[1,0]/C[0,0]
     ax1.plot(s, m*s, color = 'k', linewidth = 2)
 
     ax1.set_xlabel('$b_1$', fontsize = 14)
@@ -55,7 +55,7 @@ def plot_results(X, C):
 
     # Plot projected data
     ax2 = fig.add_subplot(122)
-    X_proj = np.dot(C.T, np.linalg.solve(np.dot(C,C.T),np.dot(C,X)))
+    X_proj = np.dot(C, np.linalg.solve(np.dot(C.T,C),np.dot(C.T,X)))
     for j in np.arange(0,n):
         plt.scatter(X_proj[0][:],X_proj[1][:])
 
