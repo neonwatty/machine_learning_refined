@@ -9,6 +9,7 @@ from sklearn.ensemble import GradientBoostingRegressor
 from ipywidgets import interact
 from ipywidgets import widgets
 import math
+from scipy.fftpack import dct
 
 class Fit_Bases:
     
@@ -28,7 +29,7 @@ class Fit_Bases:
         
         # dress panel correctly with axis labels etc.
         plt.xlim(min(self.x),max(self.x))
-        plt.ylim(min(self.y)-0.1,max(self.y)+0.1)
+        plt.ylim(min(self.y)-0.3,max(self.y)+0.3)
         plt.yticks([],[])
         plt.axis('off')
 
@@ -40,7 +41,7 @@ class Fit_Bases:
         # plot regressor
         plt.plot(domain,z,linewidth = 3,color = 'b')
 
-    ### demo with animation or sliders - showing function approximation with polynoimal, neural network, and stumps/trees - should zip up into one function but laziness overtaketh me
+    ### demo with animation or sliders - showing function approximation with polynoimal, Fourier, neural network, and stumps/trees - should zip up into one function but laziness overtaketh me
     # polys
     def browse_poly_fit(self):
         def show_fit(num_elements):
@@ -63,7 +64,40 @@ class Fit_Bases:
 
         interact(show_fit, num_elements=widgets.IntSlider(min=1,max=20,step=1,value=1))
 
+    # Fourier - or cosine
+    def make_cos_approx(self,signal,num_elements):
+        f = []
+        for n in np.arange(num_elements):
+            if np.mod(n,2) == 0:
+                f.append(np.cos(0.5*np.pi*n*signal))
+            else:
+                f.append(np.sin(0.5*np.pi*n*signal))
+                
+        f = np.asarray(f)
+        f.shape = (np.shape(f)[0], np.shape(f)[1])
+        f = f.T
+        return f
+    
+    def browse_cos_fit(self):
+        def show_fit(num_elements):
+            # plot our points
+            self.plot_target()
+            
+            # Create linear regression object
+            f = self.make_cos_approx(self.x,num_elements)
+            clf = linear_model.LinearRegression()
+            clf.fit(f, self.y)        
 
+            # plot classification boundary and color regions appropriately
+            r = np.linspace(-0.1,1.1,300)[:, np.newaxis]
+            pr = self.make_cos_approx(r,num_elements)
+
+            # plot approximation
+            self.plot_approx(clf,r,pr)
+
+        interact(show_fit, num_elements=widgets.IntSlider(min=1,max=40,step=1,value=1))
+
+        
     # demo with animation or sliders - showing function approximation with polynoimal, neural network, and stumps/trees
     def browse_tree_fit(self):
         def show_fit(num_elements):
