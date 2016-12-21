@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 from IPython import display
 import numpy as np
 import pandas as pd
+import os 
+import sys
 
 class Boost_Demo1:
     def __init__(self):
@@ -11,7 +13,9 @@ class Boost_Demo1:
         
     # load in a dataset via csv file
     def load_data(self,csvname):
-        data = np.asarray(pd.read_csv('noisy_sin_sample.csv',header = None))
+
+        # load in dataset
+        data = np.asarray(pd.read_csv(csvname,header = None))
         self.x = data[:,0]
         self.y = data[:,1]
         

@@ -19,6 +19,7 @@ class Regression_Demo2:
         
     # load in a two-dimensional dataset from csv - input should be in first column, oiutput in second column, no headers 
     def load_data(self,csvname):
+       
         # load data
         data = np.asarray(pd.read_csv(csvname,header = None))
         self.x = data[:,0]
