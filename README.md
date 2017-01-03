@@ -4,7 +4,7 @@ Click [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org:/repo/jermw
 
 This repository contains various supplementary IPython notebooks, Python and MATLAB files, and Powerpoint presentations associated with the textbook Machine Learning Refined (Cambridge University Press). Visit [http://www.mlrefined.com](www.mlrefined.com) for free chapter downloads and tutorials, and [our Amazon site here for details regarding a hard copy of the text](https://www.amazon.com/Machine-Learning-Refined-Foundations-Applications/dp/1107123526/ref=sr_1_1?ie=UTF8&qid=1471025359&sr=8-1&keywords=machine+learning+refined).
 
-** NOTE: Python 2.7 is used for all Python exercises.**
+**NOTE: Python 2.7 is used for all Python exercises.**
 
 Short video tutorials illustrating critical ML topics using the Python / MATLAB files here may be found below.
 ## Video tutorials on gradient descent and Newton's method
