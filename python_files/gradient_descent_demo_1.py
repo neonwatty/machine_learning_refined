@@ -154,3 +154,4 @@ def plot_steps_with_surrogate(w_path):
                 ax1.plot(s,t,'--k')
                 display.clear_output(wait=True)
                 display.display(plt.gcf()) 
+

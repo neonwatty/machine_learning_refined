@@ -13,7 +13,7 @@ def load_data():
     x = []
     y = []
     count = 0
-    with open('datasets/student_debt.csv') as f:
+    with open('demo_datasets/student_debt.csv') as f:
         reader = csv.reader(f)
         for row in reader:
             if count == 0:

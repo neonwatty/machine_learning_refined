@@ -45,7 +45,7 @@ class Regression_Demo3:
     ##### plotting functions ####
     # plot data
     def plot_pts(self):
-        self.ax1.scatter(self.x,self.y)
+        self.ax1.scatter(self.x,self.y,color = 'k')
         xgap = float(max(self.x) - min(self.x))/float(10)
         self.ax1.set_xlim([min(self.x)-xgap,max(self.x)+xgap])
         ygap = float(max(self.y) - min(self.y))/float(10)
@@ -84,8 +84,8 @@ class Regression_Demo3:
         self.ax2.zaxis.set_rotate_label(False)  # disable automatic rotation
         self.ax2.set_zlabel('cost  ',fontsize = 14, rotation = 0,labelpad = 1)
         
-        levels = np.linspace(0,len(self.x),20)
-        self.ax3.contour(s,t,g,levels,linewidths = 2)
+        levels = [0.2,0.8,1.5,3,5,9,14,19,25,35,43,50]
+        self.ax3.contour(s,t,g,levels,linewidths = 2,cmap = 'magma',zorder = 1)
         self.ax3.set_xticks([])
         self.ax3.set_yticks([])
         self.ax3.set_xlim([-2,2])
@@ -117,7 +117,7 @@ class Regression_Demo3:
         b = event.ydata
         w = event.xdata
         
-        self.interactive_pt = self.ax_to_plot.scatter(w,b)
+        self.interactive_pt = self.ax_to_plot.scatter(w,b,color = 'r',zorder = 2)
                 
         # plot first parameters on cost surface
         cost = self.compute_cost(w,b)

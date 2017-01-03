@@ -207,7 +207,8 @@ def plot_nonlinear_rule(x,y,w,feat_type,D,ax):
     s.shape = (np.size(r),np.size(r))
     t.shape = (np.size(r),np.size(r))
     z.shape = (np.size(r),np.size(r))
-    ax.contour(s,t,z,colors = 'k',linewidths = 2.5)
+    if np.std(z) > 0:
+        ax.contour(s,t,z,colors = 'k',linewidths = 2.5)
     ax.contourf(s,t,z,colors = color_opts[:],alpha = 0.1,levels = range(0,num_classes+1))
 
 # main plotting function 
