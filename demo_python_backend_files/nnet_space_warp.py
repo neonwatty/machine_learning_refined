@@ -149,7 +149,7 @@ class nnet_space_warp():
         data = pd.DataFrame(data)
         data.to_csv('demo_datasets/nnet_warp_nonlinear_rule.csv',header = False,index = None)
 
-        ### you need to just build a fucking dataset yourself
+        ### build a dataset using this rule
         # make random dataset
         num_pts = 200
         X = -5 + 10*np.random.rand(num_pts,2)
