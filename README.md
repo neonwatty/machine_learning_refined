@@ -13,28 +13,35 @@ This repository contains various supplementary Jupyter notebooks, Python and MAT
 
 Below are video walkthroughs for several of the Jupyter notebooks in this repository.  These briefly discuss the content of each notebook and show off their various interactive demos.
 
-**An introduction to the mlrefined repo and the walkthrough series**
+**An introduction to the mlrefined repo and the Jupyter notebook walkthrough series**
 [![Demo Doccou alpha](https://j.gifs.com/g5yPoZ.gif)](https://www.youtube.com/watch?v=qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=1)
 
 
-** A walkthrough of the basic optimization notebook - 2.1_Basic_optimization_demos.ipynb**
+
+**Jupyter notebook walkthrough - on basic optimization principles**
 [![Demo Doccou alpha](https://j.gifs.com/vgwk1L.gif)](https://www.youtube.com/watch?v=l248ub44TRs&index=2&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF)
 
 
-** A walkthrough of the linear regression + optimization notebook - 3.1_Regression_optimization_demos.ipynb**
+
+**Jupyter notebook walkthrough - linear regression and optimization**
 [![Demo Doccou alpha](https://j.gifs.com/Z4gR12.gif)](https://www.youtube.com/watch?v=5-QY6MCt7fo&index=3&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF)
 
-** A walkthrough of the linear regression + optimization notebook - 3.1_Regression_optimization_demos.ipynb**
-[![Demo Doccou alpha](https://j.gifs.com/Z4gR12.gif)](https://www.youtube.com/watch?v=l248ub44TRs&index=2&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF)
+
+**Jupyter notebook walkthroughs - regression and kernels / neural nets / trees**
+[![Demo Doccou alpha](https://j.gifs.com/pgnP3m.gif)](https://www.youtube.com/watch?v=VITu0cHBQto&index=4&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF)
 
 
+**Jupyter notebook walkthroughs - regression and kernels / neural nets / trees **
+[![Demo Doccou alpha](https://j.gifs.com/pgnP3m.gif)](https://www.youtube.com/watch?v=VITu0cHBQto&index=4&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF)
 
+**Jupyter notebook walkthroughs - neural net space warping**
+[![Demo Doccou alpha](https://j.gifs.com/58Mg5A.gif)](https://www.youtube.com/watch?v=8T56K8oou9Q&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=5
+)
 
-[![Demo Doccou alpha](https://j.gifs.com/zpql9q.gif)](https://www.youtube.com/watch?v=LLc-N3jgj7U)
 
 ## Video tutorial on regression and L2 regularization
 
-Below is a video tutorial illustrating how L2 regularization convexifies nonconvex cost functions, thereby making minimization of such functions easier.  The code (l2reg_logistic, which you may find here) shows the result of applying L2 regularization to a nonconvex form of logistic regression on a simple dataset, as well as the resulting convexificaation of this cost function due to regularization.   Again, some principles from the chapter - which is available for download at www.mlrefined.com -  are briefly described before jumping into the code.
+Below is an older video tutorial illustrating how L2 regularization convexifies nonconvex cost functions, thereby making minimization of such functions easier.  The code (l2reg_logistic, which you may find here) shows the result of applying L2 regularization to a nonconvex form of logistic regression on a simple dataset, as well as the resulting convexificaation of this cost function due to regularization.   Again, some principles from the chapter - which is available for download at www.mlrefined.com -  are briefly described before jumping into the code.
 
 [![Demo Doccou alpha](https://j.gifs.com/AD8OG1.gif)](https://youtu.be/ON_7wm-Qe6c)
 
