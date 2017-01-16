@@ -13,6 +13,10 @@ This repository contains various supplementary Jupyter notebooks, Python and MAT
 
 Below are video walkthroughs for several of the Jupyter notebooks in this repository.  These briefly discuss the content of each notebook and show off their various interactive demos.
 
+<a href="https://www.youtube.com/watch?v=qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=1
+" target="_blank"><img src="https://j.gifs.com/g5yPoZ.gif" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+
 **An introduction to the mlrefined repo and the Jupyter notebook walkthrough series**
 [![Demo Doccou alpha](https://j.gifs.com/g5yPoZ.gif){height="24px" width="48px"}](https://www.youtube.com/watch?v=qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=1)
 
