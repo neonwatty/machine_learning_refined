@@ -16,33 +16,38 @@ Below are video walkthroughs for several of the Jupyter notebooks in this reposi
 
 
 **An introduction to the mlrefined repo and the Jupyter notebook walkthrough series**
+
 <a href="https://www.youtube.com/watch?v=qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=1
 " target="_blank"><img src="https://j.gifs.com/g5yPoZ.gif" 
-alt="" width="240" height="240" border="10" /></a>
+alt="" width="400" height="400" border="10" /></a>
 
 
 **Jupyter notebook walkthrough - on basic optimization principles**
+
 <a href="(https://www.youtube.com/watch?v=l248ub44TRs&index=2&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF
 " target="_blank"><img src="https://j.gifs.com/vgwk1L.gif" 
-alt="" width="240" height="240" border="10" /></a>
+alt="" width="400" height="400" border="10" /></a>
 
 
 **Jupyter notebook walkthrough - linear regression and optimization**
+
 <a href="(https://www.youtube.com/watch?v=5-QY6MCt7fo&index=3&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF
 " target="_blank"><img src="https://j.gifs.com/Z4gR12.gif" 
-alt="" width="240" height="240" border="10" /></a>
+alt="" width="400" height="400" border="10" /></a>
 
 
 **Jupyter notebook walkthroughs - regression and kernels / neural nets / trees**
+
 <a href="(https://www.youtube.com/watch?v=VITu0cHBQto&index=4&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF
 " target="_blank"><img src="https://j.gifs.com/pgnP3m.gif" 
-alt="" width="240" height="240" border="10" /></a>
+alt="" width="400" height="400" border="10" /></a>
 
 
 **Jupyter notebook walkthroughs - neural net space warping**
+
 <a href="(https://www.youtube.com/watch?v=8T56K8oou9Q&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=5
 " target="_blank"><img src="https://j.gifs.com/58Mg5A.gif" 
-alt="" width="240" height="240" border="10" /></a>
+alt="" width="400" height="400" border="10" /></a>
 
 
 ## Video tutorial on regression and L2 regularization
