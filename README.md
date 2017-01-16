@@ -14,7 +14,7 @@ This repository contains various supplementary Jupyter notebooks, Python and MAT
 Below are video walkthroughs for several of the Jupyter notebooks in this repository.  These briefly discuss the content of each notebook and show off their various interactive demos.
 
 **An introduction to the mlrefined repo and the Jupyter notebook walkthrough series**
-[![Demo Doccou alpha](https://j.gifs.com/g5yPoZ.gif)](https://www.youtube.com/watch?v=qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=1)
+[![Demo Doccou alpha](https://j.gifs.com/g5yPoZ.gif | width=100))](https://www.youtube.com/watch?v=qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=1)
 
 
 
@@ -30,9 +30,6 @@ Below are video walkthroughs for several of the Jupyter notebooks in this reposi
 **Jupyter notebook walkthroughs - regression and kernels / neural nets / trees**
 [![Demo Doccou alpha](https://j.gifs.com/pgnP3m.gif)](https://www.youtube.com/watch?v=VITu0cHBQto&index=4&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF)
 
-
-**Jupyter notebook walkthroughs - regression and kernels / neural nets / trees **
-[![Demo Doccou alpha](https://j.gifs.com/pgnP3m.gif)](https://www.youtube.com/watch?v=VITu0cHBQto&index=4&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF)
 
 **Jupyter notebook walkthroughs - neural net space warping**
 [![Demo Doccou alpha](https://j.gifs.com/58Mg5A.gif)](https://www.youtube.com/watch?v=8T56K8oou9Q&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=5
