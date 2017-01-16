@@ -17,6 +17,8 @@ Below are video walkthroughs for several of the Jupyter notebooks in this reposi
 
 [![2.1_Basic_optimization_demos.ipynb] (http://img.youtube.com/vi/qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=1/0.jpg)](https://www.youtube.com/watch?v=qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=1)
 
+[![2.1_Basic_optimization_demos.ipynb](https://img.youtube.com/vi/qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=1/0.jpg)](https://www.youtube.com/watch?v=qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=1)
+
 ## Video tutorials on gradient descent and Newton's method
 
 Below is a video tutorial illustrating how gradient descent works via use of the demo code (convex_grad_surrogate and nonconvex_grad_surrogate, which you may find here) - these illustrate the basic concepts underlying gradient descent applied to minimizing both convex and nonconvex functions. Some principles from the chapter are briefly described before jumping into the code.
