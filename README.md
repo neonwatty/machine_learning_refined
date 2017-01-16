@@ -9,22 +9,26 @@ docker run -d -u 0 -it -p 8888:8888 jermwatt/mlrefined
 - - -
 This repository contains various supplementary Jupyter notebooks, Python and MATLAB files, presentations associated with the textbook Machine Learning Refined (Cambridge University Press). Visit [http://www.mlrefined.com](www.mlrefined.com) for free chapter downloads and tutorials, and [our Amazon site here for details regarding a hard copy of the text](https://www.amazon.com/Machine-Learning-Refined-Foundations-Applications/dp/1107123526/ref=sr_1_1?ie=UTF8&qid=1471025359&sr=8-1&keywords=machine+learning+refined).
 
-## Jupyter notebook video walkthroughts:## 
+## Jupyter notebook video walkthroughts:
 
 Below are video walkthroughs for several of the Jupyter notebooks in this repository.  These briefly discuss the content of each notebook and show off their various interactive demos.
 
-An introduction to the mlrefined repo and the walkthrough series
+**An introduction to the mlrefined repo and the walkthrough series**
 [![Demo Doccou alpha](https://j.gifs.com/g5yPoZ.gif)](https://www.youtube.com/watch?v=qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=1)
 
 
+** A walkthrough of the basic optimization notebook - 2.1_Basic_optimization_demos.ipynb**
+[![Demo Doccou alpha](https://j.gifs.com/vgwk1L.gif)](https://www.youtube.com/watch?v=l248ub44TRs&index=2&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF)
 
-## Video tutorials on gradient descent and Newton's method
 
-Below is a video tutorial illustrating how gradient descent works via use of the demo code (convex_grad_surrogate and nonconvex_grad_surrogate, which you may find here) - these illustrate the basic concepts underlying gradient descent applied to minimizing both convex and nonconvex functions. Some principles from the chapter are briefly described before jumping into the code.
+** A walkthrough of the linear regression + optimization notebook - 3.1_Regression_optimization_demos.ipynb**
+[![Demo Doccou alpha](https://j.gifs.com/Z4gR12.gif)](https://www.youtube.com/watch?v=5-QY6MCt7fo&index=3&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF)
 
-[![Demo Doccou alpha](https://j.gifs.com/o2AJjA.gif)](https://youtu.be/yy1otucCYVM)
+** A walkthrough of the linear regression + optimization notebook - 3.1_Regression_optimization_demos.ipynb**
+[![Demo Doccou alpha](https://j.gifs.com/Z4gR12.gif)](https://www.youtube.com/watch?v=l248ub44TRs&index=2&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF)
 
-Below is a video tutorial illustrating how Newton's method works via use of the demo code (convex_newton_surrogate and nonconvex_newton_surrogate, which you may find here) - these illustrate the basic concepts underlying Newton's method applied to minimizing both convex and nonconvex functions. Some principles from the chapter are briefly described before jumping into the code.
+
+
 
 [![Demo Doccou alpha](https://j.gifs.com/zpql9q.gif)](https://www.youtube.com/watch?v=LLc-N3jgj7U)
 
