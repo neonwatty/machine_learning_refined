@@ -13,11 +13,11 @@ This repository contains various supplementary Jupyter notebooks, Python and MAT
 
 Below are video walkthroughs for several of the Jupyter notebooks in this repository.  These briefly discuss the content of each notebook and show off their various interactive demos.
 
-[![An introduction to the repo and walkthroughs](https://www.youtube.com/watch?v=qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=1)
+[![An introduction to the repo and walkthroughs](https://www.youtube.com/watch?v=qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF)
 
 [![2.1_Basic_optimization_demos.ipynb] (http://img.youtube.com/vi/qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=1/0.jpg)](https://www.youtube.com/watch?v=qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=1)
 
-[![2.1_Basic_optimization_demos.ipynb](https://img.youtube.com/vi/qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=1/0.jpg)](https://www.youtube.com/watch?v=qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=1)
+[![2.1_Basic_optimization_demos.ipynb](https://img.youtube.com/vi/qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF/0.jpg)](https://www.youtube.com/watch?v=qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF)
 
 ## Video tutorials on gradient descent and Newton's method
 
