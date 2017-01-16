@@ -1,6 +1,6 @@
 # Machine Learning Refined IPython notebooks, Python and MATLAB files
 
-[Click here](http://35.163.77.255:8000/) to launch a LIVE instance of the IPython notebooks in this repo.  
+[Click here](http://35.167.211.239:8000/) to launch a LIVE instance of the IPython notebooks in this repo.  
 
 You can pull and run a Docker image of this entire repo (with all necessary libraries pre-installed) via the terminal command: 
 
