@@ -7,11 +7,16 @@ You can pull and run a Docker image of this entire repo (with all necessary libr
 docker run -d -u 0 -it -p 8888:8888 jermwatt/mlrefined
 
 - - -
-This repository contains various supplementary IPython notebooks, Python and MATLAB files, and Powerpoint presentations associated with the textbook Machine Learning Refined (Cambridge University Press). Visit [http://www.mlrefined.com](www.mlrefined.com) for free chapter downloads and tutorials, and [our Amazon site here for details regarding a hard copy of the text](https://www.amazon.com/Machine-Learning-Refined-Foundations-Applications/dp/1107123526/ref=sr_1_1?ie=UTF8&qid=1471025359&sr=8-1&keywords=machine+learning+refined).
+This repository contains various supplementary Jupyter notebooks, Python and MATLAB files, presentations associated with the textbook Machine Learning Refined (Cambridge University Press). Visit [http://www.mlrefined.com](www.mlrefined.com) for free chapter downloads and tutorials, and [our Amazon site here for details regarding a hard copy of the text](https://www.amazon.com/Machine-Learning-Refined-Foundations-Applications/dp/1107123526/ref=sr_1_1?ie=UTF8&qid=1471025359&sr=8-1&keywords=machine+learning+refined).
 
-**NOTE: Python version 2.7 is currently used for all Python based exercises.**
+## Jupyter notebook video walkthroughts:## 
 
-Short video tutorials illustrating critical ML topics using the Python / MATLAB files here may be found below.
+Below are video walkthroughs for several of the Jupyter notebooks in this repository.  These briefly discuss the content of each notebook and show off their various interactive demos.
+
+[![An introduction to the repo and walkthroughs](https://www.youtube.com/watch?v=qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=1)
+
+[![2.1_Basic_optimization_demos.ipynb](http://img.youtube.com/vi/qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=1/0.jpg)](https://www.youtube.com/watch?v=qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=1)
+
 ## Video tutorials on gradient descent and Newton's method
 
 Below is a video tutorial illustrating how gradient descent works via use of the demo code (convex_grad_surrogate and nonconvex_grad_surrogate, which you may find here) - these illustrate the basic concepts underlying gradient descent applied to minimizing both convex and nonconvex functions. Some principles from the chapter are briefly described before jumping into the code.
@@ -28,14 +33,4 @@ Below is a video tutorial illustrating how L2 regularization convexifies nonconv
 
 [![Demo Doccou alpha](https://j.gifs.com/AD8OG1.gif)](https://youtu.be/ON_7wm-Qe6c)
 
-
-## Chapter 4 demos on two class logistic regression and support vector machines, as well as multi-class one-versus-all and multiclass softmax / logistic regression
-
-Two class classification with logistic regression:
-
-![alt tag](https://raw.githubusercontent.com/jermwatt/mlrefined/master/Chap-4/2class-classification/logistic_example.png)
-
-Multiclass classification with One-versus-All classification
-
-![alt tag](https://raw.githubusercontent.com/jermwatt/mlrefined/master/Chap-4/multi-class/multiclass.gif)
 
