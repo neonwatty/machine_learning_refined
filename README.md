@@ -9,21 +9,18 @@ docker run -d -u 0 -it -p 8888:8888 jermwatt/mlrefined
 - - -
 This repository contains various supplementary Jupyter notebooks, Python and MATLAB files, presentations associated with the textbook Machine Learning Refined (Cambridge University Press). Visit [http://www.mlrefined.com](www.mlrefined.com) for free chapter downloads and tutorials, and [our Amazon site here for details regarding a hard copy of the text](https://www.amazon.com/Machine-Learning-Refined-Foundations-Applications/dp/1107123526/ref=sr_1_1?ie=UTF8&qid=1471025359&sr=8-1&keywords=machine+learning+refined).
 
-## Jupyter notebook video walkthroughts:
+## Jupyter notebook Youtube video walkthroughts:
 
-Below are video walkthroughs for several of the Jupyter notebooks in this repository.  These briefly discuss the content of each notebook and show off their various interactive demos.
-
+Below are links to a video walkthroughs for several of the Jupyter notebooks in this repository.  These briefly discuss the content of each notebook and show off their various interactive demos.  **Click the gif below each description to link directly to the corresponding walkthrough.**
 
 
 **An introduction to the mlrefined repo and the Jupyter notebook walkthrough series**
-
 <a href="https://www.youtube.com/watch?v=qAHp91oaPmA&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF&index=1
 " target="_blank"><img src="https://j.gifs.com/g5yPoZ.gif" 
 alt="" width="400" height="400" border="10" /></a>
 
 
 **Jupyter notebook walkthrough - on basic optimization principles**
-
 <a href="(https://www.youtube.com/watch?v=l248ub44TRs&index=2&list=PLP4qPrZ20QB5IjpN0iQTgCepv54yA6kVF
 " target="_blank"><img src="https://j.gifs.com/vgwk1L.gif" 
 alt="" width="400" height="400" border="10" /></a>
