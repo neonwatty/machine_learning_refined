@@ -5,57 +5,56 @@ function nonconvex_logistic_growth()
 % by Jeremy Watt, Reza Borhani, and Aggelos Katsaggelos.
 
 % load data, plot data and surfaces
-[A,b] = load_data();
-[s,t,non_obj] = plot_surface(A,b);
-plot_pts(A,b);
+[X,y] = load_data();
+[s,t,non_obj] = plot_surface(X,y);
+plot_pts(X,y);
 
 %%% run grad descent with 2 starting points and plot descent path %%%
 
 % run grad descent with first starting point
-x0 = [0;2];
-[in,out] = grad_descent(A,b,x0);
+w0 = [0;2];
+[in,out] = grad_descent(X,y,w0);
 
 % plot results
-plot_sigmoid(A,b,in(end,:),1);
+plot_sigmoid(X,y,in(end,:),1);
 plot_descent_path(in,out,1,s,t,non_obj);
 
 % run grad descent with second starting point
-x0 = [0;-2];
-[in,out] = grad_descent(A,b,x0);
+w0 = [0;-2];
+[in,out] = grad_descent(X,y,w0);
 
 % plot results
-plot_sigmoid(A,b,in(:,end),2)
+plot_sigmoid(X,y,in(:,end),2)
 plot_descent_path(in,out,2,s,t,non_obj)
 
-% perform grad descent 
-function [in,out] = grad_descent(A,b,x)
+% perform grad descent
+function [in,out] = grad_descent(X,y,w)
     % step length
     alpha = 10^-2;
-    
-    % Initializations 
-    in = [x];
-    out = [norm(1./(1 + exp(-A*x)) - b)^2];
+
+    % Initializations
+    in = [w];
+    out = [norm(1./(1 + exp(-X*w)) - y)^2];
     grad = 1;
     iter = 1;
-    max_its = 2000;
-    
+    max_its = 10000;
+
     % main loop
     while  norm(grad) > 10^-5 && iter < max_its
 
         % fixed steplength
-        y = 1./(1 + exp(-A*x));
 % ----> grad = 
-        x = x - alpha*grad;
+        w = w - alpha*grad;
 
         % update containers
-        in = [in x];
-        out = [out ; norm(1./(1 + exp(-A*x)) - b)^2];
+        in = [in w];
+        out = [out ; norm(1./(1 + exp(-X*w)) - y)^2];
         iter = iter + 1;
     end
     in = in';
 end
 
-function [s,t,non_obj] = plot_surface(A,b)
+function [s,t,non_obj] = plot_surface(X,y)
     % setup surface
     range = 3;                     % range over which to view surfaces
     [s,t] = meshgrid(-range:0.2:range);
@@ -64,10 +63,10 @@ function [s,t,non_obj] = plot_surface(A,b)
     non_obj = zeros(length(s),1);   % nonconvex surface
 
     % build surface
-    for i = 1:length(b)
-        non_obj = non_obj + non_convex(A(i,:),b(i),s,t)';
+    for i = 1:length(y)
+        non_obj = non_obj + non_convex(X(i,:),y(i),s,t)';
     end
-    
+
     % plot surface
     figure(2)
     subplot(1,2,1)
@@ -99,25 +98,25 @@ function [s,t,non_obj] = plot_surface(A,b)
     set(get(gca,'YLabel'),'Rotation',0)
 end
 
-function plot_pts(A,b)
+function plot_pts(X,y)
     % plot labeled points
     figure(1)
-    scatter(A(:,2),b,'fill','k')
+    scatter(X(:,2),y,'fill','k')
     set(gcf,'color','w');
     xlabel('x','Fontsize',18,'FontName','cmmi9')
     ylabel('y','Fontsize',18,'FontName','cmmi9')
     set(get(gca,'YLabel'),'Rotation',0)
     set(gcf,'color','w');
     box on
-    set(gca,'FontSize',12); 
+    set(gca,'FontSize',12);
 end
 
-function plot_sigmoid(A,b,x,i)
+function plot_sigmoid(X,y,w,i)
     % plot
     figure(1)
     hold on
-    u = [0:0.1:max(A(:,2))];
-    w = 1./(1+exp(-(u*x(2) + x(1))));
+    u = [0:0.1:max(X(:,2))];
+    w = 1./(1+exp(-(u*w(2) + w(1))));
     if i == 1
         plot(u,w,'m','LineWidth',2);
     else
@@ -147,12 +146,12 @@ function plot_descent_path(in,out,i,s,t,non_obj)
 end
 
 % loads data for processing
-function [A,b] = load_data()     
+function [X,y] = load_data()
     % load bacteria data
     data = csvread('bacteria_data.csv');
-    a = data(:,1);
-    b = data(:,2);
-    A = [ones(length(a),1) a];
+    x = data(:,1);
+    y = data(:,2);
+    X = [ones(length(x),1) x];
 end
 
 function s = non_convex(c,z,s,t)    % objective function for nonconvex problem

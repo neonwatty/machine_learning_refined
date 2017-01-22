@@ -6,7 +6,7 @@ function two_d_grad_wrapper_hw()
 % the objective turn from green to red as the algorithm converges (or
 % reaches a maximum iteration count, preset to 50).
 %
-% (nonconvex) function here is 
+% (nonconvex) function here is
 % g(w) = -cos(2*pi*w'*w) + w'*w
 %
 % This file is associated with the book
@@ -31,7 +31,7 @@ run_all()
     out = [-cos(2*pi*w'*w) + 2*w'*w];
     % main loop
     while norm(grad) > grad_stop && iter <= max_its
-        
+
         % take gradient step
 % ----> grad = 
         w = w - alpha*grad;
@@ -68,7 +68,7 @@ end
 function plot_it_all(in,out)
     % print function
     [A,b] = make_fun();
-    
+
     % print steps on surface
     plot_steps(in,out,3)
     set(gcf,'color','w');
@@ -93,7 +93,7 @@ function [A,b] = make_fun()
     view(az, el);
     shading interp
 
-    
+
     xlabel('w_1','Fontsize',18,'FontName','cmmi9')
     ylabel('w_2','Fontsize',18,'FontName','cmmi9')
     zlabel('g','Fontsize',18,'FontName','cmmi9')
