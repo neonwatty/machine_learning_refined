@@ -212,7 +212,7 @@ class Random_Classification_Datamaker:
 
         # save separators
         new_seps = []
-        for i in range(np.shape(self.seps)[2]):
+        for i in range(np.shape(self.seps)[0]):
             new_seps.append(self.seps[i][:,0])
             new_seps.append(self.seps[i][:,1])
         new_seps = np.asarray(new_seps).T
