@@ -8,7 +8,7 @@ class Classification_Datamaker:
     def __init__(self):
         # initialize variables + containers for plotting
         self.label_num = 0
-        self.colors = ['r','g','b','c','m','k']
+        self.colors = ['salmon','cornflowerblue','lime','bisque','mediumaquamarine','b','m','g']
         
         self.pts = []
         self.labels = []
@@ -28,7 +28,7 @@ class Classification_Datamaker:
         # plot click
         x = event.xdata
         y = event.ydata
-        self.interactive_pt = self.ax1.scatter(x,y,color = self.colors[self.label_num],zorder = 2)
+        self.interactive_pt = self.ax1.scatter(x,y,color = self.colors[self.label_num],zorder = 2,linewidth = 1,marker = 'o',edgecolor = 'k',s = 50)
         self.clean_plot()
         
         # save datapoint
