@@ -45,14 +45,20 @@ class Random_Classification_Datamaker:
         # determine true labels based on individual classifier labels for all points
         labels = np.asarray(labels)
         unique_vals = np.vstack({tuple(row) for row in labels.T})
-
         new_labels = np.zeros((len(data)))
+
         for i in range(len(unique_vals)):
             val = unique_vals[i]
             yo = np.argwhere((labels.T == val).all(axis=1))
             yo = [v[0] for v in yo]
             new_labels[yo] = int(i+1)
-
+            
+        # if two-class switch labels to -1/+1
+        if len(unique_vals) == 2:
+            ind = np.argwhere(new_labels > 1)
+            ind = [v[0] for v in ind]
+            new_labels[ind] = -1
+            
         # return datapoints and labels for further 
         self.labels = new_labels
         self.seps = seps
@@ -110,6 +116,12 @@ class Random_Classification_Datamaker:
             yo = [v[0] for v in yo]
             new_labels[yo] = int(i+1)
 
+        # if two-class switch labels to -1/+1
+        if len(unique_vals) == 2:
+            ind = np.argwhere(new_labels > 1)
+            ind = [v[0] for v in ind]
+            new_labels[ind] = -1
+            
         # return datapoints and labels for further 
         self.data = data
         self.labels = new_labels
