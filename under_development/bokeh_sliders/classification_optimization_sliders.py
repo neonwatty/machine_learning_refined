@@ -142,4 +142,10 @@ class classification_optimization_sliders:
 #             ax3.set_yticks([])
             
             return artist,
-        return(animation.FuncAnimation(fig, show_fit,frames=len(self.cost_history), interval=len(self.cost_history), blit=True))
+           
+        anim = animation.FuncAnimation(fig, show_fit,frames=len(self.cost_history), interval=len(self.cost_history), blit=True)
+        
+        # set frames per second in animation
+        IPython_display.anim_to_html(anim,fps = int(len(self.cost_history)/float(3)))
+        
+        return(anim)

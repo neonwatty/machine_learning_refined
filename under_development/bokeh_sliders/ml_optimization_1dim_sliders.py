@@ -248,7 +248,13 @@ class ml_optimization_1dim_sliders:
             
             return artist,
         
-        return(animation.FuncAnimation(fig, show_fit,frames=len(self.cost_history), interval=len(self.cost_history), blit=True))
+        anim = animation.FuncAnimation(fig, show_fit,frames=len(self.cost_history), interval=len(self.cost_history), blit=True)
+        
+        # set frames per second in animation
+        IPython_display.anim_to_html(anim,fps = int(len(self.cost_history)/float(3)))
+        
+        return(anim)
+    
 
     # show 1d logistic regression as classification
     def classification_slider(self,**args):  
@@ -385,4 +391,12 @@ class ml_optimization_1dim_sliders:
             ax3.set_zlabel('cost  ',fontsize = 14, rotation = 0,labelpad = 1)
             
             return artist,
-        return(animation.FuncAnimation(fig, show_fit,frames=len(self.cost_history), interval=len(self.cost_history), blit=True))
+        
+        anim = animation.FuncAnimation(fig, show_fit,frames=len(self.cost_history), interval=len(self.cost_history), blit=True)
+        
+        # set frames per second in animation
+        IPython_display.anim_to_html(anim,fps = int(len(self.cost_history)/float(3)))
+        
+        return(anim)
+        
+        

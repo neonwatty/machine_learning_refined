@@ -43,7 +43,6 @@ JS_INCLUDE = """
     this.direction = 0;
     this.timer = null;
     this.frames = new Array(frames.length);
-
     for (var i=0; i<frames.length; i++)
     {
      this.frames[i] = new Image();
@@ -52,7 +51,6 @@ JS_INCLUDE = """
     document.getElementById(this.slider_id).max = this.frames.length - 1;
     this.set_frame(this.current_frame);
   }
-
   Animation.prototype.get_loop_state = function(){
     var button_group = document[this.loop_select_id].state;
     for (var i = 0; i < button_group.length; i++) {
@@ -63,47 +61,39 @@ JS_INCLUDE = """
     }
     return undefined;
   }
-
   Animation.prototype.set_frame = function(frame){
     this.current_frame = frame;
     document.getElementById(this.img_id).src = this.frames[this.current_frame].src;
     document.getElementById(this.slider_id).value = this.current_frame;
   }
-
   Animation.prototype.next_frame = function()
   {
     this.set_frame(Math.min(this.frames.length - 1, this.current_frame + 1));
   }
-
   Animation.prototype.previous_frame = function()
   {
     this.set_frame(Math.max(0, this.current_frame - 1));
   }
-
   Animation.prototype.first_frame = function()
   {
     this.set_frame(0);
   }
-
   Animation.prototype.last_frame = function()
   {
     this.set_frame(this.frames.length - 1);
   }
-
   Animation.prototype.slower = function()
   {
     this.interval /= 0.7;
     if(this.direction > 0){this.play_animation();}
     else if(this.direction < 0){this.reverse_animation();}
   }
-
   Animation.prototype.faster = function()
   {
     this.interval *= 0.7;
     if(this.direction > 0){this.play_animation();}
     else if(this.direction < 0){this.reverse_animation();}
   }
-
   Animation.prototype.anim_step_forward = function()
   {
     this.current_frame += 1;
@@ -122,7 +112,6 @@ JS_INCLUDE = """
       }
     }
   }
-
   Animation.prototype.anim_step_reverse = function()
   {
     this.current_frame -= 1;
@@ -141,7 +130,6 @@ JS_INCLUDE = """
       }
     }
   }
-
   Animation.prototype.pause_animation = function()
   {
     this.direction = 0;
@@ -150,7 +138,6 @@ JS_INCLUDE = """
       this.timer = null;
     }
   }
-
   Animation.prototype.play_animation = function()
   {
     this.pause_animation();
@@ -158,7 +145,6 @@ JS_INCLUDE = """
     var t = this;
     if (!this.timer) this.timer = setInterval(function(){t.anim_step_forward();}, this.interval);
   }
-
   Animation.prototype.reverse_animation = function()
   {
     this.pause_animation();
@@ -168,6 +154,24 @@ JS_INCLUDE = """
   }
 </script>
 """
+    
+    
+### removed button images from below
+# <button onclick="anim{id}.first_frame()"><img class="anim_icon" src="{icons.first}"></button>
+# <button onclick="anim{id}.previous_frame()"><img class="anim_icon" src="{icons.prev}"></button>
+
+# <button onclick="anim{id}.next_frame()"><img class="anim_icon" src="{icons.next}"></button>
+# <button onclick="anim{id}.last_frame()"><img class="anim_icon" src="{icons.last}"></button>
+    
+# <button onclick="anim{id}.slower()">&#8211;</button>
+# <button onclick="anim{id}.faster()">+</button>
+
+
+#  <form action="#n" name="_anim_loop_select{id}" class="anim_control">
+#    <input type="radio" name="state" value="once" {once_checked}> Once </input>
+#    <input type="radio" name="state" value="loop" {loop_checked}> Loop </input>
+#    <input type="radio" name="state" value="reflect" {reflect_checked}> Reflect </input>
+#  </form>
 
 
 DISPLAY_TEMPLATE = """
@@ -176,20 +180,11 @@ DISPLAY_TEMPLATE = """
     <br>
     <input id="_anim_slider{id}" type="range" style="width:350px" name="points" min="0" max="1" step="1" value="0" onchange="anim{id}.set_frame(parseInt(this.value));"></input>
     <br>
-    <button onclick="anim{id}.slower()">&#8211;</button>
-    <button onclick="anim{id}.first_frame()"><img class="anim_icon" src="{icons.first}"></button>
-    <button onclick="anim{id}.previous_frame()"><img class="anim_icon" src="{icons.prev}"></button>
+   
     <button onclick="anim{id}.reverse_animation()"><img class="anim_icon" src="{icons.reverse}"></button>
     <button onclick="anim{id}.pause_animation()"><img class="anim_icon" src="{icons.pause}"></button>
     <button onclick="anim{id}.play_animation()"><img class="anim_icon" src="{icons.play}"></button>
-    <button onclick="anim{id}.next_frame()"><img class="anim_icon" src="{icons.next}"></button>
-    <button onclick="anim{id}.last_frame()"><img class="anim_icon" src="{icons.last}"></button>
-    <button onclick="anim{id}.faster()">+</button>
-  <form action="#n" name="_anim_loop_select{id}" class="anim_control">
-    <input type="radio" name="state" value="once" {once_checked}> Once </input>
-    <input type="radio" name="state" value="loop" {loop_checked}> Loop </input>
-    <input type="radio" name="state" value="reflect" {reflect_checked}> Reflect </input>
-  </form>
+
 </div>
 
 
@@ -253,12 +248,12 @@ class HTMLWriter(FileMovieWriter):
                        for x in range(16))
 
     def __init__(self, fps=30, codec=None, bitrate=None, extra_args=None,
-                 metadata=None, embed_frames=False, default_mode='loop'):
+                 metadata=None, embed_frames=False, default_mode='once'):
         self.embed_frames = embed_frames
         self.default_mode = default_mode.lower()
 
         if self.default_mode not in ['loop', 'once', 'reflect']:
-            self.default_mode = 'loop'
+            self.default_mode = 'once'
             warnings.warn("unrecognized default_mode: using 'loop'")
 
         self._saved_frames = list()
