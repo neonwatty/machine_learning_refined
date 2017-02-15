@@ -25,7 +25,7 @@ class Fit_Bases:
         
     # plot target function
     def plot_target(self):
-        plt.plot(self.x,self.y,color = 'r',linewidth = 2.5)
+        plt.plot(self.x,self.y,color = 'r',linewidth = 2.5,zorder = 0)
         
         # dress panel correctly with axis labels etc.
         plt.xlim(min(self.x),max(self.x))
@@ -127,7 +127,7 @@ class Fit_Bases:
             self.plot_target()
             
             # create the decision tree classifier with appropriate 
-            clf = MLPRegressor(solver = 'lbgfs',alpha = 0,activation = 'tanh',random_state = 1,hidden_layer_sizes = (num_elements,num_elements))
+            clf = MLPRegressor(solver = 'lbfgs',alpha = 0,activation = 'tanh',random_state = 1,hidden_layer_sizes = (num_elements,num_elements))
 
             # fit classifier
             self.y.shape = (len(self.y),)

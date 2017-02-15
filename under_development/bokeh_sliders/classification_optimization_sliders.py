@@ -119,12 +119,28 @@ class classification_optimization_sliders:
             ax2.scatter(X[pos_inds,0],X[pos_inds,1],y[pos_inds],color = colors[0],linewidth = 1,marker = 'o',edgecolor = 'k',s = 80,zorder = 1)
             ax2.scatter(X[neg_inds,0],X[neg_inds,1],y[neg_inds],color = colors[1],linewidth = 1,marker = 'o',edgecolor = 'k',s = 80,zorder = 1)
 
-            # clean up panel
-            ax2.view_init(args['view'][0],args['view'][1])        
+            ## clean up panel
+            # set viewing angle
+            ax2.view_init(args['view'][0],args['view'][1])  
+            
+            # set viewing limits
             ax2.set_xlim([min(X[:,0])-xgap,max(X[:,0])+xgap])
-            ax2.set_ylim([min(X[:,1])-ygap,max(X[:,1])+ygap])
-            ax2.set_xticks([])
-            ax2.set_yticks([])     
+            ax2.set_ylim([min(X[:,1])-ygap,max(X[:,1])+ygap])    
+            
+            # turn off tick labels
+            ax2.set_xticklabels([])
+            ax2.set_yticklabels([])
+            ax2.set_zticklabels([])
+
+            # Get rid of the spines on the 3d plot
+            ax2.w_xaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
+            ax2.w_yaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
+            ax2.w_zaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
+
+            # turn off tick marks
+            ax2.xaxis.set_tick_params(size=0,color = 'w')
+            ax2.yaxis.set_tick_params(size=0,color = 'w')
+            ax2.zaxis.set_tick_params(size=0,color = 'w')
             
             #### print right panel #### 
             # print all of the step cost function values lightly

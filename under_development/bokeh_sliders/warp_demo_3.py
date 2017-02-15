@@ -222,6 +222,8 @@ class warp_demo:
     # show the net transformation using slider
     def transformation_slider(self):  
         
+        print "rendering JS animation, this can take several minutes..."
+        
         #### make points start and end
         X1 = self.orig_data
         X2 = self.transformed_data

@@ -36,11 +36,11 @@ class Fit_Bases:
     def plot_all(self):
         # plot target if loaded
         if len(self.target_x) > 1:
-            plt.plot(self.target_x,self.target_y,'r--',linewidth = 2.5)
+            plt.plot(self.target_x,self.target_y,'r--',linewidth = 2.5,zorder = 0)
         
         # plot data if loaded
         if len(self.x) > 1:
-            plt.scatter(self.x,self.y,facecolor = 'b',edgecolor = 'k',linewidth = 2.5)
+            plt.scatter(self.x,self.y,facecolor = 'k',edgecolor = 'w',linewidth = 1,s = 70)
 
         plt.xlim(min(self.x)-0.1,max(self.x)+0.1)
         plt.ylim(min(self.y)-0.1,max(self.y)+0.1)
@@ -109,7 +109,7 @@ class Fit_Bases:
             self.plot_all()
 
             # create the decision tree classifier with appropriate 
-            clf = MLPRegressor(solver = 'lbgfs',alpha = 0,activation = 'tanh',random_state = 1,hidden_layer_sizes = (num_elements,num_elements))
+            clf = MLPRegressor(solver = 'lbfgs',alpha = 0,activation = 'tanh',random_state = 1,hidden_layer_sizes = (num_elements,num_elements))
 
             # fit classifier
             self.y.shape = (len(self.y),)
@@ -122,4 +122,5 @@ class Fit_Bases:
             self.plot_approx(clf,r,r)
             
         interact(show_fit, num_elements=widgets.IntSlider(min=1,max=100,step=1,value=1))
+
 
