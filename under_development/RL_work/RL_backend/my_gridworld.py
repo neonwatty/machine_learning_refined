@@ -60,13 +60,13 @@ class my_gridworld():
                                   
         if grid_size[0:4] == 'maze':
             
-            df = pd.read_csv('maze_small.csv',header = None)
+            df = pd.read_csv('RL_datasets/maze_small.csv',header = None)
             ### initialize grid, agent, obstacles, etc.,            
             self.width = 13
             self.height = 11
        
             if grid_size == 'maze_large':
-                df = pd.read_csv('maze_large.csv',header = None)
+                df = pd.read_csv('RL_datasets/maze_large.csv',header = None)
                 ### initialize grid, agent, obstacles, etc.,            
                 self.width = 41
                 self.height = 15
