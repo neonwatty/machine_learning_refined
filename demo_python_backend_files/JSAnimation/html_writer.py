@@ -16,7 +16,7 @@ ICON_DIR = os.path.join(os.path.dirname(__file__), 'icons')
 
 class _Icons(object):
     """This class is a container for base64 representations of the icons"""
-    icons = ['first', 'prev', 'reverse', 'pause', 'play', 'next', 'last']
+    icons = ['reverse', 'pause', 'play']
 
     def __init__(self, icon_dir=ICON_DIR, extension='png'):
         self.icon_dir = icon_dir
@@ -51,6 +51,8 @@ JS_INCLUDE = """
     document.getElementById(this.slider_id).max = this.frames.length - 1;
     this.set_frame(this.current_frame);
   }
+  
+  
   Animation.prototype.get_loop_state = function(){
     var button_group = document[this.loop_select_id].state;
     for (var i = 0; i < button_group.length; i++) {
@@ -61,75 +63,83 @@ JS_INCLUDE = """
     }
     return undefined;
   }
+  
+  
   Animation.prototype.set_frame = function(frame){
     this.current_frame = frame;
     document.getElementById(this.img_id).src = this.frames[this.current_frame].src;
     document.getElementById(this.slider_id).value = this.current_frame;
   }
+  
+  
   Animation.prototype.next_frame = function()
   {
     this.set_frame(Math.min(this.frames.length - 1, this.current_frame + 1));
   }
+  
+  
   Animation.prototype.previous_frame = function()
   {
     this.set_frame(Math.max(0, this.current_frame - 1));
   }
+  
+  
   Animation.prototype.first_frame = function()
   {
     this.set_frame(0);
   }
+  
+  
   Animation.prototype.last_frame = function()
   {
     this.set_frame(this.frames.length - 1);
   }
+  
+
   Animation.prototype.slower = function()
   {
     this.interval /= 0.7;
     if(this.direction > 0){this.play_animation();}
     else if(this.direction < 0){this.reverse_animation();}
   }
+  
+  
   Animation.prototype.faster = function()
   {
     this.interval *= 0.7;
     if(this.direction > 0){this.play_animation();}
     else if(this.direction < 0){this.reverse_animation();}
   }
+  
+  
   Animation.prototype.anim_step_forward = function()
   {
     this.current_frame += 1;
     if(this.current_frame < this.frames.length){
       this.set_frame(this.current_frame);
     }else{
-      var loop_state = this.get_loop_state();
-      if(loop_state == "loop"){
-        this.first_frame();
-      }else if(loop_state == "reflect"){
-        this.last_frame();
-        this.reverse_animation();
-      }else{
+      
         this.pause_animation();
         this.last_frame();
       }
-    }
   }
+  
+  
+  
   Animation.prototype.anim_step_reverse = function()
   {
     this.current_frame -= 1;
     if(this.current_frame >= 0){
       this.set_frame(this.current_frame);
     }else{
-      var loop_state = this.get_loop_state();
-      if(loop_state == "loop"){
-        this.last_frame();
-      }else if(loop_state == "reflect"){
-        this.first_frame();
-        this.play_animation();
-      }else{
+
         this.pause_animation();
         this.first_frame();
       }
-    }
+    
   }
+  
+    
   Animation.prototype.pause_animation = function()
   {
     this.direction = 0;
@@ -138,6 +148,8 @@ JS_INCLUDE = """
       this.timer = null;
     }
   }
+   
+  
   Animation.prototype.play_animation = function()
   {
     this.pause_animation();
@@ -145,6 +157,8 @@ JS_INCLUDE = """
     var t = this;
     if (!this.timer) this.timer = setInterval(function(){t.anim_step_forward();}, this.interval);
   }
+  
+  
   Animation.prototype.reverse_animation = function()
   {
     this.pause_animation();
@@ -152,6 +166,31 @@ JS_INCLUDE = """
     var t = this;
     if (!this.timer) this.timer = setInterval(function(){t.anim_step_reverse();}, this.interval);
   }
+  
+ 
+  function IconPictureChange(mode,id){
+
+      switch(mode){
+          case 'reverse':
+              document.getElementById("reverse-button"+id).src = "./JSAnimation/icons/reverse-filled.png";
+              document.getElementById("pause-button"+id).src =  "./JSAnimation/icons/pause.png";
+              document.getElementById("play-button"+id).src =  "./JSAnimation/icons/play.png";
+              break;
+            
+          case 'pause':   
+              document.getElementById("reverse-button"+id).src =  "./JSAnimation/icons/reverse.png";
+              document.getElementById("pause-button"+id).src =  "./JSAnimation/icons/pause-filled.png";
+              document.getElementById("play-button"+id).src =  "./JSAnimation/icons/play.png";
+              break;
+            
+           case 'play': 
+               document.getElementById("reverse-button"+id).src =  "./JSAnimation/icons/reverse.png";
+               document.getElementById("pause-button"+id).src =  "./JSAnimation/icons/pause.png";
+               document.getElementById("play-button"+id).src =  "./JSAnimation/icons/play-filled.png";
+               break;
+           }
+      }
+  
 </script>
 """
     
@@ -174,16 +213,33 @@ JS_INCLUDE = """
 #  </form>
 
 
-DISPLAY_TEMPLATE = """
+DISPLAY_TEMPLATE = """ 
+
+<link rel="stylesheet" type="text/css" href="./demo_python_backend_files/JSAnimation/icons/mystyle.css">
+
 <div class="animation" align="center">
+    
     <img id="_anim_img{id}">
-    <br>
-    <input id="_anim_slider{id}" type="range" style="width:350px" name="points" min="0" max="1" step="1" value="0" onchange="anim{id}.set_frame(parseInt(this.value));"></input>
-    <br>
+    
+    <div id='space'></div>
+    
+    <button onclick="anim{id}.reverse_animation(); IconPictureChange('reverse','{id}');"> 
+        <img class="button-image" id="reverse-button{id}" src="{icons.reverse}">
+    </button>
+    
+    &nbsp;
+    
+    <button onclick="anim{id}.pause_animation(); IconPictureChange('pause','{id}');">
+        <img class="button-image" id="pause-button{id}" src="{icons.pause}">
+    </button>
+    
+    &nbsp;
+    
+    <button onclick="anim{id}.play_animation(); IconPictureChange('play','{id}');">
+        <img class="button-image" id="play-button{id}" src="{icons.play}">
+    </button>
    
-    <button onclick="anim{id}.reverse_animation()"><img class="anim_icon" src="{icons.reverse}"></button>
-    <button onclick="anim{id}.pause_animation()"><img class="anim_icon" src="{icons.pause}"></button>
-    <button onclick="anim{id}.play_animation()"><img class="anim_icon" src="{icons.play}"></button>
+    <input id="_anim_slider{id}" type="range" style="visibility: hidden;pointer-events: none;" name="points" min="0" max="1" step="1" value="0"></input>
 
 </div>
 
@@ -200,6 +256,7 @@ DISPLAY_TEMPLATE = """
 
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
+       
     setTimeout(function() {{
         anim{id} = new Animation(frames, img_id, slider_id, {interval}, loop_select_id);
     }}, 0);
