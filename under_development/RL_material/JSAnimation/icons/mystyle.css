@@ -1,0 +1,27 @@
+#space{
+padding-top: 10px;
+}
+
+button:active,
+button:focus,
+button.active{
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+} 
+
+button{
+    background-color:white;
+    border: none;
+    cursor: default;
+    padding: 0;
+}
+
+.button-image{
+    width: 48px;
+    height: 48px;
+}
+
+
+
