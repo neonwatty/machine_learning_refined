@@ -1,10 +1,6 @@
 # Machine Learning Refined IPython notebooks, Python and MATLAB files
 
-[Click here](http://35.167.211.239:8000/) to launch a LIVE instance of the IPython notebooks in this repo.  
-
-You can pull and run a Docker image of this entire repo (with all necessary libraries pre-installed) via the terminal command: 
-
-docker run -d -u 0 -it -p 8888:8888 jermwatt/mlrefined
+See our [blog here](https://jermwatt.github.io/mlrefined/index.html) for interactive versions of many of the notebooks in this repo. 
 
 - - -
 This repository contains various supplementary Jupyter notebooks, Python and MATLAB files, presentations associated with the textbook Machine Learning Refined (Cambridge University Press). Visit [http://www.mlrefined.com](www.mlrefined.com) for free chapter downloads and tutorials, and [our Amazon site here for details regarding a hard copy of the text](https://www.amazon.com/Machine-Learning-Refined-Foundations-Applications/dp/1107123526/ref=sr_1_1?ie=UTF8&qid=1471025359&sr=8-1&keywords=machine+learning+refined).
