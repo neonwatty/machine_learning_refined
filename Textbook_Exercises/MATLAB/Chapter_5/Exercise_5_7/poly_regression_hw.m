@@ -20,7 +20,7 @@ for D = 1:6
     
     % get weights
     w = pinv(F*F')*F*y;
-    mses = [mses, norm(F'*w - y)/length(y)];
+    mses = [mses, mean((F'*w - y).^2)];
     
     % plot fit to data
     subplot(2,3,D)
