@@ -2,19 +2,28 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.animation as animation
 from JSAnimation import IPython_display
+import time
+from IPython.display import clear_output
 
 class animator():
         
     ################## animation functions ##################
     ### animate validation runs ###
-    def animate_validation_runs(self,gridworld,learner,starting_locations):
+    def animate_validation_runs(self,**args):
+        gridworld = args['gridworld']
+        learner = args['learner']
+        starting_locations = args['starting_locations']
+        
         # make local copies of input
         grid = gridworld
         Q = learner.Q
         starting_locs = starting_locations
         
         # initialize figure
-        fig = plt.figure(figsize = (10,3))
+        fsize = 3
+        if grid.width:
+            fsize = 5
+        fig = plt.figure(figsize = (12,fsize))
         axs = []
         for i in range(len(starting_locs)):
             ax = fig.add_subplot(1,len(starting_locs),i+1,aspect = 'equal')
@@ -25,6 +34,7 @@ class animator():
             axs = np.array(axs)
         
         ### produce validation runs ###
+        print 'animating run...'
         validation_run_history = []
         for i in range(len(starting_locs)):
             # take random starting point - for short just from validation schedule
@@ -61,7 +71,7 @@ class animator():
             l = len(validation_run_history[i])
             if l > max_len:
                 max_len = l
-    
+        
         ### loop over the episode histories and plot the results ###
         def show_episode(step):
             # loop over subplots and plot current step of each episode history
@@ -78,29 +88,44 @@ class animator():
                 grid.agent = loc
 
                 # color gridworld for this episode and step
-                grid.color_gridworld(ax = ax)
+                if 'lights' not in args:
+                    grid.color_gridworld(ax = ax)
+                else:
+                    grid.color_gridworld(ax = ax,lights=args['lights'])
+                    
                 ax.set_title('fully trained run ' + str(k + 1))
                 # fig.subplots_adjust(left=0,right=1,bottom=0,top=1)  ## gets rid of the white space around image
 
             return artist,
-
+        
         # create animation object
         anim = animation.FuncAnimation(fig, show_episode,frames=min(100,max_len), interval=min(100,max_len), blit=True)
 
         # set frames per second in animation
-        IPython_display.anim_to_html(anim,fps = min(100,max_len)/float(5))
-
+        IPython_display.anim_to_html(anim,fps = min(100,max_len)/float(10))
+        
+        print '...done!'
+        time.sleep(1)
+        clear_output()
+        
         return(anim)
     
     ### compare training episodes from two q-learning settings ###    
-    def animate_training_comparison(self,gridworld,learner_1,learner_2,episode):
+    def animate_training_comparison(self,**args):
+        grid = args['gridworld']
+        learner_1 = args['learner_1']
+        learner_2 = args['learner_2']
+        episode = args['episode']
+        
         # make local copies of input
-        grid = gridworld
         training_episodes_history_v1 = learner_1.training_episodes_history
         training_episodes_history_v2 = learner_2.training_episodes_history
         
         # initialize figure
-        fig = plt.figure(figsize = (10,3))
+        fsize = 3
+        if grid.width > 10:
+            fsize = 5
+        fig = plt.figure(figsize = (12,fsize))
         axs = []
         for i in range(2):
             ax = fig.add_subplot(1,2,i+1,aspect = 'equal')
@@ -114,6 +139,7 @@ class animator():
         max_len = max(L1,L2)
         
         # loop over the episode histories and plot the results
+        print 'animating run...'
         rewards =  np.zeros((2,1))
         def show_episode(step):
             # loop over subplots and plot current step of each episode history
@@ -132,25 +158,44 @@ class animator():
                 grid.agent = current_episode[min(step,len(current_episode)-1)]
                 
                 # color gridworld for this episode and step
-                grid.color_gridworld(ax = ax)
+                if 'lights' not in args:
+                    grid.color_gridworld(ax = ax)
+                else:
+                    grid.color_gridworld(ax = ax,lights=args['lights'])
+                                    
+                # set title
+                if k == 0:
+                    ax.set_title('random')
+                else:
+                    ax.set_title('exploration/exploitation')
             return artist,
-           
+        
         # create animation object
         anim = animation.FuncAnimation(fig, show_episode,frames=min(100,max_len), interval=min(100,max_len), blit=True)
         
         # set frames per second in animation
-        IPython_display.anim_to_html(anim,fps = min(100,max_len)/float(5))
+        IPython_display.anim_to_html(anim,fps = min(100,max_len)/float(10))
     
+        print '...done!'
+        time.sleep(1)
+        clear_output()
+        
         return(anim)
     
     ### animate training episode from one version of q-learning ###
-    def animate_training_runs(self,gridworld,learner,episodes):  
+    def animate_training_runs(self,**args):  
+        grid = args['gridworld']
+        episodes = args['episodes']
+        learner = args['learner']
+        
         # make local copies of input
-        grid = gridworld
         training_episodes_history = learner.training_episodes_history
 
         # initialize figure
-        fig = plt.figure(figsize = (10,3))
+        fsize = 3
+        if grid.width:
+            fsize = 5
+        fig = plt.figure(figsize = (12,fsize))
         axs = []
         for i in range(len(episodes)):
             ax = fig.add_subplot(1,len(episodes),i+1,aspect = 'equal')
@@ -167,6 +212,7 @@ class animator():
                 max_len = l
 
         # loop over the episode histories and plot the results
+        print 'animating run...'
         def show_episode(step):
             # loop over subplots and plot current step of each episode history
             artist = fig
@@ -182,15 +228,23 @@ class animator():
                 grid.agent = current_episode[min(step,len(current_episode)-1)]
                 
                 # color gridworld for this episode and step
-                grid.color_gridworld(ax = ax)
+                if 'lights' not in args:
+                    grid.color_gridworld(ax = ax)
+                else:
+                    grid.color_gridworld(ax = ax,lights=args['lights'])
+
                 ax.set_title('episode = ' + str(episode_num + 1))
                 
             return artist,
-           
+
         # create animation object
         anim = animation.FuncAnimation(fig, show_episode,frames=min(100,max_len), interval=min(100,max_len), blit=True)
         
         # set frames per second in animation
-        IPython_display.anim_to_html(anim,fps = min(100,max_len)/float(5))
-    
+        IPython_display.anim_to_html(anim,fps = min(100,max_len)/float(10))
+        
+        print '...done!'
+        time.sleep(1)
+        clear_output()
+        
         return(anim)

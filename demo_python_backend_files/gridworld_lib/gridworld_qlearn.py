@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import time
 
 class learner():
     def __init__(self,**args):
@@ -7,7 +8,7 @@ class learner():
         self.grid = args['gridworld']
         
         # initialize q-learning params
-        self.gamma = 0.8
+        self.gamma = 1
         self.max_steps = 5*self.grid.width*self.grid.height
         self.exploit_param = 0.5
         self.action_method = 'exploit'
@@ -15,8 +16,14 @@ class learner():
         self.validation_episodes = 50
         self.training_start_schedule = []
         self.validation_start_schedule = []
+           
+        # create start schedule for training / validation
+        self.training_start_schedule = self.grid.training_start_schedule[:self.training_episodes]
+        self.validation_start_schedule = self.grid.validation_start_schedule[:self.validation_episodes]
         
-        # swap out for user defined if desired
+    ### Q-learning function - version 1 - take random actions ###
+    def train(self,**args):
+        # switches
         if "gamma" in args:
             self.gamma = args['gamma']
         if 'max_steps' in args:
@@ -26,27 +33,19 @@ class learner():
         if 'exploit_param' in args:
             self.exploit = args['exploit_param']
             self.action_method = 'exploit'
-        
-        self.training_episodes = 500
         if 'training_episodes' in args:
             self.training_episodes = args['training_episodes']
             # return error if number of training episodes is too big
         if self.training_episodes > self.grid.training_episodes:
             print 'requesting too many training episodes, the maximum num = ' + str(self.grid.training_episodes)
-            return 
-        self.training_start_schedule = self.grid.training_start_schedule[:self.training_episodes]
-       
-        self.validation_episodes = 50
+            return        
         if 'validation_episodes' in args:
             self.validation_episodes = args['validation_episodes']
             # return error if number of training episodes is too big
         if self.validation_episodes > self.grid.validation_episodes:
             print 'requesting too many validation episodes, the maximum num = ' + str(self.grid.validation_episodes)
             return 
-        self.validation_start_schedule = self.grid.validation_start_schedule[:self.validation_episodes]
         
-    ### Q-learning function - version 1 - take random actions ###
-    def train(self,**args):
         # make local (non-deep) copies of globals for easier reading
         grid = self.grid
         gamma = self.gamma
@@ -55,10 +54,13 @@ class learner():
         self.training_episodes_history = {}
         self.training_reward = []
         self.validation_reward = []
+        self.time_per_episode = []
         Q = np.zeros((self.grid.width*self.grid.height,len(self.grid.action_choices)))
 
         ### start main Q-learning loop ###
         for n in range(self.training_episodes): 
+            start = time.clock()
+            
             # pick this episode's starting position
             grid.agent = self.training_start_schedule[n]
 
@@ -91,13 +93,17 @@ class learner():
                 # update current location of agent 
                 grid.agent = grid.state_index_to_tuple(state_index = s_k)
                 
+                # update training reward
+                total_episode_reward+=r_k
             # print out update if verbose set to True
             if 'verbose' in args:
                 if args['verbose'] == True:
                     if np.mod(n+1,50) == 0:
                         print 'training episode ' + str(n+1) +  ' of ' + str(self.training_episodes) + ' complete'
             
-            ### store this episode's training reward history
+            ### store this episode's computation time and training reward history
+            stop = time.clock()
+            self.time_per_episode.append(stop - start)
             self.training_episodes_history[str(n)] = episode_history
             self.training_reward.append(total_episode_reward)
             
@@ -107,23 +113,23 @@ class learner():
                     reward = self.validate(Q)
                     self.validation_reward.append(reward)
 
-        # save Q function
         self.Q = Q  # make a global version
-        csvname = 'algo1_Qmat'
-        self.save_qmat(self.Q,csvname)
+        
+        # save Q function 
+        self.save_qmat()
             
         print 'q-learning algorithm complete'
         
     ### save Q matrix ###
-    def save_qmat(self,Q,csvname):
+    def save_qmat(self):
         states_print = []
         for i in range(len(self.grid.states)):
             s = str(self.grid.states[i])
             t = str('(') + s[0] + ',' + s[1] + str(')')
             states_print.append(t)
             
-        df = pd.DataFrame(Q,columns=['up','down','left','right'], index=states_print)
-        df.to_csv('demo_datasets/RL_datasets/' + self.grid.world_size + '_' + self.grid.world_type + '_' +  csvname + '.csv')
+        df = pd.DataFrame(self.Q,columns=['up','down','left','right'], index=states_print)
+        df.to_csv('demo_datasets/RL_datasets/Q_' + self.grid.world_size + '_' + self.grid.world_type + '_' +  self.action_method + '_actions_.csv')
        
     ### run validation episodes ###
     def validate(self,Q):

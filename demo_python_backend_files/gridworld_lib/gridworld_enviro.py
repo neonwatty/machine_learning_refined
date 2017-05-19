@@ -71,7 +71,12 @@ class environment():
         if args["world_type"] == 'maze':
             self.world_type = 'maze'
             self.agent = [self.height-2, 0]   # initial location agent
-            self.goal = [self.height-2, self.width-1]     # goal block                
+            self.goal = [self.height-2, self.width-1]     # goal block   
+            
+        if args["world_type"] == 'maze_v2':
+            self.world_type = 'maze_v2'
+            self.agent = [self.height-2, 0]   # initial location agent
+            self.goal = [self.height-2, self.width-1]     # goal block     
 
         if args["world_type"] == 'random':
             self.world_type = 'random'
@@ -101,7 +106,7 @@ class environment():
             self.grid[block[0]][block[1]] = 1   
             temp.append(block)
 
-        # initialize goal location
+        # initialize hazards location
         self.hazards = temp
                 
         ### initialize state index, Q matrix, and action choices ###
@@ -109,15 +114,12 @@ class environment():
         self.action_choices = [[-1,0],[1,0],[0,-1],[0,1]]
        
         ### create custom colormap for gridworld plotting ###
-        vmax = 3.0
-        self.my_cmap = LinearSegmentedColormap.from_list('mycmap', [(0 / vmax, [0.9,0.9,0.9]),
-                                                        (1 / vmax, [1,0.5,0]),
-                                                        (2 / vmax, 'lime'),
-                                                        (3 / vmax, 'blue')]
-                                                        )
+        # color ordering: background, hazard, goal, agent, lights off
+        colors = [(0.9,0.9,0.9),(255/float(255), 119/float(255), 119/float(255)), (66/float(255),244/float(255),131/float(255)), (1/float(255),100/float(255),200/float(255)),(0,0,0)]   
+        self.my_cmap = LinearSegmentedColormap.from_list('colormapX', colors, N=100)
         
         # create training episodes
-        self.training_episodes = 10000
+        self.training_episodes = 500
         if 'training_episodes' in args:
             # define num of training episodes
             self.training_episodes = args['training_episodes']
@@ -126,7 +128,7 @@ class environment():
         self.training_start_schedule = self.make_start_schedule(episodes = self.training_episodes)
 
         # preset number of training episodes value
-        self.validation_episodes = 1000
+        self.validation_episodes = 100
         if 'validation_episodes' in args:
             # define num of testing episodes
             self.validation_episodes = args['validation_episodes']
@@ -143,18 +145,27 @@ class environment():
         p_grid[self.goal[0]][self.goal[1]] = 2   
         p_grid[self.agent[0]][self.agent[1]] = 3   
         
+        # check if lights off
+        if 'lights' in args:
+            # if lights off color every square black except current square and adjacent squares that can be 'seen' by the agent
+            if args['lights'] == 'off':
+                for i in range(self.height):
+                    for j in range(self.width):
+                        if np.abs(i - self.agent[0]) + np.abs(j - self.agent[1]) > 1:
+                            p_grid[i][j] = 4
+                            
         # plot gridworld
         ax = 0
         if 'ax' in args:
             ax = args['ax']
         else: 
-            fsize = 4
+            fsize = 6
             if self.width > 20:
-                fsize = 8
+                fsize = 12
             fig = plt.figure(figsize = (fsize,fsize),frameon=False)
             ax = fig.add_subplot(111, aspect='equal')
 
-        ax.pcolormesh(p_grid,edgecolors = 'k',linewidth = 0.01,cmap = self.my_cmap)
+        ax.pcolormesh(p_grid,edgecolors = 'k',linewidth = 0.01,vmin=0,vmax=4,cmap = self.my_cmap)
 
         # clean up plot
         ax.axis('off')
