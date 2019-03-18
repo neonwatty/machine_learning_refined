@@ -24,7 +24,7 @@
 
 [(Back to top)](#table-of-contents)
 
-Many machine learning concepts - like convergence of an algorithm, evolution of a model from an underfitting one all the way to an overfitting model, etc. - can be illustrated and intuited best using animations (as opposed to static figures). You'll find a large number of interactive widgets - which you can modify yourself too - in this book/repo. Here are just a few examples:<br><br>
+Many machine learning concepts - like convergence of an algorithm, evolution of a model from an underfitting one all the way to an overfitting model, etc. - can be illustrated and intuited best using animations (as opposed to static figures). You'll find a large number of both images and animated videos here - which you can modify yourself too via the raw Jupyter notebook version of these notes.  Here are just a few examples:<br><br>
 
 <img src="html/gifs/cross_validation_regression.gif" width="300px" height="auto"> | <img src="html/gifs/cross_validation_two_class.gif" width="300px" height="auto"> | <img src="html/gifs/cross_validation_multiclass.gif" width="300px" height="auto"> 
 ---|---|---
