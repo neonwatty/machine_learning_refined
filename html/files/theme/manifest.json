@@ -1,0 +1,15 @@
+{	
+	"responsive": true,
+	"tmpSocialIconFont": true,
+	"enableEditorJS": true,
+    "description": "Cento is a minimalist theme that puts your content front and center. With a classic Serif and Sans Serif typography pairing and a modern color palette, Cento lets you and your content determine the tone of your site. Blogs feature a unique centered format, so try turning your blog sidebar off to get the most out of this layout and really make your posts stand out. Cento is perfect for artists, photographers, architects, bloggers, and minimalists.",
+    "features": [
+        "responsive", 
+        "navigation-fixed",
+        "boxed-width",
+        "css-buttons",
+        "social-icons",
+        "navigation-top",
+        "boxed-header"
+    ]
+}

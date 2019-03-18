@@ -1,0 +1,1 @@
+This file has been depreciated.  Please see the basic-optimization demonstration notebook in the main github repo to play with an updated version of this code.

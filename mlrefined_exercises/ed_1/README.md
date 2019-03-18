@@ -1,0 +1,1 @@
+This repository contains coding exercises associated with the edition 1 of the textbook Machine Learning Refined (Cambridge University Press).  Starting wrappers are given for many problems in Python 2 and 3, as well as MATLAB. 
