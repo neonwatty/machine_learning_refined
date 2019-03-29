@@ -233,8 +233,8 @@ In the `exercises` directory you can find starting wrappers for coding exercises
 [11.6 Efficient cross-validation via regularization](https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_6_Regularization.html)  <br>
 11.7 Testing data <br>
 11.8 Which universal approximator works best in practice? <br>
-11.9 Bagging cross-validated models <br>
-11.10 K-folds cross-validation <br>
+[11.9 Bagging cross-validated models](https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_9_Bagging.html) <br>
+[11.10 K-folds cross-validation](https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_10_Kfolds.html)  <br>
 11.11 When feature learning fails <br>
 11.12 Conclusion <br>
 
