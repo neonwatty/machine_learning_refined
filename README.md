@@ -225,12 +225,12 @@ In the `exercises` directory you can find starting wrappers for coding exercises
 
 ### Chapter 11: Principles of feature learning
 
-11.1 Introduction <br>
-11.2 Universal approximators <br>
-11.3 Universal approximation of real data  <br>
-11.4 Naive cross-validation  <br>
-11.5 Efficient cross-validation via boosting  <br>
-11.6 Efficient cross-validation via regularization  <br>
+[11.1 Introduction](https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_1_Introduction.html) <br>
+[11.2 Universal approximators](https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_2_Universal.html) <br>
+[11.3 Universal approximation of real data](https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_3_Real_approximation.html)  <br>
+[11.4 Naive cross-validation](https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_4_Cross_validation.html)  <br>
+[11.5 Efficient cross-validation via boosting](https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_5_Boosting.html)   <br>
+[11.6 Efficient cross-validation via regularization](https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_6_Regularization.html)  <br>
 11.7 Testing data <br>
 11.8 Which universal approximator works best in practice? <br>
 11.9 Bagging cross-validated models <br>
