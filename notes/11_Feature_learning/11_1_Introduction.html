@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8" />
-
-<title>11_1_Introduction</title>
-
+<head><meta charset="utf-8"/>
+<title>11.1 Introduction</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
 <script>
 (function() {
   function addWidgetsRenderer() {
@@ -31,7 +28,6 @@
   document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
 }());
 </script>
-
 <style type="text/css">
     /*!
 *
@@ -13079,8 +13075,6 @@ ul.typeahead-list  > li > a.pull-right {
 .ansi-bold { font-weight: bold; }
 
     </style>
-
-
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
 body {
@@ -13106,16 +13100,19 @@ div#notebook {
   }
 }
 </style>
-
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
-<link rel="stylesheet" href="custom.css">
-
+<link href="custom.css" rel="stylesheet"/>
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+<!-- MathJax configuration -->
+<meta content="11.1 Introduction" property="og:title"/>
+<meta content="https://github.com/jermwatt/machine_learning_refined/blob/gh-pages/html/pics/meta.png" property="og:image"/>
+<meta content="https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_1_Introduction.html" property="og:url"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
+    	TeX: { equationNumbers: { autoNumber: "AMS" } },
         tex2jax: {
             inlineMath: [ ['$','$'], ["\\(","\\)"] ],
             displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
@@ -13126,27 +13123,100 @@ div#notebook {
         // we use CSS to left justify single line equations in code cells.
         displayAlign: 'center',
         "HTML-CSS": {
+            availableFonts: ["TeX"],
+            preferredFont: "TeX",
             styles: {'.MathJax_Display': {"margin": 0}},
             linebreaks: { automatic: true }
         }
     });
     </script>
-    <!-- End of mathjax configuration --></head>
+<link href="../../html/CSS/custom.css" rel="stylesheet"/>
+<style>
+        p {
+            text-align: justify !important;
+            text-justify: inter-word !important;
+        }
+    </style>
+<!-- End of mathjax configuration --></head>
 <body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
+<!-- uncomment to add back menu
+<div style="text-align:center !important; padding-top:58px;">
 
+				<a href="../../../index.html" style="font-family: inherit; font-weight: 200; letter-spacing: 1.5px; color: #222; font-size: 97%;">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../about.html" style="font-family: inherit; font-weight: 200; letter-spacing: 1.5px; color: #222; font-size: 97%;">ABOUT</a>
+
+
+</div> -->
+<br/><br/><br/>
+<!-- share buttons -->
+<div style="width: 63%; margin:auto;">
+<div id="1" style="width: 70%; float:left;">
+<span style="color:black; font-family:'lato', sans-serif; font-size: 18px;">code</span>
+<div style="width: 95px; border-bottom: solid 1px; border-color:black;">
+<div class="logo-share"></div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- github -->
+<a href="https://github.com/jermwatt/machine_learning_refined" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/github.png';" onmouseover="this.src='../../html/pics/github_filled.png';" src="../../html/pics/github.png" width="28"/>
+</a>
+</div>
+</div>
+</div>
+<div id="2" style="width: 30%; float:left;">
+<span style="color:black; font-family:'lato', sans-serif; font-size: 18px;">share</span>
+<div style="width: 280px; border-bottom: solid 1px; border-color:black;">
+<div class="logo-share"></div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- linkedin -->
+<a href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F11_Feature_learning%2F11_1_Introduction.html" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/linkedin.png';" onmouseover="this.src='../../html/pics/linkedin_filled.png';" src="../../html/pics/linkedin.png" width="28"/>
+</a>
+</div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- twitter -->
+<a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F11_Feature_learning%2F11_1_Introduction.html" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/twitter.png';" onmouseover="this.src='../../html/pics/twitter_filled.png';" src="../../html/pics/twitter.png" width="28"/>
+</a>
+</div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- facebook -->
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F11_Feature_learning%2F11_1_Introduction.html" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/facebook.png';" onmouseover="this.src='../../html/pics/facebook_filled.png';" src="../../html/pics/facebook.png" width="28"/>
+</a>
+</div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- reddit -->
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F11_Feature_learning%2F11_1_Introduction.html" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/reddit.png';" onmouseover="this.src='../../html/pics/reddit_filled.png';" src="../../html/pics/reddit.png" width="28"/>
+</a>
+</div>
+</div>
+</div>
+</div>
+<br/><br/>
+<div class="page-title" style="text-align: center !important;">
+<div><a href="https://github.com/jermwatt/machine_learning_refined" style="text-decoration: none" target="_blank"><button class="btn-star">★ Our Project On GitHub</button></a></div>
+<br/><br/>
+<mark style="padding: 0px; background-color: #f9f3c2;">11.1 Introduction</mark>
+</div>
+<br/>
+<div class="border-box-sizing" id="notebook" tabindex="-1">
+<div class="container" id="notebook-container">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-11:-Principles-of-Feature-Learning">Chapter 11: Principles of Feature Learning<a class="anchor-link" href="#Chapter-11:-Principles-of-Feature-Learning">&#182;</a></h2>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="11.1-Introduction">11.1 Introduction<a class="anchor-link" href="#11.1-Introduction">&#182;</a></h1>
+
 </div>
 </div>
 </div>
@@ -13157,7 +13227,6 @@ div#notebook {
 expressed a general nonlinear model for regression and two-class
 classification as a weighted sum of $B$ nonlinear functions of our
 input as</p>
-
 </div>
 </div>
 </div>
@@ -13178,7 +13247,6 @@ input as</p>
 unparameterized functions (or features) of the data, and $w_0$ through $w_B$ (along
 with any additional weights internal to the nonlinear functions) are
 represented in the weight set $\Theta$.</p>
-
 </div>
 </div>
 </div>
@@ -13186,14 +13254,13 @@ represented in the weight set $\Theta$.</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In this Chapter we detail the fundamental tools and principles of <em>feature learning</em> (or <em>automatic feature engineering</em>) that allow us to automate this task and <em>learn</em> proper features from the data itself, instead of \emph{engineering} them ourselves.  In particular we discuss how to choose the form of the nonlinear transformations $f_1$ through $f_B$, the number $B$ of them employed, as well as, how the parameters in $\Theta$ are tuned, <em>automatically</em> and for <em>any dataset</em>.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="11.1.1-The-limits-of-nonlinear-feature-engineering">11.1.1 The limits of nonlinear feature engineering<a class="anchor-link" href="#11.1.1-The-limits-of-nonlinear-feature-engineering">&#182;</a></h2>
+<h2 id="11.1.1-The-limits-of-nonlinear-feature-engineering">11.1.1 The limits of nonlinear feature engineering<a class="anchor-link" href="#11.1.1-The-limits-of-nonlinear-feature-engineering">¶</a></h2>
 </div>
 </div>
 </div>
@@ -13205,7 +13272,6 @@ defining characteristics of a given dataset that allow for optimal
 learning.  In Chapter 10 we saw how the quality of the mathematical features we can design ourselves is fundamentally dependent on our level of knowledge regarding the phenomenon we were studying. The more we understand (both intellectually and intuitively) the process generating the data we have at our fingertips, the better we can design features ourselves.  At one extreme where we have near perfect understanding of the process generating our data, this knowledge having come from considerable intuitive, experimental, and mathematical reflection, the features we design allow near perfect performance. However, more often than not we know only a few facts, or perhaps none at all, about
 the data we are analyzing.   The universe is an enormous and complicated
 place, and we have a solid understanding only of how a sliver of it all  works.</p>
-
 </div>
 </div>
 </div>
@@ -13213,25 +13279,23 @@ place, and we have a solid understanding only of how a sliver of it all  works.<
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Most (particularly modern) machine learning datasets have far more than two inputs, rendering visualization useless as a tool for feature engineering. But even in rare cases where data visualization is possible, we cannot simply rely on our own pattern recognition skills. Take the two toy datasets illustrated in <a href="#figure-11-1">Figure 11.1</a> below, for example. The dataset on the left is a regression dataset with $N=1$ dimensional input and the one on the right is a two-class classification dataset with $N=2$ dimensional input. The true underlying nonlinear model used to generate the data in each case is shown in dashed black. We humans are typically taught only how to recognize the simplest of nonlinear patterns <em>by eye</em>, including those created by elementary functions (e.g., low degree polynomials, exponential functions, sine waves) and simple shapes (e.g., squares, circles, ellipses). Neither of the patterns shown in the Figure match such simple nonlinear functionalities. Thus, whether or not a dataset can be visualized, human engineering of proper nonlinear features can be difficult if not outright impossible.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='figure-11-1'></a></p>
+<p><a id="figure-11-1"></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_1.png' width="55%"  alt=""/>
+<img alt="" src="../../mlrefined_images/nonlinear_superlearn_images/Figure_11_1.png" width="85%"/>
 </p>
 <figcaption> <strong>Figure: 11.1 </strong> <em> 
 Toy (left panel) regression and (right panel) two-class classification datasets that clearly exhibit nonlinear behavior. The true underlying nonlinear function used to generate the data in each case is shown in dashed black. See text for further details
@@ -13244,8 +13308,7 @@ Toy (left panel) regression and (right panel) two-class classification datasets 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
@@ -13255,14 +13318,13 @@ Toy (left panel) regression and (right panel) two-class classification datasets 
 <p>It is precisely this challenge which motivates the fundamental
 <em>feature learning</em> tools described in this Chapter. In short, these technologies <em>automate</em> the process of identifying appropriate nonlinear features for arbitrary datasets. With these tools in hand we no longer need to <em>engineer</em> proper nonlinearities, at least in terms of how we engineered nonlinear features in the previous Chapter. Instead, we aim at <em>learning</em> their appropriate forms. Compared to our own limited nonlinear pattern recognition abilities, feature learning tools can identify virtually any
 nonlinear pattern present in a dataset regardless of its input dimension.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="11.1.2-Chapter-outline">11.1.2 Chapter outline<a class="anchor-link" href="#11.1.2-Chapter-outline">&#182;</a></h2>
+<h2 id="11.1.2-Chapter-outline">11.1.2 Chapter outline<a class="anchor-link" href="#11.1.2-Chapter-outline">¶</a></h2>
 </div>
 </div>
 </div>
@@ -13270,7 +13332,6 @@ nonlinear pattern present in a dataset regardless of its input dimension.</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The aim to automate nonlinear learning is an ambitious one and perhaps at first glance an intimidating one as well, for there are an infinite variety of nonlinearities and nonlinear functions to choose from. How do we, in general, parse this infinitude automatically to determine the appropriate nonlinearity for a given dataset?</p>
-
 </div>
 </div>
 </div>
@@ -13279,14 +13340,13 @@ nonlinear pattern present in a dataset regardless of its input dimension.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The first step, as we will see in Section 11.2, is to organize the pursuit of automation by first placing the fundamental building blocks
 of this infinitude into <em>manageable collections</em> of (relatively simple) nonlinear functions. These collections are often called <em>universal approximators</em>, of which three strains are popularly used and which we introduce here: fixed-shape approximators, artificial neural networks, and trees. After introducing universal approximators we then discuss the fundamental concepts underlying how they are employed, including the necessity for <em>validation error</em> as a measurement tool in Section 11.3, a description of <em>cross-validation</em> and the <em>bias-variance tradeoff</em> in Section 11.4, the automatic tuning of nonlinear complexity via <em>boosting</em> and <em>regularization</em> in Sections 11.5 and 11.7, respectively, as well as the notion of <em>ensembling</em> in Section 11.9 and <em>testing error</em> in Section 11.7.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="11.1.3-The-complexity-dial-metaphor-of-feature-learning">11.1.3 The complexity dial metaphor of feature learning<a class="anchor-link" href="#11.1.3-The-complexity-dial-metaphor-of-feature-learning">&#182;</a></h2>
+<h2 id="11.1.3-The-complexity-dial-metaphor-of-feature-learning">11.1.3 The complexity dial metaphor of feature learning<a class="anchor-link" href="#11.1.3-The-complexity-dial-metaphor-of-feature-learning">¶</a></h2>
 </div>
 </div>
 </div>
@@ -13294,7 +13354,6 @@ of this infinitude into <em>manageable collections</em> of (relatively simple) n
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The ultimate aim of feature learning is a paradigm for the appropriate and automatic learning of features for any \emph{any dataset} regardless of problem type.  This translates - formally speaking - into the the automatic determination of both the proper <em>form</em> of the general nonlinear model in Equation (1) above and the proper <em>parameter tuning</em> of this model regardless of training data and problem type.  We can think about this challenge metaphorically as 1) the <em>construction</em> of and 2) the <em>automatic setting</em> of a <em>complexity dial</em>, like the one illustrated pictorially in <a href="#figure-11-2">Figure 11.2</a> for a simple nonlinear regression dataset, that allows us to properly <em>learn</em> the appropriate features for <em>any dataset</em> regardless of problem type.  In other words, the 'complexity dial' conceptualization of feature learning visually depicts the challenge of feature learning at a high level as a dial that must be built and automatically tuned to determine the appropriate amount of model complexity needed to represent the phenomenon generating a generic training dataset.</p>
-
 </div>
 </div>
 </div>
@@ -13302,7 +13361,6 @@ of this infinitude into <em>manageable collections</em> of (relatively simple) n
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Setting this complexity dial all the way to the left corresponds, generally speaking, to choosing a simple form for the nonlinear model that results in a representation of low complexity (e.g., a linear model, as depicted visually in the Figure).  As the dial is turned from left to right various models of increasing complexity are tried against the training data.  If turned too far to the right the resulting model will be too complex (or too 'wiggly') with respect to the training data (as depicted visually in the two small panels on the right side of the dial).   When set 'just right' (as depicted visually in the small image atop the complexity dial that is second to the left) the resulting model represents the data - as the underlying phenomenon generating it - very well.</p>
-
 </div>
 </div>
 </div>
@@ -13310,25 +13368,23 @@ of this infinitude into <em>manageable collections</em> of (relatively simple) n
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>While the complexity dial is a simplified depiction of feature learning we will see that it is nonetheless a helpful metaphor, as it will help us organize our understanding of the diverse set of ideas involved in performing it properly.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='figure-11-2'></a></p>
+<p><a id="figure-11-2"></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_2.png' width="65%"  alt=""/>
+<img alt="" src="../../mlrefined_images/nonlinear_superlearn_images/Figure_11_2.png" width="85%"/>
 </p>
 <figcaption> <strong>Figure: 11.2 </strong> <em> 
 A visual depiction of feature learning as the \emph{construction} and *automatic* setting of a 'complexity dial' that - broadly speaking - controls the form the nonlinear model in Equation (1) as well as its parameter tuning, and thus the complexity of the model with respect to the training data.   While the complexity dial is a simplified depiction of feature learning we will see that it is nonetheless a helpful metaphor, as it can help us organize our understanding of the diverse set of ideas involved in it properly.
@@ -13341,20 +13397,14 @@ A visual depiction of feature learning as the \emph{construction} and *automatic
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
-    </div>
-  </div>
+</div>
+</div>
 </body>
-
- 
-
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 1, "version_minor": 0}
 </script>
-
-
 </html>

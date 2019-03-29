@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8" />
-
-<title>11_3_Real_approximation</title>
-
+<head><meta charset="utf-8"/>
+<title>11.3 Universal approximation of real data</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-
 <style type="text/css">
     /*!
 *
@@ -13056,8 +13051,6 @@ ul.typeahead-list  > li > a.pull-right {
 .ansi-bold { font-weight: bold; }
 
     </style>
-
-
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
 body {
@@ -13083,16 +13076,19 @@ div#notebook {
   }
 }
 </style>
-
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
-<link rel="stylesheet" href="custom.css">
-
+<link href="custom.css" rel="stylesheet"/>
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+<!-- MathJax configuration -->
+<meta content="11.3 Universal approximation of real data" property="og:title"/>
+<meta content="https://github.com/jermwatt/machine_learning_refined/blob/gh-pages/html/pics/meta.png" property="og:image"/>
+<meta content="https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_3_Real_approximation.html" property="og:url"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
+    	TeX: { equationNumbers: { autoNumber: "AMS" } },
         tex2jax: {
             inlineMath: [ ['$','$'], ["\\(","\\)"] ],
             displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
@@ -13103,27 +13099,100 @@ div#notebook {
         // we use CSS to left justify single line equations in code cells.
         displayAlign: 'center',
         "HTML-CSS": {
+            availableFonts: ["TeX"],
+            preferredFont: "TeX",
             styles: {'.MathJax_Display': {"margin": 0}},
             linebreaks: { automatic: true }
         }
     });
     </script>
-    <!-- End of mathjax configuration --></head>
+<link href="../../html/CSS/custom.css" rel="stylesheet"/>
+<style>
+        p {
+            text-align: justify !important;
+            text-justify: inter-word !important;
+        }
+    </style>
+<!-- End of mathjax configuration --></head>
 <body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
+<!-- uncomment to add back menu
+<div style="text-align:center !important; padding-top:58px;">
 
+				<a href="../../../index.html" style="font-family: inherit; font-weight: 200; letter-spacing: 1.5px; color: #222; font-size: 97%;">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../about.html" style="font-family: inherit; font-weight: 200; letter-spacing: 1.5px; color: #222; font-size: 97%;">ABOUT</a>
+
+
+</div> -->
+<br/><br/><br/>
+<!-- share buttons -->
+<div style="width: 63%; margin:auto;">
+<div id="1" style="width: 70%; float:left;">
+<span style="color:black; font-family:'lato', sans-serif; font-size: 18px;">code</span>
+<div style="width: 95px; border-bottom: solid 1px; border-color:black;">
+<div class="logo-share"></div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- github -->
+<a href="https://github.com/jermwatt/machine_learning_refined" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/github.png';" onmouseover="this.src='../../html/pics/github_filled.png';" src="../../html/pics/github.png" width="28"/>
+</a>
+</div>
+</div>
+</div>
+<div id="2" style="width: 30%; float:left;">
+<span style="color:black; font-family:'lato', sans-serif; font-size: 18px;">share</span>
+<div style="width: 280px; border-bottom: solid 1px; border-color:black;">
+<div class="logo-share"></div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- linkedin -->
+<a href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F11_Feature_learning%2F11_3_Real_approximation.html" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/linkedin.png';" onmouseover="this.src='../../html/pics/linkedin_filled.png';" src="../../html/pics/linkedin.png" width="28"/>
+</a>
+</div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- twitter -->
+<a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F11_Feature_learning%2F11_3_Real_approximation.html" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/twitter.png';" onmouseover="this.src='../../html/pics/twitter_filled.png';" src="../../html/pics/twitter.png" width="28"/>
+</a>
+</div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- facebook -->
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F11_Feature_learning%2F11_3_Real_approximation.html" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/facebook.png';" onmouseover="this.src='../../html/pics/facebook_filled.png';" src="../../html/pics/facebook.png" width="28"/>
+</a>
+</div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- reddit -->
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F11_Feature_learning%2F11_3_Real_approximation.html" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/reddit.png';" onmouseover="this.src='../../html/pics/reddit_filled.png';" src="../../html/pics/reddit.png" width="28"/>
+</a>
+</div>
+</div>
+</div>
+</div>
+<br/><br/>
+<div class="page-title" style="text-align: center !important;">
+<div><a href="https://github.com/jermwatt/machine_learning_refined" style="text-decoration: none" target="_blank"><button class="btn-star">★ Our Project On GitHub</button></a></div>
+<br/><br/>
+<mark style="padding: 0px; background-color: #f9f3c2;">11.3 Universal approximation of real data</mark>
+</div>
+<br/>
+<div class="border-box-sizing" id="notebook" tabindex="-1">
+<div class="container" id="notebook-container">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-11:-Principles-of-Feature-Learning">Chapter 11: Principles of Feature Learning<a class="anchor-link" href="#Chapter-11:-Principles-of-Feature-Learning">&#182;</a></h2>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="11.3-Universal-approximation-of-real-data">11.3 Universal approximation of real data<a class="anchor-link" href="#11.3-Universal-approximation-of-real-data">&#182;</a></h1>
+
 </div>
 </div>
 </div>
@@ -13131,45 +13200,21 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In the previous Section we saw how a nonlinear model built from units of a single universal approximator can be made to tightly approximate any <em>perfect dataset</em> if we increase its capacity sufficiently and tune the model's parameters properly by minimizing an appropriate cost function. In this Section we will investigate how universal approximation carries over to the case of <em>real data</em>, i.e., data that is finite in size and potentially noisy. We will then learn about a new measurement tool, called <em>validation error</em>, that will allow us to effectively employ universal approximators with real data.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## This code cell will not be shown in the HTML version of this notebook</span>
-<span class="c1"># imports from custom library</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../../&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">autograd.numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">mlrefined_libraries</span> <span class="k">import</span> <span class="n">nonlinear_superlearn_library</span> <span class="k">as</span> <span class="n">nonlib</span>
-<span class="n">datapath</span> <span class="o">=</span> <span class="s1">&#39;../../mlrefined_datasets/nonlinear_superlearn_datasets/&#39;</span>
 
-<span class="c1"># plotting tools</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
-
-<span class="c1"># this is needed to compensate for %matplotlib notebook&#39;s tendancy to blow up images when plotted inline</span>
-<span class="o">%</span><span class="k">matplotlib</span> notebook
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">rcParams</span>
-<span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.autolayout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="o">%</span><span class="k">load_ext</span> autoreload
-<span class="o">%</span><span class="k">autoreload</span> 2
-</pre></div>
-
-    </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="11.3.1-Prototypical-examples">11.3.1 Prototypical examples<a class="anchor-link" href="#11.3.1-Prototypical-examples">&#182;</a></h2>
+<h2 id="11.3.1-Prototypical-examples">11.3.1 Prototypical examples<a class="anchor-link" href="#11.3.1-Prototypical-examples">¶</a></h2>
 </div>
 </div>
 </div>
@@ -13177,14 +13222,13 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Here we explore the use of universal approximators in representing real data using two simple examples: a regression and two-class classification dataset. The problems we encounter with these two simple examples mirror those we face in general when employing universal approximator-based models to real data, regardless of problem type.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example-11.7:--Universal-approximation-of-real-regression-data"><span style="color:#a50e3e;">Example 11.7:</span>  Universal approximation of real regression data<a class="anchor-link" href="#Example-11.7:--Universal-approximation-of-real-regression-data">&#182;</a></h4>
+<h4 id="Example-11.7:--Universal-approximation-of-real-regression-data"><span style="color:#a50e3e;">Example 11.7:</span>  Universal approximation of real regression data<a class="anchor-link" href="#Example-11.7:--Universal-approximation-of-real-regression-data">¶</a></h4>
 </div>
 </div>
 </div>
@@ -13192,25 +13236,23 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In this example we illustrate the use of universal approximators on a real regression dataset that is based on the near-perfect sinusoidal data presented in Example 11.5. To simulate a real version of this dataset we randomly selected $P = 21$ of its points and added a small amount of random noise to the output (i.e., $y$ component) of each point, as illustrated in <a href="#figure-11-18">Figure 11.18</a>.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='figure-11-18'></a></p>
+<p><a id="figure-11-18"></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_18.png' width="85%"  alt=""/>
+<img alt="" src="../../mlrefined_images/nonlinear_superlearn_images/Figure_11_18.png" width="85%"/>
 </p>
 <figcaption> <strong>Figure: 11.18 </strong> <em> 
 (left panel) The original *near-perfect* sinusoidal dataset from Example 11.5. (right panel) A *real* regression dataset formed by adding random noise to the output of a small subset of the near-perfect dataset's points. See text for further details.
@@ -13223,8 +13265,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
@@ -13232,72 +13273,40 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In the animation below we illustrate the fully tuned nonlinear fit of a model employing $1$ through $20$ polynomial units (left panel), single-layer $\text{tanh}$ neural network (middle panel), and stump units (right panel) to this data. Notice how, with each of the universal approximators, all three models <em>underfit</em> the data when using only $B = 1$ unit in each case. This underfitting of the data is a direct consequence of using low capacity models which produce fits that are not <em>complex</em> enough for the underlying data they are aiming to approximate. Also notice how each model improves as we increase $B$, but only up to a certain point after which each <em>tuned</em> model becomes far too complex and starts to look rather wild, and very much unlike the sinusoidal phenomenon that originally generated the data. This is especially visible in the polynomial and neural network cases, where by the time we reach $B = 20$ units both models are extremely oscillatory and far too complex. Such <em>overfitting</em> models while representing the current data well, will clearly make for poor predictors of future data generated by the same process.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## This code cell will not be shown in the HTML version of this notebook</span>
-<span class="c1"># produce visual comparison of different universal approximator fits</span>
-<span class="n">demo</span> <span class="o">=</span> <span class="n">nonlib</span><span class="o">.</span><span class="n">regression_basis_comparison_2d</span><span class="o">.</span><span class="n">Visualizer</span><span class="p">()</span>
-<span class="n">csvname</span> <span class="o">=</span> <span class="n">datapath</span> <span class="o">+</span> <span class="s1">&#39;noisy_sin_sample.csv&#39;</span>
-<span class="n">demo</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">csvname</span><span class="p">)</span>
-<span class="n">demo</span><span class="o">.</span><span class="n">brows_fits</span><span class="p">(</span><span class="n">savepath</span> <span class="o">=</span> <span class="s1">&#39;videos/animation_2.mp4&#39;</span><span class="p">,</span><span class="n">num_elements</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">1</span><span class="p">)],</span><span class="n">scatter</span> <span class="o">=</span> <span class="s1">&#39;on&#39;</span><span class="p">,</span><span class="n">fps</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="c1"># load in video and display</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
-<span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">&lt;video width=&quot;1000&quot; height=&quot;400&quot; controls loop&gt;</span>
-<span class="s2">  &lt;source src=&quot;videos/animation_2.mp4&quot; type=&quot;video/mp4&quot;&gt;</span>
-<span class="s2">  &lt;/video&gt;</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt output_prompt">Out[8]:</div>
-
-
-
+<div class="prompt output_prompt">Out[7]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
-
-<video width="1000" height="400" controls loop>
-  <source src="videos/animation_2.mp4" type="video/mp4">
-  </video>
-
-</div>
-
-</div>
-
+<video controls="" height="400" loop="" width="700">
+<source src="videos/animation_2.mp4" type="video/mp4">
+</source></video>
 </div>
 </div>
-
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
@@ -13305,70 +13314,40 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Below we animate several of the polynomial-based models shown above, along with the corresponding Least Squares cost value each attains, i.e., the model's <em>training error</em>. In adding more polynomial units we turn up the capacity of our model and, optimizing each model to completion, the resulting tuned models achieve lower and lower training error. Doing this clearly <em>decreases</em> the cost function value over the training set (just as with perfect or near-perfect data). However the resulting fit provided by each fully tuned model (after a certain point) becomes far too complex and starts to get <em>worse</em> in terms of how it represents the general regression phenomenon. As a measurement tool the training error only tells us how well a tuned model fits the <em>training data</em>, but fails to tell us when our tuned model becomes too complex.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This code cell will not be shown in the HTML version of this notebook</span>
-<span class="n">demo2</span> <span class="o">=</span> <span class="n">nonlib</span><span class="o">.</span><span class="n">regression_basis_single</span><span class="o">.</span><span class="n">Visualizer</span><span class="p">()</span>
-<span class="n">csvname</span> <span class="o">=</span> <span class="n">datapath</span> <span class="o">+</span> <span class="s1">&#39;noisy_sin_sample.csv&#39;</span>
-<span class="n">demo2</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">csvname</span><span class="p">)</span>
-<span class="n">demo2</span><span class="o">.</span><span class="n">browse_single_fit</span><span class="p">(</span><span class="n">savepath</span><span class="o">=</span><span class="s1">&#39;videos/animation_3.mp4&#39;</span><span class="p">,</span><span class="n">basis</span><span class="o">=</span><span class="s1">&#39;poly&#39;</span><span class="p">,</span><span class="n">num_units</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">1</span><span class="p">)],</span><span class="n">fps</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="c1"># load in video and display</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
-<span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">&lt;video width=&quot;1000&quot; height=&quot;400&quot; controls loop&gt;</span>
-<span class="s2">  &lt;source src=&quot;videos/animation_3.mp4&quot; type=&quot;video/mp4&quot;&gt;</span>
-<span class="s2">  &lt;/video&gt;</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt output_prompt">Out[14]:</div>
-
-
-
+<div class="prompt output_prompt">Out[9]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
-
-<video width="1000" height="400" controls loop>
-  <source src="videos/animation_3.mp4" type="video/mp4">
-  </video>
-
-</div>
-
-</div>
-
+<video controls="" height="400" loop="" width="800">
+<source src="videos/animation_3.mp4" type="video/mp4">
+</source></video>
 </div>
 </div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example-11.8:--Universal-approximation-of-real-classification-data"><span style="color:#a50e3e;">Example 11.8:</span>  Universal approximation of real classification data<a class="anchor-link" href="#Example-11.8:--Universal-approximation-of-real-classification-data">&#182;</a></h4>
+<hr/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Example-11.8:--Universal-approximation-of-real-classification-data"><span style="color:#a50e3e;">Example 11.8:</span>  Universal approximation of real classification data<a class="anchor-link" href="#Example-11.8:--Universal-approximation-of-real-classification-data">¶</a></h4>
 </div>
 </div>
 </div>
@@ -13376,15 +13355,13 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In this example we illustrate the application of universal approximator-based models on a real two-class classification dataset that is based on the near-perfect dataset presented in Example 11.6. Here we simulated a realistic version of this data by randomly selecting $P = 99$ of its points, and adding a small amount of classification noise by flipping the labels of $5$ of those points, as shown in Figure 11.18.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
@@ -13393,7 +13370,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_21.png' width="85%"  alt=""/>
+<img alt="" src="../../mlrefined_images/nonlinear_superlearn_images/Figure_11_21.png" width="85%"/>
 </p>
 <figcaption> <strong>Figure: 11.18 </strong> <em> 
 (left panel) The original near-perfect classification dataset from Example 11.6, with the true circular boundary used to generate the data shown in dashed black (this is the boundary we hope to recover using classification). (right panel) A real dataset formed from a noisy subset of these points. See text for further details. 
@@ -13406,8 +13383,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
@@ -13415,163 +13391,60 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In Figure 11.18 we show the nonlinear decision boundaries provided by fully tuned models employing $B = 1$ through $B = 20$ polynomial units (top row), $B = 1$ through $B = 9$ single-layer $\text{tanh}$ neural network units (middle row), and $B = 1$ through $B = 17$ stump units (bottom row), respectively. At the start all three tuned models are not complex enough and thus <em>underfit</em> the data, providing a classification that in all instances simply classifies the entire space as belonging to the blue class (label values $y = -1$). After that and up to a certain point the decision boundary provided by each model improves as more units are added, with $B = 5$ polynomial units, $B = 3$ $\text{tanh}$ units, and $B = 5$ stump units providing reasonable approximations to the desired circular decision boundary. However soon after we reach these numbers of units each tuned model becomes too complex and <em>overfits</em> the training data, with the decision boundary of each drifting away from the circular boundary centered at the origin that would properly predict the labels of future data generated by the same underlying phenomenon.  As with regression in Example 11.7, both underfitting and overfitting problems occur in the classification case as well, regardless of the sort of universal approximator used.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This code cell will not be shown in the HTML version of this notebook</span>
-<span class="c1"># load in data</span>
-<span class="n">csvname</span> <span class="o">=</span> <span class="n">datapath</span> <span class="o">+</span> <span class="s1">&#39;new_circle_data.csv&#39;</span>
-<span class="n">demo3</span> <span class="o">=</span> <span class="n">nonlib</span><span class="o">.</span><span class="n">main_classification_comparison</span><span class="o">.</span><span class="n">Visualizer</span><span class="p">(</span><span class="n">csvname</span><span class="p">)</span>
 
-<span class="c1"># run approximators</span>
-<span class="n">demo3</span><span class="o">.</span><span class="n">runs1</span> <span class="o">=</span> <span class="n">demo3</span><span class="o">.</span><span class="n">run_poly</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">demo3</span><span class="o">.</span><span class="n">runs2</span> <span class="o">=</span> <span class="n">demo3</span><span class="o">.</span><span class="n">run_net</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">demo3</span><span class="o">.</span><span class="n">runs3</span> <span class="o">=</span> <span class="n">demo3</span><span class="o">.</span><span class="n">run_trees</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-
-<span class="c1"># animate</span>
-<span class="n">frames</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">demo3</span><span class="o">.</span><span class="n">animate_comparisons</span><span class="p">(</span><span class="n">savepath</span> <span class="o">=</span> <span class="s1">&#39;videos/animation_3.mp4&#39;</span><span class="p">,</span><span class="n">frames</span><span class="o">=</span><span class="n">frames</span><span class="p">,</span><span class="n">fps</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="c1"># load in video and display</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
-<span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">&lt;video width=&quot;1000&quot; height=&quot;400&quot; controls loop&gt;</span>
-<span class="s2">  &lt;source src=&quot;videos/animation_3.mp4&quot; type=&quot;video/mp4&quot;&gt;</span>
-<span class="s2">  &lt;/video&gt;</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt output_prompt">Out[58]:</div>
-
-
-
+<div class="prompt output_prompt">Out[10]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
-
-<video width="1000" height="400" controls loop>
-  <source src="videos/animation_3.mp4" type="video/mp4">
-  </video>
-
-</div>
-
-</div>
-
+<video controls="" height="400" loop="" width="800">
+<source src="videos/animation_3.mp4" type="video/mp4">
+</source></video>
 </div>
 </div>
-
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In the animation below we plot several of the neural network-based models shown above, along with the corresponding two-class softmax cost value each attains. As expected, increasing model capacity by adding more $\text{tanh}$ units always (upon tuning the parameters of each model by complete minimization) <em>decreases</em> the cost function value (just as with perfect or near-perfect data). However the resulting classification, after a certain point, actually gets <em>worse</em> in terms of how it (the learned decision boundary) represents the general classification phenomenon.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This code cell will not be shown in the HTML version of this notebook</span>
-<span class="kn">import</span> <span class="nn">copy</span>
 
-<span class="c1"># the mid-point between each set of consecutive inputs along each input dimension</span>
-<span class="n">csvname</span> <span class="o">=</span> <span class="n">datapath</span> <span class="o">+</span> <span class="s1">&#39;new_circle_data.csv&#39;</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">csvname</span><span class="p">,</span><span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:,:]</span>
-
-<span class="c1">### boosting ###</span>
-<span class="n">num_units</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="n">run1</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_units</span><span class="p">):</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;fitting &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; units&#39;</span><span class="p">)</span>
-    
-    <span class="c1"># import the v1 library</span>
-    <span class="n">mylib1</span> <span class="o">=</span> <span class="n">nonlib</span><span class="o">.</span><span class="n">intro_general_library</span><span class="o">.</span><span class="n">superlearn_setup</span><span class="o">.</span><span class="n">Setup</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-
-    <span class="c1"># choose features</span>
-    <span class="n">mylib1</span><span class="o">.</span><span class="n">choose_features</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;multilayer_perceptron&#39;</span><span class="p">,</span><span class="n">layer_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;tanh&#39;</span><span class="p">)</span>
-
-    <span class="c1"># choose normalizer</span>
-    <span class="n">mylib1</span><span class="o">.</span><span class="n">choose_normalizer</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;standard&#39;</span><span class="p">)</span>
-
-    <span class="c1"># pick training set</span>
-    <span class="n">mylib1</span><span class="o">.</span><span class="n">make_train_valid_split</span><span class="p">(</span><span class="n">train_portion</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-            
-    <span class="c1"># choose cost</span>
-    <span class="n">mylib1</span><span class="o">.</span><span class="n">choose_cost</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;softmax&#39;</span><span class="p">)</span>
-
-    <span class="c1"># fit an optimization</span>
-    <span class="n">mylib1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">max_its</span> <span class="o">=</span> <span class="mi">6000</span><span class="p">,</span><span class="n">alpha_choice</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="n">optimizer</span> <span class="o">=</span> <span class="s1">&#39;gradient_descent&#39;</span><span class="p">)</span>
-
-    <span class="c1"># add model to list</span>
-    <span class="n">run1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">mylib1</span><span class="p">))</span>
-    
-<span class="c1"># animate the business</span>
-<span class="n">frames</span> <span class="o">=</span> <span class="n">num_units</span>
-<span class="n">demo</span> <span class="o">=</span> <span class="n">nonlib</span><span class="o">.</span><span class="n">main_classification_animators</span><span class="o">.</span><span class="n">Visualizer</span><span class="p">(</span><span class="n">csvname</span><span class="p">)</span>
-<span class="n">savepath</span> <span class="o">=</span> <span class="s1">&#39;videos/animation_4.mp4&#39;</span>
-<span class="n">demo</span><span class="o">.</span><span class="n">animate_classifications</span><span class="p">(</span><span class="n">savepath</span><span class="p">,</span><span class="n">run1</span><span class="p">,</span><span class="n">frames</span><span class="p">,</span><span class="n">fps</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-
-<span class="c1"># load in video and display</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
-<span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">&lt;video width=&quot;1000&quot; height=&quot;400&quot; controls loop&gt;</span>
-<span class="s2">  &lt;source src=&quot;videos/animation_4.mp4&quot; type=&quot;video/mp4&quot;&gt;</span>
-<span class="s2">  &lt;/video&gt;</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt output_prompt">Out[25]:</div>
-
-
-
+<div class="prompt output_prompt">Out[11]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
-
-<video width="1000" height="400" controls loop>
-  <source src="videos/animation_4.mp4" type="video/mp4">
-  </video>
-
-</div>
-
-</div>
-
+<video controls="" height="400" loop="" width="800">
+<source src="videos/animation_4.mp4" type="video/mp4">
+</source></video>
 </div>
 </div>
-
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
@@ -13579,14 +13452,13 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In summary, in the Examples here we have seen that, unlike the case with perfect data, when employing universal approximator-based models with real data we must be careful with how we set the capacity of our model, as well as how well we tune its parameters via optimization of an associated cost. These two simple examples also show how training error fails as a reliable tool to measure how well a tuned model represents the phenomenon underlying a real dataset. Both of these issues arise in general, and are discussed in greater detail next.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="11.3.2-The-capacity-and-optimization-dials,-revisited">11.3.2 The capacity and optimization dials, revisited<a class="anchor-link" href="#11.3.2-The-capacity-and-optimization-dials,-revisited">&#182;</a></h2>
+<h2 id="11.3.2-The-capacity-and-optimization-dials,-revisited">11.3.2 The capacity and optimization dials, revisited<a class="anchor-link" href="#11.3.2-The-capacity-and-optimization-dials,-revisited">¶</a></h2>
 </div>
 </div>
 </div>
@@ -13594,7 +13466,6 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The prototypical examples described above illustrate how with real data we cannot (as we can in the case of perfect data) simply set our capacity and optimization dials (introduced in Section 11.2.4) all the way to the right, as this leads to overly complex models that fail to represent the underlying data-generating phenomenon well.  Notice, we only control the <em>complexity</em> of a tuned model (or, roughly speaking, how "wiggly" a tuned model fit is) <em>indirectly</em> by how we set both our capacity and optimization dials, and it is not obvious <em>a priori</em> how we should set them simultaneously in order to achieve the right amount of model complexity for a given dataset.  However, we can make this dial-tuning problem somewhat easier by fixing one of the two dials and adjusting only the other.  Setting one dial all the way to the right imbues the other dial with the sole control over the complexity of a tuned model (and turns it into - roughly speaking - the <em>complexity dial</em> described in Section 11.1).  That is, fixing one of the two dials all the way to the right, as we turn the unfixed dial from left to right we increase the complexity of our final tuned model.  This is a general principle when applying universal approximator-based models to real data that does not present itself in the case of perfect data.</p>
-
 </div>
 </div>
 </div>
@@ -13604,25 +13475,23 @@ div#notebook {
 <p>To gain a stronger intuition for this principle, suppose first that we set our optimization dial all the way to the right (meaning that regardless of the dataset and model we use, we always tune its parameters by minimizing the corresponding cost function to completion). Then with perfect data, as illustrated in the top row of <a href="#figure-11-24">Figure 11.24</a>,  as we turn our capacity dial from left to right (e.g., by adding more units) the resulting tuned model provides a better and better representation of a the perfect dataset.</p>
 <p>However with real data, as illustrated in the bottom row of <a href="#figure-11-24">Figure 11.24</a>, starting with our capacity dial all the way to the left, the resulting tuned model is not complex enough for the phenomenon underlying our data.  We say that such a tuned model <em>underfits</em>, as it does not even fit the given data well.  Notice that while the simple visual depiction here illustrates an underfitting model as a linear ('un-wiggly') function - which is quite common in practice - it is possible for an underfitting model to be quite 'wiggly'.  Regardless of the 'shape' a tuned model takes we say that it underfits if it poorly represents the training data - i.e., if it has high training error.</p>
 <p>Turning the capacity dial from left to right <em>increases</em> the complexity of each tuned model, providing a better and better representation of the data and the phenomenon underlying it. However there comes a point, as we continue turning the dial from left to right, where the corresponding tuned model becomes <em>too complex</em> to represent the phenomenon underlying the data. Indeed past this point, where the complexity of each tuned model is wildly inappropriate for the phenomenon at play, we say that <em>overfitting</em> begins. This language is used because while such highly complex models fit the given data extremely well, they do so at the cost of not representing the underlying phenomenon well. As we continue to turn our capacity dial to the right the resulting tuned models will become increasingly complex and increasingly less representative of the true underlying phenomenon.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='figure-11-24'></a></p>
+<p><a id="figure-11-24"></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_24.png' width="85%"  alt=""/>
+<img alt="" src="../../mlrefined_images/nonlinear_superlearn_images/Figure_11_24.png" width="85%"/>
 </p>
 <figcaption> <strong>Figure: 11.24 </strong> <em> 
 (top row) With *perfect data* if we set our optimization dial to all the way to the right, as we increase the capacity of our model by turning the capacity dial from left to right (starting all the way to the left) the corresponding representation gets better and better. (bottom row) With *real data* a similar effect occurs, however here as we turn the capacity further to the right each tuned model will tend to become more and more complex, eventually overfitting the given data. See text for further details.
@@ -13635,8 +13504,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
@@ -13644,25 +13512,23 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Now suppose instead that we turn our capacity dial all the way to the right, using a very high capacity model, and set its parameters by turning our optimization dial ever so slowly from left to right. In the case of perfect data, as illustrated in the top row of <a href="#figure-11-25">Figure 11.25</a>, this approach produces tuned models that increasingly represents the data well. With real data on the other hand, as illustrated in the bottom row of <a href="#figure-11-25">Figure 11.25</a>, starting with our optimization dial set all the way to the left will tend to produce low complexity <em>underfitting</em> tuned models. As we turn our optimization dial from left to right, taking steps of a particular local optimization scheme, our corresponding model will tend to increase in complexity, improving its representation of the given data. This improvement continues only up to a point where our corresponding tuned model becomes too complex for the phenomenon underlying the data, and hence <em>overfitting</em> begins. After this point the tuned models arising from turning the optimization dial further to the right are far too complex to adequately represent the phenomenon underlying a dataset.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='figure-11-25'></a></p>
+<p><a id="figure-11-25"></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_25.png' width="85%"  alt=""/>
+<img alt="" src="../../mlrefined_images/nonlinear_superlearn_images/Figure_11_25.png" width="85%"/>
 </p>
 <figcaption> <strong>Figure: 11.25 </strong> <em> 
 (top row) With perfect data if we set our capacity dial all the way to the right, as we increase the amount we optimize our model by turning the optimization dial from left to right (starting all the way on the left where for simplicity we assume all model parameters are  initialized at zero) the corresponding representation gets better and better. (bottom row) With real data a similar effect occurs, but only up to a certain point where overfitting begins. See text for further details.
@@ -13675,15 +13541,14 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="11.3.3-Motivating-a-new-measurement-tool">11.3.3 Motivating a new measurement tool<a class="anchor-link" href="#11.3.3-Motivating-a-new-measurement-tool">&#182;</a></h2>
+<h2 id="11.3.3-Motivating-a-new-measurement-tool">11.3.3 Motivating a new measurement tool<a class="anchor-link" href="#11.3.3-Motivating-a-new-measurement-tool">¶</a></h2>
 </div>
 </div>
 </div>
@@ -13697,25 +13562,23 @@ problem with both the underfitting and overfitting models is that, while they di
 <p>The same story tells itself in the bottom row of the Figure with our two-class classification dataset used previously in Example 11.7. Here we show a fully tuned low complexity (and underfitting) linear model in the left panel, a high complexity (and overfitting) degree $20$ polynomial model in the middle panel, and "just right" degree $2$ polynomial model in the right panel. As with the regression case, the underfitting and overfitting models both fail to adequately
 represent the underlying phenomenon generating our current data and, as a result, will fail to adequately predict the label values of <em>new data</em> generated via the same process by which the current data was made.</p>
 <p>In summary, with both the simple regression and classification examples discussed here we can roughly qualify poorly performing models as those that will not allow us to make accurate predictions of data we will receive in the future. But how do we quantify something we will receive in the future? We address this next.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='figure-11-26'></a></p>
+<p><a id="figure-11-26"></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_26.png' width="85%"  alt=""/>
+<img alt="" src="../../mlrefined_images/nonlinear_superlearn_images/Figure_11_26.png" width="95%"/>
 </p>
 <figcaption> <strong>Figure: 11.26 </strong> <em> 
 (top row) Three models for the regression dataset from Example 11.6: an underfitting model (top left panel), an overfitting model (top middle panel), and a "just right" one (top right panel). (bottom row) Three models for the two-class classification dataset from Example 11.7: an underfitting model that simply classifies everything as part of the blue class (bottom left panel), an overfitting model (bottom middle panel), and a "just right" fit (bottom right panel). See text for further details. 
@@ -13728,15 +13591,14 @@ represent the underlying phenomenon generating our current data and, as a result
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="11.3.4-The-validation-error">11.3.4 The validation error<a class="anchor-link" href="#11.3.4-The-validation-error">&#182;</a></h2>
+<h2 id="11.3.4-The-validation-error">11.3.4 The validation error<a class="anchor-link" href="#11.3.4-The-validation-error">¶</a></h2>
 </div>
 </div>
 </div>
@@ -13745,25 +13607,23 @@ represent the underlying phenomenon generating our current data and, as a result
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We now have an informal diagnosis for the problematic performance of underfitting/overfitting models: such models do not accurately represent new data we might receive in the future. But how can we make use of this diagnosis? We of course do not have access to any new data we will receive in the future. To make this notion useful we need to translate it into a quantity we can always measure, regardless of the dataset/problem we are tackling or the kind of model we employ.</p>
 <p>The universal way to do this is, in short, to <em>fake it</em>: we simply remove a random portion of our data and treat it as "new data we might receive in the future," as illustrated abstractly in <a href="#figure-11-27">Figure 11.27</a>. In other words, we cut out a random chunk of the dataset we have, train our selection of models on only the portion of data that remains, and <em>validate</em> the performance of each model on this randomly removed chunk of "new" data. The random portion of the data we remove to validate our model(s) is commonly called the <em>validation data</em>  (or validation set), and the remaining portion we use to train models is likewise referred to as the <em>training data</em> (or training set). The model providing the lowest error on the validation data, i.e., the <em>lowest validation error</em>, is then deemed the best choice from a selection of trained models. As we will see validation error (unlike training error) is in fact a proper measurement tool for determining the quality of a model against the underlying data generating phenomenon we want to capture.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='figure-11-27'></a></p>
+<p><a id="figure-11-27"></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_27.png' width="85%"  alt=""/>
+<img alt="" src="../../mlrefined_images/nonlinear_superlearn_images/Figure_11_27.png" width="85%"/>
 </p>
 <figcaption> <strong>Figure: 11.27 </strong> <em> 
 Splitting the data into training and validation sets. The
@@ -13778,8 +13638,7 @@ split randomly in the right panel into two non-overlapping sets. The smaller pie
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
@@ -13787,15 +13646,10 @@ split randomly in the right panel into two non-overlapping sets. The smaller pie
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>There is no precise rule for what portion of a given dataset should be saved for validation. In practice, typically between $\frac{1}{10}$ to $\frac{1}{3}$ of the data is assigned to the validation set. Generally speaking, the larger and/or more representative (of the true phenomenon from which the data is sampled) a dataset is the larger the portion of the original data may be assigned to the validation set (e.g., $\frac{1}{3}$). The intuition for doing this is that if the data is plentiful/representative enough, the training set still accurately represents the underlying phenomenon even after removal of a relatively large set of validation data. Conversely, in general with smaller or less representative (i.e., more noisy or poorly distributed) datasets we usually take a smaller portion for validation (e.g., $\frac{1}{10}$) since the relatively larger training set needs to retain what little information of the underlying phenomenon was captured by the original data, and little data can be spared for validation.</p>
-
 </div>
 </div>
 </div>
-    </div>
-  </div>
+</div>
+</div>
 </body>
-
- 
-
-
 </html>

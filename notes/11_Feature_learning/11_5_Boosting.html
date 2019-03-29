@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8" />
-
-<title>11_5_Boosting</title>
-
+<head><meta charset="utf-8"/>
+<title>11.5 Efficient cross-validation via boosting</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
 <script>
 (function() {
   function addWidgetsRenderer() {
@@ -31,7 +28,6 @@
   document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
 }());
 </script>
-
 <style type="text/css">
     /*!
 *
@@ -13079,8 +13075,6 @@ ul.typeahead-list  > li > a.pull-right {
 .ansi-bold { font-weight: bold; }
 
     </style>
-
-
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
 body {
@@ -13106,16 +13100,19 @@ div#notebook {
   }
 }
 </style>
-
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
-<link rel="stylesheet" href="custom.css">
-
+<link href="custom.css" rel="stylesheet"/>
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+<!-- MathJax configuration -->
+<meta content="11.5 Efficient cross-validation via boosting" property="og:title"/>
+<meta content="https://github.com/jermwatt/machine_learning_refined/blob/gh-pages/html/pics/meta.png" property="og:image"/>
+<meta content="https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_5_Boosting.html" property="og:url"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
+    	TeX: { equationNumbers: { autoNumber: "AMS" } },
         tex2jax: {
             inlineMath: [ ['$','$'], ["\\(","\\)"] ],
             displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
@@ -13126,27 +13123,100 @@ div#notebook {
         // we use CSS to left justify single line equations in code cells.
         displayAlign: 'center',
         "HTML-CSS": {
+            availableFonts: ["TeX"],
+            preferredFont: "TeX",
             styles: {'.MathJax_Display': {"margin": 0}},
             linebreaks: { automatic: true }
         }
     });
     </script>
-    <!-- End of mathjax configuration --></head>
+<link href="../../html/CSS/custom.css" rel="stylesheet"/>
+<style>
+        p {
+            text-align: justify !important;
+            text-justify: inter-word !important;
+        }
+    </style>
+<!-- End of mathjax configuration --></head>
 <body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
+<!-- uncomment to add back menu
+<div style="text-align:center !important; padding-top:58px;">
 
+				<a href="../../../index.html" style="font-family: inherit; font-weight: 200; letter-spacing: 1.5px; color: #222; font-size: 97%;">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../about.html" style="font-family: inherit; font-weight: 200; letter-spacing: 1.5px; color: #222; font-size: 97%;">ABOUT</a>
+
+
+</div> -->
+<br/><br/><br/>
+<!-- share buttons -->
+<div style="width: 63%; margin:auto;">
+<div id="1" style="width: 70%; float:left;">
+<span style="color:black; font-family:'lato', sans-serif; font-size: 18px;">code</span>
+<div style="width: 95px; border-bottom: solid 1px; border-color:black;">
+<div class="logo-share"></div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- github -->
+<a href="https://github.com/jermwatt/machine_learning_refined" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/github.png';" onmouseover="this.src='../../html/pics/github_filled.png';" src="../../html/pics/github.png" width="28"/>
+</a>
+</div>
+</div>
+</div>
+<div id="2" style="width: 30%; float:left;">
+<span style="color:black; font-family:'lato', sans-serif; font-size: 18px;">share</span>
+<div style="width: 280px; border-bottom: solid 1px; border-color:black;">
+<div class="logo-share"></div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- linkedin -->
+<a href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F11_Feature_learning%2F11_5_Boosting.html" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/linkedin.png';" onmouseover="this.src='../../html/pics/linkedin_filled.png';" src="../../html/pics/linkedin.png" width="28"/>
+</a>
+</div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- twitter -->
+<a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F11_Feature_learning%2F11_5_Boosting.html" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/twitter.png';" onmouseover="this.src='../../html/pics/twitter_filled.png';" src="../../html/pics/twitter.png" width="28"/>
+</a>
+</div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- facebook -->
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F11_Feature_learning%2F11_5_Boosting.html" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/facebook.png';" onmouseover="this.src='../../html/pics/facebook_filled.png';" src="../../html/pics/facebook.png" width="28"/>
+</a>
+</div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- reddit -->
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F11_Feature_learning%2F11_5_Boosting.html" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/reddit.png';" onmouseover="this.src='../../html/pics/reddit_filled.png';" src="../../html/pics/reddit.png" width="28"/>
+</a>
+</div>
+</div>
+</div>
+</div>
+<br/><br/>
+<div class="page-title" style="text-align: center !important;">
+<div><a href="https://github.com/jermwatt/machine_learning_refined" style="text-decoration: none" target="_blank"><button class="btn-star">★ Our Project On GitHub</button></a></div>
+<br/><br/>
+<mark style="padding: 0px; background-color: #f9f3c2;">11.5 Efficient cross-validation via boosting</mark>
+</div>
+<br/>
+<div class="border-box-sizing" id="notebook" tabindex="-1">
+<div class="container" id="notebook-container">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-11:-Principles-of-Feature-Learning">Chapter 11: Principles of Feature Learning<a class="anchor-link" href="#Chapter-11:-Principles-of-Feature-Learning">&#182;</a></h2>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="11.5-Efficient-cross-validation-via-boosting">11.5 Efficient cross-validation via boosting<a class="anchor-link" href="#11.5-Efficient-cross-validation-via-boosting">&#182;</a></h1>
+
 </div>
 </div>
 </div>
@@ -13155,45 +13225,21 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In this Section we introduce boosting, the first of two fundamental
 paradigms for effective cross-validation described in this Chapter. In contrast to the naive form of cross-validation described in the previous Section, with <em>boosting based cross validation</em> we perform our model search by taking a <em>single</em> high capacity model and optimize it <em>one unit at-a-time</em>, resulting in a much more efficient high resolution cross-validation procedure.  While in principle any universal approximator can be used with boosting, this approach is often used as the cross-validation method of choice when employing tree-based universal approximators (as discussed further in Section 14.2).</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## This code cell will not be shown in the HTML version of this notebook</span>
-<span class="c1"># imports from custom library</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../../&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">autograd.numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">mlrefined_libraries</span> <span class="k">import</span> <span class="n">nonlinear_superlearn_library</span> <span class="k">as</span> <span class="n">nonlib</span>
-<span class="n">datapath</span> <span class="o">=</span> <span class="s1">&#39;../../mlrefined_datasets/nonlinear_superlearn_datasets/&#39;</span>
 
-<span class="c1"># plotting tools</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
-
-<span class="c1"># this is needed to compensate for %matplotlib notebook&#39;s tendancy to blow up images when plotted inline</span>
-<span class="o">%</span><span class="k">matplotlib</span> notebook
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">rcParams</span>
-<span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.autolayout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="o">%</span><span class="k">load_ext</span> autoreload
-<span class="o">%</span><span class="k">autoreload</span> 2
-</pre></div>
-
-    </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="11.5.1-The-big-picture">11.5.1 The big picture<a class="anchor-link" href="#11.5.1-The-big-picture">&#182;</a></h2>
+<h2 id="11.5.1-The-big-picture">11.5.1 The big picture<a class="anchor-link" href="#11.5.1-The-big-picture">¶</a></h2>
 </div>
 </div>
 </div>
@@ -13212,7 +13258,6 @@ paradigms for effective cross-validation described in this Chapter. In contrast 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We do this sequentially in $M$ 'rounds' of boosting where at each round we add one unit to the model, completely optimizing this unit's parameters alone along with its corresponding linear combination weight (we keep these parameters fixed at these optimally tuned values forever more).  Alternatively we can think of this procedure as beginning with a high capacity model of the form above and - in $M$ rounds - optimizing the parameters of each unit one unit at-a-time (a form of coordinate-wise optimization).  In either case, performing boosting in this way produces a sequence of $M$ tuned models that generally increase in complexity with respect to the training dataset, which we denote compactly as $\left\{\text{model}_m\right\}_{m=1}^M$, where the $m^{th}$ model consists of $m$ tuned units (each having been tuned one at-a-time in the preceding rounds).   Since just one unit is optimized at-a-time, boosting tends to provide a computationally efficient high resolution form of model search.</p>
-
 </div>
 </div>
 </div>
@@ -13220,25 +13265,23 @@ paradigms for effective cross-validation described in this Chapter. In contrast 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The general boosting procedure tends to produce training/validation error curves that generally look like those shown in the top panel of <a href="#figure-11-32">Figure 11.32</a>.  As with the naive approach detailed in the previous Section, here too we tend to see training error decrease as $m$ grows larger while validation error tends to start high where underfitting occurs, dip down to a minimum value (perhaps oscillating more than the one time illustrated here), and rise back up when overfitting begins.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='figure-11-32'></a></p>
+<p><a id="figure-11-32"></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_32.png' width="75%"  alt=""/>
+<img alt="" src="../../mlrefined_images/nonlinear_superlearn_images/Figure_11_32.png" width="85%"/>
 </p>
 <figcaption> <strong>Figure: 11.32 </strong> <em> 
 (top panel) Prototypical training and validation error curves associated with a completed run of boosting. (bottom panels) With boosting we fix our capacity dial all the way to the right (at some high capacity value) and begin with our optimization dial set all the way to the left.  We then slowly turn our optimization dial from left to right, with each notch on the optimization dial denoting the complete optimization of one additional unit of the model, increasing the complexity of each subsequent model created with respect to the training set.  See text for further details.
@@ -13251,8 +13294,7 @@ paradigms for effective cross-validation described in this Chapter. In contrast 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
@@ -13260,7 +13302,6 @@ paradigms for effective cross-validation described in this Chapter. In contrast 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Using the capacity/optimization dial conceptualization first introduced in Section 11.2.4, we can think about boosting as starting with our <em>capacity dial</em> set all the way to the <em>right</em> at some high value (e.g., some large value of $M$), and fidgeting with the <em>optimization dial</em> by turning it very slowly from left to right starting at the far left (as depicted in the bottom row of Figure 11.15).  As discussed in Section 11.3.2 and summarized visually in the bottom row of Figure 11.25, with real data this general configuration (setting the capacity dial to the right, and adjusting optimization dial) allows our <em>optimization dial</em> to (roughly speaking) govern the complexity of a tuned model based on how well we optimize (the more we optimize a high capacity model the higher its complexity with respect to the training data becomes).  In other words with this configuration our optimization dial (roughly speaking) becomes the sort of fine resolution <em>complexity</em> dial we aimed to construct at the outset of the Chapter (see Section 11.1).  With our optimization dial turned all the way to the left we begin our search with a low complexity tuned model (called $\text{model}_1$) consisting of a single unit of a universal approximator having its parameters fully optimized.  As we progress through rounds of boosting we turn the optimization dial gradually from left to right (here each notch on the optimization dial denotes the complete optimization of one additional unit) optimizing (to completion) a single weighted unit of our original high capacity model, so that at the $m^{th}$ round our tuned model (called $\text{model}_m$) consists of $m$ individually but fully tuned units.</p>
-
 </div>
 </div>
 </div>
@@ -13268,7 +13309,6 @@ paradigms for effective cross-validation described in this Chapter. In contrast 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Our ultimate aim in doing this is of course to determine a setting of the optimization dial / determine an appropriate number of tuned units that minimizes validation error.  We visualize this concept in <a href="#figure-11-33">Figure 11.33</a> by wrapping the prototypical validation error curve (shown in its top panel of this Figure) around the optimization dial (shown in its bottom right panel) from left to right, as well as the generic markings denoting underfitting and overfitting.  By using validation error we automate the process of setting our optimization dial to the proper setting - where validation error is minimal.</p>
-
 </div>
 </div>
 </div>
@@ -13276,25 +13316,23 @@ paradigms for effective cross-validation described in this Chapter. In contrast 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Whether we use fixed-shape, neural network, or tree-based units with boosting we will naturally prefer units with <em>low capacity</em> so that the resolution of our model search is as fine-grained as possible. When we start adding units one-at-a-time we turn our optimization dial clockwise from left to right.  We want this dial turning to be done as smoothly as possible so that we can determine the lowest validation error model as accurately as possible. This is depicted in the left panel of <a href="#figure-11-33">Figure 11.33</a>. If we used <em>high capacity</em> units at each round of boosting the resulting model search will be much coarser, as adding each additional unit results in aggressively turning the dial from left to right leaving large gaps in our model search, as depicted in the right panel of <a href="#figure-11-33">Figure 11.33</a>.   This kind of low resolution search could easily result in us skipping over the complexity of an optimal model.  The same can be said as to why we add only one unit at-a-time with boosting, tuning its parameters alone at each round. If we added more than one unit at-a-time, or if we re-tuned <em>every</em> parameter of <em>every</em> unit at each step of this process not only would we have significantly more computation to perform at each step but the performance difference between subsequent models could be quite large and we might easily miss out on an ideal model.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='figure-11-33'></a></p>
+<p><a id="figure-11-33"></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_33.png' width="85%"  alt=""/>
+<img alt="" src="../../mlrefined_images/nonlinear_superlearn_images/Figure_11_33.png" width="95%"/>
 </p>
 <figcaption> <strong>Figure: 11.33 </strong> <em> 
 (left panel) Using low capacity units makes the boosting procedure a high (or fine) resolution search for optimal model complexity. (right panel) Using high capacity units makes boosting a low (or coarse) resolution search for optimal model complexity. See text for further details.
@@ -13307,15 +13345,14 @@ paradigms for effective cross-validation described in this Chapter. In contrast 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="11.5.2-Technical-details">11.5.2 Technical details<a class="anchor-link" href="#11.5.2-Technical-details">&#182;</a></h2>
+<h2 id="11.5.2-Technical-details">11.5.2 Technical details<a class="anchor-link" href="#11.5.2-Technical-details">¶</a></h2>
 </div>
 </div>
 </div>
@@ -13326,7 +13363,6 @@ paradigms for effective cross-validation described in this Chapter. In contrast 
 \begin{equation}
 \mathcal{F} = \{f_{1}\left(\mathbf{x}\right),\,f_{2}\left(\mathbf{x}\right),\,\ldots,\,f_M\left(\mathbf{x}\right)\}.
 \end{equation}<p>We add these units sequentially or one-at-a-time building a set of $M$ tuned models $\left[\text{model}_m\right]_{m=1}^M$ that increase in complexity with respect to the training data, from $m=1$ to $m=M$, ending with a generic nonlinear model composed of $M$ units.  We will express this final boosting-made model slightly differently than above, in particular re-indexing the units it is built from as</p>
-
 </div>
 </div>
 </div>
@@ -13340,7 +13376,6 @@ paradigms for effective cross-validation described in this Chapter. In contrast 
 process.  The linear combination weights $w_0$ through $w_M$ along with any additional
 weights internal to $f_{s_1},\,f_{s_2},\,\ldots,\,f_{s_M}$ are
 represented collectively in the weight set $\Theta$.</p>
-
 </div>
 </div>
 </div>
@@ -13350,22 +13385,20 @@ represented collectively in the weight set $\Theta$.</p>
 <p>The process of boosting is performed in a total of $M$ rounds, one
 for each of the units in Equation (2).  At each round we determine which unit, when added to the running model, best lowers its training error.  We then measure the corresponding validation error provided by this update, and in the end after all rounds of boosting are complete, use the lowest validation error measurement found to decide which round provided the best overall model.</p>
 <p>For the sake of simplicity in describing the formal details of boosting, we will center our discussion on a single problem: nonlinear regression on the training dataset $\left\{\left(\mathbf{x}_p,\,y_p\right)\right\}_{p=1}^P$ employing the Least Squares cost. However, the principles of boosting we will see remain <em>exactly</em> the same for other learning tasks (e.g., two-class and multi-class classification) and their associated costs.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Round-$0$-of-boosting">Round $0$ of boosting<a class="anchor-link" href="#Round-$0$-of-boosting">&#182;</a></h3>
+<h3 id="Round-$0$-of-boosting">Round $0$ of boosting<a class="anchor-link" href="#Round-$0$-of-boosting">¶</a></h3>
 </div>
 </div>
 </div>
@@ -13383,22 +13416,20 @@ appropriate cost over this variable alone. With this in mind, to find the optima
 \end{equation}<p>giving the optimal value for $w_0$ which we denote as $w_0^{\star}$.
 We fix the bias weight at this value forever more throughout the
 process.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Round-$1$-of-boosting">Round $1$ of boosting<a class="anchor-link" href="#Round-$1$-of-boosting">&#182;</a></h3>
+<h3 id="Round-$1$-of-boosting">Round $1$ of boosting<a class="anchor-link" href="#Round-$1$-of-boosting">¶</a></h3>
 </div>
 </div>
 </div>
@@ -13416,7 +13447,6 @@ $\text{model}_1$ against the data by minimizing</p>
 \begin{equation}
  \frac{1}{P}\sum_{p=1}^{P}\left(\text{model}_0^{\,}\left(\mathbf{x}_p,\Theta_0^{\,}\right) + f_{s_1}\left(\mathbf{x}_p^{\,}\right)w_1   - {y}_{p}^{\,}\right)^{2} =  \frac{1}{P}\sum_{p=1}^{P}\left(w_0^{\star} + f_{s_1}\left(\mathbf{x}_p\right)w_1  - \overset{\,}{y}_{p}^{\,}\right)^{2}
 \end{equation}<p>for every unit $f_{s_1} \in \mathcal{F}$.</p>
-
 </div>
 </div>
 </div>
@@ -13426,22 +13456,20 @@ $\text{model}_1$ against the data by minimizing</p>
 <p>Note that since the bias weight has already been set optimally in the
 previous round we only need tune the weight $w_{1}$ as well as the
 parameters internal to the nonlinear unit $f_{s_1}$. Also note, in particular, that with neural networks all nonlinear units take precisely the same form, and therefore we need not solve $M$ versions of the optimization problem above, one for every unit in $\mathcal{F}$, as we would do when using fixed-shape or tree-based units. Regardless of the type of universal approximator employed, round $1$ of boosting ends upon finding the optimal $f_{s_1}$ and $w_1$, which we denote respectively as $f^{\star}_{s_1}$ and $w^{\star}_1$, and keep fixed moving forward.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Round-$m&gt;1$-of-boosting">Round $m&gt;1$ of boosting<a class="anchor-link" href="#Round-$m&gt;1$-of-boosting">&#182;</a></h3>
+<h3 id="Round-$m&gt;1$-of-boosting">Round $m&gt;1$ of boosting<a class="anchor-link" href="#Round-$m&gt;1$-of-boosting">¶</a></h3>
 </div>
 </div>
 </div>
@@ -13467,14 +13495,13 @@ $f_{s_m}\left(\mathbf{x}\right)w_{m}$ to add to our running model to best lower 
  \end{array}
 \end{equation}<p>over $w_m$, $f_{s_m}$ and its internal parameters (if they exist), which are contained in the parameter set $\Theta_m$.</p>
 <p>Once again with fixed-shape or tree-based approximators, this entails solving $M$ (or $M-m+1$, if we decide to check only those units not used in previous rounds) such optimization problems and choosing the one with smallest training error. With neural networks, since each unit takes the same form, we need only solve one such optimization problem.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="11.5.3-Early-stopping">11.5.3 Early stopping<a class="anchor-link" href="#11.5.3-Early-stopping">&#182;</a></h2>
+<h2 id="11.5.3-Early-stopping">11.5.3 Early stopping<a class="anchor-link" href="#11.5.3-Early-stopping">¶</a></h2>
 </div>
 </div>
 </div>
@@ -13487,14 +13514,13 @@ which gradually increases in nonlinear complexity from $m = 1$ to
 $m = M$, and thus gradually decrease in training error. This gives us fine-grained control in selecting an appropriate model, as the jump in performance in terms of both the training and validation
 errors between subsequent models in this sequence can be quite smooth in the sequence, provided we use low capacity units (as discussed in Section 11.5.1).</p>
 <p>Once boosting is complete we select from our set of models the one that provides the lowest validation error. Alternatively, instead of running all $M+1$ rounds of boosting and deciding on an optimal model after the fact, we can attempt to <em>halt</em> the procedure when the validation error first starts to increase. This concept, referred to as <em>early stopping</em>, leads to a more computationally efficient implementation of boosting, but one needs to be careful in deciding when the validation error has really reached its minimum as it can oscillate up and down multiple times (as mentioned in Section 11.3), and need not take the simple generic form illustrated in the top panel of <a href="#figure-11-32">Figure 11.32</a>.  There is no ultimate solution to this issue - thus ad hoc solutions are typically used in practice when early stopping is employed.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="11.5.4-An-inexpensive-but-effective-enhancement">11.5.4 An inexpensive but effective enhancement<a class="anchor-link" href="#11.5.4-An-inexpensive-but-effective-enhancement">&#182;</a></h2>
+<h2 id="11.5.4-An-inexpensive-but-effective-enhancement">11.5.4 An inexpensive but effective enhancement<a class="anchor-link" href="#11.5.4-An-inexpensive-but-effective-enhancement">¶</a></h2>
 </div>
 </div>
 </div>
@@ -13507,7 +13533,6 @@ errors between subsequent models in this sequence can be quite smooth in the seq
 \label{equation:boosting-round-m-model-version-2}
 \end{equation}<p>This simple adjustment results in greater flexibility and generally better overall performance by allowing units to be adjusted 'vertically' at each round (in the case of regression) at the minimal cost of adding a single variable to each optimization sub-problem.  Note that once tuning is done, the optimal bias weight $w^{\star}_{0, m}$ can be absorbed into the bias weights from previous
 rounds, creating a single bias weight $w^{\star}_{0}+w^{\star}_{0, 1}+\cdots +w^{\star}_{0, m}$ for the entire model.</p>
-
 </div>
 </div>
 </div>
@@ -13540,22 +13565,20 @@ x&lt;s\\
 x&gt;s
 \end{array}\end{cases}
 \end{equation}<p>Expressing the stump in this equivalent manner allows us to see that every stump unit does indeed have its own individual bias parameter, making it redundant to add an individual bias at each round when boosting with stumps (and the same holds for stumps taking in general $N$ dimensional input as well).</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example-11.11:--Boosting-regression-using-stump-units"><span style="color:#a50e3e;">Example 11.11:</span>  Boosting regression using stump units<a class="anchor-link" href="#Example-11.11:--Boosting-regression-using-stump-units">&#182;</a></h4>
+<h4 id="Example-11.11:--Boosting-regression-using-stump-units"><span style="color:#a50e3e;">Example 11.11:</span>  Boosting regression using stump units<a class="anchor-link" href="#Example-11.11:--Boosting-regression-using-stump-units">¶</a></h4>
 </div>
 </div>
 </div>
@@ -13564,88 +13587,33 @@ x&gt;s
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In this example we use a sinusoidal regression dataset consisting of $P=21$ datapoints, and construct a set of $B = 20$ stump
 features for this dataset (see Section 11.2.3). In the animation below we illustrate the result of $M = 100$ rounds of boosting (meaning many of the stumps are used multiple times). We split the dataset into $\frac{2}{3}$ training and $\frac{1}{3}$ validation, which are color-coded in light blue and yellow, respectively. Depicted in the Figure are resulting regression fits and associated training/validation errors for several rounds of boosting.  This example is discussed further in Section 14.5.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## This code cell will not be shown in the HTML version of this notebook</span>
-<span class="c1"># import data</span>
-<span class="n">csvname</span> <span class="o">=</span> <span class="n">datapath</span> <span class="o">+</span> <span class="s1">&#39;noisy_sin_sample.csv&#39;</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">csvname</span><span class="p">,</span><span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:,:]</span> 
 
-<span class="c1"># import booster</span>
-<span class="n">mylib</span> <span class="o">=</span> <span class="n">nonlib</span><span class="o">.</span><span class="n">intro_boost_library</span><span class="o">.</span><span class="n">stump_booster</span><span class="o">.</span><span class="n">Setup</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-
-<span class="c1"># choose normalizer</span>
-<span class="n">mylib</span><span class="o">.</span><span class="n">choose_normalizer</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;standard&#39;</span><span class="p">)</span>
-
-<span class="c1"># pick training set</span>
-<span class="n">mylib</span><span class="o">.</span><span class="n">make_train_valid_split</span><span class="p">(</span><span class="n">train_portion</span><span class="o">=</span><span class="mf">0.66</span><span class="p">)</span>
-
-<span class="c1"># choose cost|</span>
-<span class="n">mylib</span><span class="o">.</span><span class="n">choose_cost</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;least_squares&#39;</span><span class="p">)</span>
-
-<span class="c1"># choose optimizer</span>
-<span class="n">mylib</span><span class="o">.</span><span class="n">choose_optimizer</span><span class="p">(</span><span class="s1">&#39;newtons_method&#39;</span><span class="p">,</span><span class="n">max_its</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="c1"># run boosting</span>
-<span class="n">mylib</span><span class="o">.</span><span class="n">boost</span><span class="p">(</span><span class="mi">51</span><span class="p">)</span>
-
-<span class="c1"># produce animation</span>
-<span class="n">csvname</span> <span class="o">=</span> <span class="n">datapath</span> <span class="o">+</span> <span class="s1">&#39;noisy_sin_sample.csv&#39;</span>
-<span class="n">frames</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="n">anim</span> <span class="o">=</span> <span class="n">nonlib</span><span class="o">.</span><span class="n">boosting_regression_animators</span><span class="o">.</span><span class="n">Visualizer</span><span class="p">(</span><span class="n">csvname</span><span class="p">)</span>
-<span class="n">savepath</span> <span class="o">=</span> <span class="s1">&#39;videos/animation_7.mp4&#39;</span>
-<span class="n">anim</span><span class="o">.</span><span class="n">animate_trainval_boosting</span><span class="p">(</span><span class="n">savepath</span><span class="p">,</span><span class="n">mylib</span><span class="p">,</span><span class="n">frames</span><span class="p">,</span><span class="n">fps</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-
-<span class="c1"># load in video and display</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
-<span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">&lt;video width=&quot;1000&quot; height=&quot;500&quot; controls loop&gt;</span>
-<span class="s2">  &lt;source src=&quot;videos/animation_7.mp4&quot; type=&quot;video/mp4&quot;&gt;</span>
-<span class="s2">  &lt;/video&gt;</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt output_prompt">Out[18]:</div>
-
-
-
+<div class="prompt output_prompt">Out[3]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
-
-<video width="1000" height="500" controls loop>
-  <source src="videos/animation_7.mp4" type="video/mp4">
-  </video>
-
-</div>
-
-</div>
-
+<video controls="" height="400" loop="" width="800">
+<source src="videos/animation_7.mp4" type="video/mp4">
+</source></video>
 </div>
 </div>
-
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="11.5.5-Similarity-to-feature-selection">11.5.5 Similarity to feature selection<a class="anchor-link" href="#11.5.5-Similarity-to-feature-selection">&#182;</a></h2>
+<h2 id="11.5.5-Similarity-to-feature-selection">11.5.5 Similarity to feature selection<a class="anchor-link" href="#11.5.5-Similarity-to-feature-selection">¶</a></h2>
 </div>
 </div>
 </div>
@@ -13658,14 +13626,13 @@ cross-validation, can occur together, albeit typically in the context
 of linear modeling as detailed in <a href="https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_6_Boosting.html">Section 9.6</a>. Often in such instances
 cross-validation is used with a linear model as a way of automatically
 selecting an appropriate number of features, with human interpretation of the resulting selected features still in mind. On the other hand, rarely is feature selection done when employing a nonlinear model based on features from a universal approximator due to the great difficulty in the human interpret-ability of nonlinear features. The rare exception to this rule is when using tree-based units which, due to their simple structure, can in particular instances be readily interpreted by humans.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="11.5.6-The-residual-perspective-with-regression">11.5.6 The residual perspective with regression<a class="anchor-link" href="#11.5.6-The-residual-perspective-with-regression">&#182;</a></h2>
+<h2 id="11.5.6-The-residual-perspective-with-regression">11.5.6 The residual perspective with regression<a class="anchor-link" href="#11.5.6-The-residual-perspective-with-regression">¶</a></h2>
 </div>
 </div>
 </div>
@@ -13690,22 +13657,20 @@ single additional unit so that</p>
 \begin{equation}
 f_m^{\,}\left(\mathbf{x}_p\right)w_m^{\,}\approx y_p^{\,} - \text{model}_{m-1}^{\,}\left(\mathbf{x}_p^{\,}\right)
 \end{equation}<p>for all $p$, or in other words, so that this fully tuned unit approximates our original output $y_p$ minus the contribution of the previous model. This quantity, the difference between our original output and the contribution of the $\left(m-1\right)^{th}$ model, is often called the <em>residual</em>: it is what is left to represent after subtracting off what was learned by the $\left(m-1\right)^{th}$ model.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example-11.13:--Boosting-regression-and-the-'fitting-to-the-residual'-perspective'"><span style="color:#a50e3e;">Example 11.13:</span>  Boosting regression and the 'fitting to the residual' perspective'<a class="anchor-link" href="#Example-11.13:--Boosting-regression-and-the-'fitting-to-the-residual'-perspective'">&#182;</a></h4>
+<h4 id="Example-11.13:--Boosting-regression-and-the-'fitting-to-the-residual'-perspective'"><span style="color:#a50e3e;">Example 11.13:</span>  Boosting regression and the 'fitting to the residual' perspective'<a class="anchor-link" href="#Example-11.13:--Boosting-regression-and-the-'fitting-to-the-residual'-perspective'">¶</a></h4>
 </div>
 </div>
 </div>
@@ -13713,118 +13678,40 @@ f_m^{\,}\left(\mathbf{x}_p\right)w_m^{\,}\approx y_p^{\,} - \text{model}_{m-1}^{
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In the animation below we illustrate the process of boosting $M = 5000$ single-layer $\texttt{tanh}$ units to a toy regression dataset. In the top panels we show the dataset along with the fit provided by $\text{model}_m$ at the $m^{th}$ step of boosting for select values of $m$. In the corresponding bottom panels we plot the <em>residual</em> at the same step, as well as the fit provided by the corresponding $m^{th}$ unit $f_m$. As boosting progresses, the fit on the original data improves while (simultaneously) the residual shrinks.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## This code cell will not be shown in the HTML version of this notebook</span>
-<span class="kn">import</span> <span class="nn">copy</span>
-<span class="c1"># load in dataset</span>
-<span class="n">csvname</span> <span class="o">=</span> <span class="n">datapath</span> <span class="o">+</span> <span class="s1">&#39;noisy_sin_sample.csv&#39;</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">csvname</span><span class="p">,</span><span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:])</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:,:]</span> <span class="p">)</span>
 
-<span class="c1"># boosting procedure</span>
-<span class="n">num_units</span> <span class="o">=</span> <span class="mi">15</span>
-<span class="n">runs2</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_units</span><span class="p">):</span>    
-    <span class="c1"># import the v1 library</span>
-    <span class="n">mylib2</span> <span class="o">=</span> <span class="n">nonlib</span><span class="o">.</span><span class="n">intro_boost_library</span><span class="o">.</span><span class="n">net_booster</span><span class="o">.</span><span class="n">Setup</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-    
-    <span class="c1"># choose normalizer</span>
-    <span class="n">mylib2</span><span class="o">.</span><span class="n">choose_normalizer</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;standard&#39;</span><span class="p">)</span>
-
-    <span class="c1"># choose normalizer</span>
-    <span class="n">mylib2</span><span class="o">.</span><span class="n">make_train_valid_split</span><span class="p">(</span><span class="n">train_portion</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-
-    <span class="c1"># choose cost</span>
-    <span class="n">mylib2</span><span class="o">.</span><span class="n">choose_cost</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;least_squares&#39;</span><span class="p">)</span>
-
-    <span class="c1"># choose optimizer</span>
-    <span class="n">mylib2</span><span class="o">.</span><span class="n">choose_optimizer</span><span class="p">(</span><span class="s1">&#39;gradient_descent&#39;</span><span class="p">,</span><span class="n">max_its</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span><span class="n">alpha_choice</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-    
-    <span class="c1"># choose activation </span>
-    <span class="n">mylib2</span><span class="o">.</span><span class="n">choose_activation</span><span class="p">(</span><span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;relu&#39;</span><span class="p">)</span>
-    
-    <span class="c1"># run boosting</span>
-    <span class="n">mylib2</span><span class="o">.</span><span class="n">boost</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">mylib2</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">mylib2</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-    <span class="c1"># add model to list</span>
-    <span class="n">runs2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">mylib2</span><span class="p">))</span>
-    
-    <span class="c1"># cut off output given model</span>
-    <span class="n">normalizer</span> <span class="o">=</span> <span class="n">mylib2</span><span class="o">.</span><span class="n">normalizer</span>
-    <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">mylib2</span><span class="o">.</span><span class="n">train_cost_vals</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">y_pred</span> <span class="o">=</span>  <span class="n">mylib2</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">](</span><span class="n">mylib2</span><span class="o">.</span><span class="n">normalizer</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-    <span class="n">y</span> <span class="o">-=</span> <span class="n">y_pred</span>
-
-<span class="c1"># animate the business</span>
-<span class="n">frames</span> <span class="o">=</span> <span class="n">num_units</span>
-<span class="n">demo2</span> <span class="o">=</span> <span class="n">nonlib</span><span class="o">.</span><span class="n">boosting_regression_animators_v3</span><span class="o">.</span><span class="n">Visualizer</span><span class="p">(</span><span class="n">csvname</span><span class="p">)</span>
-<span class="n">savepath</span><span class="o">=</span><span class="s1">&#39;videos/animation_9.mp4&#39;</span>
-<span class="n">demo2</span><span class="o">.</span><span class="n">animate_boosting</span><span class="p">(</span><span class="n">savepath</span><span class="p">,</span><span class="n">runs2</span><span class="p">,</span><span class="n">frames</span><span class="p">,</span><span class="n">fps</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="c1"># load in video and display</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
-<span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">&lt;video width=&quot;1000&quot; height=&quot;500&quot; controls loop&gt;</span>
-<span class="s2">  &lt;source src=&quot;videos/animation_9.mp4&quot; type=&quot;video/mp4&quot;&gt;</span>
-<span class="s2">  &lt;/video&gt;</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt output_prompt">Out[10]:</div>
-
-
-
+<div class="prompt output_prompt">Out[4]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
-
-<video width="1000" height="500" controls loop>
-  <source src="videos/animation_9.mp4" type="video/mp4">
-  </video>
-
-</div>
-
-</div>
-
+<video controls="" height="400" loop="" width="800">
+<source src="videos/animation_9.mp4" type="video/mp4">
+</source></video>
 </div>
 </div>
-
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
-    </div>
-  </div>
+</div>
+</div>
 </body>
-
- 
-
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script>
-
-
 </html>

@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8" />
-
-<title>11_6_Regularization</title>
-
+<head><meta charset="utf-8"/>
+<title>11.6 Efficient cross-validation via regularization</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
 <script>
 (function() {
   function addWidgetsRenderer() {
@@ -31,7 +28,6 @@
   document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
 }());
 </script>
-
 <style type="text/css">
     /*!
 *
@@ -13079,8 +13075,6 @@ ul.typeahead-list  > li > a.pull-right {
 .ansi-bold { font-weight: bold; }
 
     </style>
-
-
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
 body {
@@ -13106,16 +13100,19 @@ div#notebook {
   }
 }
 </style>
-
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
-<link rel="stylesheet" href="custom.css">
-
+<link href="custom.css" rel="stylesheet"/>
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+<!-- MathJax configuration -->
+<meta content="11.6 Efficient cross-validation via regularization" property="og:title"/>
+<meta content="https://github.com/jermwatt/machine_learning_refined/blob/gh-pages/html/pics/meta.png" property="og:image"/>
+<meta content="https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_6_Regularization.html" property="og:url"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
+    	TeX: { equationNumbers: { autoNumber: "AMS" } },
         tex2jax: {
             inlineMath: [ ['$','$'], ["\\(","\\)"] ],
             displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
@@ -13126,27 +13123,100 @@ div#notebook {
         // we use CSS to left justify single line equations in code cells.
         displayAlign: 'center',
         "HTML-CSS": {
+            availableFonts: ["TeX"],
+            preferredFont: "TeX",
             styles: {'.MathJax_Display': {"margin": 0}},
             linebreaks: { automatic: true }
         }
     });
     </script>
-    <!-- End of mathjax configuration --></head>
+<link href="../../html/CSS/custom.css" rel="stylesheet"/>
+<style>
+        p {
+            text-align: justify !important;
+            text-justify: inter-word !important;
+        }
+    </style>
+<!-- End of mathjax configuration --></head>
 <body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
+<!-- uncomment to add back menu
+<div style="text-align:center !important; padding-top:58px;">
 
+				<a href="../../../index.html" style="font-family: inherit; font-weight: 200; letter-spacing: 1.5px; color: #222; font-size: 97%;">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../about.html" style="font-family: inherit; font-weight: 200; letter-spacing: 1.5px; color: #222; font-size: 97%;">ABOUT</a>
+
+
+</div> -->
+<br/><br/><br/>
+<!-- share buttons -->
+<div style="width: 63%; margin:auto;">
+<div id="1" style="width: 70%; float:left;">
+<span style="color:black; font-family:'lato', sans-serif; font-size: 18px;">code</span>
+<div style="width: 95px; border-bottom: solid 1px; border-color:black;">
+<div class="logo-share"></div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- github -->
+<a href="https://github.com/jermwatt/machine_learning_refined" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/github.png';" onmouseover="this.src='../../html/pics/github_filled.png';" src="../../html/pics/github.png" width="28"/>
+</a>
+</div>
+</div>
+</div>
+<div id="2" style="width: 30%; float:left;">
+<span style="color:black; font-family:'lato', sans-serif; font-size: 18px;">share</span>
+<div style="width: 280px; border-bottom: solid 1px; border-color:black;">
+<div class="logo-share"></div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- linkedin -->
+<a href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F11_Feature_learning%2F11_6_Regularization.html" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/linkedin.png';" onmouseover="this.src='../../html/pics/linkedin_filled.png';" src="../../html/pics/linkedin.png" width="28"/>
+</a>
+</div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- twitter -->
+<a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F11_Feature_learning%2F11_6_Regularization.html" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/twitter.png';" onmouseover="this.src='../../html/pics/twitter_filled.png';" src="../../html/pics/twitter.png" width="28"/>
+</a>
+</div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- facebook -->
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F11_Feature_learning%2F11_6_Regularization.html" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/facebook.png';" onmouseover="this.src='../../html/pics/facebook_filled.png';" src="../../html/pics/facebook.png" width="28"/>
+</a>
+</div>
+<div class="logo-share"></div>
+<div class="logo-share">
+<!-- reddit -->
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F11_Feature_learning%2F11_6_Regularization.html" target="_blank">
+<img height="28" onmouseout="this.src='../../html/pics/reddit.png';" onmouseover="this.src='../../html/pics/reddit_filled.png';" src="../../html/pics/reddit.png" width="28"/>
+</a>
+</div>
+</div>
+</div>
+</div>
+<br/><br/>
+<div class="page-title" style="text-align: center !important;">
+<div><a href="https://github.com/jermwatt/machine_learning_refined" style="text-decoration: none" target="_blank"><button class="btn-star">★ Our Project On GitHub</button></a></div>
+<br/><br/>
+<mark style="padding: 0px; background-color: #f9f3c2;">11.6 Efficient cross-validation via regularization</mark>
+</div>
+<br/>
+<div class="border-box-sizing" id="notebook" tabindex="-1">
+<div class="container" id="notebook-container">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-11:-Principles-of-Feature-Learning">Chapter 11: Principles of Feature Learning<a class="anchor-link" href="#Chapter-11:-Principles-of-Feature-Learning">&#182;</a></h2>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="11.6-Efficient-cross-validation-via-regularization">11.6 Efficient cross-validation via regularization<a class="anchor-link" href="#11.6-Efficient-cross-validation-via-regularization">&#182;</a></h1>
+
 </div>
 </div>
 </div>
@@ -13154,45 +13224,21 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In the previous Section we saw how with boosting based cross-validation we automatically learn the proper level of model complexity for a given dataset by optimizing a general high capacity model one unit at-a-time.   In this Section we introduce what are collectively referred to as <em>regularization</em> techniques for efficient cross-validation.  With this set of approaches we once again start with a single high capacity model, and once again adjust its complexity with respect to a training dataset via careful optimization.  However, with regularization we tune all of the units <em>simultaneously</em>, controlling how well we <em>optimize</em> its associated cost so that a minimum validation instance of the model is achieved.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## This code cell will not be shown in the HTML version of this notebook</span>
-<span class="c1"># imports from custom library</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../../&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">autograd.numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">mlrefined_libraries</span> <span class="k">import</span> <span class="n">nonlinear_superlearn_library</span> <span class="k">as</span> <span class="n">nonlib</span>
-<span class="n">datapath</span> <span class="o">=</span> <span class="s1">&#39;../../mlrefined_datasets/nonlinear_superlearn_datasets/&#39;</span>
 
-<span class="c1"># plotting tools</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
-
-<span class="c1"># this is needed to compensate for %matplotlib notebook&#39;s tendancy to blow up images when plotted inline</span>
-<span class="o">%</span><span class="k">matplotlib</span> notebook
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">rcParams</span>
-<span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.autolayout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="o">%</span><span class="k">load_ext</span> autoreload
-<span class="o">%</span><span class="k">autoreload</span> 2
-</pre></div>
-
-    </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="11.6.1-Regularization-techniques:-the-big-picture">11.6.1 Regularization techniques: the big picture<a class="anchor-link" href="#11.6.1-Regularization-techniques:-the-big-picture">&#182;</a></h2>
+<h2 id="11.6.1-Regularization-techniques:-the-big-picture">11.6.1 Regularization techniques: the big picture<a class="anchor-link" href="#11.6.1-Regularization-techniques:-the-big-picture">¶</a></h2>
 </div>
 </div>
 </div>
@@ -13205,25 +13251,23 @@ div#notebook {
 \label{equation:regularization-original-construct}
 \end{equation}<p>Suppose then that we partition this data into training and validation portions, and then train our high capacity model by <em>completely</em> optimizing the Least Squares cost over the training portion of the data.  In other words, we determine a set of parameters for our high capacity model that lie very close to a global minimum of its associated cost function.  In the top-right panel of the Figure we draw a hypothetical two dimensional illustration of the cost function associated with our high capacity model over the training data, denoting the global minimum by a blue dot and its evaluation on the function by a blue 'x'.</p>
 <p>Since our model has high capacity, the resulting fit provided by the parameters lying at the global minimum of our cost will produce a tuned model that is overly complex and <em>severely</em> overfits the training portion of our dataset.  In the bottom-left panel of the <a href="#figure-11-37">Figure 11.37</a> we show the tuned model fit (in blue) provided by such a set of parameters, which wildly overfits the training data.  In the top-right panel we also show a set of parameters lying relatively near the global minimum as a yellow dot, and whose evaluation of the function is shown as a yellow 'x'.  This set of parameters lying in the general neighborhood of the global minimum is where the cost function is minimized over the <em>validation</em> portion of our data.  Because of this the corresponding fit (shown in the bottom-right panel in yellow) provides a much better representation of the data.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='figure-11-37'></a></p>
+<p><a id="figure-11-37"></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_37.png' width="60%"  alt=""/>
+<img alt="" src="../../mlrefined_images/nonlinear_superlearn_images/Figure_11_37.png" width="70%"/>
 </p>
 <figcaption> <strong>Figure: 11.37 </strong> <em> 
 (top row) (top-left panel) A generic nonlinear regression dataset. (top-right panel) A figurative illustration of the cost function associated with a high capacity model over the training portion of this data.  The global minimum is marked here with a blue dot (along with its evaluation by a blue 'x') and a point nearby is marked in yellow (and whose evaluation is shown as a yellow 'x').  (bottom-left panel) The original data and fit (in blue) provided by the model using parameters from the global minimum of the cost function severely overfits the training portion of the data.  (bottom-right panel)  A fit provided by the parameters corresponding to the yellow dot shown in the top-right panel minimize the cost function over the validation portion of the data, and here provide a much better fit (in yellow) to the data.  See text for further details.
@@ -13236,8 +13280,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
@@ -13246,14 +13289,13 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This toy example is illustrative of a more general principal we have seen earlier in Section 11.3.2: that overfitting is due both to the <em>capacity</em> of an un-tuned model being too high <em>and</em> its corresponding cost function (over the training data) being <em>optimized</em> too well, leading to an overly complex tuned model.  Conversely, if we use a high capacity model and minimize its cost function (over the training data) the best set of parameters are those that provide minimum error over the validation portion of the data.</p>
 <p>This phenomenon holds true for all machine learning problems (including regression, classification, and unsupervised learning techniques like the Autoencoder) and is the motivation for general regularization-based cross-validation strategies: if proper optimization of <em>all parameters</em> of a high capacity model leads to overfitting, it can be avoided by optimizing said model <em>imperfectly</em> when validation error (not training error) is at its lowest. In other words, <em>regularization</em> in the context of cross-validation constitutes a set of approaches to cross-validation wherein we carefully tune all parameters of a high capacity model by setting them purposefully away from the global minima of its associated cost function.   This can be done in a variety of ways, and we detail the two most popular approaches below.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="11.6.2-Early-stopping-based-regularization">11.6.2 Early stopping based regularization<a class="anchor-link" href="#11.6.2-Early-stopping-based-regularization">&#182;</a></h2>
+<h2 id="11.6.2-Early-stopping-based-regularization">11.6.2 Early stopping based regularization<a class="anchor-link" href="#11.6.2-Early-stopping-based-regularization">¶</a></h2>
 </div>
 </div>
 </div>
@@ -13262,15 +13304,13 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>With <em>early stopping regularization</em> we properly tune a high capacity model by making a run of local optimization (tuning all parameters of the model), and by using the set of weights from this run where the model achieves minimum validation error.  This idea is illustrated in the left panel of <a href="#figure-11-38">Figure 11.38</a> where we employ the same prototypical cost function (associated with a high capacity model) first shown in the top-right panel of <a href="#figure-11-38">Figure 11.38</a>.  Here again we mark its global minimum and set of validation error minimizing weights in blue and yellow, respectively (as detailed originally in <a href="#figure-11-37">Figure 11.37</a>. During a run of local optimization we frequently compute training and validation errors (e.g., at each step of the optimization procedure). Thus, depending on the optimization procedure used (as detailed further below) a set of weights providing minimum validation error for a high capacity model can be determined with fine resolution.</p>
 <p>This regularization approach is especially popular when employing high capacity deep neural network models as detailed in Section 13.7.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
@@ -13279,7 +13319,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_38.png' width="80%"  alt=""/>
+<img alt="" src="../../mlrefined_images/nonlinear_superlearn_images/Figure_11_38.png" width="90%"/>
 </p>
 <figcaption> <strong>Figure: 11.38 </strong> <em> 
 (left panel) A figurative illustration of early stopping regularization applied to a prototypical cost function of a high capacity model.  We make a run of optimization - here shown to completion at the global minimum in blue - and choose the set of weights that provide a minimum validation error (shown in yellow).  (right panel) A figurative illustration of regularizer based regularization.  By adding a regularizer function to the cost associated of a high capacity model we change its shape, in particular dragging its global minima (here only one global minimum is shown) where overfitting behavior occurs away from their original location(s).  The regularized cost function can then be completely minimized to recover weights as close to / far away from the true global minima of the original cost function, depending on the choice of the regularization parameter.  This also allows for the recovery of validation error minimizing weights (by proper setting of the regularization parameter).  See text for further details.
@@ -13292,8 +13332,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
@@ -13302,25 +13341,23 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Whether or not one literally stops the optimization run when minimum validation error has been reached (which can be challenging in practice given the somewhat unpredictable behavior of validation error as first noted in Section 11.4) or one runs the optimization to completion (picking the best set of weights afterwards), in either case we refer to this method as early stopping regularization.  Note that the method itself is analogous to the early stopping procedure outlined for boosting based cross-validation in Section 11.5 in that we sequentially increase the complexity of a model until minimum validation is reached.   However, here (unlike boosting) we do this by controlling how well we optimize a model's parameters <em>simultaneously</em>, as opposed to one unit at-a-time.</p>
 <p>Supposing that we begin our optimization with a small initial value (which we typically do; see for example, Section 3.6) the corresponding training and validation error curves will in general\footnote{Note that both can oscillate in practice depending on the optimization method used.} look like those shown in top panel of <a href="#figure-11-38">Figure 11.38</a>. At the start of the run the complexity of our model (evaluated at, for instance, the initial weights) is quite small, providing a large training and validation error.  As minimization proceeds, and we continue optimizing one step at-a-time, error in both training and validation portions of the data decreases while the complexity of the tuned model increases.  This trend continues up until a point when the model complexity becomes too great and overfitting begins, and validation error increases.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='figure-11-39'></a></p>
+<p><a id="figure-11-39"></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_39.png' width="70%"  alt=""/>
+<img alt="" src="../../mlrefined_images/nonlinear_superlearn_images/Figure_11_39.png" width="85%"/>
 </p>
 <figcaption> <strong>Figure: 11.39 </strong> <em> 
 (top panel) A prototypical pair of training / validation error curves associated with a generic run of the early stopping regularization.  (bottom-left and bottom-right panel) With early stopping we set our capacity dial all the way to the right and our optimization dial all the way to the left.  We then slowly move our optimization dial from left to right, iteratively improving the fit of our of model to the training data, adjusting all of its parameters simultaneously one step at-a-time.  As each step of optimization progresses we slowly turn the optimization dial clockwise from left to right, gradually increasing the complexity of our tuned model, in search of a tuned model with minimum validation error.  Here each notch on the optimization dial abstractly denotes a step of local optimization. See text for further details.
@@ -13333,8 +13370,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
@@ -13343,25 +13379,23 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In terms of the capacity/optimization dial scheme detailed in the context of real data in Section 11.3.2, we can think of (early stopping based) regularization as beginning with our capacity dial set all the way to the right (since we employ a high capacity model) and our optimization dial all the way to the left (at the initialization of our optimization).  With this configuration - summarized visually in the bottom panel of <a href="#figure-11-39">Figure 11.39</a> - we allow our optimization dial to (roughly speaking) directly govern the amount of complexity our tuned models can take (here each notch on the optimization dial denotes a single step of local optimization).  In other words, with this configuration our optimization dial becomes (roughly speaking) the ideal complexity dial described at the start of the Chapter in Section 11.1.  With early stopping we turn our optimization dial from left to right, starting at our initialization making a run of local optimization one step at-a-time, seeking out a set of parameters that provide minimum validation error for our (high capacity) model.  This is illustrated in the bottom panels of Figure 11.39, where we see our capacity dial set all the way to the right and our generic validation error curve wrapped around our optimization dial (as it now, roughly speaking, controls the complexity of each tuned model).</p>
 <p>With an initial set of parameters $\Theta_0$, taking $M$ steps of a local optimization produces a sequence of $M+1$ parameter settings $\left\{\Theta_m\right\}_{m=0}^M$ for our model, or similarly (ignoring the initialization for the sake of illustration) a set of $M$ models of generally <em>increasing</em> complexity with respect to the training data $\left\{\text{model}\left(\textbf{x},\Theta_m\right)\right\}_{m=1}^M$.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='figure-11-40'></a></p>
+<p><a id="figure-11-40"></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_40.png' width="90%"  alt=""/>
+<img alt="" src="../../mlrefined_images/nonlinear_superlearn_images/Figure_11_40.png" width="90%"/>
 </p>
 <figcaption> <strong>Figure: 11.40 </strong> <em> 
 Two subtleties associated with early stopping based regularization.  (top row) (left panel) A prototypical cost function associated with a high capacity model, with two optimization paths (shown in red and green, respectively) resulting from two local optimization runs beginning at different starting points.  (middle panel) The validation error histories corresponding to each optimization run.  (right panel) While each run produces a different set of optimal weights, and a different fit to the data (here shown in green and red respectively, corresponding to each run), these fits are generally equally representative.  (bottom row) (left panel) Taking optimization steps with a small steplength makes the early stopping procedure a fine-resolution search for optimal model complexity.  With such small steps we smoothly turn the optimization dial from left to right in search of a validation error minimizing tuned model.  (right panel)  Using steps with a large steplength makes early stopping a coarse resolution search for optimal model complexity.  With each step taken we aggressively turn the dial from left to right, performing a coarser resolution model search that potentially skips over the optimal model.
@@ -13374,8 +13408,7 @@ Two subtleties associated with early stopping based regularization.  (top row) (
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
@@ -13384,7 +13417,6 @@ Two subtleties associated with early stopping based regularization.  (top row) (
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>There are a number of important engineering details associated with
 implementing an effective early stopping regularization procedure, including the following:</p>
-
 </div>
 </div>
 </div>
@@ -13403,22 +13435,20 @@ implementing an effective early stopping regularization procedure, including the
 <ul>
 <li><strong>When is validation error really at its lowest?</strong> While generally speaking validation error decreases at the start of an optimization run and eventually increases (making somewhat of a 'U' shape - as depicted in <a href="#figure-11-39">Figure 11.39</a>) it can certainly fluctuate up and down during optimization.  Therefore it is not all together obvious when the validation error has indeed reached its lowest point unless the optimization process is performed to completion. To deal with this peculiarity, often in practice a reasonable engineering choice is made as to when to stop based on how long it has been since the validation error has <em>not</em> decreased.  Moreover, as mentioned earlier, one need not truly halt a local optimization procedure to employ the thrust of early stopping, and can simply run the optimizer to completion and select the best set of weights from the run (that minimize validation error) after completion.  </li>
 </ul>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="11.6.3-Regularizer-based-regularization-methods">11.6.3 Regularizer based regularization methods<a class="anchor-link" href="#11.6.3-Regularizer-based-regularization-methods">&#182;</a></h2>
+<h2 id="11.6.3-Regularizer-based-regularization-methods">11.6.3 Regularizer based regularization methods<a class="anchor-link" href="#11.6.3-Regularizer-based-regularization-methods">¶</a></h2>
 </div>
 </div>
 </div>
@@ -13431,25 +13461,23 @@ implementing an effective early stopping regularization procedure, including the
     g\left(\Theta \right) + \lambda h\left(\Theta\right)
     \label{equation:cross-validation-general-regularized-cost}
 \end{equation}<p>where $\lambda$ is referred to as the <em>regularization parameter</em>.  The regularization parameter is always non-negative $\lambda \geq 0$ and controls the mixture of the cost and regularizer.  When it is set small and close to zero $\lambda \approx 0$ the regularized cost is essentially just $g$, and conversely when set very large the regularizer $h$ dominates in the linear combination (and so upon minimization we are really just minimizing it alone). In the right panel of <a href="#figure-11-38">Figure 11.38</a> we show how the shape of a figurative regularized cost (and consequently the location of its minima) changes with the value of $\lambda$.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='figure-11-41'></a></p>
+<p><a id="figure-11-41"></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_41.png' width="75%"  alt=""/>
+<img alt="" src="../../mlrefined_images/nonlinear_superlearn_images/Figure_11_41.png" width="75%"/>
 </p>
 <figcaption> <strong>Figure: 11.41 </strong> <em> 
 (top panel) A prototypical pair of training / validation error curves associated with a generic run of regularizer based cross-validation.  (bottom-left and bottom-right panel) With regularizer based cross-validation we set our capacity dial all the way to the right and our optimization dial all the way to the left beginning with a large value for $\lambda$ our regularization parameter.  We then slowly move our optimization dial from left to right by decreasing the value of $\lambda$, where here each notch on the optimization dial represents the complete minimization of the corresponding regularized cost function, improving the fit our of model to the training data.  By adjusting the value of $\lambda$ (and completely minimizing each corresponding regularized cost) we slowly turn the optimization dial clockwise from left to right, gradually increasing the complexity of our tuned model, in search of a tuned model with minimum validation error.  See text for further details.
@@ -13462,8 +13490,7 @@ implementing an effective early stopping regularization procedure, including the
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
@@ -13473,25 +13500,23 @@ implementing an effective early stopping regularization procedure, including the
 <p>Supposing that we begin with a large value of $\lambda$ and try progressively smaller values (completely optimizing each regularized cost) - the corresponding training and validation error curves will in general look something like those shown in the top panel of <a href="#figure-11-41">Figure 11.41</a> (remember in practice that <em>validation error</em> can oscillate, and need not take just one dip down). At the start of this procedure, using a large value of $\lambda$, the complexity of our model is quite small as the regularizer completely dominated in the regularized cost, and thus the associated minimum recovered belongs to the regularizer and not the cost function itself.  Since the set of weights is virtually unrelated to the data we are training over the corresponding model will tend to have large training and validation errors.  As $\lambda$ is decreased the parameters provided by complete minimization of the regularized cost will be closer to the global minima of the original cost itself, and so error on both training and validation portions of the data decreases while (generally speaking) the complexity of the tuned model increases.  This trend continues up until a point when the regularization parameter is small enough that the recovered parameters lie too close to that of the original cost, so that the corresponding model complexity becomes too great.  Here overfitting begins and validation error increases.</p>
 <p>In terms of the capacity/optimization dial scheme detailed in the context of real data in Section 11.3.2, we can think of (regularizer-based) regularization as beginning with our capacity dial set to the <em>right</em> (since we employ a high capacity model) and our optimization dial all the way to the <em>left</em> (employing a large value for $\lambda$ in our regularized cost).  Here each notch on the optimization dial represents the complete minimization of the regularized cost function) for a given value of $\lambda$ - thus when the dial is turned all the way to the right (where $\lambda = 0$) we completely minimize the original cost.  With this configuration (summarized visually in the bottom panel of Figure 11.41) we allow our optimization dial to (roughly speaking) directly govern the amount of complexity our tuned models can take (here each setting of the capacity dial defines a model and each setting of the optimization dial a set of parameters of that model).  As we turn our optimization dial from left to right we <em>decrease</em> the value of $\lambda$ and <em>completely minimize</em> the corresponding regularized cost, seeking out a set of parameters that provide minimum validation error for our (high capacity) model.  This is illustrated in the bottom panels of <a href="#figure-11-41">Figure 11.41</a>, where we see our capacity dial set all the way to the right and our generic validation error curve wrapped around our optimization dial (as it now, roughly speaking, controls the complexity of each tuned model).</p>
 <p>With an set of $M$ values $\left\{\lambda_m\right\}_{m=1}^M$ for our regularization parameter $\lambda$, sorted from <em>largest to smallest</em> ($\lambda_1$ being the largest value chosen and $\lambda_M$ the smallest) this scheme produces a sequence of $M$ parameter settings $\left\{\Theta_m\right\}_{m=1}^M$ and corresponding models $\left\{\text{model}\left(\textbf{x},\Theta_m\right)\right\}_{m=1}^M$ of generally <em>increasing</em> complexity. Thus, formally speaking, we can see regularizer based regularization stopping falls into the general category of cross-validation techniques outlined in Section 11.4.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='figure-11-42'></a></p>
+<p><a id="figure-11-42"></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_42.png' width="90%"  alt=""/>
+<img alt="" src="../../mlrefined_images/nonlinear_superlearn_images/Figure_11_42.png" width="90%"/>
 </p>
 <figcaption> <strong>Figure: 11.42 </strong> <em> 
 (top row) A visual depiction of where the $\ell_2$ (left panel), $\ell_1$ (middle panel), and total variation (right panel) functions pull global minima when used as a regularizer.  These functions pull global minima towards the origin, the coordinate axes, and diagonal lines where consecutive entries are equal, respectively.  (bottom row)  (left panel) Testing out a large range and number of values for the regularization parameter $\lambda$ results in a fine resolution search for validation error minimizing weights. (right panel) A smaller number or a poorly chosen range of values can result in a coarse search that can skip over ideal weights.  See text for further details.
@@ -13504,8 +13529,7 @@ implementing an effective early stopping regularization procedure, including the
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
@@ -13523,7 +13547,6 @@ implementing an effective regularizer based regularization procedure, including 
 <ul>
 <li><strong>Choosing the range of $\lambda$ values.</strong> Analogously to what we saw with early stopping and boosting procedures previously, with regularization we want to perform our search as carefully as possible, turning our optimization dial as smoothly from right to left in search of our perfect model.   This desire translates directly to both the range and number of values  $\left\{\lambda_m\right\}_{m=1}^{M}$ that we test out, e.g., the higher the resolution (the more values we try within a given range) the smoother we turn our cross-validation dial from right to left (as depicted visually in the bottom-left panel of <a href="#figure-11-42">Figure 11.42</a>).   The limit on how many values we can try is often limited by computation and time restrictions, since <em>for every value of $\lambda$ tried a complete minimization of a corresponding regularized cost function must be performed</em>.  This can make regularizer based cross-validation very computationally expensive.  On the other hand, trying too few of values can result in a coarse search for weights providing minimum validation error, increasing the possibility that such weights are skipped over entirely (as depicted in the bottom-right panel of <a href="#figure-11-42">Figure 11.42</a>).</li>
 </ul>
-
 </div>
 </div>
 </div>
@@ -13531,22 +13554,20 @@ implementing an effective regularizer based regularization procedure, including 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Below we illustrate the use of regularizer based regularization on a simple example.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
+<hr/>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example-11.14:---Tuning-a-regularization-parameter-for-regression"><span style="color:#a50e3e;">Example 11.14:</span>   Tuning a regularization parameter for regression<a class="anchor-link" href="#Example-11.14:---Tuning-a-regularization-parameter-for-regression">&#182;</a></h4>
+<h4 id="Example-11.14:---Tuning-a-regularization-parameter-for-regression"><span style="color:#a50e3e;">Example 11.14:</span>   Tuning a regularization parameter for regression<a class="anchor-link" href="#Example-11.14:---Tuning-a-regularization-parameter-for-regression">¶</a></h4>
 </div>
 </div>
 </div>
@@ -13554,129 +13575,40 @@ implementing an effective regularizer based regularization procedure, including 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In this example we use a quadratic regularizer to fit a proper nonlinear regression to our toy sinusoidal dataset.  Here the training set is shown colored in light blue, and the validation points are shown colored yellow. We use a high capacity model (with respect to this data), here a $B = 10$ degree polynomials, and $100$ values of $\lambda$ between $0$ and $1$ (completely minimizing the corresponding regularized cost in each instance).  As the value of $\lambda$ increases the fit provided by the weights recovered from the global minimum of each regularized cost function is shown in red, while the corresponding training and validation errors are shown in blue and yellow, respectively. In this simple experiment, a value somewhere around $\lambda \approx 0.3$ appears to provide the lowest validation error and corresponding best fit to the dataset overall.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In [36]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This code cell will not be shown in the HTML version of this notebook</span>
-<span class="kn">import</span> <span class="nn">copy</span>
 
-<span class="c1"># load in dataset</span>
-<span class="n">csvname</span> <span class="o">=</span> <span class="n">datapath</span> <span class="o">+</span> <span class="s1">&#39;noisy_sin_sample.csv&#39;</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">csvname</span><span class="p">,</span><span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:,:]</span> 
-
-<span class="c1"># start process</span>
-<span class="n">num_units</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">degree</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">train_portion</span> <span class="o">=</span> <span class="mf">0.66</span>
-<span class="n">lambdas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">num_units</span><span class="p">)</span>
-
-<span class="n">runs1</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">w</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_units</span><span class="p">):</span>
-    <span class="n">lam</span> <span class="o">=</span> <span class="n">lambdas</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-    
-    <span class="c1"># initialize with input/output data</span>
-    <span class="n">mylib1</span> <span class="o">=</span> <span class="n">nonlib</span><span class="o">.</span><span class="n">intro_general_library</span><span class="o">.</span><span class="n">superlearn_setup</span><span class="o">.</span><span class="n">Setup</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-    
-    <span class="c1"># define feature transforms</span>
-    <span class="n">mylib1</span><span class="o">.</span><span class="n">choose_features</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;polys&#39;</span><span class="p">,</span><span class="n">degree</span> <span class="o">=</span> <span class="n">degree</span><span class="p">)</span>
-
-    <span class="c1"># standard normalize input</span>
-    <span class="n">mylib1</span><span class="o">.</span><span class="n">choose_normalizer</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;standard&#39;</span><span class="p">)</span>
-
-    <span class="c1"># split into training and validation sets</span>
-    <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="c1"># make training testing split</span>
-        <span class="n">mylib1</span><span class="o">.</span><span class="n">make_train_valid_split</span><span class="p">(</span><span class="n">train_portion</span> <span class="o">=</span> <span class="n">train_portion</span><span class="p">)</span>
-        <span class="n">train_inds</span> <span class="o">=</span> <span class="n">mylib1</span><span class="o">.</span><span class="n">train_inds</span>
-        <span class="n">valid_inds</span> <span class="o">=</span> <span class="n">mylib1</span><span class="o">.</span><span class="n">valid_inds</span>
-
-    <span class="k">else</span><span class="p">:</span> <span class="c1"># use split from first run for all further runs</span>
-        <span class="n">mylib1</span><span class="o">.</span><span class="n">x_train</span> <span class="o">=</span> <span class="n">mylib1</span><span class="o">.</span><span class="n">x</span><span class="p">[:,</span><span class="n">train_inds</span><span class="p">]</span>
-        <span class="n">mylib1</span><span class="o">.</span><span class="n">y_train</span> <span class="o">=</span> <span class="n">mylib1</span><span class="o">.</span><span class="n">y</span><span class="p">[:,</span><span class="n">train_inds</span><span class="p">]</span>
-        <span class="n">mylib1</span><span class="o">.</span><span class="n">x_valid</span> <span class="o">=</span> <span class="n">mylib1</span><span class="o">.</span><span class="n">x</span><span class="p">[:,</span><span class="n">valid_inds</span><span class="p">]</span>
-        <span class="n">mylib1</span><span class="o">.</span><span class="n">y_valid</span> <span class="o">=</span> <span class="n">mylib1</span><span class="o">.</span><span class="n">y</span><span class="p">[:,</span><span class="n">valid_inds</span><span class="p">]</span>
-        <span class="n">mylib1</span><span class="o">.</span><span class="n">train_inds</span> <span class="o">=</span> <span class="n">train_inds</span>
-        <span class="n">mylib1</span><span class="o">.</span><span class="n">valid_inds</span> <span class="o">=</span> <span class="n">valid_inds</span>
-        <span class="n">mylib1</span><span class="o">.</span><span class="n">train_portion</span> <span class="o">=</span> <span class="n">train_portion</span>
-
-    <span class="c1"># choose cost</span>
-    <span class="n">mylib1</span><span class="o">.</span><span class="n">choose_cost</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;least_squares&#39;</span><span class="p">,</span><span class="n">lam</span><span class="o">=</span><span class="n">lam</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="c1"># fit an optimization</span>
-        <span class="n">mylib1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span> <span class="s1">&#39;newtons_method&#39;</span><span class="p">,</span><span class="n">max_its</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">mylib1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span> <span class="s1">&#39;newtons_method&#39;</span><span class="p">,</span><span class="n">max_its</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span><span class="n">w</span><span class="o">=</span><span class="n">w</span><span class="p">,</span><span class="n">epsilon</span><span class="o">=</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">))</span>
-
-    <span class="c1"># add model to list</span>
-    <span class="n">runs1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">mylib1</span><span class="p">))</span>
-    <span class="n">w</span> <span class="o">=</span> <span class="n">mylib1</span><span class="o">.</span><span class="n">w_init</span>
-    
-<span class="c1"># animate the business</span>
-<span class="n">frames</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">csvname</span> <span class="o">=</span> <span class="n">datapath</span> <span class="o">+</span> <span class="s1">&#39;noisy_sin_sample.csv&#39;</span>
-<span class="n">demo1</span> <span class="o">=</span> <span class="n">nonlib</span><span class="o">.</span><span class="n">regularization_regression_animators</span><span class="o">.</span><span class="n">Visualizer</span><span class="p">(</span><span class="n">csvname</span><span class="p">)</span>
-<span class="n">savepath</span> <span class="o">=</span> <span class="s1">&#39;videos/animation_10.mp4&#39;</span>
-<span class="n">demo1</span><span class="o">.</span><span class="n">animate_trainval_regularization</span><span class="p">(</span><span class="n">savepath</span><span class="p">,</span><span class="n">runs1</span><span class="p">,</span><span class="n">frames</span><span class="p">,</span><span class="n">num_units</span><span class="p">,</span><span class="n">show_history</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span><span class="n">fps</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
-
-<span class="c1"># load in video and display</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
-<span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">&lt;video width=&quot;1000&quot; height=&quot;400&quot; controls loop&gt;</span>
-<span class="s2">  &lt;source src=&quot;videos/animation_10.mp4&quot; type=&quot;video/mp4&quot;&gt;</span>
-<span class="s2">  &lt;/video&gt;</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
-    <div class="prompt output_prompt">Out[36]:</div>
-
-
-
+<div class="prompt output_prompt">Out[36]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
-
-<video width="1000" height="400" controls loop>
-  <source src="videos/animation_10.mp4" type="video/mp4">
-  </video>
-
-</div>
-
-</div>
-
+<video controls="" height="400" loop="" width="1000">
+<source src="videos/animation_10.mp4" type="video/mp4">
+</source></video>
 </div>
 </div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="11.6.4-Similarity-to-regularization-for-feature-selection">11.6.4 Similarity to regularization for feature selection<a class="anchor-link" href="#11.6.4-Similarity-to-regularization-for-feature-selection">&#182;</a></h2>
+<hr/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="11.6.4-Similarity-to-regularization-for-feature-selection">11.6.4 Similarity to regularization for feature selection<a class="anchor-link" href="#11.6.4-Similarity-to-regularization-for-feature-selection">¶</a></h2>
 </div>
 </div>
 </div>
@@ -13684,19 +13616,13 @@ implementing an effective regularizer based regularization procedure, including 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Akin to the boosting procedure detailed in the previous Section, here the careful reader will notice how similar the regularizer based regularization framework described here is to the concept of regularization detailed for feature selection in <a href="https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_7_Regularization.html">Section 9.7</a>.  The two approaches are very similar in theme, except here we do not select from a set of given input features but <em>create them ourselves based on a universal approximator</em>. Additionally, instead of our main concern with regularization being <em>human interpret-ability</em> of a machine learning model here we use regularization as a tool for cross-validation.</p>
-
 </div>
 </div>
 </div>
-    </div>
-  </div>
+</div>
+</div>
 </body>
-
- 
-
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 1, "version_minor": 0}
 </script>
-
-
 </html>

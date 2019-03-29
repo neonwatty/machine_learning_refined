@@ -30,6 +30,7 @@ series_dict = {
 	"Chapter 8:": "8_Linear_unsupervised_learning",
 	"Chapter 9:": "9_Feature_engineer_select",
 	"Chapter 10": "10_Nonlinear_intro",
+	"Chapter 11": "11_Feature_learning",
 	"Chapter 13": "13_Multilayer_perceptrons"
 	}
 	
