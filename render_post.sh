@@ -39,5 +39,13 @@ else
 		fi
 	done 
 fi
-
-
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
