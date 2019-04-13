@@ -267,6 +267,29 @@ In the `exercises` directory you can find starting wrappers for coding exercises
 14.7 Cross-validating individual trees <br><br><br>
 
 
+### Chapter 15: Derivatives and Automatic Differentiation
+
+15.1 Introduction <br>
+15.2 The derivative <br>
+15.3 Derivative rules for elementary functions and operations  <br>
+15.4 The gradient <br>
+15.5 The computation graph  <br>
+15.6 The forward mode of automatic differentiation  <br>
+15.7 The reverse mode of automatic differentiation <br>
+15.8 Using the Autograd library <br>
+15.9 Higher order derivatives <br>
+15.10 Taylor series <br><br><br>
+
+
+### Chapter 16: Linear algebra
+
+16.1 Introduction <br>
+[16.2 Vectors and vector operations](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_2_Vectors.html)  
+[16.3 Matrices and matrix operations](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_3_Matrices.html)
+[16.4 Eigenvalues and eigenvectors](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_4_Eigen.html)
+[16.5 Vector and matrix norms](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_5_Norms.html)
+
+
 ## Installation
 [(Back to top)](#table-of-contents)
 
