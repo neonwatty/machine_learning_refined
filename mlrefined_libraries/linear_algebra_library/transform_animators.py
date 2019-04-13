@@ -157,7 +157,7 @@ def transform2d_animator(savepath,mat1,**kwargs):
     clear_output()   
 
 # animator for showing grid of points transformed by linear transform
-def nonlinear_transform2d_animator(func,**kwargs):  
+def nonlinear_transform2d_animator(func,savepath,**kwargs):  
     # define number of frames
     num_frames = 100
     if 'num_frames' in kwargs:
@@ -275,10 +275,15 @@ def nonlinear_transform2d_animator(func,**kwargs):
         
     anim = animation.FuncAnimation(fig, animate,frames=num_frames, interval=num_frames, blit=True)
         
-    return(anim)     
+    # produce animation and save
+    fps = 50
+    if 'fps' in kwargs:
+        fps = kwargs['fps']
+    anim.save(savepath, fps=fps, extra_args=['-vcodec', 'libx264'])
+    
         
 # animate the method
-def inner_product_visualizer(**kwargs):
+def inner_product_visualizer(savepath,**kwargs):
     # set number of frames for animation
     num_frames = 300                          # number of slides to create - the input range [-3,3] is divided evenly by this number
     if 'num_frames' in kwargs:
@@ -371,8 +376,12 @@ def inner_product_visualizer(**kwargs):
 
     anim = animation.FuncAnimation(fig, animate ,frames=num_frames, interval=num_frames, blit=True)
 
-    return(anim)
-
+    # produce animation and save
+    fps = 50
+    if 'fps' in kwargs:
+        fps = kwargs['fps']
+    anim.save(savepath, fps=fps, extra_args=['-vcodec', 'libx264'])
+    
 class quadratic_3d_flexer:
     '''
     Draw 3d quadratic ranging from convex

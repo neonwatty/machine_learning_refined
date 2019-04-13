@@ -31,7 +31,8 @@ series_dict = {
 	"Chapter 9:": "9_Feature_engineer_select",
 	"Chapter 10": "10_Nonlinear_intro",
 	"Chapter 11": "11_Feature_learning",
-	"Chapter 13": "13_Multilayer_perceptrons"
+	"Chapter 13": "13_Multilayer_perceptrons",
+	"Chapter 16": "16_Linear_algebra"
 	}
 	
 series_url = series_dict[series[0:10]]	
