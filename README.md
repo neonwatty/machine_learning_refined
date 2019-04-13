@@ -284,9 +284,9 @@ In the `exercises` directory you can find starting wrappers for coding exercises
 ### Chapter 16: Linear algebra
 
 16.1 Introduction <br>
-[16.2 Vectors and vector operations](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_2_Vectors.html)  
-[16.3 Matrices and matrix operations](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_3_Matrices.html)
-[16.4 Eigenvalues and eigenvectors](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_4_Eigen.html)
+[16.2 Vectors and vector operations](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_2_Vectors.html)    
+[16.3 Matrices and matrix operations](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_3_Matrices.html)  
+[16.4 Eigenvalues and eigenvectors](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_4_Eigen.html)  
 [16.5 Vector and matrix norms](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_5_Norms.html)
 
 
