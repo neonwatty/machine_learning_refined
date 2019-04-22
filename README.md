@@ -1,6 +1,6 @@
 # Machine Learning Refined: Notes, Exercises, and Jupyter notebooks [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Machine%20Learning%20Refined:%20notes,%20exercises,%20and%20Jupyter%20notebooks%20&url=https://github.com/jermwatt/machine_learning_refined)
 
-<img align="right" src="html/gifs/book.png" height="420">
+<img align="right" src="html/gifs/mlrefined_ed1_cover.png" height="420">
 <strong>Publisher:</strong> Cambridge University Press <br><br>
 <strong>First edition:</strong> November 2016 <br>
 <strong>Second edition:</strong> January 2020 (expected) <br><br><br>
