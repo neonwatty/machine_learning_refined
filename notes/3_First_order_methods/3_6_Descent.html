@@ -13223,7 +13223,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In the previous Section we examined some fundamental characteristics of the tangent line / hyperplane defined by a function's first order Taylor series approximation.  In particular we saw how the negative gradient at a point provides a valid descent direction for a function itself, i.e., a direction that (at least locally) decreases the value of the function.  With this fact in hand it is then quite natural to ask the question: can we construct a local optimization method using the negative gradient at each step as our descent direction?  The answer is a resounding "yes", and the resulting scheme is precisely the <em>gradient descent algorithm</em> we aim to describe with this Chapter in full, and this Section in particular.</p>
+<p>In previous Sections we examined some fundamental characteristics of the tangent line / hyperplane defined by a function's first order Taylor series approximation.  In particular we saw how the negative gradient at a point provides a valid descent direction for a function itself, i.e., a direction that (at least locally) decreases the value of the function.  With this fact in hand it is then quite natural to ask the question: can we construct a local optimization method using the negative gradient at each step as our descent direction?  The answer is a resounding "yes", and the resulting scheme is precisely the <em>gradient descent algorithm</em> we aim to describe with this Chapter in full, and this Section in particular.</p>
 </div>
 </div>
 </div>
@@ -13326,8 +13326,8 @@ both the entire sequence of gradient descent steps $\left\{\mathbf{w}^{k}\right\
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>How do we set the $\alpha$ parameter in general?  With gradient descent there are a wide variety of paradigmns for choosing the steplength, but the basic (and most commonly used) choices are precisely those we introduced in the (comparatively simpler) context of zero order methods in Section 5.3: that is fixed and diminishing steplegnth choices.  We explore this idea further in a subsection below.</p>
-<blockquote><blockquote><p>The most common choice of steplength / learning rate for use with gradient descent are precisely those introduced in the (comparatively simpler) context of zero order methods (see e.g., 5.3): fixed and diminishing steplength rules.</p>
+<p>How do we set the $\alpha$ parameter in general?  With gradient descent there are a wide variety of paradigmns for choosing the steplength, but the basic (and most commonly used) choices are precisely those we introduced in the (comparatively simpler) context of zero order methods in Section 2.3: that is fixed and diminishing steplegnth choices.  We explore this idea further in a subsection below.</p>
+<blockquote><blockquote><p>The most common choice of steplength / learning rate for use with gradient descent are precisely those introduced in the (comparatively simpler) context of zero order methods (see e.g., 2.3): fixed and diminishing steplength rules.</p>
 </blockquote>
 </blockquote>
 </div>
@@ -13339,7 +13339,7 @@ both the entire sequence of gradient descent steps $\left\{\mathbf{w}^{k}\right\
 <p>When does gradient descent stop?  Technically - if the steplength is chosen wisely - the algorithm will <em>halt near stationary points of a function, typically minima or saddle points</em>.  How do we know this?  By the very form of the gradient descent step itself.  If the step</p>
 \begin{equation}
 \mathbf{w}^{\,k} = \mathbf{w}^{\,k-1} - \alpha \nabla g\left(\mathbf{w}^{k-1}\right)
-\end{equation}<p>does not move from the prior point $\mathbf{w}^{\,k-1}$ significantly then this can mean only one thing: <em>that the direction we are traveling in is vanishing</em> i.e., $-\nabla g\left(\mathbf{w}^k\right) \approx \mathbf{0}_{N\times 1}$.  This is - by definition - a <em>stationary point</em> of the function (as detailed in Section 6.2).</p>
+\end{equation}<p>does not move from the prior point $\mathbf{w}^{\,k-1}$ significantly then this can mean only one thing: <em>that the direction we are traveling in is vanishing</em> i.e., $-\nabla g\left(\mathbf{w}^k\right) \approx \mathbf{0}_{N\times 1}$.  This is - by definition - a <em>stationary point</em> of the function.</p>
 </div>
 </div>
 </div>
@@ -13431,7 +13431,7 @@ both the entire sequence of gradient descent steps $\left\{\mathbf{w}^{k}\right\
 <p>Here we use gradient descent to minimize the polynomial function</p>
 \begin{equation}
 g(w) = \frac{1}{50}\left(w^4 + w^2 + 10w\right).
-\end{equation}<p>In Section 6.1 on the <em>first order optimality condition</em>  we saw that the global minimum of this problem - which we could not compute by hand easily - was given explicitly as</p>
+\end{equation}<p>In Section 3.2 on the <em>first order optimality condition</em>  we saw that the global minimum of this problem - which we could not compute by hand easily - was given explicitly as</p>
 \begin{equation}
 w = \frac{\sqrt[\leftroot{-2}\uproot{2}3]{\sqrt[\leftroot{-2}\uproot{2}]{2031} - 45}}{6^{\frac{2}{3}}} - \frac{1}{\sqrt[\leftroot{-2}\uproot{2}3]{6\left(\sqrt{2031}-45\right)}}
 \end{equation}<p>With gradient descent we can easily determine a point that is arbitrarily close to this one.  This illustrates the general principle that gradient descent - and local search in general - can compute minima of functions that we cannot compute by hand using calculus alone.</p>
@@ -13511,14 +13511,6 @@ g(w) = \text{sin}(3w) + 0.1w^2
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [13]:</div>
-<div class="inner_cell">
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In [14]:</div>
 <div class="inner_cell">
 
@@ -13528,10 +13520,10 @@ g(w) = \text{sin}(3w) + 0.1w^2
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="5ccbf3f3-5bca-4d37-a48d-c37679852de3"></div>
+<div id="254365c4-4a22-49d9-a095-9755161af3d9"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#5ccbf3f3-5bca-4d37-a48d-c37679852de3');
+var element = $('#254365c4-4a22-49d9-a095-9755161af3d9');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14329,10 +14321,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="134015fa-da32-4a20-a713-751b83f95ceb"></div>
+<div id="a69f4432-e5c9-440e-9ad3-1db622481856"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#134015fa-da32-4a20-a713-751b83f95ceb');
+var element = $('#a69f4432-e5c9-440e-9ad3-1db622481856');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15154,10 +15146,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="7d352368-0306-4f7b-89d2-42964c60354e"></div>
+<div id="41b36389-8e34-478c-a1bf-82f76bd755cd"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#7d352368-0306-4f7b-89d2-42964c60354e');
+var element = $('#41b36389-8e34-478c-a1bf-82f76bd755cd');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15955,10 +15947,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="6fe09d1b-51a7-4658-a84e-f5095efb0963"></div>
+<div id="3a8ccb52-c581-40b6-86d3-99d5d8ca2f86"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#6fe09d1b-51a7-4658-a84e-f5095efb0963');
+var element = $('#3a8ccb52-c581-40b6-86d3-99d5d8ca2f86');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -16748,7 +16740,7 @@ if (IPython.notebook.kernel != null) {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Just like all local methods, one needs to carefully choose the steplength / learning rate parameter $\alpha$.  While there are an array of available sophisticated methods for choosing $\alpha$ in the case of gradient descent, the most common choices employed in machine learning are those basic approaches first detailed in the simple context of zero order methods in Section 5.3.  That is the most common choices are</p>
+<p>Just like all local methods, one needs to carefully choose the steplength / learning rate parameter $\alpha$.  While there are an array of available sophisticated methods for choosing $\alpha$ in the case of gradient descent, the most common choices employed in machine learning are those basic approaches first detailed in the simple context of zero order methods in Section 2.3.  That is the most common choices are</p>
 <ul>
 <li>using a fixed $\alpha$ value for each step of a gradient descent run, which for simplicity's sake commonly takes the form of $10^{-\gamma}$ where $\gamma$ is an integer, or </li>
 </ul>
@@ -16758,7 +16750,7 @@ if (IPython.notebook.kernel != null) {
 <p>In both instances our aim in choosing a particular value for the steplength / learning rate $\alpha$ at each step of gradient descent mirrors that of any other local optimization method: $\alpha$ should be chosen to induce the most rapid minimization possible.  With the fixed steplength this often means choosing the <em>largest</em> possible value for $\alpha$ that leads to proper convergence.</p>
 <blockquote><p>Choosing a particular value for the steplength / learning rate $\alpha$ at each step of gradient descent mirrors that of any other local optimization method: $\alpha$ should be chosen to induce the most rapid minimization possible.</p>
 </blockquote>
-<p>Below we discuss a number of examples employing these two common choices of $\alpha$, and (for the sake of completion) detail some more advanced methods for steplength selection in Section 6.9.</p>
+<p>Below we discuss a number of examples employing these two common choices of $\alpha$, and (for the sake of completion) detail some more advanced methods for steplength selection in Section 3.9.</p>
 </div>
 </div>
 </div>
@@ -16945,10 +16937,10 @@ g(w) = \left \vert w \right \vert.
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="40ebfeb7-f95e-4fb9-9fef-dd7bab87edea"></div>
+<div id="156f448b-be1f-4176-9b5a-2f0fe630d147"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#40ebfeb7-f95e-4fb9-9fef-dd7bab87edea');
+var element = $('#156f448b-be1f-4176-9b5a-2f0fe630d147');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -17746,10 +17738,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="7c450d8c-198a-4999-b003-2ca64be26f20"></div>
+<div id="01c3381a-4516-40e9-a6b3-3a870564770c"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#7c450d8c-198a-4999-b003-2ca64be26f20');
+var element = $('#01c3381a-4516-40e9-a6b3-3a870564770c');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -18572,10 +18564,10 @@ g\left(\mathbf{w}\right) = w_0^2 + w_1^2 + 2\,\text{sin}\left(1.5\left(w_0 + w_1
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="88d6ebce-76b8-47e6-aeb7-bfb77c73b53b"></div>
+<div id="30ba311d-ea6e-4a3d-8a86-43ab53db7fab"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#88d6ebce-76b8-47e6-aeb7-bfb77c73b53b');
+var element = $('#30ba311d-ea6e-4a3d-8a86-43ab53db7fab');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -19373,10 +19365,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="adcbd0ce-d777-45e3-9e7f-9e82a42e3eab"></div>
+<div id="f07b94fb-5a91-43c2-a710-1feb68bd1487"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#adcbd0ce-d777-45e3-9e7f-9e82a42e3eab');
+var element = $('#f07b94fb-5a91-43c2-a710-1feb68bd1487');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -20175,10 +20167,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="8b8e755e-2271-4c39-9bfd-0508c4dc20bc"></div>
+<div id="f127ad6d-ad6b-40f6-9848-65af469939fe"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#8b8e755e-2271-4c39-9bfd-0508c4dc20bc');
+var element = $('#f127ad6d-ad6b-40f6-9848-65af469939fe');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 

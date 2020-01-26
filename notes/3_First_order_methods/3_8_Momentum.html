@@ -13381,7 +13381,7 @@ h^{k} = \frac{w^1 + w^2 + w^3 + w^4 + \cdots + w^k}{k}
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The <em>exponential average</em> is a simple generalization of this running average formula.  Notice that at every step in the clever recursion in equation for the moving average in (3) that the coeffecients on the two terms in the update <em>always sum to $1$</em>: that is $\frac{k-1}{k} + \frac{1}{k} = 1$ for all $k$ always.  At each step both coeffecients change as $\frac{k-1}{k}$ and $\frac{1}{k}$ respectively, and the to create the exponential average we use the same update formula but <em>freeze the coeffecients</em>.  That is, using the same initial value $h^1 = w^1$ and for $k &gt; 1$ we take a value $\beta \in \left[0,1\right]$ and create a running <em>exponential average</em> via the similar formula</p>
+<p>The <em>exponential average</em> is a simple generalization of this running average formula.  Notice that at every step in the clever recursion in equation for the running average in (3) that the coeffecients on the two terms in the update <em>always sum to $1$</em>: that is $\frac{k-1}{k} + \frac{1}{k} = 1$ for all $k$ always.  At each step both coeffecients change as $\frac{k-1}{k}$ and $\frac{1}{k}$ respectively, and the to create the exponential average we use the same update formula but <em>freeze the coeffecients</em>.  That is, using the same initial value $h^1 = w^1$ and for $k &gt; 1$ we take a value $\beta \in \left[0,1\right]$ and create a running <em>exponential average</em> via the similar formula</p>
 \begin{equation}
 h^{k} = \beta \, h^{k-1} +  \left(1 - \beta\right)w^k.
 \end{equation}
@@ -13562,10 +13562,10 @@ h^{k} = \beta \, h^{k-1} +  \left(1 - \beta\right)w^k
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="dc90544c-fab3-496d-8729-56fd148a10d8"></div>
+<div id="fc298c99-77fe-467b-ab84-7e52415c3bb2"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#dc90544c-fab3-496d-8729-56fd148a10d8');
+var element = $('#fc298c99-77fe-467b-ab84-7e52415c3bb2');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
