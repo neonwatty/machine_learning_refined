@@ -120,8 +120,13 @@ script_1 = '''
 <div class="page-title" style="text-align: center !important;">
 <div><a href="https://github.com/jermwatt/machine_learning_refined" style="text-decoration: none" target="_blank"><button class="btn-star">★ Our Project On GitHub</button></a></div>
 	<br><br>
-	<mark style="padding: 0px; background-color: #f9f3c2;">'''+ page_title +'''</mark>
+	<mark style="padding: 0px; background-color: #f9f3c2;">'''+ page_title +'''*</mark>
 </div>
+<center>
+<div style="text-align: left !important; font-size:16px; width:64%; color: #333"><br><br><br><br>
+* The following is part of an early draft of the second edition of <strong>Machine Learning Refined</strong>. The published text (with revised material) is now available on <a target="_blank" href="https://www.amazon.com/Machine-Learning-Refined-Foundations-Applications/dp/1108480721">Amazon</a> as well as other major book retailers. Instructors may request an examination copy from <a target="_blank" href="https://www.cambridge.org/us/academic/subjects/engineering/communications-and-signal-processing/machine-learning-refined-foundations-algorithms-and-applications-2nd-edition?format=HB">Cambridge University Press</a>.
+</div>
+</center>
 <br>'''
 
 # parse script as BeautifulSoup object

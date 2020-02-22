@@ -7,4 +7,3 @@ __pycache__
 .DS_Store
 .*  # ignore all hidden files and folders
 !/.gitignore  # explicitly do not ignore .gitignore
-.sh

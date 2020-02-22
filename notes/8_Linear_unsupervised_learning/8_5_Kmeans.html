@@ -1,33 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"/>
-<title>3.13 General steepest descent</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>8.5  K-Means Clustering</title><script src="https://unpkg.com/jupyter-js-widgets@2.0.*/dist/embed.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script>
-(function() {
-  function addWidgetsRenderer() {
-    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
-    var scriptElement = document.createElement('script');
-    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
-    var widgetState;
-
-    // Fallback for older version:
-    try {
-      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
-
-      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
-        widgetRendererSrc = 'https://unpkg.com/jupyter-js-widgets@*/dist/embed.js';
-      }
-    } catch(e) {}
-
-    scriptElement.src = widgetRendererSrc;
-    document.body.appendChild(scriptElement);
-  }
-
-  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
-}());
-</script>
 <style type="text/css">
     /*!
 *
@@ -223,6 +198,7 @@ th {
   *:before,
   *:after {
     background: transparent !important;
+    color: #000 !important;
     box-shadow: none !important;
     text-shadow: none !important;
   }
@@ -6767,15 +6743,15 @@ button.close {
 *
 */
 /*!
- *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 /* FONT PATH
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url('../components/font-awesome/fonts/fontawesome-webfont.eot?v=4.7.0');
-  src: url('../components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('../components/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('../components/font-awesome/fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('../components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('../components/font-awesome/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+  src: url('../components/font-awesome/fonts/fontawesome-webfont.eot?v=4.2.0');
+  src: url('../components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'), url('../components/font-awesome/fonts/fontawesome-webfont.woff?v=4.2.0') format('woff'), url('../components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.2.0') format('truetype'), url('../components/font-awesome/fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -6832,19 +6808,6 @@ button.close {
   border: solid 0.08em #eee;
   border-radius: .1em;
 }
-.fa-pull-left {
-  float: left;
-}
-.fa-pull-right {
-  float: right;
-}
-.fa.fa-pull-left {
-  margin-right: .3em;
-}
-.fa.fa-pull-right {
-  margin-left: .3em;
-}
-/* Deprecated as of 4.4.0 */
 .pull-right {
   float: right;
 }
@@ -6860,10 +6823,6 @@ button.close {
 .fa-spin {
   -webkit-animation: fa-spin 2s infinite linear;
   animation: fa-spin 2s infinite linear;
-}
-.fa-pulse {
-  -webkit-animation: fa-spin 1s infinite steps(8);
-  animation: fa-spin 1s infinite steps(8);
 }
 @-webkit-keyframes fa-spin {
   0% {
@@ -6886,31 +6845,31 @@ button.close {
   }
 }
 .fa-rotate-90 {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
 .fa-rotate-180 {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 .fa-rotate-270 {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
   -webkit-transform: rotate(270deg);
   -ms-transform: rotate(270deg);
   transform: rotate(270deg);
 }
 .fa-flip-horizontal {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
   -webkit-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
 .fa-flip-vertical {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
   -webkit-transform: scale(1, -1);
   -ms-transform: scale(1, -1);
   transform: scale(1, -1);
@@ -7395,7 +7354,6 @@ button.close {
 .fa-twitter:before {
   content: "\f099";
 }
-.fa-facebook-f:before,
 .fa-facebook:before {
   content: "\f09a";
 }
@@ -7408,7 +7366,6 @@ button.close {
 .fa-credit-card:before {
   content: "\f09d";
 }
-.fa-feed:before,
 .fa-rss:before {
   content: "\f09e";
 }
@@ -8046,8 +8003,7 @@ button.close {
 .fa-male:before {
   content: "\f183";
 }
-.fa-gittip:before,
-.fa-gratipay:before {
+.fa-gittip:before {
   content: "\f184";
 }
 .fa-sun-o:before {
@@ -8151,7 +8107,7 @@ button.close {
 .fa-digg:before {
   content: "\f1a6";
 }
-.fa-pied-piper-pp:before {
+.fa-pied-piper:before {
   content: "\f1a7";
 }
 .fa-pied-piper-alt:before {
@@ -8277,7 +8233,6 @@ button.close {
   content: "\f1ce";
 }
 .fa-ra:before,
-.fa-resistance:before,
 .fa-rebel:before {
   content: "\f1d0";
 }
@@ -8291,8 +8246,6 @@ button.close {
 .fa-git:before {
   content: "\f1d3";
 }
-.fa-y-combinator-square:before,
-.fa-yc-square:before,
 .fa-hacker-news:before {
   content: "\f1d4";
 }
@@ -8460,657 +8413,6 @@ button.close {
 }
 .fa-meanpath:before {
   content: "\f20c";
-}
-.fa-buysellads:before {
-  content: "\f20d";
-}
-.fa-connectdevelop:before {
-  content: "\f20e";
-}
-.fa-dashcube:before {
-  content: "\f210";
-}
-.fa-forumbee:before {
-  content: "\f211";
-}
-.fa-leanpub:before {
-  content: "\f212";
-}
-.fa-sellsy:before {
-  content: "\f213";
-}
-.fa-shirtsinbulk:before {
-  content: "\f214";
-}
-.fa-simplybuilt:before {
-  content: "\f215";
-}
-.fa-skyatlas:before {
-  content: "\f216";
-}
-.fa-cart-plus:before {
-  content: "\f217";
-}
-.fa-cart-arrow-down:before {
-  content: "\f218";
-}
-.fa-diamond:before {
-  content: "\f219";
-}
-.fa-ship:before {
-  content: "\f21a";
-}
-.fa-user-secret:before {
-  content: "\f21b";
-}
-.fa-motorcycle:before {
-  content: "\f21c";
-}
-.fa-street-view:before {
-  content: "\f21d";
-}
-.fa-heartbeat:before {
-  content: "\f21e";
-}
-.fa-venus:before {
-  content: "\f221";
-}
-.fa-mars:before {
-  content: "\f222";
-}
-.fa-mercury:before {
-  content: "\f223";
-}
-.fa-intersex:before,
-.fa-transgender:before {
-  content: "\f224";
-}
-.fa-transgender-alt:before {
-  content: "\f225";
-}
-.fa-venus-double:before {
-  content: "\f226";
-}
-.fa-mars-double:before {
-  content: "\f227";
-}
-.fa-venus-mars:before {
-  content: "\f228";
-}
-.fa-mars-stroke:before {
-  content: "\f229";
-}
-.fa-mars-stroke-v:before {
-  content: "\f22a";
-}
-.fa-mars-stroke-h:before {
-  content: "\f22b";
-}
-.fa-neuter:before {
-  content: "\f22c";
-}
-.fa-genderless:before {
-  content: "\f22d";
-}
-.fa-facebook-official:before {
-  content: "\f230";
-}
-.fa-pinterest-p:before {
-  content: "\f231";
-}
-.fa-whatsapp:before {
-  content: "\f232";
-}
-.fa-server:before {
-  content: "\f233";
-}
-.fa-user-plus:before {
-  content: "\f234";
-}
-.fa-user-times:before {
-  content: "\f235";
-}
-.fa-hotel:before,
-.fa-bed:before {
-  content: "\f236";
-}
-.fa-viacoin:before {
-  content: "\f237";
-}
-.fa-train:before {
-  content: "\f238";
-}
-.fa-subway:before {
-  content: "\f239";
-}
-.fa-medium:before {
-  content: "\f23a";
-}
-.fa-yc:before,
-.fa-y-combinator:before {
-  content: "\f23b";
-}
-.fa-optin-monster:before {
-  content: "\f23c";
-}
-.fa-opencart:before {
-  content: "\f23d";
-}
-.fa-expeditedssl:before {
-  content: "\f23e";
-}
-.fa-battery-4:before,
-.fa-battery:before,
-.fa-battery-full:before {
-  content: "\f240";
-}
-.fa-battery-3:before,
-.fa-battery-three-quarters:before {
-  content: "\f241";
-}
-.fa-battery-2:before,
-.fa-battery-half:before {
-  content: "\f242";
-}
-.fa-battery-1:before,
-.fa-battery-quarter:before {
-  content: "\f243";
-}
-.fa-battery-0:before,
-.fa-battery-empty:before {
-  content: "\f244";
-}
-.fa-mouse-pointer:before {
-  content: "\f245";
-}
-.fa-i-cursor:before {
-  content: "\f246";
-}
-.fa-object-group:before {
-  content: "\f247";
-}
-.fa-object-ungroup:before {
-  content: "\f248";
-}
-.fa-sticky-note:before {
-  content: "\f249";
-}
-.fa-sticky-note-o:before {
-  content: "\f24a";
-}
-.fa-cc-jcb:before {
-  content: "\f24b";
-}
-.fa-cc-diners-club:before {
-  content: "\f24c";
-}
-.fa-clone:before {
-  content: "\f24d";
-}
-.fa-balance-scale:before {
-  content: "\f24e";
-}
-.fa-hourglass-o:before {
-  content: "\f250";
-}
-.fa-hourglass-1:before,
-.fa-hourglass-start:before {
-  content: "\f251";
-}
-.fa-hourglass-2:before,
-.fa-hourglass-half:before {
-  content: "\f252";
-}
-.fa-hourglass-3:before,
-.fa-hourglass-end:before {
-  content: "\f253";
-}
-.fa-hourglass:before {
-  content: "\f254";
-}
-.fa-hand-grab-o:before,
-.fa-hand-rock-o:before {
-  content: "\f255";
-}
-.fa-hand-stop-o:before,
-.fa-hand-paper-o:before {
-  content: "\f256";
-}
-.fa-hand-scissors-o:before {
-  content: "\f257";
-}
-.fa-hand-lizard-o:before {
-  content: "\f258";
-}
-.fa-hand-spock-o:before {
-  content: "\f259";
-}
-.fa-hand-pointer-o:before {
-  content: "\f25a";
-}
-.fa-hand-peace-o:before {
-  content: "\f25b";
-}
-.fa-trademark:before {
-  content: "\f25c";
-}
-.fa-registered:before {
-  content: "\f25d";
-}
-.fa-creative-commons:before {
-  content: "\f25e";
-}
-.fa-gg:before {
-  content: "\f260";
-}
-.fa-gg-circle:before {
-  content: "\f261";
-}
-.fa-tripadvisor:before {
-  content: "\f262";
-}
-.fa-odnoklassniki:before {
-  content: "\f263";
-}
-.fa-odnoklassniki-square:before {
-  content: "\f264";
-}
-.fa-get-pocket:before {
-  content: "\f265";
-}
-.fa-wikipedia-w:before {
-  content: "\f266";
-}
-.fa-safari:before {
-  content: "\f267";
-}
-.fa-chrome:before {
-  content: "\f268";
-}
-.fa-firefox:before {
-  content: "\f269";
-}
-.fa-opera:before {
-  content: "\f26a";
-}
-.fa-internet-explorer:before {
-  content: "\f26b";
-}
-.fa-tv:before,
-.fa-television:before {
-  content: "\f26c";
-}
-.fa-contao:before {
-  content: "\f26d";
-}
-.fa-500px:before {
-  content: "\f26e";
-}
-.fa-amazon:before {
-  content: "\f270";
-}
-.fa-calendar-plus-o:before {
-  content: "\f271";
-}
-.fa-calendar-minus-o:before {
-  content: "\f272";
-}
-.fa-calendar-times-o:before {
-  content: "\f273";
-}
-.fa-calendar-check-o:before {
-  content: "\f274";
-}
-.fa-industry:before {
-  content: "\f275";
-}
-.fa-map-pin:before {
-  content: "\f276";
-}
-.fa-map-signs:before {
-  content: "\f277";
-}
-.fa-map-o:before {
-  content: "\f278";
-}
-.fa-map:before {
-  content: "\f279";
-}
-.fa-commenting:before {
-  content: "\f27a";
-}
-.fa-commenting-o:before {
-  content: "\f27b";
-}
-.fa-houzz:before {
-  content: "\f27c";
-}
-.fa-vimeo:before {
-  content: "\f27d";
-}
-.fa-black-tie:before {
-  content: "\f27e";
-}
-.fa-fonticons:before {
-  content: "\f280";
-}
-.fa-reddit-alien:before {
-  content: "\f281";
-}
-.fa-edge:before {
-  content: "\f282";
-}
-.fa-credit-card-alt:before {
-  content: "\f283";
-}
-.fa-codiepie:before {
-  content: "\f284";
-}
-.fa-modx:before {
-  content: "\f285";
-}
-.fa-fort-awesome:before {
-  content: "\f286";
-}
-.fa-usb:before {
-  content: "\f287";
-}
-.fa-product-hunt:before {
-  content: "\f288";
-}
-.fa-mixcloud:before {
-  content: "\f289";
-}
-.fa-scribd:before {
-  content: "\f28a";
-}
-.fa-pause-circle:before {
-  content: "\f28b";
-}
-.fa-pause-circle-o:before {
-  content: "\f28c";
-}
-.fa-stop-circle:before {
-  content: "\f28d";
-}
-.fa-stop-circle-o:before {
-  content: "\f28e";
-}
-.fa-shopping-bag:before {
-  content: "\f290";
-}
-.fa-shopping-basket:before {
-  content: "\f291";
-}
-.fa-hashtag:before {
-  content: "\f292";
-}
-.fa-bluetooth:before {
-  content: "\f293";
-}
-.fa-bluetooth-b:before {
-  content: "\f294";
-}
-.fa-percent:before {
-  content: "\f295";
-}
-.fa-gitlab:before {
-  content: "\f296";
-}
-.fa-wpbeginner:before {
-  content: "\f297";
-}
-.fa-wpforms:before {
-  content: "\f298";
-}
-.fa-envira:before {
-  content: "\f299";
-}
-.fa-universal-access:before {
-  content: "\f29a";
-}
-.fa-wheelchair-alt:before {
-  content: "\f29b";
-}
-.fa-question-circle-o:before {
-  content: "\f29c";
-}
-.fa-blind:before {
-  content: "\f29d";
-}
-.fa-audio-description:before {
-  content: "\f29e";
-}
-.fa-volume-control-phone:before {
-  content: "\f2a0";
-}
-.fa-braille:before {
-  content: "\f2a1";
-}
-.fa-assistive-listening-systems:before {
-  content: "\f2a2";
-}
-.fa-asl-interpreting:before,
-.fa-american-sign-language-interpreting:before {
-  content: "\f2a3";
-}
-.fa-deafness:before,
-.fa-hard-of-hearing:before,
-.fa-deaf:before {
-  content: "\f2a4";
-}
-.fa-glide:before {
-  content: "\f2a5";
-}
-.fa-glide-g:before {
-  content: "\f2a6";
-}
-.fa-signing:before,
-.fa-sign-language:before {
-  content: "\f2a7";
-}
-.fa-low-vision:before {
-  content: "\f2a8";
-}
-.fa-viadeo:before {
-  content: "\f2a9";
-}
-.fa-viadeo-square:before {
-  content: "\f2aa";
-}
-.fa-snapchat:before {
-  content: "\f2ab";
-}
-.fa-snapchat-ghost:before {
-  content: "\f2ac";
-}
-.fa-snapchat-square:before {
-  content: "\f2ad";
-}
-.fa-pied-piper:before {
-  content: "\f2ae";
-}
-.fa-first-order:before {
-  content: "\f2b0";
-}
-.fa-yoast:before {
-  content: "\f2b1";
-}
-.fa-themeisle:before {
-  content: "\f2b2";
-}
-.fa-google-plus-circle:before,
-.fa-google-plus-official:before {
-  content: "\f2b3";
-}
-.fa-fa:before,
-.fa-font-awesome:before {
-  content: "\f2b4";
-}
-.fa-handshake-o:before {
-  content: "\f2b5";
-}
-.fa-envelope-open:before {
-  content: "\f2b6";
-}
-.fa-envelope-open-o:before {
-  content: "\f2b7";
-}
-.fa-linode:before {
-  content: "\f2b8";
-}
-.fa-address-book:before {
-  content: "\f2b9";
-}
-.fa-address-book-o:before {
-  content: "\f2ba";
-}
-.fa-vcard:before,
-.fa-address-card:before {
-  content: "\f2bb";
-}
-.fa-vcard-o:before,
-.fa-address-card-o:before {
-  content: "\f2bc";
-}
-.fa-user-circle:before {
-  content: "\f2bd";
-}
-.fa-user-circle-o:before {
-  content: "\f2be";
-}
-.fa-user-o:before {
-  content: "\f2c0";
-}
-.fa-id-badge:before {
-  content: "\f2c1";
-}
-.fa-drivers-license:before,
-.fa-id-card:before {
-  content: "\f2c2";
-}
-.fa-drivers-license-o:before,
-.fa-id-card-o:before {
-  content: "\f2c3";
-}
-.fa-quora:before {
-  content: "\f2c4";
-}
-.fa-free-code-camp:before {
-  content: "\f2c5";
-}
-.fa-telegram:before {
-  content: "\f2c6";
-}
-.fa-thermometer-4:before,
-.fa-thermometer:before,
-.fa-thermometer-full:before {
-  content: "\f2c7";
-}
-.fa-thermometer-3:before,
-.fa-thermometer-three-quarters:before {
-  content: "\f2c8";
-}
-.fa-thermometer-2:before,
-.fa-thermometer-half:before {
-  content: "\f2c9";
-}
-.fa-thermometer-1:before,
-.fa-thermometer-quarter:before {
-  content: "\f2ca";
-}
-.fa-thermometer-0:before,
-.fa-thermometer-empty:before {
-  content: "\f2cb";
-}
-.fa-shower:before {
-  content: "\f2cc";
-}
-.fa-bathtub:before,
-.fa-s15:before,
-.fa-bath:before {
-  content: "\f2cd";
-}
-.fa-podcast:before {
-  content: "\f2ce";
-}
-.fa-window-maximize:before {
-  content: "\f2d0";
-}
-.fa-window-minimize:before {
-  content: "\f2d1";
-}
-.fa-window-restore:before {
-  content: "\f2d2";
-}
-.fa-times-rectangle:before,
-.fa-window-close:before {
-  content: "\f2d3";
-}
-.fa-times-rectangle-o:before,
-.fa-window-close-o:before {
-  content: "\f2d4";
-}
-.fa-bandcamp:before {
-  content: "\f2d5";
-}
-.fa-grav:before {
-  content: "\f2d6";
-}
-.fa-etsy:before {
-  content: "\f2d7";
-}
-.fa-imdb:before {
-  content: "\f2d8";
-}
-.fa-ravelry:before {
-  content: "\f2d9";
-}
-.fa-eercast:before {
-  content: "\f2da";
-}
-.fa-microchip:before {
-  content: "\f2db";
-}
-.fa-snowflake-o:before {
-  content: "\f2dc";
-}
-.fa-superpowers:before {
-  content: "\f2dd";
-}
-.fa-wpexplorer:before {
-  content: "\f2de";
-}
-.fa-meetup:before {
-  content: "\f2e0";
-}
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-.sr-only-focusable:active,
-.sr-only-focusable:focus {
-  position: static;
-  width: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  clip: auto;
-}
-.sr-only-focusable:active,
-.sr-only-focusable:focus {
-  position: static;
-  width: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  clip: auto;
 }
 /*!
 *
@@ -9391,10 +8693,6 @@ div.traceback-wrapper {
   max-width: 800px;
   margin: auto;
 }
-div.traceback-wrapper pre.traceback {
-  max-height: 600px;
-  overflow: auto;
-}
 /**
  * Primary styles
  *
@@ -9420,10 +8718,6 @@ body > #header {
   z-index: 100;
 }
 body > #header #header-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 5px;
   padding-bottom: 5px;
   padding-top: 5px;
   box-sizing: border-box;
@@ -9455,16 +8749,13 @@ body > #header .header-bar {
   padding-top: 1px;
   padding-bottom: 1px;
 }
+@media (max-width: 991px) {
+  #ipython_notebook {
+    margin-left: 10px;
+  }
+}
 [dir="rtl"] #ipython_notebook {
-  margin-right: 10px;
-  margin-left: 0;
-}
-[dir="rtl"] #ipython_notebook.pull-left {
   float: right !important;
-  float: right;
-}
-.flex-spacer {
-  flex: 1;
 }
 #noscript {
   width: auto;
@@ -9499,14 +8790,8 @@ body > #header .header-bar {
 input.ui-button {
   padding: 0.3em 0.9em;
 }
-span#kernel_logo_widget {
-  margin: 0 10px;
-}
 span#login_widget {
   float: right;
-}
-[dir="rtl"] span#login_widget {
-  float: left;
 }
 span#login_widget > .button,
 #logout {
@@ -9622,9 +8907,6 @@ span#login_widget > .button .badge,
   overflow: auto;
   flex: 1;
 }
-.modal-header {
-  cursor: move;
-}
 @media (min-width: 768px) {
   .modal .modal-dialog {
     width: 700px;
@@ -9645,19 +8927,6 @@ span#login_widget > .button .badge,
   display: inline-block;
   margin-bottom: -4px;
 }
-[dir="rtl"] .center-nav form.pull-left {
-  float: right !important;
-  float: right;
-}
-[dir="rtl"] .center-nav .navbar-text {
-  float: right;
-}
-[dir="rtl"] .navbar-inner {
-  text-align: right;
-}
-[dir="rtl"] div.text-left {
-  text-align: right;
-}
 /*!
 *
 * IPython tree view
@@ -9674,42 +8943,34 @@ span#login_widget > .button .badge,
   margin: 0;
 }
 .alternate_upload input.fileinput {
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  display: inline;
   opacity: 0;
   z-index: 2;
-}
-.alternate_upload .btn-xs > input.fileinput {
-  margin: -1px -5px;
+  width: 12ex;
+  margin-right: -12ex;
 }
 .alternate_upload .btn-upload {
-  position: relative;
   height: 22px;
-}
-::-webkit-file-upload-button {
-  cursor: pointer;
 }
 /**
  * Primary styles
  *
  * Author: Jupyter Development Team
  */
+[dir="rtl"] #tabs li {
+  float: right;
+}
 ul#tabs {
   margin-bottom: 4px;
+}
+[dir="rtl"] ul#tabs {
+  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
   padding-bottom: 4px;
-}
-[dir="rtl"] ul#tabs.nav-tabs > li {
-  float: right;
-}
-[dir="rtl"] ul#tabs.nav.nav-tabs {
-  padding-right: 0;
 }
 ul.breadcrumb a:focus,
 ul.breadcrumb a:hover {
@@ -9729,13 +8990,15 @@ ul.breadcrumb span {
 .list_toolbar .tree-buttons {
   padding-top: 1px;
 }
-[dir="rtl"] .list_toolbar .tree-buttons .pull-right {
+[dir="rtl"] .list_toolbar .tree-buttons {
   float: left !important;
-  float: left;
 }
-[dir="rtl"] .list_toolbar .col-sm-4,
-[dir="rtl"] .list_toolbar .col-sm-8 {
-  float: right;
+[dir="rtl"] .list_toolbar .pull-right {
+  padding-top: 1px;
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-left {
+  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9791,7 +9054,7 @@ ul.breadcrumb span {
 .list_item > div input {
   margin-right: 7px;
   margin-left: 14px;
-  vertical-align: text-bottom;
+  vertical-align: baseline;
   line-height: 22px;
   position: relative;
   top: -1px;
@@ -9801,9 +9064,6 @@ ul.breadcrumb span {
   margin-left: -1px;
   vertical-align: baseline;
   line-height: 22px;
-}
-[dir="rtl"] .list_item > div input {
-  margin-right: 0;
 }
 .new-file input[type=checkbox] {
   visibility: hidden;
@@ -9819,14 +9079,6 @@ ul.breadcrumb span {
   margin-left: 7px;
   line-height: 22px;
   vertical-align: baseline;
-}
-.item_modified {
-  margin-right: 7px;
-  margin-left: 7px;
-}
-[dir="rtl"] .item_modified.pull-right {
-  float: left !important;
-  float: left;
 }
 .item_buttons {
   line-height: 1em;
@@ -9855,14 +9107,6 @@ ul.breadcrumb span {
   margin-right: 7px;
   float: left;
 }
-[dir="rtl"] .item_buttons.pull-right {
-  float: left !important;
-  float: left;
-}
-[dir="rtl"] .item_buttons .kernel-name {
-  margin-left: 7px;
-  float: right;
-}
 .toolbar_info {
   height: 24px;
   line-height: 24px;
@@ -9888,32 +9132,18 @@ ul.breadcrumb span {
   background-color: transparent;
   font-weight: bold;
 }
-.sort_button {
-  display: inline-block;
-  padding-left: 7px;
-}
-[dir="rtl"] .sort_button.pull-right {
-  float: left !important;
-  float: left;
-}
 #tree-selector {
   padding-right: 0px;
+}
+[dir="rtl"] #tree-selector a {
+  float: right;
 }
 #button-select-all {
   min-width: 50px;
 }
-[dir="rtl"] #button-select-all.btn {
-  float: right ;
-}
 #select-all {
   margin-left: 7px;
   margin-right: 2px;
-  margin-top: 2px;
-  height: 16px;
-}
-[dir="rtl"] #select-all.pull-left {
-  float: right !important;
-  float: right;
 }
 .menu_icon {
   margin-right: 2px;
@@ -9931,12 +9161,6 @@ ul.breadcrumb span {
   -moz-osx-font-smoothing: grayscale;
   content: "\f114";
 }
-.folder_icon:before.fa-pull-left {
-  margin-right: .3em;
-}
-.folder_icon:before.fa-pull-right {
-  margin-left: .3em;
-}
 .folder_icon:before.pull-left {
   margin-right: .3em;
 }
@@ -9953,12 +9177,6 @@ ul.breadcrumb span {
   content: "\f02d";
   position: relative;
   top: -1px;
-}
-.notebook_icon:before.fa-pull-left {
-  margin-right: .3em;
-}
-.notebook_icon:before.fa-pull-right {
-  margin-left: .3em;
 }
 .notebook_icon:before.pull-left {
   margin-right: .3em;
@@ -9978,12 +9196,6 @@ ul.breadcrumb span {
   top: -1px;
   color: #5cb85c;
 }
-.running_notebook_icon:before.fa-pull-left {
-  margin-right: .3em;
-}
-.running_notebook_icon:before.fa-pull-right {
-  margin-left: .3em;
-}
 .running_notebook_icon:before.pull-left {
   margin-right: .3em;
 }
@@ -10001,12 +9213,6 @@ ul.breadcrumb span {
   position: relative;
   top: -2px;
 }
-.file_icon:before.fa-pull-left {
-  margin-right: .3em;
-}
-.file_icon:before.fa-pull-right {
-  margin-left: .3em;
-}
 .file_icon:before.pull-left {
   margin-right: .3em;
 }
@@ -10021,11 +9227,8 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
-#new-menu .dropdown-header {
-  font-size: 10px;
-  border-bottom: 1px solid #e5e5e5;
-  padding: 0 0 3px;
-  margin: -3px 20px 0;
+[dir="rtl"] #new-menu {
+  text-align: right;
 }
 .kernel-menu-icon {
   padding-right: 12px;
@@ -10072,6 +9275,9 @@ ul#new-menu {
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
 }
+[dir="rtl"] #running .col-sm-8 {
+  float: right !important;
+}
 .delete-button {
   display: none;
 }
@@ -10079,12 +9285,6 @@ ul#new-menu {
   display: none;
 }
 .rename-button {
-  display: none;
-}
-.move-button {
-  display: none;
-}
-.download-button {
   display: none;
 }
 .shutdown-button {
@@ -10127,12 +9327,6 @@ ul#new-menu {
   -moz-osx-font-smoothing: grayscale;
   width: 20px;
 }
-.dirty-indicator.fa-pull-left {
-  margin-right: .3em;
-}
-.dirty-indicator.fa-pull-right {
-  margin-left: .3em;
-}
 .dirty-indicator.pull-left {
   margin-right: .3em;
 }
@@ -10147,12 +9341,6 @@ ul#new-menu {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 20px;
-}
-.dirty-indicator-dirty.fa-pull-left {
-  margin-right: .3em;
-}
-.dirty-indicator-dirty.fa-pull-right {
-  margin-left: .3em;
 }
 .dirty-indicator-dirty.pull-left {
   margin-right: .3em;
@@ -10169,12 +9357,6 @@ ul#new-menu {
   -moz-osx-font-smoothing: grayscale;
   width: 20px;
 }
-.dirty-indicator-clean.fa-pull-left {
-  margin-right: .3em;
-}
-.dirty-indicator-clean.fa-pull-right {
-  margin-left: .3em;
-}
 .dirty-indicator-clean.pull-left {
   margin-right: .3em;
 }
@@ -10189,12 +9371,6 @@ ul#new-menu {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   content: "\f00c";
-}
-.dirty-indicator-clean:before.fa-pull-left {
-  margin-right: .3em;
-}
-.dirty-indicator-clean:before.fa-pull-right {
-  margin-left: .3em;
 }
 .dirty-indicator-clean:before.pull-left {
   margin-right: .3em;
@@ -10240,132 +9416,14 @@ ul#new-menu {
     box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
   }
 }
-.CodeMirror-dialog {
-  background-color: #fff;
-}
 /*!
 *
 * IPython notebook
 *
 */
-/* CSS font colors for translated ANSI escape sequences */
-/* The color values are a mix of
-   http://www.xcolors.net/dl/baskerville-ivorylight and
-   http://www.xcolors.net/dl/euphrasia */
-.ansi-black-fg {
-  color: #3E424D;
-}
-.ansi-black-bg {
-  background-color: #3E424D;
-}
-.ansi-black-intense-fg {
-  color: #282C36;
-}
-.ansi-black-intense-bg {
-  background-color: #282C36;
-}
-.ansi-red-fg {
-  color: #E75C58;
-}
-.ansi-red-bg {
-  background-color: #E75C58;
-}
-.ansi-red-intense-fg {
-  color: #B22B31;
-}
-.ansi-red-intense-bg {
-  background-color: #B22B31;
-}
-.ansi-green-fg {
-  color: #00A250;
-}
-.ansi-green-bg {
-  background-color: #00A250;
-}
-.ansi-green-intense-fg {
-  color: #007427;
-}
-.ansi-green-intense-bg {
-  background-color: #007427;
-}
-.ansi-yellow-fg {
-  color: #DDB62B;
-}
-.ansi-yellow-bg {
-  background-color: #DDB62B;
-}
-.ansi-yellow-intense-fg {
-  color: #B27D12;
-}
-.ansi-yellow-intense-bg {
-  background-color: #B27D12;
-}
-.ansi-blue-fg {
-  color: #208FFB;
-}
-.ansi-blue-bg {
-  background-color: #208FFB;
-}
-.ansi-blue-intense-fg {
-  color: #0065CA;
-}
-.ansi-blue-intense-bg {
-  background-color: #0065CA;
-}
-.ansi-magenta-fg {
-  color: #D160C4;
-}
-.ansi-magenta-bg {
-  background-color: #D160C4;
-}
-.ansi-magenta-intense-fg {
-  color: #A03196;
-}
-.ansi-magenta-intense-bg {
-  background-color: #A03196;
-}
-.ansi-cyan-fg {
-  color: #60C6C8;
-}
-.ansi-cyan-bg {
-  background-color: #60C6C8;
-}
-.ansi-cyan-intense-fg {
-  color: #258F8F;
-}
-.ansi-cyan-intense-bg {
-  background-color: #258F8F;
-}
-.ansi-white-fg {
-  color: #C5C1B4;
-}
-.ansi-white-bg {
-  background-color: #C5C1B4;
-}
-.ansi-white-intense-fg {
-  color: #A1A6B2;
-}
-.ansi-white-intense-bg {
-  background-color: #A1A6B2;
-}
-.ansi-default-inverse-fg {
-  color: #FFFFFF;
-}
-.ansi-default-inverse-bg {
-  background-color: #000000;
-}
-.ansi-bold {
-  font-weight: bold;
-}
-.ansi-underline {
-  text-decoration: underline;
-}
-/* The following styles are deprecated an will be removed in a future version */
+/* CSS font colors for translated ANSI colors. */
 .ansibold {
   font-weight: bold;
-}
-.ansi-inverse {
-  outline: 0.5px dotted;
 }
 /* use dark versions for foreground, to improve visibility */
 .ansiblack {
@@ -10444,20 +9502,12 @@ div.cell {
   /* This acts as a spacer between cells, that is outside the border */
   margin: 0px;
   outline: none;
-  position: relative;
-  overflow: visible;
-}
-div.cell:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: transparent;
+  border-left-width: 1px;
+  padding-left: 5px;
+  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
 }
 div.cell.jupyter-soft-selected {
+  border-left-color: #90CAF9;
   border-left-color: #E3F2FD;
   border-left-width: 1px;
   padding-left: 5px;
@@ -10470,39 +9520,27 @@ div.cell.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected,
-div.cell.selected.jupyter-soft-selected {
+div.cell.selected {
   border-color: #ababab;
-}
-div.cell.selected:before,
-div.cell.selected.jupyter-soft-selected:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: #42A5F5;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
 }
 @media print {
-  div.cell.selected,
-  div.cell.selected.jupyter-soft-selected {
+  div.cell.selected {
     border-color: transparent;
   }
 }
+div.cell.selected.jupyter-soft-selected {
+  border-left-width: 0;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
+}
 .edit_mode div.cell.selected {
   border-color: #66BB6A;
-}
-.edit_mode div.cell.selected:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: #66BB6A;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
 }
 @media print {
   .edit_mode div.cell.selected {
@@ -10698,9 +9736,7 @@ div.input_area > div.highlight > pre {
 .CodeMirror-lines {
   /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
   /* we have set a different line-height and want this to scale with that. */
-  /* Note that this should set vertical padding only, since CodeMirror assumes
-       that horizontal padding will be set on CodeMirror pre */
-  padding: 0.4em 0;
+  padding: 0.4em;
 }
 .CodeMirror-linenumber {
   padding: 0 8px 0 4px;
@@ -10710,24 +9746,11 @@ div.input_area > div.highlight > pre {
   border-top-left-radius: 2px;
 }
 .CodeMirror pre {
-  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
-    use .CodeMirror-lines for vertical */
-  padding: 0 0.4em;
+  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
+  /* .CodeMirror-lines */
+  padding: 0;
   border: 0;
   border-radius: 0;
-}
-.CodeMirror-cursor {
-  border-left: 1.4px solid black;
-}
-@media screen and (min-width: 2138px) and (max-width: 4319px) {
-  .CodeMirror-cursor {
-    border-left: 2px solid black;
-  }
-}
-@media screen and (min-width: 4320px) {
-  .CodeMirror-cursor {
-    border-left: 4px solid black;
-  }
 }
 /*
 
@@ -10981,9 +10004,6 @@ div.output_area img.unconfined,
 div.output_area svg.unconfined {
   max-width: none;
 }
-div.output_area .mglyph > img {
-  max-width: none;
-}
 /* This is needed to protect the pre formating from global settings such
    as that of bootstrap */
 .output {
@@ -11022,7 +10042,7 @@ div.output_area .mglyph > img {
 }
 div.output_area pre {
   margin: 0;
-  padding: 1px 0 1px 0;
+  padding: 0;
   border: 0;
   vertical-align: baseline;
   color: black;
@@ -11182,35 +10202,39 @@ div.output_unrecognized a:hover {
 .rendered_html h6:first-child {
   margin-top: 1em;
 }
-.rendered_html ul:not(.list-inline),
-.rendered_html ol:not(.list-inline) {
-  padding-left: 2em;
-}
 .rendered_html ul {
   list-style: disc;
+  margin: 0em 2em;
+  padding-left: 0px;
 }
 .rendered_html ul ul {
   list-style: square;
-  margin-top: 0;
+  margin: 0em 2em;
 }
 .rendered_html ul ul ul {
   list-style: circle;
+  margin: 0em 2em;
 }
 .rendered_html ol {
   list-style: decimal;
+  margin: 0em 2em;
+  padding-left: 0px;
 }
 .rendered_html ol ol {
   list-style: upper-alpha;
-  margin-top: 0;
+  margin: 0em 2em;
 }
 .rendered_html ol ol ol {
   list-style: lower-alpha;
+  margin: 0em 2em;
 }
 .rendered_html ol ol ol ol {
   list-style: lower-roman;
+  margin: 0em 2em;
 }
 .rendered_html ol ol ol ol ol {
   list-style: decimal;
+  margin: 0em 2em;
 }
 .rendered_html * + ul {
   margin-top: 1em;
@@ -11224,23 +10248,14 @@ div.output_unrecognized a:hover {
 }
 .rendered_html pre {
   margin: 1em 2em;
-  padding: 0px;
-  background-color: #fff;
-}
-.rendered_html code {
-  background-color: #eff0f1;
-}
-.rendered_html p code {
-  padding: 1px 5px;
-}
-.rendered_html pre code {
-  background-color: #fff;
 }
 .rendered_html pre,
 .rendered_html code {
   border: 0;
+  background-color: #fff;
   color: #000;
   font-size: 100%;
+  padding: 0px;
 }
 .rendered_html blockquote {
   margin: 1em 2em;
@@ -11248,36 +10263,24 @@ div.output_unrecognized a:hover {
 .rendered_html table {
   margin-left: auto;
   margin-right: auto;
-  border: none;
+  border: 1px solid black;
   border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
 }
 .rendered_html tr,
 .rendered_html th,
 .rendered_html td {
-  text-align: right;
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin: 1em 2em;
+}
+.rendered_html td,
+.rendered_html th {
+  text-align: left;
   vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
+  padding: 4px;
 }
 .rendered_html th {
   font-weight: bold;
-}
-.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
 }
 .rendered_html * + table {
   margin-top: 1em;
@@ -11304,15 +10307,6 @@ div.output_unrecognized a:hover {
 .rendered_html img.unconfined,
 .rendered_html svg.unconfined {
   max-width: none;
-}
-.rendered_html .alert {
-  margin-bottom: initial;
-}
-.rendered_html * + .alert {
-  margin-top: 1em;
-}
-[dir="rtl"] .rendered_html p {
-  text-align: right;
 }
 div.text_cell {
   /* Old browsers */
@@ -11367,17 +10361,8 @@ h6:hover .anchor-link {
   overflow-x: auto;
   overflow-y: hidden;
 }
-.text_cell.rendered .rendered_html tr,
-.text_cell.rendered .rendered_html th,
-.text_cell.rendered .rendered_html td {
-  max-width: none;
-}
 .text_cell.unrendered .text_cell_render {
   display: none;
-}
-.text_cell .dropzone .input_area {
-  border: 2px dashed #bababa;
-  margin: -1px;
 }
 .cm-header-1,
 .cm-header-2,
@@ -11514,28 +10499,6 @@ kbd {
   padding-top: 1px;
   padding-bottom: 1px;
 }
-.jupyter-keybindings {
-  padding: 1px;
-  line-height: 24px;
-  border-bottom: 1px solid gray;
-}
-.jupyter-keybindings input {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-.jupyter-keybindings i {
-  padding: 6px;
-}
-.well code {
-  background-color: #ffffff;
-  border-color: #ababab;
-  border-width: 1px;
-  border-style: solid;
-  padding: 2px;
-  padding-top: 1px;
-  padding-bottom: 1px;
-}
 /* CSS for the cell toolbar */
 .celltoolbar {
   border: thin solid #CFCFCF;
@@ -11668,152 +10631,6 @@ select[multiple].celltoolbar select {
   margin-left: 5px;
   margin-right: 5px;
 }
-.tags_button_container {
-  width: 100%;
-  display: flex;
-}
-.tag-container {
-  display: flex;
-  flex-direction: row;
-  flex-grow: 1;
-  overflow: hidden;
-  position: relative;
-}
-.tag-container > * {
-  margin: 0 4px;
-}
-.remove-tag-btn {
-  margin-left: 4px;
-}
-.tags-input {
-  display: flex;
-}
-.cell-tag:last-child:after {
-  content: "";
-  position: absolute;
-  right: 0;
-  width: 40px;
-  height: 100%;
-  /* Fade to background color of cell toolbar */
-  background: linear-gradient(to right, rgba(0, 0, 0, 0), #EEE);
-}
-.tags-input > * {
-  margin-left: 4px;
-}
-.cell-tag,
-.tags-input input,
-.tags-input button {
-  display: block;
-  width: 100%;
-  height: 32px;
-  padding: 6px 12px;
-  font-size: 13px;
-  line-height: 1.42857143;
-  color: #555555;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  height: 30px;
-  padding: 5px 10px;
-  font-size: 12px;
-  line-height: 1.5;
-  border-radius: 1px;
-  box-shadow: none;
-  width: inherit;
-  font-size: inherit;
-  height: 22px;
-  line-height: 22px;
-  padding: 0px 4px;
-  display: inline-block;
-}
-.cell-tag:focus,
-.tags-input input:focus,
-.tags-input button:focus {
-  border-color: #66afe9;
-  outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
-}
-.cell-tag::-moz-placeholder,
-.tags-input input::-moz-placeholder,
-.tags-input button::-moz-placeholder {
-  color: #999;
-  opacity: 1;
-}
-.cell-tag:-ms-input-placeholder,
-.tags-input input:-ms-input-placeholder,
-.tags-input button:-ms-input-placeholder {
-  color: #999;
-}
-.cell-tag::-webkit-input-placeholder,
-.tags-input input::-webkit-input-placeholder,
-.tags-input button::-webkit-input-placeholder {
-  color: #999;
-}
-.cell-tag::-ms-expand,
-.tags-input input::-ms-expand,
-.tags-input button::-ms-expand {
-  border: 0;
-  background-color: transparent;
-}
-.cell-tag[disabled],
-.tags-input input[disabled],
-.tags-input button[disabled],
-.cell-tag[readonly],
-.tags-input input[readonly],
-.tags-input button[readonly],
-fieldset[disabled] .cell-tag,
-fieldset[disabled] .tags-input input,
-fieldset[disabled] .tags-input button {
-  background-color: #eeeeee;
-  opacity: 1;
-}
-.cell-tag[disabled],
-.tags-input input[disabled],
-.tags-input button[disabled],
-fieldset[disabled] .cell-tag,
-fieldset[disabled] .tags-input input,
-fieldset[disabled] .tags-input button {
-  cursor: not-allowed;
-}
-textarea.cell-tag,
-textarea.tags-input input,
-textarea.tags-input button {
-  height: auto;
-}
-select.cell-tag,
-select.tags-input input,
-select.tags-input button {
-  height: 30px;
-  line-height: 30px;
-}
-textarea.cell-tag,
-textarea.tags-input input,
-textarea.tags-input button,
-select[multiple].cell-tag,
-select[multiple].tags-input input,
-select[multiple].tags-input button {
-  height: auto;
-}
-.cell-tag,
-.tags-input button {
-  padding: 0px 4px;
-}
-.cell-tag {
-  background-color: #fff;
-  white-space: nowrap;
-}
-.tags-input input[type=text]:focus {
-  outline: none;
-  box-shadow: none;
-  border-color: #ccc;
-}
 .completions {
   position: absolute;
   z-index: 110;
@@ -11839,28 +10656,16 @@ select[multiple].tags-input button {
 .completions select option.context {
   color: #286090;
 }
+#kernel_logo_widget {
+  float: right !important;
+  float: right;
+}
 #kernel_logo_widget .current_kernel_logo {
   display: none;
   margin-top: -1px;
   margin-bottom: -1px;
   width: 32px;
   height: 32px;
-}
-[dir="rtl"] #kernel_logo_widget {
-  float: left !important;
-  float: left;
-}
-.modal .modal-body .move-path {
-  display: flex;
-  flex-direction: row;
-  justify-content: space;
-  align-items: center;
-}
-.modal .modal-body .move-path .server-root {
-  padding-right: 20px;
-}
-.modal .modal-body .move-path .path-input {
-  flex: 1;
 }
 #menubar {
   box-sizing: border-box;
@@ -11882,41 +10687,11 @@ select[multiple].tags-input button {
 #menubar .navbar-collapse {
   clear: left;
 }
-[dir="rtl"] #menubar .navbar-toggle {
-  float: right;
-}
-[dir="rtl"] #menubar .navbar-collapse {
-  clear: right;
-}
-[dir="rtl"] #menubar .navbar-nav {
-  float: right;
-}
-[dir="rtl"] #menubar .nav {
-  padding-right: 0px;
-}
-[dir="rtl"] #menubar .navbar-nav > li {
-  float: right;
-}
-[dir="rtl"] #menubar .navbar-right {
-  float: left !important;
-}
-[dir="rtl"] ul.dropdown-menu {
-  text-align: right;
-  left: auto;
-}
-[dir="rtl"] ul#new-menu.dropdown-menu {
-  right: auto;
-  left: 0;
-}
 .nav-wrapper {
   border-bottom: 1px solid #e7e7e7;
 }
 i.menu-icon {
   padding-top: 4px;
-}
-[dir="rtl"] i.menu-icon.pull-right {
-  float: left !important;
-  float: left;
 }
 ul#help_menu li a {
   overflow: hidden;
@@ -11924,17 +10699,6 @@ ul#help_menu li a {
 }
 ul#help_menu li a i {
   margin-right: -1.2em;
-}
-[dir="rtl"] ul#help_menu li a {
-  padding-left: 2.2em;
-}
-[dir="rtl"] ul#help_menu li a i {
-  margin-right: 0;
-  margin-left: -1.2em;
-}
-[dir="rtl"] ul#help_menu li a i.pull-right {
-  float: left !important;
-  float: left;
 }
 .dropdown-submenu {
   position: relative;
@@ -11944,10 +10708,6 @@ ul#help_menu li a i {
   left: 100%;
   margin-top: -6px;
   margin-left: -1px;
-}
-[dir="rtl"] .dropdown-submenu > .dropdown-menu {
-  right: 100%;
-  margin-right: -1px;
 }
 .dropdown-submenu:hover > .dropdown-menu {
   display: block;
@@ -11966,23 +10726,11 @@ ul#help_menu li a i {
   margin-top: 2px;
   margin-right: -10px;
 }
-.dropdown-submenu > a:after.fa-pull-left {
-  margin-right: .3em;
-}
-.dropdown-submenu > a:after.fa-pull-right {
-  margin-left: .3em;
-}
 .dropdown-submenu > a:after.pull-left {
   margin-right: .3em;
 }
 .dropdown-submenu > a:after.pull-right {
   margin-left: .3em;
-}
-[dir="rtl"] .dropdown-submenu > a:after {
-  float: left;
-  content: "\f0d9";
-  margin-right: 0;
-  margin-left: -10px;
 }
 .dropdown-submenu:hover > a:after {
   color: #262626;
@@ -11999,10 +10747,6 @@ ul#help_menu li a i {
   float: right;
   z-index: 10;
 }
-[dir="rtl"] #notification_area {
-  float: left !important;
-  float: left;
-}
 .indicator_area {
   float: right !important;
   float: right;
@@ -12013,10 +10757,6 @@ ul#help_menu li a i {
   z-index: 10;
   text-align: center;
   width: auto;
-}
-[dir="rtl"] .indicator_area {
-  float: left !important;
-  float: left;
 }
 #kernel_indicator {
   float: right !important;
@@ -12034,12 +10774,6 @@ ul#help_menu li a i {
   padding-left: 5px;
   padding-right: 5px;
 }
-[dir="rtl"] #kernel_indicator {
-  float: left !important;
-  float: left;
-  border-left: 0;
-  border-right: 1px solid;
-}
 #modal_indicator {
   float: right !important;
   float: right;
@@ -12050,10 +10784,6 @@ ul#help_menu li a i {
   z-index: 10;
   text-align: center;
   width: auto;
-}
-[dir="rtl"] #modal_indicator {
-  float: left !important;
-  float: left;
 }
 #readonly-indicator {
   float: right !important;
@@ -12084,12 +10814,6 @@ ul#help_menu li a i {
   -moz-osx-font-smoothing: grayscale;
   content: "\f040";
 }
-.edit_mode .modal_indicator:before.fa-pull-left {
-  margin-right: .3em;
-}
-.edit_mode .modal_indicator:before.fa-pull-right {
-  margin-left: .3em;
-}
 .edit_mode .modal_indicator:before.pull-left {
   margin-right: .3em;
 }
@@ -12104,12 +10828,6 @@ ul#help_menu li a i {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   content: ' ';
-}
-.command_mode .modal_indicator:before.fa-pull-left {
-  margin-right: .3em;
-}
-.command_mode .modal_indicator:before.fa-pull-right {
-  margin-left: .3em;
 }
 .command_mode .modal_indicator:before.pull-left {
   margin-right: .3em;
@@ -12126,12 +10844,6 @@ ul#help_menu li a i {
   -moz-osx-font-smoothing: grayscale;
   content: "\f10c";
 }
-.kernel_idle_icon:before.fa-pull-left {
-  margin-right: .3em;
-}
-.kernel_idle_icon:before.fa-pull-right {
-  margin-left: .3em;
-}
 .kernel_idle_icon:before.pull-left {
   margin-right: .3em;
 }
@@ -12146,12 +10858,6 @@ ul#help_menu li a i {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   content: "\f111";
-}
-.kernel_busy_icon:before.fa-pull-left {
-  margin-right: .3em;
-}
-.kernel_busy_icon:before.fa-pull-right {
-  margin-left: .3em;
 }
 .kernel_busy_icon:before.pull-left {
   margin-right: .3em;
@@ -12168,12 +10874,6 @@ ul#help_menu li a i {
   -moz-osx-font-smoothing: grayscale;
   content: "\f1e2";
 }
-.kernel_dead_icon:before.fa-pull-left {
-  margin-right: .3em;
-}
-.kernel_dead_icon:before.fa-pull-right {
-  margin-left: .3em;
-}
 .kernel_dead_icon:before.pull-left {
   margin-right: .3em;
 }
@@ -12188,12 +10888,6 @@ ul#help_menu li a i {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   content: "\f127";
-}
-.kernel_disconnected_icon:before.fa-pull-left {
-  margin-right: .3em;
-}
-.kernel_disconnected_icon:before.fa-pull-right {
-  margin-left: .3em;
 }
 .kernel_disconnected_icon:before.pull-left {
   margin-right: .3em;
@@ -12584,46 +11278,27 @@ div#pager .ui-resizable-handle::after {
   flex: 1;
 }
 span.save_widget {
-  height: 30px;
-  margin-top: 4px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: baseline;
-  width: 50%;
-  flex: 1;
+  margin-top: 6px;
 }
 span.save_widget span.filename {
-  height: 100%;
+  height: 1em;
   line-height: 1em;
+  padding: 3px;
   margin-left: 16px;
   border: none;
   font-size: 146.5%;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
   border-radius: 2px;
 }
 span.save_widget span.filename:hover {
   background-color: #e6e6e6;
 }
-[dir="rtl"] span.save_widget.pull-left {
-  float: right !important;
-  float: right;
-}
-[dir="rtl"] span.save_widget span.filename {
-  margin-left: 0;
-  margin-right: 16px;
-}
 span.checkpoint_status,
 span.autosave_status {
   font-size: small;
-  white-space: nowrap;
-  padding: 0 5px;
 }
 @media (max-width: 767px) {
   span.save_widget {
     font-size: small;
-    padding: 0 0 0 5px;
   }
   span.checkpoint_status,
   span.autosave_status {
@@ -12667,9 +11342,6 @@ span.autosave_status {
   margin-top: 0px;
   margin-left: 5px;
 }
-.toolbar-btn-label {
-  margin-left: 6px;
-}
 #maintoolbar {
   margin-bottom: -3px;
   margin-top: -8px;
@@ -12689,10 +11361,6 @@ span.autosave_status {
 }
 .select-xs {
   height: 24px;
-}
-[dir="rtl"] .btn-group > .btn,
-.btn-group-vertical > .btn {
-  float: right;
 }
 .pulse,
 .dropdown-menu > li > a.pulse,
@@ -12843,10 +11511,6 @@ ul.typeahead-list i {
   margin-left: -10px;
   width: 18px;
 }
-[dir="rtl"] ul.typeahead-list i {
-  margin-left: 0;
-  margin-right: -10px;
-}
 ul.typeahead-list {
   max-height: 80vh;
   overflow: auto;
@@ -12855,13 +11519,6 @@ ul.typeahead-list > li > a {
   /** Firefox bug **/
   /* see https://github.com/jupyter/notebook/issues/559 */
   white-space: normal;
-}
-ul.typeahead-list  > li > a.pull-right {
-  float: left !important;
-  float: left;
-}
-[dir="rtl"] .typeahead-list {
-  text-align: right;
 }
 .cmd-palette .modal-body {
   padding: 7px;
@@ -12873,19 +11530,10 @@ ul.typeahead-list  > li > a.pull-right {
   outline: none;
 }
 .no-shortcut {
-  min-width: 20px;
-  color: transparent;
-}
-[dir="rtl"] .no-shortcut.pull-right {
-  float: left !important;
-  float: left;
-}
-[dir="rtl"] .command-shortcut.pull-right {
-  float: left !important;
-  float: left;
+  display: none;
 }
 .command-shortcut:before {
-  content: "(command mode)";
+  content: "(command)";
   padding-right: 3px;
   color: #777777;
 }
@@ -12894,10 +11542,6 @@ ul.typeahead-list  > li > a.pull-right {
   padding-right: 3px;
   color: #777777;
 }
-[dir="rtl"] .edit-shortcut.pull-right {
-  float: left !important;
-  float: left;
-}
 #find-and-replace #replace-preview .match,
 #find-and-replace #replace-preview .insert {
   background-color: #BBDEFB;
@@ -12905,12 +11549,6 @@ ul.typeahead-list  > li > a.pull-right {
   border-style: solid;
   border-width: 1px;
   border-radius: 0px;
-}
-[dir="ltr"] #find-and-replace .input-group-btn + .form-control {
-  border-left: none;
-}
-[dir="rtl"] #find-and-replace .input-group-btn + .form-control {
-  border-right: none;
 }
 #find-and-replace #replace-preview .replace .match {
   background-color: #FFCDD2;
@@ -13106,9 +11744,9 @@ div#notebook {
 <!-- Load mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
 <!-- MathJax configuration -->
-<meta content="3.13 General steepest descent" property="og:title"/>
+<meta content="8.5  K-Means Clustering" property="og:title"/>
 <meta content="https://github.com/jermwatt/machine_learning_refined/blob/gh-pages/html/pics/meta.png" property="og:image"/>
-<meta content="https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_13_General_steepest_descent.html" property="og:url"/>
+<meta content="https://jermwatt.github.io/machine_learning_refined/notes/8_Linear_unsupervised_learning/8_5_Kmeans.html" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -13169,28 +11807,28 @@ div#notebook {
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- linkedin -->
-<a href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F3_First_order_methods%2F3_13_General_steepest_descent.html" target="_blank">
+<a href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F8_Linear_unsupervised_learning%2F8_5_Kmeans.html" target="_blank">
 <img height="28" onmouseout="this.src='../../html/pics/linkedin.png';" onmouseover="this.src='../../html/pics/linkedin_filled.png';" src="../../html/pics/linkedin.png" width="28"/>
 </a>
 </div>
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- twitter -->
-<a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F3_First_order_methods%2F3_13_General_steepest_descent.html" target="_blank">
+<a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F8_Linear_unsupervised_learning%2F8_5_Kmeans.html" target="_blank">
 <img height="28" onmouseout="this.src='../../html/pics/twitter.png';" onmouseover="this.src='../../html/pics/twitter_filled.png';" src="../../html/pics/twitter.png" width="28"/>
 </a>
 </div>
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- facebook -->
-<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F3_First_order_methods%2F3_13_General_steepest_descent.html" target="_blank">
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F8_Linear_unsupervised_learning%2F8_5_Kmeans.html" target="_blank">
 <img height="28" onmouseout="this.src='../../html/pics/facebook.png';" onmouseover="this.src='../../html/pics/facebook_filled.png';" src="../../html/pics/facebook.png" width="28"/>
 </a>
 </div>
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- reddit -->
-<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F3_First_order_methods%2F3_13_General_steepest_descent.html" target="_blank">
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F8_Linear_unsupervised_learning%2F8_5_Kmeans.html" target="_blank">
 <img height="28" onmouseout="this.src='../../html/pics/reddit.png';" onmouseover="this.src='../../html/pics/reddit_filled.png';" src="../../html/pics/reddit.png" width="28"/>
 </a>
 </div>
@@ -13201,29 +11839,37 @@ div#notebook {
 <div class="page-title" style="text-align: center !important;">
 <div><a href="https://github.com/jermwatt/machine_learning_refined" style="text-decoration: none" target="_blank"><button class="btn-star">★ Our Project On GitHub</button></a></div>
 <br/><br/>
-<mark style="padding: 0px; background-color: #f9f3c2;">3.13 General steepest descent</mark>
+<mark style="padding: 0px; background-color: #f9f3c2;">8.5  K-Means Clustering*</mark>
 </div>
+<center>
+<div style="text-align: left !important; font-size:16px; width:64%; color: #333"><br/><br/><br/><br/>
+* The following is part of an early draft of the second edition of <strong>Machine Learning Refined</strong>. The published text (with revised material) is now available on <a href="https://www.amazon.com/Machine-Learning-Refined-Foundations-Applications/dp/1108480721" target="_blank">Amazon</a> as well as other major book retailers. Instructors may request an examination copy from <a href="https://www.cambridge.org/us/academic/subjects/engineering/communications-and-signal-processing/machine-learning-refined-foundations-algorithms-and-applications-2nd-edition?format=HB" target="_blank">Cambridge University Press</a>.
+</div>
+</center>
 <br/>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this post we describe several variations of normalized gradient descent, known generally as <em>steepest descent</em> algorithms. These variations arise out of a small but fundamental change to the gradient descent setup, a change that has significant impact on the form of a descent direction but importantly, not on the convergence of the methods (steepest descent methods converge under the same general condition as gradient descent, i.e., that the length of the steps eventually diminishes).</p>
+<p>In Sectio 8.3 we saw how Principal Component Analysis can be used as a basis for various normalization schemes, as well as a tool for simplifying a high dimensional dataset by properly reducing its <em>input</em> or <em>feature</em> dimension.  The subject of this Section is another tool for simplifying data, however here the problem is not (necessarily) that the data lives in high dimension but that there are simply too many data points to process (either by an algorithm or a human interpreter).  The focus of this Section - the <em>K-means algorithm</em> - is an elementary example of another set of unsupervised learning methods called <em>clustering algorithms</em>.  These algorithms are designed to (properly) reduce the number of points in a dataset, which we refer to as the <em>data dimension</em> of a dataset, and in doing so help us understand the structure of our data.</p>
 </div>
 </div>
 </div>
@@ -13236,68 +11882,281 @@ div#notebook {
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.13.1--Generalized-Steepest-descent">3.13.1  Generalized Steepest descent<a class="anchor-link" href="#3.13.1--Generalized-Steepest-descent">¶</a></h2>
+<h2 id="Representing-a-dataset-via-clusters">Representing a dataset via clusters<a class="anchor-link" href="#Representing-a-dataset-via-clusters">¶</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>When we first discussed gradient descent the descent direction given by the negative gradient fell out naturally from a geometric understanding of hyperplanes. Here we begin our discussion of steepest descent algorithms by re-visiting gradient descent and deriving the descent direction using a more rigorous mathematical framework. This framework immediately suggests a way to generalize the gradient descent algorithm under different <em>norms</em>, which we then explore.</p>
+<p>One very simple way to simplify a dataset is by grouping together nearby points into <em>clusters</em>.  Take the following set of two-dimensional data points, shown in the left panel below.  When you look at the image of this data you can see that it naturally falls into three groups or <em>clusters</em>, because you have something along the lines of a clustering algorithms 'built in' to your mental software (along with many other pattern recognition abilities).</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Steepest-descent-direction-in-the-$\ell_2$-norm">Steepest descent direction in the $\ell_2$ norm<a class="anchor-link" href="#Steepest-descent-direction-in-the-$\ell_2$-norm">¶</a></h3>
+<p>In the right panel we project a visual representation of each cluster onto the data, including each cluster's boundary drawn as a uniquely colored solid curve. We also draw the center of each cluster using a star symbol that matches the unique boundary color of each cluster. These cluster centers are often referred to in the jargon of machine learning as cluster <em>centroids</em>. The centroids here allow us to think about the dataset in the big picture sense - instead of $P = 10$ points we can think of our dataset grossly in terms of these $K=3$ cluster centroids, as each represents a chunk of the data.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>When first deriving the gradient descent direction of a multi-input function $g(\mathbf{w})$ at a point $\mathbf{v}$ we began by examining the tangent hyperplane to $g$ at this point</p>
-\begin{equation}
-h\left(\mathbf{w}\right)=g\left(\mathbf{v}\right)+\nabla g\left(\mathbf{v}\right)^{T}\left(\mathbf{w}-\mathbf{v}\right)
-\end{equation}<p>We then reasoned out that since in general we know that the <em>ascent</em> direction on a hyperplane is given by its set of 'slopes' - stored in $\nabla g(\mathbf{v})$ -  that intuitively therefore the descent direction is given by the negative gradient as $-\nabla g(\mathbf{v})$, or normalized to unit length as $-\frac{\nabla g(\mathbf{v})}{\left\Vert \nabla g(\mathbf{v}) \right\Vert_2 }$.  We often used the latter unit-normalized version since after all we care only about the descent <em>direction</em>.</p>
+<figure>
+<img alt="" height="auto" src="../../mlrefined_images/unsupervised_images/Kmeans_1.png" width="90%"/>
+<figcaption>
+<strong>Figure 1:</strong> <em> (left) A 2-dimensional toy dataset with $P=10$ data points. (right) The data shown naturally clustered into $K=3$ clusters.  Points that are geometrically close to one another belong to the same cluster, and each cluster boundary is roughly marked using a uniquely colored solid curve.  Each cluster center - also called a *centroid* - is marked by a star symbol colored to match its cluster boundary.</em> </figcaption>
+</figure>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This descent direction can be derived more formally as follows.  Note that $\mathbf{d} = \mathbf{w} - \mathbf{v}$ is a general search direction centered at the point $\mathbf{v}$.  We want to find the unit-length direction $\mathbf{d}$ that provides the smallest evaluation on the hyperplane, i.e., the one that gives the smallest value $g(\mathbf{v}) + \nabla g(\mathbf{v})^T(\mathbf{w} - \mathbf{v}) = g(\mathbf{v}) + \nabla g(\mathbf{v})^T\mathbf{d}$.  Since $\mathbf{d}$ is only present in the second term we only need care about finding the unit length direction $\mathbf{d}$ so that $\nabla g(\mathbf{v})^T\mathbf{d}$ is as small as possible (after all, $g(\mathbf{v})$ is constant).</p>
-<p>Formally this is a simple constrained minimization problem</p>
+<p>How can we describe - mathematically speaking - the clustering scenario we naturally see when we view the points in the left panel above, as highlighted in the right panel?</p>
+<p>First some notation.  As in the previous Sections we will denote our set of $P$ points generically as $\mathbf{x}_1,\,\mathbf{x}_2,\,...,\mathbf{x}_P$ where in our current instance $P=10)$ all of dimension $N$ (in our example here $N=2$).  To keep things as generally applicable as possible we will also use the notation $K$ to denote the number of clusters in a dataset, in our current example $K=3$.  Because each cluster has a centroid we need notation for this as well, and we will use $\mathbf{c}_1,\,\mathbf{c}_2,\,...,\mathbf{c}_K$ to denote these where $\mathbf{c}_k$ is the centroid of the $k^{th}$ cluster.  Finally we need a notation to denote the set of points that belong to each cluster.  We denote the set of indices of those points belonging to the $k^{th}$ cluster as</p>
+<p>\begin{equation}
+\mathcal{S}_k =  \left\{ p\,\, \lvert \,\,\text{if $\mathbf{x}_p$ belongs to the $k^{th}$ cluster } \right\}.
+\end{equation}</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-\begin{equation}
-\begin{array}{cc}
-\underset{\mathbf{d}}{\text{minimize}} &amp; \nabla g(\mathbf{v})^{T}\mathbf{d}\\
-\text{subject to} &amp; \left\Vert \mathbf{d}\right\Vert _{2}=1\\
-\end{array}
-\end{equation}
+<p>With all of our notation in hand we can now better describe the prototype clustering scenario shown in the figure above.  Again, note here we have assumed that we have identified each cluster and its centroid 'bye eye'.  Firstly, because the centroid denotes the center of a cluster it seems intuitive that each one should be expressible as the average of the points assigned to each cluster.  Algebraically this is to say that</p>
+<p>\begin{equation}
+\mathbf{c}_k = \frac{1}{\left\vert\mathcal{S}_k\right\vert}\sum_{p\in\mathcal{S}_k}\mathbf{x}_p.
+\end{equation}</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Using the toy in the next Python cell we explore possible solutions to this problem in two dimensions for a particular choice of gradient vector, gaining valuable geometric intuition as to what the solution should be.  There we plot an example gradient vector $\nabla g (\mathbf{v})$ as a red arrow, along with the $\ell_2$ unit ball. Moving the slider from left to right you can test various directions $\mathbf{d}$ (each shown as a black arrow) on this $\ell_2$ unit ball computing the inner product $\nabla g(\mathbf{v})^{T}\mathbf{d}$, whose value is simultaneously plotted in the right panel.  As you move the slider right the direction providing the <em>smallest</em> value is shown as a green arrow in the left panel, and is highlighted in green in the plot in the right panel.</p>
+<p>This formula confirms the intuition that each centroid represents a chunk of the data - the average of those points belonging to each cluster.</p>
+<p>Next we can state mathematically an obvious and implicit fact about the clustering scenario above: that each point belongs to the cluster whose centroid it is closest to. To express this algebraically for a given point $\mathbf{x}_p$ is simply say that the point must belong to the cluster where the distance to the centroid $\left\Vert \mathbf{x}_p - \mathbf{c}_k \right\Vert_2$ is minimal.  In other words, the point $\mathbf{x}_p$ belongs to or is <em>assigned</em> to cluster $k^{\star}$ if</p>
+<p>\begin{equation}
+a_p = \underset{k=1,...,K}{\text{argmin}} \,\,\,\left\Vert \mathbf{x}_p - \mathbf{c}_k \right\Vert_2
+\end{equation}</p>
+<p>In the jargon of machine learning these are called cluster <em>assignments</em>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Learning-clusters-to-represent-data">Learning clusters to represent data<a class="anchor-link" href="#Learning-clusters-to-represent-data">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We do not want to have to visually identify clusters in a dataset ourselves - and in any being constrained three dimensions if the dimension of of a dataset is greater than $N=3$ there is no way for us humans to do this anyway.  Instead we want an algorithm that will do this for us automatically.  Thankfully we can do this rather easily using the framework detailed above for mathematically describing clusters, the resulting algorithm being called the <em>K-means clustering algorithm</em>.  As with many of the algorithms we have seen K-means is an <em>iterative method</em>, meaning that we will refine the ideal location for our cluster centroids / cluster assignments over a number of update steps.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To get started -  let us say that we want to cluster a dataset of $P$ points into $K$ clusters automatically.  Note here that we will fix $K$, and address how to properly decide on its value later.  Now to state the obvious - remember - we know neither a) the locations of each cluster centroid nor b) the cluster assignments (i.e., which points are assigned to which cluster).</p>
+<p>Since we do not know where the clusters nor their centroids are located we can start off by taking a random guess at the locations of our $K$ centroids (we have to start somewhere).  This 'random guess' - our initialization - for the $K$ centroids could be a random subset of $K$ of our points, or any number of <a href="https://stats.stackexchange.com/questions/317493/methods-of-initializing-k-means-clustering">other types of initializations</a>.  With our initial centroid locations decided on we can then determine cluster assignments by simply looping over our points and for each $\mathbf{x}_p$ finding its closest centroid using the formula we saw above</p>
+<p>\begin{equation}
+a_p = \underset{k=1,...,K}{\text{argmin}} \,\,\,\left\Vert \mathbf{x}_p - \mathbf{c}_k \right\Vert_2.
+\end{equation}</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we have both an initial guess at our centroids and clustering assignments.  With our cluster assignments in hand we can then update our centroid locations - as the average of the points assigned to each cluster</p>
+<p>\begin{equation}
+\mathbf{c}_k = \frac{1}{\left\vert\mathcal{S}_k\right\vert}\sum_{p\in\mathcal{S}_k}\mathbf{x}_p.
+\end{equation}</p>
+<p>These first three steps - initializing the centroids, assigning points to each cluster, and updating the centroid locations - are shown in the figure below.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<figure>
+<img alt="" height="auto" src="../../mlrefined_images/unsupervised_images/Kmeans_2.png" width="90%"/>
+<figcaption>
+<strong>Figure 2:</strong> <em> (left) set of data points with random centroid initializations, and assignments (right) centroid locations updated as average of points assigned to each cluster </em> </figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To further refine our centroids / clusters we can now just repeat the above two-step process of a) re-assigning points based on our new centroid locations and then b) updating the centroid locations as the average of those points assigned to each cluster.  We can halt doing so after e.g., a pre-defined number of maximum iterations or when the cluster centroids to not change location very much from one iteration to the next.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<figure>
+<img alt="" height="auto" src="../../mlrefined_images/unsupervised_images/Kmeans_3.png" width="90%"/>
+<figcaption>
+<strong>Figure 3:</strong> <em> (left) assigning points based on updated centroid locations (right) updated location of centroids given by cluster averages </em> </figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is the <em>K-means</em> algorithm - the pseudo-code of which is given below.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-K-means-algorithm">The K-means algorithm<a class="anchor-link" href="#The-K-means-algorithm">¶</a></h3><p></p><hr style="height:1px;border:none;color:#555;background-color:#555;"/>
+<p style="line-height: 1.7;">
+<strong>1:</strong>   <strong>input:</strong> dataset $\mathbf{x}_1,...,\mathbf{x}_P$, initializations for centroids $\mathbf{c}_1,...,\mathbf{c}_K$, and maximum number of iterations $J$ <br/>
+<strong>2:</strong>   <code>for</code> $\,\,j = 1,\ldots,J$<br/>
+<strong>3:</strong>           <code># Update cluster assignments</code><br/>
+<strong>4:</strong>           <code>for</code> $\,\,p = 1,\ldots,P$<br/>
+<strong>5:</strong>                     $a_p =\underset{k=1,\ldots,K}{\mbox{argmin}}\,\,\left\Vert \mathbf{c}_{k}-\mathbf{x}_{p}\right\Vert _{2}$<br/>
+<strong>6:</strong>           <code>end for</code><br/>
+<strong>7:</strong>           <code># Update centroid locations</code><br/>
+<strong>8:</strong>           <code>for</code> $\,\,k = 1,\ldots,K$<br/>
+<strong>9:</strong>                     denote $\mathcal{S}_{k}$ the index set of points $\mathbf{x}_{p}$ currently assigned to the $k^{th}$ cluster<br/>
+<strong>10:</strong>                   update $\mathbf{c}_k$ via $\mathbf{c}_{k}=\frac{1}{\left|\mathcal{S}_{k}\right|}\underset{p\in\mathcal{S}_{k}}{\sum}\mathbf{x}_{p}$<br/>
+<strong>11:</strong>         <code>end for</code><br/>
+<strong>12:</strong>  <code>end for</code><br/>
+<strong>13:</strong>   <code># Update cluster assignments using final centroids</code><br/>
+<strong>14:</strong>   <code>for</code> $\,\,p = 1,\ldots,P$<br/>
+<strong>15:</strong>            $a_p =\underset{k=1,\ldots,K}{\mbox{argmin}}\,\,\left\Vert \mathbf{c}_{k}-\mathbf{x}_{p}\right\Vert _{2}$<br/>
+<strong>16:</strong>   <code>end for</code><br/>
+<strong>17:</strong>  <strong>output:</strong> optimal centroids and assignments<br/>
+</p><hr style="height:1px;border:none;color:#555;background-color:#555;"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Below we have a simple Python implementation of the pseudo-code above, that is used in the examples that follow.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">####### K-means functionality #######</span>
+<span class="c1"># function for updating cluster assignments</span>
+<span class="k">def</span> <span class="nf">update_assignments</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">centroids</span><span class="p">):</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">data</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">assignments</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">P</span><span class="p">):</span>
+        <span class="c1"># get pth point</span>
+        <span class="n">x_p</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="n">p</span><span class="p">][:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+        
+        <span class="c1"># compute distance between pth point and all centroids</span>
+        <span class="c1"># using numpy broadcasting</span>
+        <span class="n">diffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">x_p</span> <span class="o">-</span> <span class="n">centroids</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+        
+        <span class="c1"># determine closest centroid</span>
+        <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">diffs</span><span class="p">)</span>
+        <span class="n">assignments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">assignments</span><span class="p">)</span>
+       
+<span class="c1"># update centroid locations</span>
+<span class="k">def</span> <span class="nf">update_centroids</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">old_centroids</span><span class="p">,</span><span class="n">assignments</span><span class="p">):</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="n">old_centroids</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># new centroid container</span>
+    <span class="n">centroids</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="p">):</span>
+        <span class="c1"># collect indices of points belonging to kth cluster</span>
+        <span class="n">S_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">assignments</span> <span class="o">==</span> <span class="n">k</span><span class="p">)</span>
+        
+        <span class="c1"># take average of points belonging to this cluster</span>
+        <span class="n">c_k</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">S_k</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">c_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="n">S_k</span><span class="p">],</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># what if no points in the cluster?  keep previous centroid</span>
+            <span class="n">c_k</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">old_centroids</span><span class="p">[:,</span><span class="n">k</span><span class="p">])[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+        <span class="n">centroids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c_k</span><span class="p">)</span>
+    <span class="n">centroids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">centroids</span><span class="p">)[:,:,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">centroids</span><span class="o">.</span><span class="n">T</span>
+
+<span class="c1"># main k-means function</span>
+<span class="k">def</span> <span class="nf">my_kmeans</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">centroids</span><span class="p">,</span><span class="n">max_its</span><span class="p">):</span>    
+    <span class="c1"># outer loop - alternate between updating assignments / centroids</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_its</span><span class="p">):</span>
+        <span class="c1"># update cluter assignments</span>
+        <span class="n">assignments</span> <span class="o">=</span> <span class="n">update_assignments</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">centroids</span><span class="p">)</span>
+        
+        <span class="c1"># update centroid locations</span>
+        <span class="n">centroids</span> <span class="o">=</span> <span class="n">update_centroids</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">centroids</span><span class="p">,</span><span class="n">assignments</span><span class="p">)</span>
+        
+    <span class="c1"># final assignment update</span>
+    <span class="n">assignments</span> <span class="o">=</span> <span class="n">update_assignments</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">centroids</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">centroids</span><span class="p">,</span><span class="n">assignments</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We show how to call the <code>K-means</code> implementation in the cell below for a given dataset <code>data</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Example-1:--K-means-and-bad-local-minima"><span style="color:#a50e3e;">Example 1: </span> K-means and bad local minima<a class="anchor-link" href="#Example-1:--K-means-and-bad-local-minima">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this example we use the <code>Python</code> K-means implementation above to animate the K-means clustering process for the toy dataset loaded in and plotted in the next cell.</p>
 </div>
 </div>
 </div>
@@ -13311,63 +12170,21 @@ h\left(\mathbf{w}\right)=g\left(\mathbf{v}\right)+\nabla g\left(\mathbf{v}\right
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[4]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<video controls="" height="400" loop="" width="1000">
-<source src="videos/animation_15.mp4" type="video/mp4">
-</source></video>
+<div class="prompt"></div>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"/>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As can be seen it appears as if indeed $\mathbf{d} = -\frac{\nabla g(\mathbf{v})}{\left\Vert \nabla g(\mathbf{v}) \right\Vert_2 }$ is the direction producing the smallest inner product.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>To prove this formally we can use the <em>inner product rule</em> which tells us almost immediately what the solution to this problem is. According to the inner product rule $\nabla g(\mathbf{v})^{T}\mathbf{d}$ can be written as</p>
-$$\nabla g(\mathbf{v})^{T}\mathbf{d} = \left \Vert \nabla g(\mathbf{v}) \right \Vert_2 \left \Vert \mathbf{d} \right \Vert_2 \text{cos}(\theta)$$<p></p>
-<p>where $\theta$ is the angle between $\nabla g(\mathbf{v})$ and $\mathbf{d}$.</p>
-<p>Noting that both $\left \Vert \nabla g(\mathbf{v}) \right \Vert_2$ and $\left \Vert \mathbf{d} \right \Vert_2$ have constant values (the former is the length of the gradient at $\mathbf{v}$, and latter is just $1$), the value of $\nabla g(\mathbf{v})^{T}\mathbf{d}$ is smallest when $\text{cos}(\theta)$ is smallest, i.e., when $\theta = \pi$. In other words, $\mathbf{d}$ must point in the same direction as $-\nabla g(\mathbf{v})$, and also be unit length. Thus we have $\mathbf{d} = -\frac{\nabla g(\mathbf{v})}{\left \Vert \nabla g(\mathbf{v}) \right \Vert_2}$, that is indeed the normalized gradient descent direction. In deriving the gradient descent direction in this way, $\mathbf{d}$ is referred to more generally as the <em>steepest descent direction</em>.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Steepest-descent-direction-in-the-$\ell_{\infty}$-norm">Steepest descent direction in the $\ell_{\infty}$ norm<a class="anchor-link" href="#Steepest-descent-direction-in-the-$\ell_{\infty}$-norm">¶</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Replacing the $\ell_2$ norm with the $\ell_{\infty}$ norm in our original constrained optimization problem we have a similar looking problem whose solution defines a new kind of steepest descent direction</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-\begin{equation}
-\begin{array}{cc}
-\underset{\mathbf{d}}{\text{minimize}} &amp; \nabla g(\mathbf{v})^{T}\mathbf{d}\\
-\text{subject to} &amp; \left\Vert \mathbf{d}\right\Vert _{\infty}=1\\
-\end{array}
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Using the toy in the next Python cell we explore possible solutions to this problem in two dimensions for a particular choice of gradient vector, gaining valuable geometric intuition as to what the solution should be. Here once again we plot an example gradient vector $\nabla g (\mathbf{v})$ as a red arrow, along with the $\ell_{\infty}$ unit ball. Moving the slider from left to right you can test various directions $\mathbf{d}$ (each shown as a black arrow) on this $\ell_{\infty}$ unit ball computing the inner product $\nabla g(\mathbf{v})^{T}\mathbf{d}$, whose value is simultaneously plotted in the right panel. As you move the slider right once more the direction providing the <em>smallest</em> value is shown as a green arrow in the left panel, and is highlighted in green in the plot in the right panel.</p>
+<p>This roughly looks like it could be clustered into $K=5$ clusters.  Let us try applying K-means using $K=5$ to see if the algorithm can recover them properly.</p>
+<p>Below we run and animate the K-means algorithm using $K=5$ via the animation function called <code>unsuperlib.K_means_demos.run_animated_demo</code>, which contains a version of the <code>K-means</code> implementation above.  This animator displays each iteration of the algorithm is three frames.  Beginning with the first iteration, the dataset is shown with the initialized centroids - here chosen as $K$ random points from the dataset - displayed as stars each with a unique color.  Next the first assignment step is performed, and we plot dashed lines connecting each point to its closest centroid (these are colored using the unique color of the cluster centroid to which each point is assigned).  Once assigned, the points are then colored the unique color for the respective cluster.  In the subsequent frame the average of each cluster's assigned points is illustrated, with dashed lines from each cluster converging to its new centroid.  This same set of frames is then shown for each subsequent iteration of the algorithm with the iteration number printed at the top of each frame.   Moving the slider from left to right progresses the algorithm from the initialization to the final iteration.</p>
 </div>
 </div>
 </div>
@@ -13381,7 +12198,7 @@ $$\nabla g(\mathbf{v})^{T}\mathbf{d} = \left \Vert \nabla g(\mathbf{v}) \right \
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 
 </div>
@@ -13389,10 +12206,10 @@ $$\nabla g(\mathbf{v})^{T}\mathbf{d} = \left \Vert \nabla g(\mathbf{v}) \right \
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[6]:</div>
+<div class="prompt output_prompt">Out[9]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <video controls="" height="400" loop="" width="1000">
-<source src="videos/animation_16.mp4" type="video/mp4">
+<source src="videos/animation_3.mp4" type="video/mp4">
 </source></video>
 </div>
 </div>
@@ -13400,31 +12217,927 @@ $$\nabla g(\mathbf{v})^{T}\mathbf{d} = \left \Vert \nabla g(\mathbf{v}) \right \
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Based on the example above you may now have a hunch about what $\mathbf{d}$ should be. But let's make sure by examining a different gradient vector $\nabla g (\mathbf{v})$.</p>
+<p>Pushing the slider all the way to the right we can see that indeed the algorithm does identify five chunks of the data that indeed appear to be proper clusters.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Toying around with the slider above it looks as if <em>each</em> entry of the descent direction here is the negative unit length partial derivative along its respective coordinate. That is, the $j^{th}$ entry is given as</p>
-$$d_j = \frac{ \frac{\partial}{\partial w_j}g(\mathbf{v}) }{\left| \frac{\partial}{\partial w_j}g(\mathbf{v}) \right|} = \text{sign}\left(\frac{\partial}{\partial w_j}g(\mathbf{v})\right)$$<p>and hence the entire descent direction can be written simply as</p>
-\begin{equation}
-\mathbf{d} = -\, \text{sign}\left(\nabla g(\mathbf{v}) \right)
-\end{equation}<p>These directions tend to most often be constrainted to the corners of the unit square or - in higher dimensions - the unit hypercube (the exceptions being when one partial derivative is exactly equal to zero).</p>
-<p>This intuitied formula is in fact correct, and can be proven more rigorously as show in the Appendix Section of this post.</p>
+<h4 id="Example-2:--K-means-failures-due-to-a-poor-choice-of-initialization"><span style="color:#a50e3e;">Example 2: </span> K-means failures due to a poor choice of initialization<a class="anchor-link" href="#Example-2:--K-means-failures-due-to-a-poor-choice-of-initialization">¶</a></h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The steepest descent step at $\mathbf{w}^{k-1}$ in this direction looks like</p>
-\begin{equation}
-\mathbf{w}^{k} = \mathbf{w}^{k-1} - \alpha\, \text{sign}\left(\nabla g(\mathbf{w}^{k-1}) \right)
-\end{equation}<p>Due to the $\text{sign} (\cdot)$ function these steps tend to be at 'diagonal' traveling largely in directions defined by the corners of the unit square.  Because the set of directions is restricted one often sees the use of coordinate-wise steplength parameters with this method (e.g., <a href="https://en.wikipedia.org/wiki/Rprop">Rprop</a>).</p>
+<p>In this example we show how K-means can fail due to a poor choice of initial centroids.  This is a point we will return to as well when we later discuss the K-means algorithm in the framework of general <em>Matrix Factorization Problems</em>, where we will see how the K-means algorithm can be understood as the minimization of a very non-convex cost function paradigm.  Regardless, one can intuit that the quality of a K-means clustering surely depends on a high quality initialization.  What does a good initialization look like?  Generally speaking, a good initializations is one where the initial centroids are spread evenly throughout the distribution of the data, as this allows the algorithm to better find individual clusters.  Conversely, a poor initialization is typically one where all of the initial centroids are bunched up together in a small region of the space.  This can make it difficult for the centroids to spread out effectively, leading to less than optimal clusterings or even 'empty clusters' (i.e., those to which no points are finally assigned).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Using a toy dataset we illustrate two examples of this behavior below.  Here the initial centroids have been chosen as points in the dataset, and very particularly to illustrate these behaviors.  Because in practice we may choose initial centroids e.g., as random points from our dataset these problems may not occur so frequently, but they are still a danger.</p>
+<p>Note that in this example using scikit-learn's <a href="http://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html">make_blobs</a> functionality to form a randomly generated dataset.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The first and most fundamental issue is that of <em>empty clusters</em>, meaning clusters with no points assigned to them.  It is indeed possible, for some unfortunate initialization choices, for clusters to end up being empty when running K-means.  This is not an overly common occurrence, but is still worth noting.</p>
+<p>We illustrate the empty-cluster problem below - where we make a run of $K = 3$ K-means clustering using the dataset above and a particular random initialization for the cluster centroids.  Here we choose a completely random set of points to initialize our centroids with, instead of a random subset of our training data, because it is easier to 'trip up' K-means doing so.  The animation / slider mechanism below works precisely as in the previous example, with each iteration shown in multiple frames, and moving the slider left to right controlling the iteration of K-means being shown.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[12]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<video controls="" height="400" loop="" width="1000">
+<source src="videos/animation_4.mp4" type="video/mp4">
+</source></video>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Notice here how - due to the centroid initializations - the blue cluster very quickly becomes empty (every point is closer to one of the other two centroids) and never recovers any assigned points.</p>
+<p>This problem can be easily detected in practice (simply count up the number of assignments at the end of a run of K-means), and re-running with a different initialization is typically the anecdote.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The second issue to keep note of with K-means is the <em>sub-optimal clustering</em>.  This means that although the proper number of clusters $K$ was chosen the final clustering itself fails to fully capture the cluster-structure of the data.  The animation below illustrates this failure on the same dataset used above.  Here we can see that - due to the initialization - the single cluster in the top of the image is cleaved in two, while the two lower clusters are identified a single massive cluster.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[14]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<video controls="" height="400" loop="" width="1000">
+<source src="videos/animation_5.mp4" type="video/mp4">
+</source></video>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Once again the best antidote for this issue is to simply re-run the algorithm with a different initialization.</p>
+<p>To determine the best clustering from set of runs we can use the <em>average distance of each point to its cluster centroid</em> - called the <em>average intra-cluster distance</em> - as an objective measure to rank the runs.  Denoting $\mathbf{c}_{k_p}$ the final cluster centroid of the $p^{th}$ point $\mathbf{x}_p$, then the average distance from each point to its respective centroid can be written as</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>\begin{equation}
+\text{average intra-cluster distance} = \frac{1}{P}\sum_{p=1}^P \left \Vert \mathbf{x}_p - \mathbf{c}_{k_p} \right \Vert_2.
+\end{equation}</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Computing this for each run of K-means we choose the final clustering that achieves the <em>smallest</em> such value as the best clustering arrangement.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To illustrate the usage of the intra-cluster distance as a measurement for the quality of a clustering run, below we run <code>K-means</code> using the previous two initializations as well as one additional one that results in a perfect clustering on the toy dataset above.  We then plot the final clustering provided by each initialization - with the average intra-cluster distance in each printed above the panel.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+gg==
+"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here we can see how the average intra-cluster distance provides us with a simple numerical way to compare the quality of various clusterings (when $K$ is fixed). Above we can see how in this instance the empty-cluster scenario (left panel) provided the worst value, the sub-optimal clustering (middle panel) a slightly lower value, and the optimal clustering (right panel) a significantly lower value.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Example-3:---Choosing-the-ideal-number-of-clusters-$K$"><span style="color:#a50e3e;">Example 3: </span>  Choosing the ideal number of clusters $K$<a class="anchor-link" href="#Example-3:---Choosing-the-ideal-number-of-clusters-$K$">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To determine the optimal setting of the parameter $K$ - i.e., the number of clusters in which to cluster the data - we typically must try a range of different values for $K$, run the K-means algorithm in each case, and compare the results using the average intra-cluster distance.  Of course if we achieve an optimal clusterings for each value of $K$ (perhaps running the algorithm multiple times for each value of $K$) then the intra-cluster distance should <em>always go down as we increase the value of $K$</em> since we are partitioning the dataset into more and more small chunks.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For example, in the Python cell below we plot the intra-cluster distance for the dataset used in the previous example resulting from 10 runs of K-means using $K=1,\ldots,10$, with a maximum number of 10 iterations per run.  This plot is often referred to in the jargon of machine learning as a <em>scree plot</em>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+zb/9279x7bXXsmHDhqijiYiIqMCR+svIyOCaa65h5cqV3HzzzTz22GN07tyZyZMns3fv3qjjiYhI
+GlOBIw3WunVrJk2axJIlS+jbty/Dhg2jZ8+evPzyy1FHExGRNKUCRxKmW7duzJo1ixkzZrBjxw7O
+PfdcLr/8csrLy6OOJiIiaUYFjiSUmXHJJZewfPlyiouLefHFF+nWrRuFhYXs2LEj6ngiIpImVOBI
+KLKzsxkzZgwffPABl1xyCRMmTKBbt248/fTTeqxcRERCpwJHQtWxY0f+8Ic/MHfuXNq0acMVV1zB
+gAEDeO+996KOJiIiKUwFjhwRZ555JgsWLGDKlCksWrSInj17MmTIEL744ouoo4mISAoKrcAxs2lm
+tsHMloZ1DkkuWVlZ3HjjjaxatYrrrruOKVOm0KlTJ0pLS/ntb39Lfn4+GRkZ5OfnU1ZWFnVcERFJ
+YhZWfwgz+zawDfh/7t49nn369Onj8+fPDyWPND6LFy9myJAhzJs3DzM7oG9OTk4OpaWlDBw4MMKE
+IiLS2JjZAnfvU9t2WWEFcPd5ZpYf1vEl+Z1++unMnTuXo48+ms8///yAz3bs2MGNN97IP/7xD1q3
+bn3I1KpVq6/mmzZtGtEViIhIYxVagSMSDzPjX//6V7WfbdmyhXHjxtV6jOzs7GoLn5rWHby+efPm
+mFlCr62srIzbb7+ddevWkZubS0lJiVqkRESOkMgLHDMrAAoAcnNzI04jUcjNzWXt2rWHrM/Ly2Pl
+ypVs2bKFzZs3fzUdvFzd+k8//fSrdVu3bq01Q1ZWVtzF0OHWtWzZkoyMWLe2srIyCgoKvnr3z9q1
+aykoKABQkSMicgREXuC4eylQCrE+OBHHkQiUlJQcUAxArA9OSUkJTZs2pX379rRv377ex6+srGTr
+1q11LpLKy8sPWL9v374az2NmtGrVilatWvHPf/7zkPG49t92Ky8vp2XLlrRo0YIWLVrUOJ+dnZ3w
+lqWGUKuUiCSLyAsckf1fkGF9cWZmZtKmTRvatGlT72O4O9u3b4+7SHr88cerPc6WLVsYM2ZM3Oc1
+s7gKodrmq/usSZMmdfo7UKuUiCSTMJ+i+j1wFtAe+AwY7+6P1LSPnqKSVJGfn1/tbbfc3FxWrlzJ
+9u3b2bZtG9u3bz9kvqbPatpn+/btdcrYpEmTOhVF9957b7XvLTrmmGOYOXMm2dnZB0zNmzenWbNm
+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
+2iEAAAAASUVORK5CYII=
+"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As one should expect, the intra-cluster distance decreases monotonically as we increase $K$. Notice, however that the scree plot above has an <em>elbow</em> at $K=3$, meaning that increasing the number of clusters from $3$ to $4$ and onwards reduces the objective value by very little. Because of this we can argue that $K=3$ is a good choice for the number of clusters for this particular dataset (as we saw in the prior example, it is indeed the optimal number) since any fewer clusters and the intra-cluster distance is comparatively large, while adding additional clusters does not decrease the total intra-cluster distance too much.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This illustrates the typical usage of the <em>scree plot</em> for deciding on an ideal number of clusters $K$ for K-means.  We compute and then plot the intra-cluster distance over a range of values for $K$, and pick the value at the 'elbow' of the plot.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a id="endnotes"></a></p>
+<h2 id="References">References<a class="anchor-link" href="#References">¶</a></h2><p>[1] D’Haeseleer, P. How does gene expression clustering work? Nature Biotechnology. 23, 1499–1501, (2005).</p>
+<p>[2] Eisen, M.B., Spellman, P.T., Brown, P.O. and Botstein, D. Cluster analysis and display of genome-wide expression patterns. Proc. Natl. Acad. Sci. USA 95, 14863–14868, (1998).</p>
 </div>
 </div>
 </div>

@@ -1,33 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"/>
-<title>4.7  Quasi-Newton methods</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>10.1 Introduction</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script>
-(function() {
-  function addWidgetsRenderer() {
-    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
-    var scriptElement = document.createElement('script');
-    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
-    var widgetState;
-
-    // Fallback for older version:
-    try {
-      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
-
-      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
-        widgetRendererSrc = 'https://unpkg.com/jupyter-js-widgets@*/dist/embed.js';
-      }
-    } catch(e) {}
-
-    scriptElement.src = widgetRendererSrc;
-    document.body.appendChild(scriptElement);
-  }
-
-  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
-}());
-</script>
 <style type="text/css">
     /*!
 *
@@ -223,6 +198,7 @@ th {
   *:before,
   *:after {
     background: transparent !important;
+    color: #000 !important;
     box-shadow: none !important;
     text-shadow: none !important;
   }
@@ -6767,15 +6743,15 @@ button.close {
 *
 */
 /*!
- *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 /* FONT PATH
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url('../components/font-awesome/fonts/fontawesome-webfont.eot?v=4.7.0');
-  src: url('../components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('../components/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('../components/font-awesome/fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('../components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('../components/font-awesome/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+  src: url('../components/font-awesome/fonts/fontawesome-webfont.eot?v=4.2.0');
+  src: url('../components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'), url('../components/font-awesome/fonts/fontawesome-webfont.woff?v=4.2.0') format('woff'), url('../components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.2.0') format('truetype'), url('../components/font-awesome/fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -6832,19 +6808,6 @@ button.close {
   border: solid 0.08em #eee;
   border-radius: .1em;
 }
-.fa-pull-left {
-  float: left;
-}
-.fa-pull-right {
-  float: right;
-}
-.fa.fa-pull-left {
-  margin-right: .3em;
-}
-.fa.fa-pull-right {
-  margin-left: .3em;
-}
-/* Deprecated as of 4.4.0 */
 .pull-right {
   float: right;
 }
@@ -6860,10 +6823,6 @@ button.close {
 .fa-spin {
   -webkit-animation: fa-spin 2s infinite linear;
   animation: fa-spin 2s infinite linear;
-}
-.fa-pulse {
-  -webkit-animation: fa-spin 1s infinite steps(8);
-  animation: fa-spin 1s infinite steps(8);
 }
 @-webkit-keyframes fa-spin {
   0% {
@@ -6886,31 +6845,31 @@ button.close {
   }
 }
 .fa-rotate-90 {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
 .fa-rotate-180 {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 .fa-rotate-270 {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
   -webkit-transform: rotate(270deg);
   -ms-transform: rotate(270deg);
   transform: rotate(270deg);
 }
 .fa-flip-horizontal {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
   -webkit-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
 .fa-flip-vertical {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
   -webkit-transform: scale(1, -1);
   -ms-transform: scale(1, -1);
   transform: scale(1, -1);
@@ -7395,7 +7354,6 @@ button.close {
 .fa-twitter:before {
   content: "\f099";
 }
-.fa-facebook-f:before,
 .fa-facebook:before {
   content: "\f09a";
 }
@@ -7408,7 +7366,6 @@ button.close {
 .fa-credit-card:before {
   content: "\f09d";
 }
-.fa-feed:before,
 .fa-rss:before {
   content: "\f09e";
 }
@@ -8046,8 +8003,7 @@ button.close {
 .fa-male:before {
   content: "\f183";
 }
-.fa-gittip:before,
-.fa-gratipay:before {
+.fa-gittip:before {
   content: "\f184";
 }
 .fa-sun-o:before {
@@ -8151,7 +8107,7 @@ button.close {
 .fa-digg:before {
   content: "\f1a6";
 }
-.fa-pied-piper-pp:before {
+.fa-pied-piper:before {
   content: "\f1a7";
 }
 .fa-pied-piper-alt:before {
@@ -8277,7 +8233,6 @@ button.close {
   content: "\f1ce";
 }
 .fa-ra:before,
-.fa-resistance:before,
 .fa-rebel:before {
   content: "\f1d0";
 }
@@ -8291,8 +8246,6 @@ button.close {
 .fa-git:before {
   content: "\f1d3";
 }
-.fa-y-combinator-square:before,
-.fa-yc-square:before,
 .fa-hacker-news:before {
   content: "\f1d4";
 }
@@ -8460,657 +8413,6 @@ button.close {
 }
 .fa-meanpath:before {
   content: "\f20c";
-}
-.fa-buysellads:before {
-  content: "\f20d";
-}
-.fa-connectdevelop:before {
-  content: "\f20e";
-}
-.fa-dashcube:before {
-  content: "\f210";
-}
-.fa-forumbee:before {
-  content: "\f211";
-}
-.fa-leanpub:before {
-  content: "\f212";
-}
-.fa-sellsy:before {
-  content: "\f213";
-}
-.fa-shirtsinbulk:before {
-  content: "\f214";
-}
-.fa-simplybuilt:before {
-  content: "\f215";
-}
-.fa-skyatlas:before {
-  content: "\f216";
-}
-.fa-cart-plus:before {
-  content: "\f217";
-}
-.fa-cart-arrow-down:before {
-  content: "\f218";
-}
-.fa-diamond:before {
-  content: "\f219";
-}
-.fa-ship:before {
-  content: "\f21a";
-}
-.fa-user-secret:before {
-  content: "\f21b";
-}
-.fa-motorcycle:before {
-  content: "\f21c";
-}
-.fa-street-view:before {
-  content: "\f21d";
-}
-.fa-heartbeat:before {
-  content: "\f21e";
-}
-.fa-venus:before {
-  content: "\f221";
-}
-.fa-mars:before {
-  content: "\f222";
-}
-.fa-mercury:before {
-  content: "\f223";
-}
-.fa-intersex:before,
-.fa-transgender:before {
-  content: "\f224";
-}
-.fa-transgender-alt:before {
-  content: "\f225";
-}
-.fa-venus-double:before {
-  content: "\f226";
-}
-.fa-mars-double:before {
-  content: "\f227";
-}
-.fa-venus-mars:before {
-  content: "\f228";
-}
-.fa-mars-stroke:before {
-  content: "\f229";
-}
-.fa-mars-stroke-v:before {
-  content: "\f22a";
-}
-.fa-mars-stroke-h:before {
-  content: "\f22b";
-}
-.fa-neuter:before {
-  content: "\f22c";
-}
-.fa-genderless:before {
-  content: "\f22d";
-}
-.fa-facebook-official:before {
-  content: "\f230";
-}
-.fa-pinterest-p:before {
-  content: "\f231";
-}
-.fa-whatsapp:before {
-  content: "\f232";
-}
-.fa-server:before {
-  content: "\f233";
-}
-.fa-user-plus:before {
-  content: "\f234";
-}
-.fa-user-times:before {
-  content: "\f235";
-}
-.fa-hotel:before,
-.fa-bed:before {
-  content: "\f236";
-}
-.fa-viacoin:before {
-  content: "\f237";
-}
-.fa-train:before {
-  content: "\f238";
-}
-.fa-subway:before {
-  content: "\f239";
-}
-.fa-medium:before {
-  content: "\f23a";
-}
-.fa-yc:before,
-.fa-y-combinator:before {
-  content: "\f23b";
-}
-.fa-optin-monster:before {
-  content: "\f23c";
-}
-.fa-opencart:before {
-  content: "\f23d";
-}
-.fa-expeditedssl:before {
-  content: "\f23e";
-}
-.fa-battery-4:before,
-.fa-battery:before,
-.fa-battery-full:before {
-  content: "\f240";
-}
-.fa-battery-3:before,
-.fa-battery-three-quarters:before {
-  content: "\f241";
-}
-.fa-battery-2:before,
-.fa-battery-half:before {
-  content: "\f242";
-}
-.fa-battery-1:before,
-.fa-battery-quarter:before {
-  content: "\f243";
-}
-.fa-battery-0:before,
-.fa-battery-empty:before {
-  content: "\f244";
-}
-.fa-mouse-pointer:before {
-  content: "\f245";
-}
-.fa-i-cursor:before {
-  content: "\f246";
-}
-.fa-object-group:before {
-  content: "\f247";
-}
-.fa-object-ungroup:before {
-  content: "\f248";
-}
-.fa-sticky-note:before {
-  content: "\f249";
-}
-.fa-sticky-note-o:before {
-  content: "\f24a";
-}
-.fa-cc-jcb:before {
-  content: "\f24b";
-}
-.fa-cc-diners-club:before {
-  content: "\f24c";
-}
-.fa-clone:before {
-  content: "\f24d";
-}
-.fa-balance-scale:before {
-  content: "\f24e";
-}
-.fa-hourglass-o:before {
-  content: "\f250";
-}
-.fa-hourglass-1:before,
-.fa-hourglass-start:before {
-  content: "\f251";
-}
-.fa-hourglass-2:before,
-.fa-hourglass-half:before {
-  content: "\f252";
-}
-.fa-hourglass-3:before,
-.fa-hourglass-end:before {
-  content: "\f253";
-}
-.fa-hourglass:before {
-  content: "\f254";
-}
-.fa-hand-grab-o:before,
-.fa-hand-rock-o:before {
-  content: "\f255";
-}
-.fa-hand-stop-o:before,
-.fa-hand-paper-o:before {
-  content: "\f256";
-}
-.fa-hand-scissors-o:before {
-  content: "\f257";
-}
-.fa-hand-lizard-o:before {
-  content: "\f258";
-}
-.fa-hand-spock-o:before {
-  content: "\f259";
-}
-.fa-hand-pointer-o:before {
-  content: "\f25a";
-}
-.fa-hand-peace-o:before {
-  content: "\f25b";
-}
-.fa-trademark:before {
-  content: "\f25c";
-}
-.fa-registered:before {
-  content: "\f25d";
-}
-.fa-creative-commons:before {
-  content: "\f25e";
-}
-.fa-gg:before {
-  content: "\f260";
-}
-.fa-gg-circle:before {
-  content: "\f261";
-}
-.fa-tripadvisor:before {
-  content: "\f262";
-}
-.fa-odnoklassniki:before {
-  content: "\f263";
-}
-.fa-odnoklassniki-square:before {
-  content: "\f264";
-}
-.fa-get-pocket:before {
-  content: "\f265";
-}
-.fa-wikipedia-w:before {
-  content: "\f266";
-}
-.fa-safari:before {
-  content: "\f267";
-}
-.fa-chrome:before {
-  content: "\f268";
-}
-.fa-firefox:before {
-  content: "\f269";
-}
-.fa-opera:before {
-  content: "\f26a";
-}
-.fa-internet-explorer:before {
-  content: "\f26b";
-}
-.fa-tv:before,
-.fa-television:before {
-  content: "\f26c";
-}
-.fa-contao:before {
-  content: "\f26d";
-}
-.fa-500px:before {
-  content: "\f26e";
-}
-.fa-amazon:before {
-  content: "\f270";
-}
-.fa-calendar-plus-o:before {
-  content: "\f271";
-}
-.fa-calendar-minus-o:before {
-  content: "\f272";
-}
-.fa-calendar-times-o:before {
-  content: "\f273";
-}
-.fa-calendar-check-o:before {
-  content: "\f274";
-}
-.fa-industry:before {
-  content: "\f275";
-}
-.fa-map-pin:before {
-  content: "\f276";
-}
-.fa-map-signs:before {
-  content: "\f277";
-}
-.fa-map-o:before {
-  content: "\f278";
-}
-.fa-map:before {
-  content: "\f279";
-}
-.fa-commenting:before {
-  content: "\f27a";
-}
-.fa-commenting-o:before {
-  content: "\f27b";
-}
-.fa-houzz:before {
-  content: "\f27c";
-}
-.fa-vimeo:before {
-  content: "\f27d";
-}
-.fa-black-tie:before {
-  content: "\f27e";
-}
-.fa-fonticons:before {
-  content: "\f280";
-}
-.fa-reddit-alien:before {
-  content: "\f281";
-}
-.fa-edge:before {
-  content: "\f282";
-}
-.fa-credit-card-alt:before {
-  content: "\f283";
-}
-.fa-codiepie:before {
-  content: "\f284";
-}
-.fa-modx:before {
-  content: "\f285";
-}
-.fa-fort-awesome:before {
-  content: "\f286";
-}
-.fa-usb:before {
-  content: "\f287";
-}
-.fa-product-hunt:before {
-  content: "\f288";
-}
-.fa-mixcloud:before {
-  content: "\f289";
-}
-.fa-scribd:before {
-  content: "\f28a";
-}
-.fa-pause-circle:before {
-  content: "\f28b";
-}
-.fa-pause-circle-o:before {
-  content: "\f28c";
-}
-.fa-stop-circle:before {
-  content: "\f28d";
-}
-.fa-stop-circle-o:before {
-  content: "\f28e";
-}
-.fa-shopping-bag:before {
-  content: "\f290";
-}
-.fa-shopping-basket:before {
-  content: "\f291";
-}
-.fa-hashtag:before {
-  content: "\f292";
-}
-.fa-bluetooth:before {
-  content: "\f293";
-}
-.fa-bluetooth-b:before {
-  content: "\f294";
-}
-.fa-percent:before {
-  content: "\f295";
-}
-.fa-gitlab:before {
-  content: "\f296";
-}
-.fa-wpbeginner:before {
-  content: "\f297";
-}
-.fa-wpforms:before {
-  content: "\f298";
-}
-.fa-envira:before {
-  content: "\f299";
-}
-.fa-universal-access:before {
-  content: "\f29a";
-}
-.fa-wheelchair-alt:before {
-  content: "\f29b";
-}
-.fa-question-circle-o:before {
-  content: "\f29c";
-}
-.fa-blind:before {
-  content: "\f29d";
-}
-.fa-audio-description:before {
-  content: "\f29e";
-}
-.fa-volume-control-phone:before {
-  content: "\f2a0";
-}
-.fa-braille:before {
-  content: "\f2a1";
-}
-.fa-assistive-listening-systems:before {
-  content: "\f2a2";
-}
-.fa-asl-interpreting:before,
-.fa-american-sign-language-interpreting:before {
-  content: "\f2a3";
-}
-.fa-deafness:before,
-.fa-hard-of-hearing:before,
-.fa-deaf:before {
-  content: "\f2a4";
-}
-.fa-glide:before {
-  content: "\f2a5";
-}
-.fa-glide-g:before {
-  content: "\f2a6";
-}
-.fa-signing:before,
-.fa-sign-language:before {
-  content: "\f2a7";
-}
-.fa-low-vision:before {
-  content: "\f2a8";
-}
-.fa-viadeo:before {
-  content: "\f2a9";
-}
-.fa-viadeo-square:before {
-  content: "\f2aa";
-}
-.fa-snapchat:before {
-  content: "\f2ab";
-}
-.fa-snapchat-ghost:before {
-  content: "\f2ac";
-}
-.fa-snapchat-square:before {
-  content: "\f2ad";
-}
-.fa-pied-piper:before {
-  content: "\f2ae";
-}
-.fa-first-order:before {
-  content: "\f2b0";
-}
-.fa-yoast:before {
-  content: "\f2b1";
-}
-.fa-themeisle:before {
-  content: "\f2b2";
-}
-.fa-google-plus-circle:before,
-.fa-google-plus-official:before {
-  content: "\f2b3";
-}
-.fa-fa:before,
-.fa-font-awesome:before {
-  content: "\f2b4";
-}
-.fa-handshake-o:before {
-  content: "\f2b5";
-}
-.fa-envelope-open:before {
-  content: "\f2b6";
-}
-.fa-envelope-open-o:before {
-  content: "\f2b7";
-}
-.fa-linode:before {
-  content: "\f2b8";
-}
-.fa-address-book:before {
-  content: "\f2b9";
-}
-.fa-address-book-o:before {
-  content: "\f2ba";
-}
-.fa-vcard:before,
-.fa-address-card:before {
-  content: "\f2bb";
-}
-.fa-vcard-o:before,
-.fa-address-card-o:before {
-  content: "\f2bc";
-}
-.fa-user-circle:before {
-  content: "\f2bd";
-}
-.fa-user-circle-o:before {
-  content: "\f2be";
-}
-.fa-user-o:before {
-  content: "\f2c0";
-}
-.fa-id-badge:before {
-  content: "\f2c1";
-}
-.fa-drivers-license:before,
-.fa-id-card:before {
-  content: "\f2c2";
-}
-.fa-drivers-license-o:before,
-.fa-id-card-o:before {
-  content: "\f2c3";
-}
-.fa-quora:before {
-  content: "\f2c4";
-}
-.fa-free-code-camp:before {
-  content: "\f2c5";
-}
-.fa-telegram:before {
-  content: "\f2c6";
-}
-.fa-thermometer-4:before,
-.fa-thermometer:before,
-.fa-thermometer-full:before {
-  content: "\f2c7";
-}
-.fa-thermometer-3:before,
-.fa-thermometer-three-quarters:before {
-  content: "\f2c8";
-}
-.fa-thermometer-2:before,
-.fa-thermometer-half:before {
-  content: "\f2c9";
-}
-.fa-thermometer-1:before,
-.fa-thermometer-quarter:before {
-  content: "\f2ca";
-}
-.fa-thermometer-0:before,
-.fa-thermometer-empty:before {
-  content: "\f2cb";
-}
-.fa-shower:before {
-  content: "\f2cc";
-}
-.fa-bathtub:before,
-.fa-s15:before,
-.fa-bath:before {
-  content: "\f2cd";
-}
-.fa-podcast:before {
-  content: "\f2ce";
-}
-.fa-window-maximize:before {
-  content: "\f2d0";
-}
-.fa-window-minimize:before {
-  content: "\f2d1";
-}
-.fa-window-restore:before {
-  content: "\f2d2";
-}
-.fa-times-rectangle:before,
-.fa-window-close:before {
-  content: "\f2d3";
-}
-.fa-times-rectangle-o:before,
-.fa-window-close-o:before {
-  content: "\f2d4";
-}
-.fa-bandcamp:before {
-  content: "\f2d5";
-}
-.fa-grav:before {
-  content: "\f2d6";
-}
-.fa-etsy:before {
-  content: "\f2d7";
-}
-.fa-imdb:before {
-  content: "\f2d8";
-}
-.fa-ravelry:before {
-  content: "\f2d9";
-}
-.fa-eercast:before {
-  content: "\f2da";
-}
-.fa-microchip:before {
-  content: "\f2db";
-}
-.fa-snowflake-o:before {
-  content: "\f2dc";
-}
-.fa-superpowers:before {
-  content: "\f2dd";
-}
-.fa-wpexplorer:before {
-  content: "\f2de";
-}
-.fa-meetup:before {
-  content: "\f2e0";
-}
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-.sr-only-focusable:active,
-.sr-only-focusable:focus {
-  position: static;
-  width: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  clip: auto;
-}
-.sr-only-focusable:active,
-.sr-only-focusable:focus {
-  position: static;
-  width: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  clip: auto;
 }
 /*!
 *
@@ -9391,10 +8693,6 @@ div.traceback-wrapper {
   max-width: 800px;
   margin: auto;
 }
-div.traceback-wrapper pre.traceback {
-  max-height: 600px;
-  overflow: auto;
-}
 /**
  * Primary styles
  *
@@ -9420,10 +8718,6 @@ body > #header {
   z-index: 100;
 }
 body > #header #header-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 5px;
   padding-bottom: 5px;
   padding-top: 5px;
   box-sizing: border-box;
@@ -9455,16 +8749,13 @@ body > #header .header-bar {
   padding-top: 1px;
   padding-bottom: 1px;
 }
+@media (max-width: 991px) {
+  #ipython_notebook {
+    margin-left: 10px;
+  }
+}
 [dir="rtl"] #ipython_notebook {
-  margin-right: 10px;
-  margin-left: 0;
-}
-[dir="rtl"] #ipython_notebook.pull-left {
   float: right !important;
-  float: right;
-}
-.flex-spacer {
-  flex: 1;
 }
 #noscript {
   width: auto;
@@ -9499,14 +8790,8 @@ body > #header .header-bar {
 input.ui-button {
   padding: 0.3em 0.9em;
 }
-span#kernel_logo_widget {
-  margin: 0 10px;
-}
 span#login_widget {
   float: right;
-}
-[dir="rtl"] span#login_widget {
-  float: left;
 }
 span#login_widget > .button,
 #logout {
@@ -9622,9 +8907,6 @@ span#login_widget > .button .badge,
   overflow: auto;
   flex: 1;
 }
-.modal-header {
-  cursor: move;
-}
 @media (min-width: 768px) {
   .modal .modal-dialog {
     width: 700px;
@@ -9645,19 +8927,6 @@ span#login_widget > .button .badge,
   display: inline-block;
   margin-bottom: -4px;
 }
-[dir="rtl"] .center-nav form.pull-left {
-  float: right !important;
-  float: right;
-}
-[dir="rtl"] .center-nav .navbar-text {
-  float: right;
-}
-[dir="rtl"] .navbar-inner {
-  text-align: right;
-}
-[dir="rtl"] div.text-left {
-  text-align: right;
-}
 /*!
 *
 * IPython tree view
@@ -9674,42 +8943,34 @@ span#login_widget > .button .badge,
   margin: 0;
 }
 .alternate_upload input.fileinput {
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  display: inline;
   opacity: 0;
   z-index: 2;
-}
-.alternate_upload .btn-xs > input.fileinput {
-  margin: -1px -5px;
+  width: 12ex;
+  margin-right: -12ex;
 }
 .alternate_upload .btn-upload {
-  position: relative;
   height: 22px;
-}
-::-webkit-file-upload-button {
-  cursor: pointer;
 }
 /**
  * Primary styles
  *
  * Author: Jupyter Development Team
  */
+[dir="rtl"] #tabs li {
+  float: right;
+}
 ul#tabs {
   margin-bottom: 4px;
+}
+[dir="rtl"] ul#tabs {
+  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
   padding-bottom: 4px;
-}
-[dir="rtl"] ul#tabs.nav-tabs > li {
-  float: right;
-}
-[dir="rtl"] ul#tabs.nav.nav-tabs {
-  padding-right: 0;
 }
 ul.breadcrumb a:focus,
 ul.breadcrumb a:hover {
@@ -9729,13 +8990,15 @@ ul.breadcrumb span {
 .list_toolbar .tree-buttons {
   padding-top: 1px;
 }
-[dir="rtl"] .list_toolbar .tree-buttons .pull-right {
+[dir="rtl"] .list_toolbar .tree-buttons {
   float: left !important;
-  float: left;
 }
-[dir="rtl"] .list_toolbar .col-sm-4,
-[dir="rtl"] .list_toolbar .col-sm-8 {
-  float: right;
+[dir="rtl"] .list_toolbar .pull-right {
+  padding-top: 1px;
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-left {
+  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9791,7 +9054,7 @@ ul.breadcrumb span {
 .list_item > div input {
   margin-right: 7px;
   margin-left: 14px;
-  vertical-align: text-bottom;
+  vertical-align: baseline;
   line-height: 22px;
   position: relative;
   top: -1px;
@@ -9801,9 +9064,6 @@ ul.breadcrumb span {
   margin-left: -1px;
   vertical-align: baseline;
   line-height: 22px;
-}
-[dir="rtl"] .list_item > div input {
-  margin-right: 0;
 }
 .new-file input[type=checkbox] {
   visibility: hidden;
@@ -9819,14 +9079,6 @@ ul.breadcrumb span {
   margin-left: 7px;
   line-height: 22px;
   vertical-align: baseline;
-}
-.item_modified {
-  margin-right: 7px;
-  margin-left: 7px;
-}
-[dir="rtl"] .item_modified.pull-right {
-  float: left !important;
-  float: left;
 }
 .item_buttons {
   line-height: 1em;
@@ -9855,14 +9107,6 @@ ul.breadcrumb span {
   margin-right: 7px;
   float: left;
 }
-[dir="rtl"] .item_buttons.pull-right {
-  float: left !important;
-  float: left;
-}
-[dir="rtl"] .item_buttons .kernel-name {
-  margin-left: 7px;
-  float: right;
-}
 .toolbar_info {
   height: 24px;
   line-height: 24px;
@@ -9888,32 +9132,18 @@ ul.breadcrumb span {
   background-color: transparent;
   font-weight: bold;
 }
-.sort_button {
-  display: inline-block;
-  padding-left: 7px;
-}
-[dir="rtl"] .sort_button.pull-right {
-  float: left !important;
-  float: left;
-}
 #tree-selector {
   padding-right: 0px;
+}
+[dir="rtl"] #tree-selector a {
+  float: right;
 }
 #button-select-all {
   min-width: 50px;
 }
-[dir="rtl"] #button-select-all.btn {
-  float: right ;
-}
 #select-all {
   margin-left: 7px;
   margin-right: 2px;
-  margin-top: 2px;
-  height: 16px;
-}
-[dir="rtl"] #select-all.pull-left {
-  float: right !important;
-  float: right;
 }
 .menu_icon {
   margin-right: 2px;
@@ -9931,12 +9161,6 @@ ul.breadcrumb span {
   -moz-osx-font-smoothing: grayscale;
   content: "\f114";
 }
-.folder_icon:before.fa-pull-left {
-  margin-right: .3em;
-}
-.folder_icon:before.fa-pull-right {
-  margin-left: .3em;
-}
 .folder_icon:before.pull-left {
   margin-right: .3em;
 }
@@ -9953,12 +9177,6 @@ ul.breadcrumb span {
   content: "\f02d";
   position: relative;
   top: -1px;
-}
-.notebook_icon:before.fa-pull-left {
-  margin-right: .3em;
-}
-.notebook_icon:before.fa-pull-right {
-  margin-left: .3em;
 }
 .notebook_icon:before.pull-left {
   margin-right: .3em;
@@ -9978,12 +9196,6 @@ ul.breadcrumb span {
   top: -1px;
   color: #5cb85c;
 }
-.running_notebook_icon:before.fa-pull-left {
-  margin-right: .3em;
-}
-.running_notebook_icon:before.fa-pull-right {
-  margin-left: .3em;
-}
 .running_notebook_icon:before.pull-left {
   margin-right: .3em;
 }
@@ -10001,12 +9213,6 @@ ul.breadcrumb span {
   position: relative;
   top: -2px;
 }
-.file_icon:before.fa-pull-left {
-  margin-right: .3em;
-}
-.file_icon:before.fa-pull-right {
-  margin-left: .3em;
-}
 .file_icon:before.pull-left {
   margin-right: .3em;
 }
@@ -10021,11 +9227,8 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
-#new-menu .dropdown-header {
-  font-size: 10px;
-  border-bottom: 1px solid #e5e5e5;
-  padding: 0 0 3px;
-  margin: -3px 20px 0;
+[dir="rtl"] #new-menu {
+  text-align: right;
 }
 .kernel-menu-icon {
   padding-right: 12px;
@@ -10072,6 +9275,9 @@ ul#new-menu {
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
 }
+[dir="rtl"] #running .col-sm-8 {
+  float: right !important;
+}
 .delete-button {
   display: none;
 }
@@ -10079,12 +9285,6 @@ ul#new-menu {
   display: none;
 }
 .rename-button {
-  display: none;
-}
-.move-button {
-  display: none;
-}
-.download-button {
   display: none;
 }
 .shutdown-button {
@@ -10127,12 +9327,6 @@ ul#new-menu {
   -moz-osx-font-smoothing: grayscale;
   width: 20px;
 }
-.dirty-indicator.fa-pull-left {
-  margin-right: .3em;
-}
-.dirty-indicator.fa-pull-right {
-  margin-left: .3em;
-}
 .dirty-indicator.pull-left {
   margin-right: .3em;
 }
@@ -10147,12 +9341,6 @@ ul#new-menu {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 20px;
-}
-.dirty-indicator-dirty.fa-pull-left {
-  margin-right: .3em;
-}
-.dirty-indicator-dirty.fa-pull-right {
-  margin-left: .3em;
 }
 .dirty-indicator-dirty.pull-left {
   margin-right: .3em;
@@ -10169,12 +9357,6 @@ ul#new-menu {
   -moz-osx-font-smoothing: grayscale;
   width: 20px;
 }
-.dirty-indicator-clean.fa-pull-left {
-  margin-right: .3em;
-}
-.dirty-indicator-clean.fa-pull-right {
-  margin-left: .3em;
-}
 .dirty-indicator-clean.pull-left {
   margin-right: .3em;
 }
@@ -10189,12 +9371,6 @@ ul#new-menu {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   content: "\f00c";
-}
-.dirty-indicator-clean:before.fa-pull-left {
-  margin-right: .3em;
-}
-.dirty-indicator-clean:before.fa-pull-right {
-  margin-left: .3em;
 }
 .dirty-indicator-clean:before.pull-left {
   margin-right: .3em;
@@ -10240,132 +9416,14 @@ ul#new-menu {
     box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
   }
 }
-.CodeMirror-dialog {
-  background-color: #fff;
-}
 /*!
 *
 * IPython notebook
 *
 */
-/* CSS font colors for translated ANSI escape sequences */
-/* The color values are a mix of
-   http://www.xcolors.net/dl/baskerville-ivorylight and
-   http://www.xcolors.net/dl/euphrasia */
-.ansi-black-fg {
-  color: #3E424D;
-}
-.ansi-black-bg {
-  background-color: #3E424D;
-}
-.ansi-black-intense-fg {
-  color: #282C36;
-}
-.ansi-black-intense-bg {
-  background-color: #282C36;
-}
-.ansi-red-fg {
-  color: #E75C58;
-}
-.ansi-red-bg {
-  background-color: #E75C58;
-}
-.ansi-red-intense-fg {
-  color: #B22B31;
-}
-.ansi-red-intense-bg {
-  background-color: #B22B31;
-}
-.ansi-green-fg {
-  color: #00A250;
-}
-.ansi-green-bg {
-  background-color: #00A250;
-}
-.ansi-green-intense-fg {
-  color: #007427;
-}
-.ansi-green-intense-bg {
-  background-color: #007427;
-}
-.ansi-yellow-fg {
-  color: #DDB62B;
-}
-.ansi-yellow-bg {
-  background-color: #DDB62B;
-}
-.ansi-yellow-intense-fg {
-  color: #B27D12;
-}
-.ansi-yellow-intense-bg {
-  background-color: #B27D12;
-}
-.ansi-blue-fg {
-  color: #208FFB;
-}
-.ansi-blue-bg {
-  background-color: #208FFB;
-}
-.ansi-blue-intense-fg {
-  color: #0065CA;
-}
-.ansi-blue-intense-bg {
-  background-color: #0065CA;
-}
-.ansi-magenta-fg {
-  color: #D160C4;
-}
-.ansi-magenta-bg {
-  background-color: #D160C4;
-}
-.ansi-magenta-intense-fg {
-  color: #A03196;
-}
-.ansi-magenta-intense-bg {
-  background-color: #A03196;
-}
-.ansi-cyan-fg {
-  color: #60C6C8;
-}
-.ansi-cyan-bg {
-  background-color: #60C6C8;
-}
-.ansi-cyan-intense-fg {
-  color: #258F8F;
-}
-.ansi-cyan-intense-bg {
-  background-color: #258F8F;
-}
-.ansi-white-fg {
-  color: #C5C1B4;
-}
-.ansi-white-bg {
-  background-color: #C5C1B4;
-}
-.ansi-white-intense-fg {
-  color: #A1A6B2;
-}
-.ansi-white-intense-bg {
-  background-color: #A1A6B2;
-}
-.ansi-default-inverse-fg {
-  color: #FFFFFF;
-}
-.ansi-default-inverse-bg {
-  background-color: #000000;
-}
-.ansi-bold {
-  font-weight: bold;
-}
-.ansi-underline {
-  text-decoration: underline;
-}
-/* The following styles are deprecated an will be removed in a future version */
+/* CSS font colors for translated ANSI colors. */
 .ansibold {
   font-weight: bold;
-}
-.ansi-inverse {
-  outline: 0.5px dotted;
 }
 /* use dark versions for foreground, to improve visibility */
 .ansiblack {
@@ -10444,20 +9502,12 @@ div.cell {
   /* This acts as a spacer between cells, that is outside the border */
   margin: 0px;
   outline: none;
-  position: relative;
-  overflow: visible;
-}
-div.cell:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: transparent;
+  border-left-width: 1px;
+  padding-left: 5px;
+  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
 }
 div.cell.jupyter-soft-selected {
+  border-left-color: #90CAF9;
   border-left-color: #E3F2FD;
   border-left-width: 1px;
   padding-left: 5px;
@@ -10470,39 +9520,27 @@ div.cell.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected,
-div.cell.selected.jupyter-soft-selected {
+div.cell.selected {
   border-color: #ababab;
-}
-div.cell.selected:before,
-div.cell.selected.jupyter-soft-selected:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: #42A5F5;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
 }
 @media print {
-  div.cell.selected,
-  div.cell.selected.jupyter-soft-selected {
+  div.cell.selected {
     border-color: transparent;
   }
 }
+div.cell.selected.jupyter-soft-selected {
+  border-left-width: 0;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
+}
 .edit_mode div.cell.selected {
   border-color: #66BB6A;
-}
-.edit_mode div.cell.selected:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: #66BB6A;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
 }
 @media print {
   .edit_mode div.cell.selected {
@@ -10698,9 +9736,7 @@ div.input_area > div.highlight > pre {
 .CodeMirror-lines {
   /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
   /* we have set a different line-height and want this to scale with that. */
-  /* Note that this should set vertical padding only, since CodeMirror assumes
-       that horizontal padding will be set on CodeMirror pre */
-  padding: 0.4em 0;
+  padding: 0.4em;
 }
 .CodeMirror-linenumber {
   padding: 0 8px 0 4px;
@@ -10710,24 +9746,11 @@ div.input_area > div.highlight > pre {
   border-top-left-radius: 2px;
 }
 .CodeMirror pre {
-  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
-    use .CodeMirror-lines for vertical */
-  padding: 0 0.4em;
+  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
+  /* .CodeMirror-lines */
+  padding: 0;
   border: 0;
   border-radius: 0;
-}
-.CodeMirror-cursor {
-  border-left: 1.4px solid black;
-}
-@media screen and (min-width: 2138px) and (max-width: 4319px) {
-  .CodeMirror-cursor {
-    border-left: 2px solid black;
-  }
-}
-@media screen and (min-width: 4320px) {
-  .CodeMirror-cursor {
-    border-left: 4px solid black;
-  }
 }
 /*
 
@@ -10981,9 +10004,6 @@ div.output_area img.unconfined,
 div.output_area svg.unconfined {
   max-width: none;
 }
-div.output_area .mglyph > img {
-  max-width: none;
-}
 /* This is needed to protect the pre formating from global settings such
    as that of bootstrap */
 .output {
@@ -11022,7 +10042,7 @@ div.output_area .mglyph > img {
 }
 div.output_area pre {
   margin: 0;
-  padding: 1px 0 1px 0;
+  padding: 0;
   border: 0;
   vertical-align: baseline;
   color: black;
@@ -11182,35 +10202,39 @@ div.output_unrecognized a:hover {
 .rendered_html h6:first-child {
   margin-top: 1em;
 }
-.rendered_html ul:not(.list-inline),
-.rendered_html ol:not(.list-inline) {
-  padding-left: 2em;
-}
 .rendered_html ul {
   list-style: disc;
+  margin: 0em 2em;
+  padding-left: 0px;
 }
 .rendered_html ul ul {
   list-style: square;
-  margin-top: 0;
+  margin: 0em 2em;
 }
 .rendered_html ul ul ul {
   list-style: circle;
+  margin: 0em 2em;
 }
 .rendered_html ol {
   list-style: decimal;
+  margin: 0em 2em;
+  padding-left: 0px;
 }
 .rendered_html ol ol {
   list-style: upper-alpha;
-  margin-top: 0;
+  margin: 0em 2em;
 }
 .rendered_html ol ol ol {
   list-style: lower-alpha;
+  margin: 0em 2em;
 }
 .rendered_html ol ol ol ol {
   list-style: lower-roman;
+  margin: 0em 2em;
 }
 .rendered_html ol ol ol ol ol {
   list-style: decimal;
+  margin: 0em 2em;
 }
 .rendered_html * + ul {
   margin-top: 1em;
@@ -11224,23 +10248,14 @@ div.output_unrecognized a:hover {
 }
 .rendered_html pre {
   margin: 1em 2em;
-  padding: 0px;
-  background-color: #fff;
-}
-.rendered_html code {
-  background-color: #eff0f1;
-}
-.rendered_html p code {
-  padding: 1px 5px;
-}
-.rendered_html pre code {
-  background-color: #fff;
 }
 .rendered_html pre,
 .rendered_html code {
   border: 0;
+  background-color: #fff;
   color: #000;
   font-size: 100%;
+  padding: 0px;
 }
 .rendered_html blockquote {
   margin: 1em 2em;
@@ -11248,36 +10263,24 @@ div.output_unrecognized a:hover {
 .rendered_html table {
   margin-left: auto;
   margin-right: auto;
-  border: none;
+  border: 1px solid black;
   border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
 }
 .rendered_html tr,
 .rendered_html th,
 .rendered_html td {
-  text-align: right;
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin: 1em 2em;
+}
+.rendered_html td,
+.rendered_html th {
+  text-align: left;
   vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
+  padding: 4px;
 }
 .rendered_html th {
   font-weight: bold;
-}
-.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
 }
 .rendered_html * + table {
   margin-top: 1em;
@@ -11304,15 +10307,6 @@ div.output_unrecognized a:hover {
 .rendered_html img.unconfined,
 .rendered_html svg.unconfined {
   max-width: none;
-}
-.rendered_html .alert {
-  margin-bottom: initial;
-}
-.rendered_html * + .alert {
-  margin-top: 1em;
-}
-[dir="rtl"] .rendered_html p {
-  text-align: right;
 }
 div.text_cell {
   /* Old browsers */
@@ -11367,17 +10361,8 @@ h6:hover .anchor-link {
   overflow-x: auto;
   overflow-y: hidden;
 }
-.text_cell.rendered .rendered_html tr,
-.text_cell.rendered .rendered_html th,
-.text_cell.rendered .rendered_html td {
-  max-width: none;
-}
 .text_cell.unrendered .text_cell_render {
   display: none;
-}
-.text_cell .dropzone .input_area {
-  border: 2px dashed #bababa;
-  margin: -1px;
 }
 .cm-header-1,
 .cm-header-2,
@@ -11514,28 +10499,6 @@ kbd {
   padding-top: 1px;
   padding-bottom: 1px;
 }
-.jupyter-keybindings {
-  padding: 1px;
-  line-height: 24px;
-  border-bottom: 1px solid gray;
-}
-.jupyter-keybindings input {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-.jupyter-keybindings i {
-  padding: 6px;
-}
-.well code {
-  background-color: #ffffff;
-  border-color: #ababab;
-  border-width: 1px;
-  border-style: solid;
-  padding: 2px;
-  padding-top: 1px;
-  padding-bottom: 1px;
-}
 /* CSS for the cell toolbar */
 .celltoolbar {
   border: thin solid #CFCFCF;
@@ -11668,152 +10631,6 @@ select[multiple].celltoolbar select {
   margin-left: 5px;
   margin-right: 5px;
 }
-.tags_button_container {
-  width: 100%;
-  display: flex;
-}
-.tag-container {
-  display: flex;
-  flex-direction: row;
-  flex-grow: 1;
-  overflow: hidden;
-  position: relative;
-}
-.tag-container > * {
-  margin: 0 4px;
-}
-.remove-tag-btn {
-  margin-left: 4px;
-}
-.tags-input {
-  display: flex;
-}
-.cell-tag:last-child:after {
-  content: "";
-  position: absolute;
-  right: 0;
-  width: 40px;
-  height: 100%;
-  /* Fade to background color of cell toolbar */
-  background: linear-gradient(to right, rgba(0, 0, 0, 0), #EEE);
-}
-.tags-input > * {
-  margin-left: 4px;
-}
-.cell-tag,
-.tags-input input,
-.tags-input button {
-  display: block;
-  width: 100%;
-  height: 32px;
-  padding: 6px 12px;
-  font-size: 13px;
-  line-height: 1.42857143;
-  color: #555555;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  height: 30px;
-  padding: 5px 10px;
-  font-size: 12px;
-  line-height: 1.5;
-  border-radius: 1px;
-  box-shadow: none;
-  width: inherit;
-  font-size: inherit;
-  height: 22px;
-  line-height: 22px;
-  padding: 0px 4px;
-  display: inline-block;
-}
-.cell-tag:focus,
-.tags-input input:focus,
-.tags-input button:focus {
-  border-color: #66afe9;
-  outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
-}
-.cell-tag::-moz-placeholder,
-.tags-input input::-moz-placeholder,
-.tags-input button::-moz-placeholder {
-  color: #999;
-  opacity: 1;
-}
-.cell-tag:-ms-input-placeholder,
-.tags-input input:-ms-input-placeholder,
-.tags-input button:-ms-input-placeholder {
-  color: #999;
-}
-.cell-tag::-webkit-input-placeholder,
-.tags-input input::-webkit-input-placeholder,
-.tags-input button::-webkit-input-placeholder {
-  color: #999;
-}
-.cell-tag::-ms-expand,
-.tags-input input::-ms-expand,
-.tags-input button::-ms-expand {
-  border: 0;
-  background-color: transparent;
-}
-.cell-tag[disabled],
-.tags-input input[disabled],
-.tags-input button[disabled],
-.cell-tag[readonly],
-.tags-input input[readonly],
-.tags-input button[readonly],
-fieldset[disabled] .cell-tag,
-fieldset[disabled] .tags-input input,
-fieldset[disabled] .tags-input button {
-  background-color: #eeeeee;
-  opacity: 1;
-}
-.cell-tag[disabled],
-.tags-input input[disabled],
-.tags-input button[disabled],
-fieldset[disabled] .cell-tag,
-fieldset[disabled] .tags-input input,
-fieldset[disabled] .tags-input button {
-  cursor: not-allowed;
-}
-textarea.cell-tag,
-textarea.tags-input input,
-textarea.tags-input button {
-  height: auto;
-}
-select.cell-tag,
-select.tags-input input,
-select.tags-input button {
-  height: 30px;
-  line-height: 30px;
-}
-textarea.cell-tag,
-textarea.tags-input input,
-textarea.tags-input button,
-select[multiple].cell-tag,
-select[multiple].tags-input input,
-select[multiple].tags-input button {
-  height: auto;
-}
-.cell-tag,
-.tags-input button {
-  padding: 0px 4px;
-}
-.cell-tag {
-  background-color: #fff;
-  white-space: nowrap;
-}
-.tags-input input[type=text]:focus {
-  outline: none;
-  box-shadow: none;
-  border-color: #ccc;
-}
 .completions {
   position: absolute;
   z-index: 110;
@@ -11839,28 +10656,16 @@ select[multiple].tags-input button {
 .completions select option.context {
   color: #286090;
 }
+#kernel_logo_widget {
+  float: right !important;
+  float: right;
+}
 #kernel_logo_widget .current_kernel_logo {
   display: none;
   margin-top: -1px;
   margin-bottom: -1px;
   width: 32px;
   height: 32px;
-}
-[dir="rtl"] #kernel_logo_widget {
-  float: left !important;
-  float: left;
-}
-.modal .modal-body .move-path {
-  display: flex;
-  flex-direction: row;
-  justify-content: space;
-  align-items: center;
-}
-.modal .modal-body .move-path .server-root {
-  padding-right: 20px;
-}
-.modal .modal-body .move-path .path-input {
-  flex: 1;
 }
 #menubar {
   box-sizing: border-box;
@@ -11882,41 +10687,11 @@ select[multiple].tags-input button {
 #menubar .navbar-collapse {
   clear: left;
 }
-[dir="rtl"] #menubar .navbar-toggle {
-  float: right;
-}
-[dir="rtl"] #menubar .navbar-collapse {
-  clear: right;
-}
-[dir="rtl"] #menubar .navbar-nav {
-  float: right;
-}
-[dir="rtl"] #menubar .nav {
-  padding-right: 0px;
-}
-[dir="rtl"] #menubar .navbar-nav > li {
-  float: right;
-}
-[dir="rtl"] #menubar .navbar-right {
-  float: left !important;
-}
-[dir="rtl"] ul.dropdown-menu {
-  text-align: right;
-  left: auto;
-}
-[dir="rtl"] ul#new-menu.dropdown-menu {
-  right: auto;
-  left: 0;
-}
 .nav-wrapper {
   border-bottom: 1px solid #e7e7e7;
 }
 i.menu-icon {
   padding-top: 4px;
-}
-[dir="rtl"] i.menu-icon.pull-right {
-  float: left !important;
-  float: left;
 }
 ul#help_menu li a {
   overflow: hidden;
@@ -11924,17 +10699,6 @@ ul#help_menu li a {
 }
 ul#help_menu li a i {
   margin-right: -1.2em;
-}
-[dir="rtl"] ul#help_menu li a {
-  padding-left: 2.2em;
-}
-[dir="rtl"] ul#help_menu li a i {
-  margin-right: 0;
-  margin-left: -1.2em;
-}
-[dir="rtl"] ul#help_menu li a i.pull-right {
-  float: left !important;
-  float: left;
 }
 .dropdown-submenu {
   position: relative;
@@ -11944,10 +10708,6 @@ ul#help_menu li a i {
   left: 100%;
   margin-top: -6px;
   margin-left: -1px;
-}
-[dir="rtl"] .dropdown-submenu > .dropdown-menu {
-  right: 100%;
-  margin-right: -1px;
 }
 .dropdown-submenu:hover > .dropdown-menu {
   display: block;
@@ -11966,23 +10726,11 @@ ul#help_menu li a i {
   margin-top: 2px;
   margin-right: -10px;
 }
-.dropdown-submenu > a:after.fa-pull-left {
-  margin-right: .3em;
-}
-.dropdown-submenu > a:after.fa-pull-right {
-  margin-left: .3em;
-}
 .dropdown-submenu > a:after.pull-left {
   margin-right: .3em;
 }
 .dropdown-submenu > a:after.pull-right {
   margin-left: .3em;
-}
-[dir="rtl"] .dropdown-submenu > a:after {
-  float: left;
-  content: "\f0d9";
-  margin-right: 0;
-  margin-left: -10px;
 }
 .dropdown-submenu:hover > a:after {
   color: #262626;
@@ -11999,10 +10747,6 @@ ul#help_menu li a i {
   float: right;
   z-index: 10;
 }
-[dir="rtl"] #notification_area {
-  float: left !important;
-  float: left;
-}
 .indicator_area {
   float: right !important;
   float: right;
@@ -12013,10 +10757,6 @@ ul#help_menu li a i {
   z-index: 10;
   text-align: center;
   width: auto;
-}
-[dir="rtl"] .indicator_area {
-  float: left !important;
-  float: left;
 }
 #kernel_indicator {
   float: right !important;
@@ -12034,12 +10774,6 @@ ul#help_menu li a i {
   padding-left: 5px;
   padding-right: 5px;
 }
-[dir="rtl"] #kernel_indicator {
-  float: left !important;
-  float: left;
-  border-left: 0;
-  border-right: 1px solid;
-}
 #modal_indicator {
   float: right !important;
   float: right;
@@ -12050,10 +10784,6 @@ ul#help_menu li a i {
   z-index: 10;
   text-align: center;
   width: auto;
-}
-[dir="rtl"] #modal_indicator {
-  float: left !important;
-  float: left;
 }
 #readonly-indicator {
   float: right !important;
@@ -12084,12 +10814,6 @@ ul#help_menu li a i {
   -moz-osx-font-smoothing: grayscale;
   content: "\f040";
 }
-.edit_mode .modal_indicator:before.fa-pull-left {
-  margin-right: .3em;
-}
-.edit_mode .modal_indicator:before.fa-pull-right {
-  margin-left: .3em;
-}
 .edit_mode .modal_indicator:before.pull-left {
   margin-right: .3em;
 }
@@ -12104,12 +10828,6 @@ ul#help_menu li a i {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   content: ' ';
-}
-.command_mode .modal_indicator:before.fa-pull-left {
-  margin-right: .3em;
-}
-.command_mode .modal_indicator:before.fa-pull-right {
-  margin-left: .3em;
 }
 .command_mode .modal_indicator:before.pull-left {
   margin-right: .3em;
@@ -12126,12 +10844,6 @@ ul#help_menu li a i {
   -moz-osx-font-smoothing: grayscale;
   content: "\f10c";
 }
-.kernel_idle_icon:before.fa-pull-left {
-  margin-right: .3em;
-}
-.kernel_idle_icon:before.fa-pull-right {
-  margin-left: .3em;
-}
 .kernel_idle_icon:before.pull-left {
   margin-right: .3em;
 }
@@ -12146,12 +10858,6 @@ ul#help_menu li a i {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   content: "\f111";
-}
-.kernel_busy_icon:before.fa-pull-left {
-  margin-right: .3em;
-}
-.kernel_busy_icon:before.fa-pull-right {
-  margin-left: .3em;
 }
 .kernel_busy_icon:before.pull-left {
   margin-right: .3em;
@@ -12168,12 +10874,6 @@ ul#help_menu li a i {
   -moz-osx-font-smoothing: grayscale;
   content: "\f1e2";
 }
-.kernel_dead_icon:before.fa-pull-left {
-  margin-right: .3em;
-}
-.kernel_dead_icon:before.fa-pull-right {
-  margin-left: .3em;
-}
 .kernel_dead_icon:before.pull-left {
   margin-right: .3em;
 }
@@ -12188,12 +10888,6 @@ ul#help_menu li a i {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   content: "\f127";
-}
-.kernel_disconnected_icon:before.fa-pull-left {
-  margin-right: .3em;
-}
-.kernel_disconnected_icon:before.fa-pull-right {
-  margin-left: .3em;
 }
 .kernel_disconnected_icon:before.pull-left {
   margin-right: .3em;
@@ -12584,46 +11278,27 @@ div#pager .ui-resizable-handle::after {
   flex: 1;
 }
 span.save_widget {
-  height: 30px;
-  margin-top: 4px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: baseline;
-  width: 50%;
-  flex: 1;
+  margin-top: 6px;
 }
 span.save_widget span.filename {
-  height: 100%;
+  height: 1em;
   line-height: 1em;
+  padding: 3px;
   margin-left: 16px;
   border: none;
   font-size: 146.5%;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
   border-radius: 2px;
 }
 span.save_widget span.filename:hover {
   background-color: #e6e6e6;
 }
-[dir="rtl"] span.save_widget.pull-left {
-  float: right !important;
-  float: right;
-}
-[dir="rtl"] span.save_widget span.filename {
-  margin-left: 0;
-  margin-right: 16px;
-}
 span.checkpoint_status,
 span.autosave_status {
   font-size: small;
-  white-space: nowrap;
-  padding: 0 5px;
 }
 @media (max-width: 767px) {
   span.save_widget {
     font-size: small;
-    padding: 0 0 0 5px;
   }
   span.checkpoint_status,
   span.autosave_status {
@@ -12667,9 +11342,6 @@ span.autosave_status {
   margin-top: 0px;
   margin-left: 5px;
 }
-.toolbar-btn-label {
-  margin-left: 6px;
-}
 #maintoolbar {
   margin-bottom: -3px;
   margin-top: -8px;
@@ -12689,10 +11361,6 @@ span.autosave_status {
 }
 .select-xs {
   height: 24px;
-}
-[dir="rtl"] .btn-group > .btn,
-.btn-group-vertical > .btn {
-  float: right;
 }
 .pulse,
 .dropdown-menu > li > a.pulse,
@@ -12843,10 +11511,6 @@ ul.typeahead-list i {
   margin-left: -10px;
   width: 18px;
 }
-[dir="rtl"] ul.typeahead-list i {
-  margin-left: 0;
-  margin-right: -10px;
-}
 ul.typeahead-list {
   max-height: 80vh;
   overflow: auto;
@@ -12855,13 +11519,6 @@ ul.typeahead-list > li > a {
   /** Firefox bug **/
   /* see https://github.com/jupyter/notebook/issues/559 */
   white-space: normal;
-}
-ul.typeahead-list  > li > a.pull-right {
-  float: left !important;
-  float: left;
-}
-[dir="rtl"] .typeahead-list {
-  text-align: right;
 }
 .cmd-palette .modal-body {
   padding: 7px;
@@ -12873,19 +11530,10 @@ ul.typeahead-list  > li > a.pull-right {
   outline: none;
 }
 .no-shortcut {
-  min-width: 20px;
-  color: transparent;
-}
-[dir="rtl"] .no-shortcut.pull-right {
-  float: left !important;
-  float: left;
-}
-[dir="rtl"] .command-shortcut.pull-right {
-  float: left !important;
-  float: left;
+  display: none;
 }
 .command-shortcut:before {
-  content: "(command mode)";
+  content: "(command)";
   padding-right: 3px;
   color: #777777;
 }
@@ -12894,10 +11542,6 @@ ul.typeahead-list  > li > a.pull-right {
   padding-right: 3px;
   color: #777777;
 }
-[dir="rtl"] .edit-shortcut.pull-right {
-  float: left !important;
-  float: left;
-}
 #find-and-replace #replace-preview .match,
 #find-and-replace #replace-preview .insert {
   background-color: #BBDEFB;
@@ -12905,12 +11549,6 @@ ul.typeahead-list  > li > a.pull-right {
   border-style: solid;
   border-width: 1px;
   border-radius: 0px;
-}
-[dir="ltr"] #find-and-replace .input-group-btn + .form-control {
-  border-left: none;
-}
-[dir="rtl"] #find-and-replace .input-group-btn + .form-control {
-  border-right: none;
 }
 #find-and-replace #replace-preview .replace .match {
   background-color: #FFCDD2;
@@ -13106,9 +11744,9 @@ div#notebook {
 <!-- Load mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
 <!-- MathJax configuration -->
-<meta content="4.7  Quasi-Newton methods" property="og:title"/>
+<meta content="10.1 Introduction" property="og:title"/>
 <meta content="https://github.com/jermwatt/machine_learning_refined/blob/gh-pages/html/pics/meta.png" property="og:image"/>
-<meta content="https://jermwatt.github.io/machine_learning_refined/notes/4_Second_order_methods/4_7_Quasi.html" property="og:url"/>
+<meta content="https://jermwatt.github.io/machine_learning_refined/notes/10_Nonlinear_intro/Intro.html" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -13169,28 +11807,28 @@ div#notebook {
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- linkedin -->
-<a href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F4_Second_order_methods%2F4_7_Quasi.html" target="_blank">
+<a href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F10_Nonlinear_intro%2FIntro.html" target="_blank">
 <img height="28" onmouseout="this.src='../../html/pics/linkedin.png';" onmouseover="this.src='../../html/pics/linkedin_filled.png';" src="../../html/pics/linkedin.png" width="28"/>
 </a>
 </div>
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- twitter -->
-<a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F4_Second_order_methods%2F4_7_Quasi.html" target="_blank">
+<a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F10_Nonlinear_intro%2FIntro.html" target="_blank">
 <img height="28" onmouseout="this.src='../../html/pics/twitter.png';" onmouseover="this.src='../../html/pics/twitter_filled.png';" src="../../html/pics/twitter.png" width="28"/>
 </a>
 </div>
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- facebook -->
-<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F4_Second_order_methods%2F4_7_Quasi.html" target="_blank">
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F10_Nonlinear_intro%2FIntro.html" target="_blank">
 <img height="28" onmouseout="this.src='../../html/pics/facebook.png';" onmouseover="this.src='../../html/pics/facebook_filled.png';" src="../../html/pics/facebook.png" width="28"/>
 </a>
 </div>
 <div class="logo-share"></div>
 <div class="logo-share">
 <!-- reddit -->
-<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F4_Second_order_methods%2F4_7_Quasi.html" target="_blank">
+<a href="https://www.reddit.com/submit?url=https%3A%2F%2Fjermwatt.github.io%2Fmachine_learning_refined%2Fnotes%2F10_Nonlinear_intro%2FIntro.html" target="_blank">
 <img height="28" onmouseout="this.src='../../html/pics/reddit.png';" onmouseover="this.src='../../html/pics/reddit_filled.png';" src="../../html/pics/reddit.png" width="28"/>
 </a>
 </div>
@@ -13201,799 +11839,124 @@ div#notebook {
 <div class="page-title" style="text-align: center !important;">
 <div><a href="https://github.com/jermwatt/machine_learning_refined" style="text-decoration: none" target="_blank"><button class="btn-star">★ Our Project On GitHub</button></a></div>
 <br/><br/>
-<mark style="padding: 0px; background-color: #f9f3c2;">4.7  Quasi-Newton methods</mark>
+<mark style="padding: 0px; background-color: #f9f3c2;">10.1 Introduction*</mark>
 </div>
+<center>
+<div style="text-align: left !important; font-size:16px; width:64%; color: #333"><br/><br/><br/><br/>
+* The following is part of an early draft of the second edition of <strong>Machine Learning Refined</strong>. The published text (with revised material) is now available on <a href="https://www.amazon.com/Machine-Learning-Refined-Foundations-Applications/dp/1108480721" target="_blank">Amazon</a> as well as other major book retailers. Instructors may request an examination copy from <a href="https://www.cambridge.org/us/academic/subjects/engineering/communications-and-signal-processing/machine-learning-refined-foundations-algorithms-and-applications-2nd-edition?format=HB" target="_blank">Cambridge University Press</a>.
+</div>
+</center>
 <br/>
 <div class="border-box-sizing" id="notebook" tabindex="-1">
 <div class="container" id="notebook-container">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>While Newton's method is a powerful technique that exhibits rapid convergence for a (especially) convex function $g\left(\mathbf{w}\right)$, it is naturally constrained by $N$ the dimension of the input $\mathbf{w}$.  In particular it is the quadratic generating Hessian $\nabla^2g\left(\mathbf{w}\right)$, an $N\times N$ matrix that limits Newton's method's use to cases where $N$ is (roughly speaking) in the thousands, since it is difficult to even store such a matrix when $N$ is larger (let alone compute with it).  In this Section we give discuss a set of variations on Newton's method that are designed to ameliorate this issue, collectively referred to as <em>quasi-Newton's methods</em>.  The main thrust of any such method is - in the Newton-like step - to replace the Hessian with a close approximation that does not suffer from this scaling problem.</p>
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="10.1.1-Mathematical,-algorithmic,-and-empirical-functions">10.1.1 Mathematical, algorithmic, and empirical functions<a class="anchor-link" href="#10.1.1-Mathematical,-algorithmic,-and-empirical-functions">¶</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="4.7.1--Newton's-method-from-the-perspective-of-the-gradient-function">4.7.1  Newton's method from the perspective of the gradient function<a class="anchor-link" href="#4.7.1--Newton's-method-from-the-perspective-of-the-gradient-function">¶</a></h2>
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We have just seen how Newton's method works to find stationary points of a cost function, points where the gradient of the cost function is zero, effectively minimizing the function.  However the classic application of Newton's method is actually towards finding the <em>zeros</em> of (polynomial) functions - that is where a function crosses the input plane.  At first glance it may not seem like the Newton's method - at least the way we have viewed it thus far - is applicable to such problems.  That is until we think about what Newton's method is doing in the space where the <em>gradient of our cost function</em> lives.  If Newton's method does indeed take steps towards finding the stationary point of a cost function then then we can we can indeed view these steps evaluated not on the cost function, but on the derivative (or gradient more generally) itself.  Any sequence of steps moving towards a stationary point of the cost function itself is naturally - when evaluated by the gradient - a sequence of steps moving towards a zero of the gradient function.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Because we will be frequently be manipulating first and second derivatives here, in this Section we will make use of the common (more compact) 'prime' notation to denote the first and second derivative of a single input function $g(w)$</p>
-\begin{equation}
-g^{\prime}(w) = \frac{\mathrm{d}}{\mathrm{d}w}g\left(w\right) \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,g^{\prime\prime}(w) = \frac{\mathrm{d}^2}{\mathrm{d}w^2}g\left(w\right).
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, remember when $N = 1$ the $k^{th}$ that the Newton's step follows directly from the second order Taylor series approximation centered at a point ${w}^{k-1}$ which (in our 'prime' derivative notation) is</p>
-\begin{equation}
-h\left(w\right)=g\left(w^{k-1}\right)+g^{\prime}\left(w^{k-1}\right)\left(w-w^{k-1}\right)+ g^{\prime\prime}\left(w^{k-1}\right)\left(w-w^{k-1}\right)^{2} 
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We want to determine a stationary point of this quadratic (a global minimum of the quadratic if it is convex) by setting the derivative of this quadratic approximation to zero and solving.  This gives our Newton step</p>
-\begin{equation}
-w^k = w^{k-1} - \frac{g^{\prime}(w^{k-1})}{g^{\prime\prime}(w^{k-1})}
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>By following this sequence of steps we are - when beginning in a convex region of a function -  led to a stationary point which is also a local minimum of $g$.  Now, since any stationary point of $g$ is satisfies $g^{\prime}(w) = 0$, we can think of this simultaneously as a procedure for finding a <em>zero of our derivative function</em>.  Indeed we can easily derive this same Newton's method update equation <em>beginning</em> with the derivative, and with the desire to find a zero point of it.  Let us go about doing this.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>So, suppose start from scratch and we do not know about Newton's method, we are simply looking for an iterative way to find a zero of our cost function derivative $g^{\prime}(w) = 0$  - What could we do?  Finding zeros of an arbitrary function is not a trivial affair. As with our discussion of the first order condition - where we discussed just this issue - we would in general look to develop an iterative scheme for <em>approximating</em> zero points of an arbitrary function $g^{\prime}$.  If we followed precisely the intuition that led us to gradient descent we would likewise conclude that while it is difficult to compute the zero of arbitrary function, it is trivial to compute where a line or hyperplane.  So why not repeatedly seek out the zero point(s) of the first order Taylor series approximation (a tangent line or hyperplane) to the function $g^{\prime}$?</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example-1.---Illustrating-the-zero-finding-algorithm-concept"><span style="color:#a50e3e;">Example 1. </span>  Illustrating the zero-finding algorithm concept<a class="anchor-link" href="#Example-1.---Illustrating-the-zero-finding-algorithm-concept">¶</a></h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Below we animate the iterative scheme for finding a zero of an arbitrary function $g^{\prime}$ - here a sinusoid - based on repeatedly using the tangent line (our first order approximation) to a function and finding its zero.  As yo move the slider from left to right the scheme progresses with the point of tangency shown as a colored circle, with its corresponding input shown as an 'x' symbol.  The tangent point / input point along with the tangent line are all colored green - when the method begins - and transition to red as the method halts.  The input where the tangent line crosses the input axis is marked with a white 'x' symbol at each step, and the corresponding function evaluation (the point at which the next tangent line will be drawn) is shown as a white circle.  Moving the slider from left to right progresses the algorithm.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Throughout this text we have often used the word <em>function</em> to refer to mathematical formulae like that of a line, a quadratic, a logistic sigmoid, etc. Such formulae are often called <em>mathematical functions</em> as well, hence our use of the phrase 'function' to refer to them.  However the word 'function' is a much more general term, and broadly encompasses any rule or set of rules for assigning or transforming some kind of 'input' into some kind of 'output'.  For example a recipe for chocolate cake is an example of a function, that is a set of rules for how to take certain inputs - like eggs, flour, sugar, cocoa powder, etc., - and transform them into an 'output' chocolate cake.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load video into notebook</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
-<span class="n">HTML</span><span class="p">(</span><span class="s2">"""</span>
-<span class="s2">&lt;video width="1000" height="400" controls loop&gt;</span>
-<span class="s2">  &lt;source src="videos/animation_11.mp4" type="video/mp4"&gt;</span>
-<span class="s2">  &lt;/video&gt;</span>
-<span class="s2">"""</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[5]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<video controls="" height="400" loop="" width="1000">
-<source src="videos/animation_11.mp4" type="video/mp4">
-</source></video>
-</div>
-</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Another very common type of function is an <em>algorithm</em>, or one that is naturally expressed programaticaly (that is, in code).  A classic example of an <em>algorithmic function</em> is a basic <em>sorting scheme</em>.  Sorting schemes take in <em>input</em>  lists of numbers like the following</p>
+<p>\begin{equation}
+[18,25,10,33,16,75,50,14]
+\end{equation}</p>
+<p>and return as <em>output</em> its sorted version</p>
+<p>\begin{equation}
+[10, 14, 16, 18, 25, 33, 50, 75].
+\end{equation}</p>
+<p>Such a function is easy to express as code, and not so much in mathematical formulae.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr/>
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>To write out the first step of this scheme, remember first and foremost that we are thinking of this as an iterative method applied to the derivative function $g^{\prime}(w)$ - this is the function we want to find zero points of i.e., inputs where $g^{\prime}(w) = 0$.  This means - beginning at a point $w^0$ - that our linear approximation to the derivative function naturally involves the <em>second derivative</em> of the function $g$.  We can write the first order Taylor series linear approximation to the derivative function at $w^0$ as</p>
-\begin{equation}
-h\left(w^0\right) = g^{\prime}\left(w^0\right) + g^{\prime \prime}\left(w^0\right)\left(w - w^0\right).
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Here the second derivative $g^{\prime \prime}\left(w^0 \right)$ is the slope of the tangent line to $g^{\prime}$ at the point $w^0$.  We can easily compute where this line crosses the input axis by setting the equation above to zero</p>
-\begin{equation}
-g^{\prime}\left(w^0\right) + g^{\prime \prime}\left(w^0\right)\left(w - w^0\right) = 0
-\end{equation}<p>and solving for $w$.  Doing this, and calling the solution $w^1$, we have</p>
-\begin{equation}
-w^1 = w^0 - \frac{g^{\prime}\left(w^0\right)}{g^{\prime \prime}\left(w^0\right) }.
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>If we then repeat this procedure - finding where the tangent line at $w^1$ crosses the input axis and solving for the next update etc., - then the $k^{th}$ update step then look like</p>
-\begin{equation}
-w^k = w^{k-1} - \frac{g^{\prime}\left(w^{k-1}\right)}{g^{\prime \prime}\left(w^{k-1}\right) }.
-\end{equation}<p>Notice - these are Newton steps!  So - in other words - we have re-derived Newton's method as a zero-finding algorithm for directly solving the first order optimality condition for single input functions.</p>
-<p>Precisely the same reasoning as we followed above for multi-input functions leads to the multi-input Newton's step as well.  So - indeed - we can view Newton's method simultaneously as</p>
-<ul>
-<li>a method for determining a stationary point (preferably a minimum) of a cost function $g(\mathbf{w})$</li>
-</ul>
-<ul>
-<li>a method for finding a zero of the derivative function, i.e., where  $\nabla g(\mathbf{w}) = \mathbf{0}_{N\times 1}$.</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example-2.---Thinking-of-Newton's-method-in-two-ways-simultaneously"><span style="color:#a50e3e;">Example 2. </span>  Thinking of Newton's method in two ways simultaneously<a class="anchor-link" href="#Example-2.---Thinking-of-Newton's-method-in-two-ways-simultaneously">¶</a></h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Below we show an animation that simultaneously draws Newton's method from a) the perspective of minimizing a function (left panel) and b) finding the zero of its derivative(s) (right panel).  In particular we use the following function</p>
-\begin{equation}
-g(w) = \frac{1}{50}\left(w^4 + w^2 + 10w\right).
-\end{equation}<p>As you move the slider from left to right Newton's method proceeds in both panels, with the final step shown when the slider is moved all the way to the right.  At each step in the algorithm the input and point of tangency are drawn as a white circle and 'x' symbol respectively, while the next step input / tangency are colored from green to red as the method proceeds.  The tangent quadratic / line is also drawn in each panel, and are colored from green to red as the method proceeds as well.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We have also seen a variety of algorithmic functions in prior Chapters.  For example <em>gradient descent</em> which (see Section 3.5) is an algorithmic function that takes in various inputs - a mathematical function to minimize, an initial point, a steplength, and a maximum number of steps to take - and returns certain outputs (e.g., a history of descent steps).  The process of building a Bag of Words histogram - as detailed at a high level in Section 9.1 - is another an example of an algorithmic function.  Here the input, raw text, is transformed into a numerical histogram representing counts of the words the input contains.  Such a function is much more easily detailed programatically, in code, than it is mathematically, using formulae.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [8]:</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load video into notebook</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
-<span class="n">HTML</span><span class="p">(</span><span class="s2">"""</span>
-<span class="s2">&lt;video width="1000" height="400" controls loop&gt;</span>
-<span class="s2">  &lt;source src="videos/animation_12.mp4" type="video/mp4"&gt;</span>
-<span class="s2">  &lt;/video&gt;</span>
-<span class="s2">"""</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[8]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<video controls="" height="400" loop="" width="1000">
-<source src="videos/animation_12.mp4" type="video/mp4">
-</source></video>
-</div>
-</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Data is the third sort of function we deal with regularly - each instance of which we refer to as an <em>emprical function</em>.  The generic set of supervised learning data which we often denote by $\left\{\mathbf{x}_p,y_p\right\}_{p=1}^P$ always defines a trivial rule for assigning input to output: pairing.  The input $\mathbf{x}_p$ is simply paired with its output $y_p$.  This perahps can be more easily see by listing off each data pair in a table, as shown below.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="4.7.2--Approximating-the-second-derivative-and-the-secant-method">4.7.2  Approximating the second derivative and the secant method<a class="anchor-link" href="#4.7.2--Approximating-the-second-derivative-and-the-secant-method">¶</a></h2>
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Remember (as discussed in Chapter 3) that the derivative of a single input function defines the slope of the tangent line to a function at a point.  Moreover the derivative/slope of a tangent line can be roughly approximated as the slope of a nearby <em>secant line</em>, that is a line that passes through the same point as well as another point nearby on the function (see Section 3.2).</p>
-<p>Using this fact in our current scenario of Newton's method as a zero-finding algorithm, we can then say that the slope of the tangent line to our derivative function $g^{\prime}(w)$ - this slope being the second derivative itself $g^{\prime \prime}(w)$ - can itself be approximated by the slope of a nearby secant line as</p>
-\begin{equation}
-g^{\prime\prime}(w) \approx \frac{g^{\prime}(w^{\,}) - g^{\prime}(v^{\,})}{w^{\,} - v^{\,}}
-\end{equation}<p>if $v$ is taken close enough to the evaluation point $w$.  Using this rule somewhat loosely if we then go back to our Newton step and swap out the second derivative evaluation with this secant approximation we have a generic step that looks like</p>
-\begin{equation}
-w^k = w^{k-1} - \frac{g^{\prime}\left(w^{k-1}\right)}{ \frac{g^{\prime}(w^{k-1}) - g^{\prime}(w^{k-2})}{w^{k-1} - w^{k-2}} }.
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can write this less cumbersomely as</p>
-\begin{equation}
-w^k = w^{k-1} - \frac{g^{\prime}\left(w^{k-1}\right)}{s^{k-1}}
-\end{equation}<p>where $s^{k-1}$ has been used to replace the second derivative, and is defined as</p>
-\begin{equation}
-s^{k-1} = \frac{g^{\prime}(w^{k-1}) - g^{\prime}(w^{k-2})}{w^{k-1} - w^{k-2}}.
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This approach - called the <em>Secant method</em> since it employs a secant instead of a tangent line - can still determine zeros of a derivative function $g^{\prime}(w)$ / stationary points of the cost $g(w)$, but without the explicit need for the second derivative.  This fact - while fairly inconsequential for a $N = 1$ dimensional input function - gains significantly more value when the <em>Secant method</em> idea is generalized to multi-input functions (since it is the very size of the Hessian that prohibits Newton's method's use for function's with larger values of $N$).</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example-3.---The-Secant-method-from-two-perspectives"><span style="color:#a50e3e;">Example 3. </span>  The Secant method from two perspectives<a class="anchor-link" href="#Example-3.---The-Secant-method-from-two-perspectives">¶</a></h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Below we show an animation that simultaneously draws the Secant method from a) the perspective of minimizing a function (left panel) and b) finding the zero of its derivative(s) (right panel).  In particular we use the following function</p>
-\begin{equation}
-g(w) = \frac{1}{50}\left(w^4 + w^2 + 10w\right).
-\end{equation}<p>As you move the slider from left to right Newton's method proceeds in both panels, with the final step shown when the slider is moved all the way to the right.  At each step in the algorithm the input and point of tangency are drawn as a white circle and 'x' symbol respectively, while the next step input / tangency are colored from green to red as the method proceeds.  The tangent quadratic / line is also drawn in each panel, and are colored from green to red as the method proceeds as well.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br/></p>
+<p></p><table>
+<thead style="background-color: #eee;">
+<tr>
+<th>input:  $\mathbf{x}_p$</th>
+<th>output:  $y_p$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="centered">$\mathbf{x}_1$</td>
+<td class="centered">$y_1$</td>
+</tr>
+<tr>
+<td class="centered">$\mathbf{x}_2$</td>
+<td class="centered">$y_2$</td>
+</tr>
+<tr>
+<td class="centered">$\vdots$</td>
+<td class="centered">$\vdots$</td>
+</tr>
+<tr>
+<td class="centered">$\mathbf{x}_P$</td>
+<td class="centered">$y_P$</td>
+</tr>
+</tbody>
+</table>
+<br/>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [10]:</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load video into notebook</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
-<span class="n">HTML</span><span class="p">(</span><span class="s2">"""</span>
-<span class="s2">&lt;video width="1000" height="400" controls loop&gt;</span>
-<span class="s2">  &lt;source src="videos/animation_13.mp4" type="video/mp4"&gt;</span>
-<span class="s2">  &lt;/video&gt;</span>
-<span class="s2">"""</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[10]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<video controls="" height="400" loop="" width="1000">
-<source src="videos/animation_13.mp4" type="video/mp4">
-</source></video>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="4.7.3--The-general-$N$-dimensional-input-Secant-method">4.7.3  The general $N$ dimensional input Secant method<a class="anchor-link" href="#4.7.3--The-general-$N$-dimensional-input-Secant-method">¶</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Everything we have discussed for the generic single input $N= 1$ dimensional case tracks to the higher dimensional instance as well, with one important difference.  Looking back at the Subsection above we replaced the second derivative with the slope of the corresponding secant line $s^{k-1} = \frac{g^{\prime}(w^{k-1}) - g^{\prime}(w^{k-2})}{w^{k-1} - w^{k-2}}$ as</p>
-\begin{equation}
-g^{\prime \prime}(w^{k-1}) \longleftarrow s^{k-1}
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>What is this analogous replacement when $N &gt; 1$?   Abusing notation for a moment, we could express it as (this is incorrect mathematically speaking, but the algebra mirrors the one dimensional case) by literally just upgrading each piece of notation on the right hand side of the equality above to its vector analog giving</p>
-\begin{equation}
-\mathbf{S}^{k-1} = \frac{\nabla g\left(\mathbf{w}^{k-1}\right) - \nabla g\left(\mathbf{w}^{k-2}\right)}{\mathbf{w}^{k-1} - \mathbf{w}^{k-2}}.
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In this case, since we are replacing the Hessian the variable $\mathbf{S}^{k-1}$ must also be an $N\times N$ matrix.  However we cannot - strictly speaking - express the right hand side of the equality above, since this would mean we are (algebraically) dividing $N$ an length vector (the numerator) by an $N$ length vector (the denominator).   The proper $N$ dimensional analog of the $N=1$ dimensional replacement is in fact a solution to the system</p>
-\begin{equation}
- \mathbf{S}^{k-1}\left(\mathbf{w}^{k-1} - \mathbf{w}^{k-2}\right)  =   \nabla g\left(\mathbf{w}^{k-1}\right) - \nabla g\left(\mathbf{w}^{k-2}\right).
-\end{equation}<p>Likewise - inverting $\mathbf{S}^{k-1}$ - we could express this statement as</p>
-\begin{equation}
-\mathbf{w}^{k-1} - \mathbf{w}^{k-2} =   \left(\mathbf{S}^{k-1}\right)^{-1}\left(\nabla g\left(\mathbf{w}^{k-1}\right) - \nabla g\left(\mathbf{w}^{k-2}\right)\right)
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In either case notice that the variable we must solve for is here is the matrix $\mathbf{S}^{k-1}$ (or $\left(\mathbf{S}^{k-1}\right)^{-1}$) itself.  This is often called the <em>secant condition</em>, since it is indeed the $N$ dimensional analog of the slope of the one dimensional secant line defined by the second derivative.  So - if this system can be solved - we make the analog replacement of $g^{\prime \prime}(w^{k-1}) \longleftarrow s^{k-1} $ to the $N$ dimensional case, replacing the the full Hessian matrix</p>
-\begin{equation}
-\nabla^2 g\left(\mathbf{w}^{k-1}\right) \longleftarrow \mathbf{S}^{k-1}.
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>However unlike the $N = 1$ dimensional case - where each update has a closed form update - the system we must solve in equation (16) for our secant replacement $\mathbf{S}^{k-1}$ will always have has infinitely many solutions.  There are only $N$ equations, but $N^2$ entries to solve for in the matrix $\mathbf{S}^{k-1}$.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="4.7.3-Quasi-Newton-methods">4.7.3 Quasi-Newton methods<a class="anchor-link" href="#4.7.3-Quasi-Newton-methods">¶</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>As discussed in Section 7.3, as a <em>local optimization</em> step $\mathbf{w}^k = \mathbf{w}^{k-1} + \alpha \mathbf{d}^{k}$ the standard Newton method update</p>
-\begin{equation}
-\mathbf{w}^{k} = \mathbf{w}^{k-1} - \left(\nabla^2 g(\mathbf{w}^{k-1})\right)^{-1}\nabla g(\mathbf{w}^{k-1}).
-\end{equation}<p>is a local optimization step with descent direction given by</p>
-\begin{equation}
-\mathbf{d}^{k} = - \left(\nabla^2 g(\mathbf{w}^{k-1})\right)^{-1}\nabla g(\mathbf{w}^{k-1}).
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><em>Quasi-Newton methods</em> is the jargon phrase for any descent step of the form above where we replace the true Hessian in this descent direction with an inverse secant matrix $\mathbf{S}^{k-1}$ as</p>
-\begin{equation}
-\mathbf{d}^{k} = - \left(\mathbf{S}^{k-1}\right)^{-1}\nabla g(\mathbf{w}^{k-1}).
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In replacing the true Hessian with a secant approximation we no longer need compute second derivatives or - as we will see - store an entire $N\times N$ matrix to construct a Newton-like descent direction.  In doing so however Quasi-Newton methods lose some of their minimization speed (being at best <em>superlinear</em> instead of <em>quadratic</em> in terms of their convergence properties).</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>But with infinitely many possible secant matrices $\mathbf{S}^{k-1}$ to choose from, how to we choose a 'good' one?</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Because we want $\mathbf{S}^{k-1}$ / $\left(\mathbf{S}^{k-1}\right)^{-1}$ to be as similar as possible to its analagous Hessian we can introduce a number of reasonable <em>constraints</em> to limit the range of solutions to this system.  Here are a few obvious characteristics we want $\mathbf{S}^{k-1}$ to have (in order for it to mimic the Hessian).  This same list also applies to the inverse secant matrix $\left(\mathbf{S}^{k-1}\right)^{-1}$ as well.</p>
-<p>1) <strong>$\mathbf{S}^{k-1}$ should be a solution to the secant condition</strong></p>
-<p>2) <strong>$\mathbf{S}^{k-1}$ should be symmetric:</strong> the Hessian $\nabla^{2}g\left(\mathbf{w}^{k-1}\right)$ is always symmetric, so $\mathbf{S}^{k-1}$ should be too</p>
-<p>3) <strong>$\mathbf{S}^{k}$ should not differ substantially from $\mathbf{S}^{k-1}$:</strong> the Hessian $\nabla^{2}g\left(\mathbf{w}\right)$ is continuous, so
-our approximations $\mathbf{S}^{k}$ and $\mathbf{S}^{k-1}$ should
-not differ too wildly</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>With these conditions in mind, there are still a number of possible ways to construct $\mathbf{S}^{k-1}$ or $\left(\mathbf{S}^{k-1}\right)^{-1}$, which we explore by example below.  These constructions are <em>recursive</em> in nature, so that we can assure that condition $3)$ above holds, and take the general form</p>
-\begin{equation}
-\left(\mathbf{S}^k\right)^{-1} = \left(\mathbf{S}^{k-1}\right)^{-1} + \mathbf{D}^{k-1}
-\end{equation}<p>where the $N\times N$ matrix $\mathbf{D}^{k-1}$ is designed to be symmetric (so that condition $2)$ holds) and of a particular rank (so that the form of $\mathbf{D}^{k-1}$ can be computed in closed form / effectively in practice).  The same sort of recursion can be constructed for $\mathbf{S}^k$ as well, as we will see below.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr/>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Taken together and translated into the language of math these conditions provoke a <em>constrained optimization problem</em> for recovering a solution matrix $\mathbf{S}^k$ with these properties.  This constrained problem takes the form</p>
-\begin{equation}
-\begin{array}{cc}
-\underset{\mathbf{S}}{\text{minimize}} &amp; \left\Vert \mathbf{S}^{\,}-\mathbf{S}^{k-1}\right\Vert _{F}^{2}\\
-\text{subject to} &amp; \mathbf{S}\mathbf{a}^{k}=\mathbf{b}^{k}\\
- &amp; \mathbf{S} \,\,\, \text{symmetric}
-\end{array}
-\end{equation}<p>where as before $\mathbf{a}^k = \mathbf{w}^{k-1} - \mathbf{w}^{k-2}$ and $\mathbf{b}^k = \nabla g(\mathbf{w}^{k-1}) - \nabla g(\mathbf{w}^{k-2})$.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr/>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example-4.---Rank-1-update-formula"><span style="color:#a50e3e;">Example 4. </span>  Rank 1 update formula<a class="anchor-link" href="#Example-4.---Rank-1-update-formula">¶</a></h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In this example we describe one of the simplest recursive formula for $\mathbf{S}^{k}$ or its inverse based on a <em>rank one</em> update.  To see how this formula is derived let use the inverse.  Taking our secant update employing the inverse matrix $\left(\mathbf{S}^{k}\right)^{-1}$</p>
-\begin{equation}
-\mathbf{w}^{k-1} - \mathbf{w}^{k-2} =   \left(\mathbf{S}^{k}\right)^{-1}\left(\nabla g\left(\mathbf{w}^{k-1}\right) - \nabla g\left(\mathbf{w}^{k-2}\right)\right)
-\end{equation}<p>lets first simplify it using some temporary notation by letting $\mathbf{a}^k = \mathbf{w}^{k-1} - \mathbf{w}^{k-2}$, $\mathbf{F}^{k} = \left(\mathbf{S}^{k}\right)^{-1}$, and $\mathbf{c}^k = \nabla g\left(\mathbf{w}^{k-1}\right) - \nabla g\left(\mathbf{w}^{k-2}\right) $.  In this notation we can write the above equivalently as</p>
-\begin{equation}
-\mathbf{a}^k  =   \mathbf{F}^k\mathbf{b}^k.
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Since we want $\mathbf{F}^k$ to not differ too much from its predecessor $\mathbf{F}^{k-1}$ and we want it to be symmetric, a natural first attempt at constructing the matrix is to suppose that these two matrices differ only by a <em>rank one outer-product matrix</em> as</p>
-\begin{equation}
-\mathbf{F}^{k} = \mathbf{F}^{k-1} + \mathbf{v}^{,}\mathbf{v}^T.
-\end{equation}<p>This formula satisifes desire $1)$ above insofar as two matrices $\mathbf{F}^{k}$ and $\mathbf{F}^{k-1}$ can be similar if they differ by a rank one matrix.  Notice that it also satisfies desire $3)$ since the $N\times N$ matrix $\mathbf{v}^{,}\mathbf{v}^T$, being a rank one outer product matrix, is <em>always</em> symmetric.  Thus if we <em>initialize</em> the very first $\mathbf{F}^0$ to a symmetric matrix (most commonly the identity) this update will retain our desired symmetry property (since the sum of two symmetric matrices is always symmetric).  Moreover, if the initialization $\mathbf{F}^0$ is <em>positive definite</em> (as the identity matrix is) then this property is inhereited by all matrices $\mathbf{F}^k$ via this formula so long as $\mathbf{v}$ is computable (hence condition $4)$ will be satisfied as well).</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>But we also want this update to satisfy desire $2)$ above (the secant condition).  By <em>assuming</em> the update above does indeed satisfy the secant condition we can then work <em>backwards</em> from it to determine the proper value for our $N\times1$ vector $\mathbf{v}$.</p>
-<p>To being we first plug in our assumed rank one update structure for $\mathbf{F}^k$ into the secant condition above, which gives</p>
-\begin{equation}
-\left(\mathbf{F}^{k-1} + \mathbf{v}^{,}\mathbf{v}^T\right)\mathbf{b}^k = \mathbf{F}^{k-1}\mathbf{b}^k  +\mathbf{v}^{,}\mathbf{v}^T\mathbf{b}^k = \mathbf{a}^k  
-\end{equation}<p>or rearranging equivalently</p>
-\begin{equation}
-\mathbf{v}^{,}\mathbf{v}^T\mathbf{b}^k  = \mathbf{a}^k - \mathbf{F}^{k-1}\mathbf{b}^k.
-\end{equation}<p>What value does $\mathbf{v}$ need to take on in order for</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>To see let us first <em>left</em> multiply the entire formula above by $\mathbf{b}^k$ gives</p>
-\begin{equation}
-\left(\mathbf{b}^k\right)^T\mathbf{v}^{,}\mathbf{v}^T\mathbf{b}^k = \left(\mathbf{v}^{T}\mathbf{b}^k\right)^2 = \left(\mathbf{b}^k\right)^T\mathbf{a}^k - \left(\mathbf{b}^k\right)^T\mathbf{F}^{k-1}\mathbf{b}^k  
-\end{equation}<p>or taking the square root of both sides</p>
-\begin{equation}
-\mathbf{v}^{T}\mathbf{b}^k = \left(\left(\mathbf{b}^k\right)^T\mathbf{a}^k - \left(\mathbf{b}^k\right)^T\mathbf{F}^{k-1}\mathbf{b}^k\right)^{\frac{1}{2}}.
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now because note that $\mathbf{v}^{T}\mathbf{b}^k$ is a <em>constant</em> we can divide if from both sides of equation (24) above, giving</p>
-\begin{equation}
-\mathbf{v} = \frac{ \mathbf{a}^k - \mathbf{F}^{k-1}\mathbf{b}^k}{ \left(\left(\mathbf{b}^k\right)^T\mathbf{a}^k - \left(\mathbf{b}^k\right)^T\mathbf{F}^{k-1}\mathbf{b}^k\right)^{\frac{1}{2}}.}
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This formula gives closed form expression for $\mathbf{v}$, and therefore the rank one update formula in equation (22).  The corresponding rank one formula with this value for $\mathbf{v}$ plugged in is then</p>
-\begin{equation}
-\mathbf{F}^{k} = \mathbf{F}^{k-1} +  \frac{\left(\mathbf{a}^k - \mathbf{F}^{k-1}\mathbf{b}^k\right)\left(\mathbf{a}^k - \mathbf{F}^{k-1}\mathbf{b}^k\right)^T}{ \left(\mathbf{b}^k\right)^T\mathbf{a}^k - \left(\mathbf{b}^k\right)^T\mathbf{F}^{k-1}\mathbf{b}^k}.
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This update is for the inverse matrix $\mathbf{F}^{k} = \left(\mathbf{S}^{k}\right)^{-1}$ - which we need in order compute our secant-based Quasi-Newton descent direction.  However note that an entirely similar recursive expression for $\mathbf{S}^k$ can be formulated by starting with the same assumption (a recursion based on a rank one difference between $\mathbf{S}^k$ and its predecessor) and employing the corresponding secant condition as was done here.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example-4.---Rank-two-update-formulae-(DFP)"><span style="color:#a50e3e;">Example 4. </span>  Rank two update formulae (DFP)<a class="anchor-link" href="#Example-4.---Rank-two-update-formulae-(DFP)">¶</a></h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The next logical desired update step after a rank one update (seen in the previous example) is a <em>rank two</em> update formula.  Using the same notation as in the prior example, we want to determine proper $N\times 1$ vectors $\mathbf{u}$ and $\mathbf{v}$ so that</p>
-\begin{equation}
-\mathbf{F}^{k} = \mathbf{F}^{k-1} + \mathbf{u}^{,}\mathbf{u}^T + \mathbf{v}^{,}\mathbf{v}^T.
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>By allowing for a rank two difference between the subsequent matrices - as opposed to a rank one difference - we encode an additional level of complexity into our approximation to subsequent inverse Hessian evaluations.  This formula update satisfies desire 1), insofar as two matrices $\mathbf{F}^{k}$ and $\mathbf{F}^{k-1}$ can be similar if they differ by a rank two matrix.  It also satisfies desire $3)$ since the $N\times N$ matrix  $\mathbf{u}^{,}\mathbf{u}^T + \mathbf{v}^{,}\mathbf{v}^T$, being a rank two outer product matrix, is <em>always</em> symmetric.  Thus if we <em>initialize</em> the very first $\mathbf{F}^1$ to a symmetric matrix (most commonly the identity) this update will retain our desired symmetry property (since the sum of two symmetric matrices is always symmetric).   Moreover, if the initialization $\mathbf{F}^0$ is <em>positive definite</em> (as the identity matrix is) then this property is inhereited by all matrices $\mathbf{F}^k$ via this formula so long as $\mathbf{v}$ is computable (hence condition $4)$ will be satisfied as well).</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In order to determine the proper values for $\mathbf{u}$ and $\mathbf{v}$ we assume - as we did in the prior example - that this update satisfies the secant condition (desire 2)).</p>
-\begin{equation}
-\left(\mathbf{F}^{k-1} + \mathbf{u}^{,}\mathbf{u}^T + \mathbf{v}^{,}\mathbf{v}^T\right)\mathbf{b}^k = \mathbf{F}^{k-1}\mathbf{b}^k  + \mathbf{u}^{,}\mathbf{u}^T\mathbf{b}^k  +\mathbf{v}^{,}\mathbf{v}^T\mathbf{b}^k = \mathbf{a}^k.
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>or rearranging equivalently</p>
-\begin{equation}
-\mathbf{u}^{,}\mathbf{u}^T\mathbf{b}^k  + \mathbf{v}^{,}\mathbf{v}^T\mathbf{b}^k  = \mathbf{a}^k - \mathbf{F}^{k-1}\mathbf{b}^k.
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>What values can $\mathbf{u}$ and $\mathbf{v}$ take on in order for the equality above to hold?  Here we have a single equation, but <em>two</em> unknown values $\mathbf{u}$ and $\mathbf{v}$ - so there are infinitely many choices for proper $\mathbf{u}$ and $\mathbf{v}$.  A very simple yet very common way of determiing a single set of values for $\mathbf{u}$ and $\mathbf{v}$ is to suppose: the first term on the left hand side above / right hand side above equals the corresponding term on the right hand side.  That is we make the simple assumption that the following two formula hold (which implies that the secant formula above holds as well)</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-\begin{equation}
-\begin{array}
-\
-\mathbf{u}^{,}\mathbf{u}^T\mathbf{b}^k = \mathbf{a}^k \\
-\mathbf{v}^{,}\mathbf{v}^T\mathbf{b}^k = - \mathbf{F}^{k-1}\mathbf{b}^k.
-\end{array}
-\end{equation}<p>This added assumption allows us to solve for a valid pair of $\mathbf{u}$ / $\mathbf{v}$ in a way that closely mirrors the solution method from the previous example.  That is, first we will <em>left multiply</em> each of these formula by $\mathbf{b}^k$.  Doing this to each equation above we have</p>
-\begin{equation}
-\begin{array}
-\
-\left(\mathbf{b}^k\right)^T\mathbf{u}^{,}\mathbf{u}^T\mathbf{b}^k = \left(\mathbf{u}^{T}\mathbf{b}^k\right)^2  =  \left(\mathbf{b}^k\right)^T\mathbf{a}^k \\
-\left(\mathbf{b}^k\right)^T\mathbf{v}^{,}\mathbf{v}^T\mathbf{b}^k = \left(\mathbf{v}^{T}\mathbf{b}^k\right)^2  =  - \left(\mathbf{b}^k\right)^T\mathbf{F}^{k-1}\mathbf{b}^k.
-\end{array}
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Taking the square root of both sides in both equations above we then have the set of equations</p>
-\begin{equation}
-\begin{array}
-\
-\mathbf{u}^{T}\mathbf{b}^k  =  \left(\left(\mathbf{b}^k\right)^T\mathbf{a}^k\right)^{\frac{1}{2}} \\
-\mathbf{v}^{T}\mathbf{b}^k  =  \left(- \left(\mathbf{b}^k\right)^T\mathbf{F}^{k-1}\mathbf{b}^k\right)^{\frac{1}{2}}.
-\end{array}
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can now divide off the top / bottom constants from the top / bottom formulae in equation (32) respectively, giving</p>
-\begin{equation}
-\begin{array}
-\
-\mathbf{u} = \frac{\mathbf{a}^k}{\left(\left(\mathbf{b}^k\right)^T\mathbf{a}^k\right)^{\small{\frac{1}{2}}} } \\
-\mathbf{v}= \frac{-\mathbf{F}^{k-1}\mathbf{b}^k}{\left(- \left(\mathbf{b}^k\right)^T\mathbf{F}^{k-1}\mathbf{b}^k\right)^{\small{\frac{1}{2}}}}.
-\end{array}
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This formula gives closed form expressions for $\mathbf{u}$ and $\mathbf{v}$ (and is often called the Davidon-Fletcher-Powell (DFP) Method based on the authors who first put forth this solution), given that we make a simple but stronger assumption than the secand condition alone, that when plugged into the rank two update formula in equation (29) gives</p>
-\begin{equation}
-\mathbf{F}^{k} = \mathbf{F}^{k-1} + \frac{\mathbf{a}^k 
-\left(\mathbf{a}^k\right)^T}{\left(\mathbf{b}^k\right)^T\mathbf{a}^k } -   \frac{\left(\mathbf{F}^{k-1}\mathbf{b}^k\right)\left(\mathbf{F}^{k-1}\mathbf{b}^k\right)^T}{\left(\mathbf{b}^k\right)^T\mathbf{F}^{k-1}\mathbf{b}^k}.
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example-5.---Rank-two-update-formulae-(BFGS)"><span style="color:#a50e3e;">Example 5. </span>  Rank two update formulae (BFGS)<a class="anchor-link" href="#Example-5.---Rank-two-update-formulae-(BFGS)">¶</a></h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>While the update in the previous example was for the inverse matrix $\mathbf{F}^{k} = \left(\mathbf{S}^{k}\right)^{-1}$ an entirely similar recursive expression for $\mathbf{S}^k$ can be formulated by starting with the same assumption (a recursion based on a rank two difference between $\mathbf{S}^k$ and its predecessor) and employing the corresponding secant condition as was done here.  Doing this - where $\mathbf{F}^{k} = \mathbf{S}^{k}$ - we can write the analagous update for $\mathbf{S}^k$ as</p>
-\begin{equation}
-\mathbf{S}^{k} = \mathbf{S}^{k-1} + \frac{\mathbf{b}^k 
-\left(\mathbf{b}^k\right)^T}{\left(\mathbf{a}^k\right)^T\mathbf{b}^k } -   \frac{\left(\mathbf{S}^{k-1}\mathbf{a}^k\right)\left(\mathbf{S}^{k-1}\mathbf{a}^k\right)^T}{\left(\mathbf{a}^k\right)^T\mathbf{S}^{k-1}\mathbf{a}^k}.
-\end{equation}<p>This formula is often referred to as the Broyden–Fletcher–Goldfarb–Shanno (BFGS) update, named after its original authors.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>While this is a valid formula for $\mathbf{S}^k$, in order to compute a secant-based Quasi-Newton descent step we would like to use its inverse $\left(\mathbf{S}^{k}\right)^{-1}$.  While we have already computed an analagous rank two formula in the prior example, technically speaking we can also get a rank two formula by <em>inverting</em>  the one we have for $\mathbf{S}^k$ above.  Doing this gives a different formula for $\mathbf{F}^{k} = \left(\mathbf{S}^{k}\right)^{-1}$</p>
-\begin{equation}
-\begin{array}
-\
-\mathbf{F}^{k} = \left(\mathbf{S}^{k-1} + \frac{\mathbf{b}^k 
-\left(\mathbf{b}^k\right)^T}{\left(\mathbf{a}^k\right)^T\mathbf{b}^k } -   \frac{\left(\mathbf{S}^{k-1}\mathbf{a}^k\right)\left(\mathbf{S}^{k-1}\mathbf{a}^k\right)^T}{\left(\mathbf{a}^k\right)^T\mathbf{S}^{k-1}\mathbf{a}^k} \right)^{-1}  \\
-= \mathbf{F}^{k-1} + \frac{\left( \left(\mathbf{a}^k\right)^T\mathbf{b}^k +  
-\left(\mathbf{b}^k\right)^T\mathbf{F}^{k-1}\mathbf{b}^k\right) \mathbf{a}^k\left(\mathbf{a}^k\right)^T}{\left(\left(\mathbf{a}^k\right)^T\mathbf{b}^k \right)^2} -   \frac{\mathbf{F}^{k-1}\mathbf{b}^k\left(\mathbf{a}^{k}\right)^T + \mathbf{a}^{k}\left(\mathbf{b}^k\right)^T\mathbf{F}^{k-1} }{\left(\mathbf{a}^k\right)^T\mathbf{b}^k}
-\end{array}
-\end{equation}<p>where the formula on the right hand side follows from the Sherman–Morrison identity.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This BFGS formula for the inverse secant tends to work better in practice than the DFP version given in the prior example, and so is more popularly used in practice.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="4.7.4-Low-memory-Quasi-Newton-methods">4.7.4 Low memory Quasi-Newton methods<a class="anchor-link" href="#4.7.4-Low-memory-Quasi-Newton-methods">¶</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The general inverse secant update formula we saw in the examples above</p>
-\begin{equation}
-\left(\mathbf{S}^k\right)^{-1} = \left(\mathbf{S}^{k-1}\right)^{-1} + \mathbf{D}^{k-1}
-\end{equation}<p>where the $N\times N$ matrix $\mathbf{D}^{k-1}$ is designed to be symmetric and of a particular rank, provides us with a way of constructing $\left(\mathbf{S}^k\right)^{-1}$ from its predecessor so that it behaves like a true Hessian matrix.  Using any of these update formulae the <em>descent direction</em> for a Quasi-Newton step (as noted previously) is</p>
-\begin{equation}
-\mathbf{d}^{k} = - \left(\mathbf{S}^{k-1}\right)^{-1}\nabla g(\mathbf{w}^{k-1})
-\end{equation}<p>where $\mathbf{S}^{k-1}$ is our approximation to the true Hessian matrix.</p>
-<p>However as written our secant matrix update rules <em>still involve explicit forms of an $N\times N$ matrix</em>, i.e., the secant $\mathbf{S}^{k}$ or its inverse $\left(\mathbf{S}^k\right)^{-1}$.  However, if you recall (see Section 7.4), that it was precisely the presence of the $N\times N$ Hessian matrix (with its $N^2$ values) that drove us to examine Quasi-Newton methods to begin with.  So it appears that we have not avoided the serious scaling issues associated with employing an $N\times N$ matrix (originally a Hessian matrix, now a secant matrix).</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can in fact avoid constructing the secant matrix <em>explicitly</em> by focusing on <em>how we use it</em> - which is via matrix-vector multiplication in computing our descent direction $\mathbf{d}^{k} = - \left(\mathbf{S}^{k-1}\right)^{-1}\nabla g(\mathbf{w}^{k-1})$ - and by computing this direction intelligently.  In other words, when implementing we do not need to <em>explicitly</em> store $\left(\mathbf{S}^{k-1}\right)^{-1}$ but we do need to explicitly compute the matrix-vector products of the form $\left(\mathbf{S}^{k-1}\right)^{-1} \mathbf{z}$ where $\mathbf{z}$ is an arbitrary $N\times N$ vector.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>If we take one of the formulae for our inverse secant matrix derived above, we can see how to explicitly compute such a product while avoiding the explicit construction of any $N\times N$ inverse secant matrix with the exception of our initialization $\left(\mathbf{S}^{0}\right)^{-1}$.   For example, if we take our <em>rank one update formula</em> for the inverse secant detailed in Example 4 above - using the notation introduced in there - and compute $\left(\mathbf{S}^{k}\right)^{-1} \mathbf{z}=\mathbf{F}^{k} \mathbf{z}$ we have</p>
-\begin{equation}
-\begin{array}
-\
-\mathbf{F}^{k} \mathbf{z} =  \left(\mathbf{F}^{k-1} +  \frac{\left(\mathbf{a}^k - \mathbf{F}^{k-1}\mathbf{b}^k\right)\left(\mathbf{a}^k - \mathbf{F}^{k-1}\mathbf{b}^k\right)^T}{ \left(\mathbf{b}^k\right)^T\mathbf{a}^k - \left(\mathbf{b}^k\right)^T\mathbf{F}^{k-1}\mathbf{b}^k}\right)\mathbf{z}  \\
-= \mathbf{F}^{k-1}\mathbf{z} +  \frac{\left(\mathbf{a}^k - \mathbf{F}^{k-1}\mathbf{b}^k\right)^T\mathbf{z}}{ \left(\mathbf{b}^k\right)^T\mathbf{a}^k - \left(\mathbf{b}^k\right)^T\mathbf{F}^{k-1}\mathbf{b}^k}\left(\mathbf{a}^k - \mathbf{F}^{k-1}\mathbf{b}^k\right).
-\end{array}
-\end{equation}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>If we think about the computation required above for $\mathbf{F}^{k}\mathbf{z}$ in terms of the <em>vectors</em> required, we need access too: $\mathbf{a}^k$, $\mathbf{b}^k$, $\mathbf{z}$, $\mathbf{F}^{k-1}\mathbf{b}^k$, and $\mathbf{F}^{k-1}\mathbf{z}$.  In terms of just the matrix vector products (since it is the explicit storage of the matrices that we wish to avoid), we need only concern ourselves with the final two vectors and how we can compute them without explicitly storing $\mathbf{F}^{k-1}$.  If we can do this then in computing the generic matrix-vector product $\mathbf{F}^{k}\mathbf{z}$ we can avoid explicit storage of the matrix $\mathbf{F}^k$.  How can we do this?</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Well, note that if we start with the first update $k=1$ and <em>initialize</em> $\mathbf{F}^0 = \mathbf{I}_{N\times N}$ then we can compute the first descent direction simply as $\mathbf{d}^1 = - \mathbf{F}^0\nabla g(\mathbf{w}^{0}) = -\nabla g(\mathbf{w}^{0})$ (i.e., the gradient descent direction at $\mathbf{w}^0$).
-Initializing with the identity also allows the first matrix-vector products to be computed trivially - that is $\mathbf{F}^0\mathbf{b}^1 = \mathbf{b}^1$ and $\mathbf{F}^0\mathbf{z} = \mathbf{z}$.  In other words, in addition to the first descent direction we can compute arbitrary products of the form $\mathbf{F}^0\mathbf{z}$.  This means that - via the rank one identity for forming $\mathbf{F}^1$ above - that we can now form arbitrary matrix-vector products $\mathbf{F}^1\mathbf{z}$ involving our updated inverse secant $\mathbf{F}^1$ <em>without the need to explicitly store $\mathbf{F}^1$</em>.  In particular we can then compute the <em>second</em> descent direction $\mathbf{d}^2 = - \mathbf{F}^1\nabla g(\mathbf{w}^{1})$ without explicitly storing $\mathbf{F}^1$.  Then if we can compute arbitrary matrix-vector products $\mathbf{F}^1\mathbf{z}$ without the need to store $\mathbf{F}^1$ we can - using our identity to form $\mathbf{F}^2$ - form the third descent step $\mathbf{d}^3 = - \mathbf{F}^2\nabla g(\mathbf{w}^{2})$ without the need to explicitly store $\mathbf{F}^2$.  This pattern can be continued to the $k^{th}$ descent step where we can then compute $\mathbf{d}^k = - \mathbf{F}^{k-1}\nabla g(\mathbf{w}^{k-1})$ without the need to explicitly store $\mathbf{F}^{k-1}$.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can almost entirely the same kind of argument can be made with any rank one or rank two Quasi-Newton update formula, meaning that any of the update formulae given in the preceeding examples can be implemented so that we never need store a secant or inverse secant matrix.</p>
+<p>These three categories of functions - <em>mathematical</em>, <em>algorithmic</em>, and <em>empircal</em> - are not mutually exclusive by any means.  For example, we can write down the formula of a line (a mathematical function) and implement it in code (an algorithmic function).  To visualize this line we can plug in a fine range of inputs into our implementation (an algorithmic function), producing a corresponding set of outputs, and plot the input/output pairs (an empircal dataset).</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 </body>
-<script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_major": 1, "version_minor": 0}
-</script>
 </html>
