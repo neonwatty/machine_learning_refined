@@ -252,7 +252,7 @@ The table of contents for the second edition of the text is provided below.
 [7.3 Multi-Class Classification and the Perceptron](https://jermwatt.github.io/machine_learning_refined/notes/7_Linear_multiclass_classification/7_3_Perceptron.html)   
 [7.4 Which Approach Produces the Best Results?](https://jermwatt.github.io/machine_learning_refined/notes/7_Linear_multiclass_classification/7_4_Comparison.html)   
 [7.5 The Categorical Cross Entropy Cost Function](https://jermwatt.github.io/machine_learning_refined/notes/7_Linear_multiclass_classification/7_5_Categorical.html)   
-[7.6 Classification Quality Metrics](https://jermwatt.github.io/machine_learning_refined/notes/7_Linear_multiclass_classification/7_6_Metrics.html)
+[7.6 Classification Quality Metrics](https://jermwatt.github.io/machine_learning_refined/notes/7_Linear_multiclass_classification/7_6_Metrics.html)<br>
 7.7 Weighted Multi-Class Classification<br>
 7.8 Stochastic and Mini-Batch Learning<br>
 7.9 Conclusion<br>
@@ -264,9 +264,9 @@ The table of contents for the second edition of the text is provided below.
 8.1 Introduction<br>
 8.2 Fixed Spanning Sets, Orthonormality, and Projections<br> 
 8.3 The Linear Autoencoder and Principal Component Analysis<br> 
-[8.4 Recommender Systems](https://jermwatt.github.io/machine_learning_refined/notes/8_Linear_unsupervised_learning/8_4_Recommender.html) 
-[8.5 K-Means Clustering](https://jermwatt.github.io/machine_learning_refined/notes/8_Linear_unsupervised_learning/8_5_Kmeans.html)
-[8.6 General Matrix Factorization Techniques](https://jermwatt.github.io/machine_learning_refined/notes/8_Linear_unsupervised_learning/8_6_Factorization.html) 
+[8.4 Recommender Systems](https://jermwatt.github.io/machine_learning_refined/notes/8_Linear_unsupervised_learning/8_4_Recommender.html)<br> 
+[8.5 K-Means Clustering](https://jermwatt.github.io/machine_learning_refined/notes/8_Linear_unsupervised_learning/8_5_Kmeans.html)<br>
+[8.6 General Matrix Factorization Techniques](https://jermwatt.github.io/machine_learning_refined/notes/8_Linear_unsupervised_learning/8_6_Factorization.html)<br> 
 8.7 Conclusion<br> 
 8.8 Exercises<br>
 8.9 Endnotes<br>
