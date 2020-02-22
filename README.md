@@ -224,7 +224,7 @@ The table of contents for the second edition of the text is provided below.
 [5.3 Least Absolute Deviations](https://jermwatt.github.io/machine_learning_refined/notes/5_Linear_regression/5_3_Absolute.html)   
 [5.4 Regression Quality Metrics](https://jermwatt.github.io/machine_learning_refined/notes/5_Linear_regression/5_4_Metrics.html)   
 [5.5 Weighted Regression](https://jermwatt.github.io/machine_learning_refined/notes/5_Linear_regression/5_5_Weighted.html)   
-[5.6 Multi-Output Regression](https://jermwatt.github.io/machine_learning_refined/notes/5_Linear_regression/5_6_Multi.html)
+[5.6 Multi-Output Regression](https://jermwatt.github.io/machine_learning_refined/notes/5_Linear_regression/5_6_Multi.html)<br>
 5.7 Conclusion<br>
 5.8 Exercises<br>
 5.9 Endnotes<br> 
