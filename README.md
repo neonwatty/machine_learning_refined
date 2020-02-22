@@ -197,9 +197,9 @@ The table of contents for the second edition of the text is provided below.
  
 ### Chapter 3. First-Order Optimization Techniques
 
-3.1 Introduction 
+3.1 Introduction<br> 
 [3.2 The First-Order Optimality Condition](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_2_First.html)       
-[3.3 The Geometry of First-Order Taylor Series](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_4_Tangent.html) 
+[3.3 The Geometry of First-Order Taylor Series](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_4_Tangent.html)<br> 
 3.4 Computing Gradients Efficiently    
 [3.5 Gradient Descent](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_6_Descent.html)   
 [3.6 Two Natural Weaknesses of Gradient Descent](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_7_Problems.html)   
