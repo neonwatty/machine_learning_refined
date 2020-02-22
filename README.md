@@ -190,7 +190,7 @@ The table of contents for the second edition of the text is provided below.
 [2.3 Global Optimization Methods](https://jermwatt.github.io/machine_learning_refined/notes/2_Zero_order_methods/2_3_Global.html)    
 [2.4 Local Optimization Methods](https://jermwatt.github.io/machine_learning_refined/notes/2_Zero_order_methods/2_4_Local.html)   
 [2.5 Random Search](https://jermwatt.github.io/machine_learning_refined/notes/2_Zero_order_methods/2_5_Random.html)  
-[2.6 Coordinate Search and Descent](https://jermwatt.github.io/machine_learning_refined/notes/2_Zero_order_methods/2_6_Coordinate.html)
+[2.6 Coordinate Search and Descent](https://jermwatt.github.io/machine_learning_refined/notes/2_Zero_order_methods/2_6_Coordinate.html)<br>
 2.7 Conclusion<br>
 2.8 Exercises<br>
  
@@ -200,7 +200,7 @@ The table of contents for the second edition of the text is provided below.
 3.1 Introduction 
 [3.2 The First-Order Optimality Condition](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_2_First.html)       
 [3.3 The Geometry of First-Order Taylor Series](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_4_Tangent.html) 
-3.4 Computing Gradients Efficiently<br>    
+3.4 Computing Gradients Efficiently    
 [3.5 Gradient Descent](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_6_Descent.html)   
 [3.6 Two Natural Weaknesses of Gradient Descent](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_7_Problems.html)   
 3.7 Conclusion<br>
