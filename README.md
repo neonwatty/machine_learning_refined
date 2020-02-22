@@ -292,7 +292,7 @@ The table of contents for the second edition of the text is provided below.
 [10.3 Nonlinear Multi-Output Regression](https://jermwatt.github.io/machine_learning_refined/notes/10_Nonlinear_intro/10_3_MultReg.html)  
 [10.4 Nonlinear Two-Class Classification](https://jermwatt.github.io/machine_learning_refined/notes/10_Nonlinear_intro/10_4_Twoclass.html)  
 [10.5 Nonlinear Multi-Class Classification](https://jermwatt.github.io/machine_learning_refined/notes/10_Nonlinear_intro/10_5_Multiclass.html)  
-[10.6 Nonlinear Unsupervised Learning](https://jermwatt.github.io/machine_learning_refined/notes/10_Nonlinear_intro/10_6_Unsupervised.html)
+[10.6 Nonlinear Unsupervised Learning](https://jermwatt.github.io/machine_learning_refined/notes/10_Nonlinear_intro/10_6_Unsupervised.html)<br>
 10.7 Conclusion<br>
 10.8 Exercises<br>  
 
