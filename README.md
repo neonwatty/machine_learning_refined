@@ -237,10 +237,10 @@ The table of contents for the second edition of the text is provided below.
 [6.3 Logistic Regression and the Softmax Cost](https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_3_Softmax.html)   
 [6.4 The Perceptron](https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_4_Perceptron.html)   
 [6.5 Support Vector Machines](https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_5_SVMs.html)  
-[6.6 Which Approach Produces the Best Results?](https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_7_Comparison.html)
+[6.6 Which Approach Produces the Best Results?](https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_7_Comparison.html)<br>
 [6.7 The Categorical Cross Entropy Cost](https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_6_Categorical.html)    
 [6.8 Classification Quality Metrics](https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_8_Metrics.html)   
-[6.9 Weighted Two-Class Classification](https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_9_Weighted.html)
+[6.9 Weighted Two-Class Classification](https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_9_Weighted.html)<br>
 6.10 Conclusion<br>
 6.11 Exercises<br>  
 
