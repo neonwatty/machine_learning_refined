@@ -142,26 +142,26 @@ While heftier in size, the intent of our original attempt has remained unchanged
 > An excellent book that treats the fundamentals of machine learning from basic principles to practical implementation. The book is suitable as a text for senior-level and first-year graduate courses in engineering and computer science. It is well organized and covers basic concepts and algorithms in mathematical optimization methods, linear learning, and nonlinear learning techniques. The book is nicely illustrated in multiple colors and contains numerous examples and coding exercises using Python.
 
 **John G. Proakis**, University of California, San Diego
-<br>
+<br><br><br>
 
 > Some machine learning books cover only programming aspects, often relying on outdated software tools; some focus exclusively on neural networks; others, solely on theoretical foundations; and yet more books detail advanced topics for the specialist. This fully revised and expanded text provides a broad and accessible introduction to machine learning for engineering and computer science students. The presentation builds on first principles and geometric intuition, while offering real-world examples, commented implementations in Python, and computational exercises. I expect this book to become a key resource for students and researchers.
 
 **Osvaldo Simeone**, Kings College London
-<br>
+<br><br><br>
 
 > This book is great for getting started in machine learning. It builds up the tools of the trade from first principles, provides lots of examples, and explains one thing at a time at a steady pace. The level of detail and runnable code show what's really going when we run a learning algorithm.
 
 **David Duvenaud**, University of Toronto
-<br>
+<br><br><br>
 
 > This book covers various essential machine learning methods (e.g., regression, classification, clustering, dimensionality reduction, and deep learning) from a unified mathematical perspective of seeking the optimal model parameters that minimize a cost function. Every method is explained in a comprehensive, intuitive way, and mathematical understanding is aided and enhanced with many geometric illustrations and elegant Python implementations.
 
 **Kimiaki Sihrahama**, Kindai University, Japan
-<br>
+<br><br><br>
 
 > Books featuring machine learning are many, but those which are simple, intuitive, and yet theoretical are extraordinary 'outliers'. This book is a fantastic and easy way to launch yourself into the exciting world of machine learning, grasp its core concepts, and code them up in Python or Matlab. It was my inspiring guide in preparing my 'Machine Learning Blinks' on my BASIRA YouTube channel for both undergraduate and graduate levels.
 **Islem Rekik**, Director of the Brain And SIgnal Research and Analysis (BASIRA) Laboratory
-<br>
+<br><br><br>
 
 
 ## What topics does the book cover?
@@ -178,7 +178,7 @@ The table of contents for the second edition of the text is provided below.
 1.2 Distinguishing Cats from Dogs: a Machine Learning Approach<br> 
 1.3 The Basic Taxonomy of Machine Learning Problems<br> 
 1.4 Mathematical Optimization<br>
-1.5 Conclusion<br><br><br> 
+1.5 Conclusion<br> 
 
 
 ### Chapter 2. Zero-Order Optimization Techniques
@@ -190,7 +190,7 @@ The table of contents for the second edition of the text is provided below.
 [2.5 Random Search](https://jermwatt.github.io/machine_learning_refined/notes/2_Zero_order_methods/2_5_Random.html)  
 [2.6 Coordinate Search and Descent](https://jermwatt.github.io/machine_learning_refined/notes/2_Zero_order_methods/2_6_Coordinate.html)
 2.7 Conclusion<br>
-2.8 Exercises<br><br><br>
+2.8 Exercises<br>
  
  
 ### Chapter 3. First-Order Optimization Techniques
@@ -202,7 +202,8 @@ The table of contents for the second edition of the text is provided below.
 [3.5 Gradient Descent](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_6_Descent.html)   
 [3.6 Two Natural Weaknesses of Gradient Descent](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_7_Problems.html)   
 3.7 Conclusion<br>
-3.8 Exercises<br><br><br>
+3.8 Exercises<br>
+
 
 ### Chapter 4. Second-Order Optimization Techniques
 
@@ -211,7 +212,7 @@ The table of contents for the second edition of the text is provided below.
 [4.3 Newton’s Method](https://jermwatt.github.io/machine_learning_refined/notes/4_Second_order_methods/4_4_Newtons.html)   
 [4.4 Two Natural Weaknesses of Newton’s Method](https://jermwatt.github.io/machine_learning_refined/notes/4_Second_order_methods/4_5_Problems.html)   
 4.5 Conclusion<br>
-4.6 Exercises<br><br><br> 
+4.6 Exercises<br> 
 
 
 ### Chapter 5. Linear Regression
@@ -224,7 +225,7 @@ The table of contents for the second edition of the text is provided below.
 [5.6 Multi-Output Regression](https://jermwatt.github.io/machine_learning_refined/notes/5_Linear_regression/5_6_Multi.html)
 5.7 Conclusion<br>
 5.8 Exercises<br>
-5.9 Endnotes<br><br><br>  
+5.9 Endnotes<br> 
 
 
 ### Chapter 6. Linear Two-Class Classification
@@ -239,7 +240,7 @@ The table of contents for the second edition of the text is provided below.
 [6.8 Classification Quality Metrics](https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_8_Metrics.html)   
 [6.9 Weighted Two-Class Classification](https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_9_Weighted.html)
 6.10 Conclusion<br>
-6.11 Exercises<br><br><br>  
+6.11 Exercises<br>  
 
 
 ### Chapter 7. Linear Multi-Class Classification
@@ -253,7 +254,7 @@ The table of contents for the second edition of the text is provided below.
 7.7 Weighted Multi-Class Classification<br>
 7.8 Stochastic and Mini-Batch Learning<br>
 7.9 Conclusion<br>
-7.10 Exercises<br><br><br>  
+7.10 Exercises<br>  
 
 
 ### Chapter 8. Linear Unsupervised Learning
@@ -266,7 +267,7 @@ The table of contents for the second edition of the text is provided below.
 [8.6 General Matrix Factorization Techniques](https://jermwatt.github.io/machine_learning_refined/notes/8_Linear_unsupervised_learning/8_6_Factorization.html) 
 8.7 Conclusion<br> 
 8.8 Exercises<br>
-8.9 Endnotes<br><br><br>
+8.9 Endnotes<br>
 
 
 ### Chapter 9. Feature Engineering and Selection
@@ -279,7 +280,7 @@ The table of contents for the second edition of the text is provided below.
 [9.6 Feature Selection via Boosting](https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_6_Boosting.html)   
 [9.7 Feature Selection via Regularization](https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_7_Regularization.html)  
 9.8 Conclusion<br>
-9.9 Exercises<br><br><br> 
+9.9 Exercises<br>
 
 
 ### Chapter 10. Principles of Nonlinear Feature Engineering
@@ -291,7 +292,7 @@ The table of contents for the second edition of the text is provided below.
 [10.5 Nonlinear Multi-Class Classification](https://jermwatt.github.io/machine_learning_refined/notes/10_Nonlinear_intro/10_5_Multiclass.html)  
 [10.6 Nonlinear Unsupervised Learning](https://jermwatt.github.io/machine_learning_refined/notes/10_Nonlinear_intro/10_6_Unsupervised.html)
 10.7 Conclusion<br>
-10.8 Exercises<br><br><br>   
+10.8 Exercises<br>  
 
 
 ### Chapter 11. Principles of Feature Learning
@@ -308,7 +309,7 @@ The table of contents for the second edition of the text is provided below.
 [11.10 K-Fold Cross-Validation](https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_10_Kfolds.html)  <br>
 11.11 When Feature Learning Fails<br>
 11.12 Conclusion<br>
-11.13 Exercises<br><br><br>
+11.13 Exercises<br>
 
 
 ### Chapter 12. Kernel Methods
@@ -320,7 +321,7 @@ The table of contents for the second edition of the text is provided below.
 12.5 Optimization of Kernelized Models<br>
 12.6 Cross-Validating Kernelized Learners<br> 
 12.7 Conclusion<br> 
-12.8 Exercises<br><br><br> 
+12.8 Exercises<br>
 
   
 ### Chapter 13. Fully Connected Neural Networks
@@ -333,7 +334,7 @@ The table of contents for the second edition of the text is provided below.
 [13.6 Batch Normalization](https://jermwatt.github.io/machine_learning_refined/notes/13_Multilayer_perceptrons/13_6_Batch_normalization.html)  
 [13.7 Cross-Validation via Early Stopping](https://jermwatt.github.io/machine_learning_refined/notes/13_Multilayer_perceptrons/13_7_early_stopping.html)  
 13.8 Conclusion<br>
-13.9 Exercises<br><br><br> 
+13.9 Exercises<br> 
 
 
 ### Chapter 14. Tree-Based Learners
@@ -346,7 +347,7 @@ The table of contents for the second edition of the text is provided below.
 14.6 Random Forests<br>
 14.7 Cross-Validation Techniques for Recursively Defined Trees<br>
 14.8 Conclusion<br>
-14.9 Exercises<br><br><br> 
+14.9 Exercises<br>
 
 
 ### Appendix A. Advanced First- and Second-Order Optimization Methods
@@ -358,7 +359,7 @@ A.1 Introduction<br>
 [A.5 Mini-Batch Optimization](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_11_Minibatch.html) 
 [A.6 Conservative Steplength Rules](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_12_Conservative.html)  
 A.7 Newton’s Method, Regularization, and Nonconvex Functions<br>
-A.8 Hessian-Free Methods<br><br><br> 
+A.8 Hessian-Free Methods<br> 
 
 
 ### Appendix B. Derivatives and Automatic Differentiation
@@ -379,9 +380,12 @@ B.9 Taylor Series<br>
 
 C.1 Introduction<br>
 [C.2 Vectors and Vector Operations](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_2_Vectors.html)  
-[C.3 Matrices and Matrix Operations](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_3_Matrices.html) 
+
+[C.3 Matrices and Matrix Operations](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_3_Matrices.html)
+
 [C.4 Eigenvalues and Eigenvectors](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_4_Eigen.html)
-[C.5 Vector and Matrix Norms](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_5_Norms.html)
+
+[C.5 Vector and Matrix Norms](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_5_Norms.html)<br><br><br>
 
 
 
