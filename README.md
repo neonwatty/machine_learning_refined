@@ -380,11 +380,11 @@ courses taught using the present book.
 <br><br><br>
 
 ##### Recommended study roadmap for a course on mathematical optimization for machine learning and deep learning, including chapters, sections, as well as topics to cover.
-<p align="center"><img src="html/gifs/C3.png" width="60%" height="auto"></p>
+<p align="center"><img src="html/gifs/C3.png" width="70%" height="auto"></p>
 <br><br><br>
 
 ##### Recommended study roadmap for an introductory portion of a course on deep learning, including chapters, sections, as well as topics to cover.
-<p align="center"><img src="html/gifs/C4.png" width="60%" height="auto"></p>
+<p align="center"><img src="html/gifs/C4.png" width="70%" height="auto"></p>
 <br><br><br>
 
 
@@ -396,25 +396,25 @@ functions, vector arithmetic, etc.) and computer programming (for example,
 basic proficiency with a dynamically typed language like Python). We provide
 complete introductory treatments of other prerequisite topics including linear
 algebra, vector calculus, and automatic differentiation in the appendices of the
-text.<br><br><br>
+text.<br><br>
 
 
 ## Coding exercises
 [(Back to top)](#table-of-contents)
 
-In the `mlrefined_exercises` directory you can find starting wrappers for coding exercises from the first and second editions of the text.<br><br><br>
+In the `mlrefined_exercises` directory you can find starting wrappers for coding exercises from the first and second editions of the text.<br><br>
 
 
 ## Resources for instructors
 [(Back to top)](#table-of-contents)
 
-Instructors may request a copy of this text for examination from the [publisher's website](http://cambridge.force.com/Samples?isbn=9781108480727&Title=Machine%20Learning%20Refined&Author=Watt/Borhani/Katsaggelos). Cambridge University Press can also provide you with the **solution manual** to both editions of the text as well as a complete set of educational **slides**.<br><br><br>
+Instructors may request a copy of this text for examination from the [publisher's website](http://cambridge.force.com/Samples?isbn=9781108480727&Title=Machine%20Learning%20Refined&Author=Watt/Borhani/Katsaggelos). Cambridge University Press can also provide you with the **solution manual** to both editions of the text as well as a complete set of educational **slides**.<br><br>
 
 
 ## Errata
 [(Back to top)](#table-of-contents)
 
-See [here]() for a regularly updated errata sheet for the second edition of the text. Please report any typos, bugs, broken links, etc., in the **Issues Section** of this repository or by contacting us directly via email (see contact section for more info).<br><br><br>
+See [here]() for a regularly updated errata sheet for the second edition of the text. Please report any typos, bugs, broken links, etc., in the **Issues Section** of this repository or by contacting us directly via email (see contact section for more info).<br><br>
 
 
 ## Get a copy of the book
@@ -423,7 +423,7 @@ See [here]() for a regularly updated errata sheet for the second edition of the 
 - From the [publisher's website](https://www.cambridge.org/us/academic/subjects/engineering/communications-and-signal-processing/machine-learning-refined-foundations-algorithms-and-applications-2nd-edition?format=HB)
 - From [Amazon](https://www.amazon.com/Machine-Learning-Refined-Foundations-Applications/dp/1108480721)
 - From [Barnes & Noble](https://www.barnesandnoble.com/w/machine-learning-refined-jeremy-watt/1136155294?ean=9781108480727)
-
+<br><br>
 
 ## Reviews and Endorsements
 [(Back to top)](#table-of-contents)
@@ -431,27 +431,27 @@ See [here]() for a regularly updated errata sheet for the second edition of the 
 > An excellent book that treats the fundamentals of machine learning from basic principles to practical implementation. The book is suitable as a text for senior-level and first-year graduate courses in engineering and computer science. It is well organized and covers basic concepts and algorithms in mathematical optimization methods, linear learning, and nonlinear learning techniques. The book is nicely illustrated in multiple colors and contains numerous examples and coding exercises using Python.
 
 **John G. Proakis**, University of California, San Diego
-<br><br><br>
+<br><br>
 
 > Some machine learning books cover only programming aspects, often relying on outdated software tools; some focus exclusively on neural networks; others, solely on theoretical foundations; and yet more books detail advanced topics for the specialist. This fully revised and expanded text provides a broad and accessible introduction to machine learning for engineering and computer science students. The presentation builds on first principles and geometric intuition, while offering real-world examples, commented implementations in Python, and computational exercises. I expect this book to become a key resource for students and researchers.
 
 **Osvaldo Simeone**, Kings College London
-<br><br><br>
+<br><br>
 
 > This book is great for getting started in machine learning. It builds up the tools of the trade from first principles, provides lots of examples, and explains one thing at a time at a steady pace. The level of detail and runnable code show what's really going when we run a learning algorithm.
 
 **David Duvenaud**, University of Toronto
-<br><br><br>
+<br><br>
 
 > This book covers various essential machine learning methods (e.g., regression, classification, clustering, dimensionality reduction, and deep learning) from a unified mathematical perspective of seeking the optimal model parameters that minimize a cost function. Every method is explained in a comprehensive, intuitive way, and mathematical understanding is aided and enhanced with many geometric illustrations and elegant Python implementations.
 
 **Kimiaki Sihrahama**, Kindai University, Japan
-<br><br><br>
+<br><br>
 
 > Books featuring machine learning are many, but those which are simple, intuitive, and yet theoretical are extraordinary 'outliers'. This book is a fantastic and easy way to launch yourself into the exciting world of machine learning, grasp its core concepts, and code them up in Python or Matlab. It was my inspiring guide in preparing my 'Machine Learning Blinks' on my BASIRA YouTube channel for both undergraduate and graduate levels.
 
 **Islem Rekik**, Director of the Brain And SIgnal Research and Analysis (BASIRA) Laboratory
-<br><br><br>
+<br><br>
 
 
 ## Software installation and dependencies
@@ -461,7 +461,7 @@ To successfully run the Jupyter notebooks contained in this repository we highly
       
       pip install autograd
       
-With minor adjustment users can also run these notebooks using the GPU/TPU extended version of autograd [JAX](https://github.com/google/jax).<br><br><br>
+With minor adjustment users can also run these notebooks using the GPU/TPU extended version of autograd [JAX](https://github.com/google/jax).<br><br>
 
 
 ## Contact
