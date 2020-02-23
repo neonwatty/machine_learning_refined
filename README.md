@@ -114,7 +114,7 @@ and is fundamental at many levels – from the tuning of individual models to
 the general selection of appropriate nonlinearities via cross-validation. Because
 of this a strong understanding of mathematical optimization is requisite if one
 wishes to deeply understand machine learning, and if one wishes to be able to
-implement fundamental algorithms. Part I of the book provides a complete introduction to mathematical optimization, covering zero-, first-, and second-order methods, that are relied upon later in deriving and tuning machine learning models.<br>
+implement fundamental algorithms. Part I of the book provides a complete introduction to mathematical optimization, covering zero-, first-, and second-order methods, that are relied upon later in deriving and tuning machine learning models.<br><br>
 
 **`Learning by doing.`** We place significant emphasis on the design and implementation of algorithms throughout the text with implementations of fundamental
 algorithms given in Python. These fundamental examples can then be used as
@@ -139,8 +139,8 @@ derivative-free optimization to weighted supervised learning, feature selection,
 nonlinear feature engineering, boosting-based cross-validation, and more.
 While heftier in size, the intent of our original attempt has remained unchanged: to explain machine learning, from first principles to practical implementation, in the simplest possible terms.<br><br> 
 
-## Reviews and Endorsements[(Back to top)]
-(#table-of-contents)
+## Reviews and Endorsements
+[(Back to top)](#table-of-contents)
 
 > An excellent book that treats the fundamentals of machine learning from basic principles to practical implementation. The book is suitable as a text for senior-level and first-year graduate courses in engineering and computer science. It is well organized and covers basic concepts and algorithms in mathematical optimization methods, linear learning, and nonlinear learning techniques. The book is nicely illustrated in multiple colors and contains numerous examples and coding exercises using Python.
 
