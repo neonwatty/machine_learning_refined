@@ -135,10 +135,10 @@ the first edition, from expositions on gradient descent to those on One-versusAl
 polished. A swath of new topics have been added throughout the text, from
 derivative-free optimization to weighted supervised learning, feature selection,
 nonlinear feature engineering, boosting-based cross-validation, and more.
-While heftier in size, the intent of our original attempt has remained unchanged: to explain machine learning, from first principles to practical implementation, in the simplest possible terms. 
+While heftier in size, the intent of our original attempt has remained unchanged: to explain machine learning, from first principles to practical implementation, in the simplest possible terms.<br> 
 
-## Reviews and Endorsements
-[(Back to top)](#table-of-contents)
+## Reviews and Endorsements[(Back to top)](#table-of-contents)
+
 > An excellent book that treats the fundamentals of machine learning from basic principles to practical implementation. The book is suitable as a text for senior-level and first-year graduate courses in engineering and computer science. It is well organized and covers basic concepts and algorithms in mathematical optimization methods, linear learning, and nonlinear learning techniques. The book is nicely illustrated in multiple colors and contains numerous examples and coding exercises using Python.
 
 **John G. Proakis**, University of California, San Diego
