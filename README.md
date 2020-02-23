@@ -396,24 +396,26 @@ functions, vector arithmetic, etc.) and computer programming (for example,
 basic proficiency with a dynamically typed language like Python). We provide
 complete introductory treatments of other prerequisite topics including linear
 algebra, vector calculus, and automatic differentiation in the appendices of the
-text.
+text.<br><br><br>
 
 
 ## Coding exercises
 [(Back to top)](#table-of-contents)
 
-In the `mlrefined_exercises` directory you can find starting wrappers for coding exercises from the first and second editions of the text.
+In the `mlrefined_exercises` directory you can find starting wrappers for coding exercises from the first and second editions of the text.<br><br><br>
 
 
 ## Resources for instructors
 [(Back to top)](#table-of-contents)
 
-Instructors may request a copy of this text for examination from the [publisher's website](http://cambridge.force.com/Samples?isbn=9781108480727&Title=Machine%20Learning%20Refined&Author=Watt/Borhani/Katsaggelos). Cambridge University Press can also provide you with the **solution manual** to both editions of the text as well as a complete set of educational **slides**. 
+Instructors may request a copy of this text for examination from the [publisher's website](http://cambridge.force.com/Samples?isbn=9781108480727&Title=Machine%20Learning%20Refined&Author=Watt/Borhani/Katsaggelos). Cambridge University Press can also provide you with the **solution manual** to both editions of the text as well as a complete set of educational **slides**.<br><br><br>
+
 
 ## Errata
 [(Back to top)](#table-of-contents)
 
-See [here]() for a regularly updated errata sheet for the second edition of the text. Please report any typos, bugs, broken links, etc., in the **Issues Section** of this repository or by contacting us directly via email (see contact section for more info).    
+See [here]() for a regularly updated errata sheet for the second edition of the text. Please report any typos, bugs, broken links, etc., in the **Issues Section** of this repository or by contacting us directly via email (see contact section for more info).<br><br><br>
+
 
 ## Get a copy of the book
 [(Back to top)](#table-of-contents)
