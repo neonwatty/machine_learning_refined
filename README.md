@@ -173,7 +173,7 @@ While heftier in size, the intent of our original attempt has remained unchanged
 
 The table of contents for the second edition of the text is provided below.
 
-**Note: a select number of Chapters/Sections are linked to HTML notes that served as an early draft for the second edition of the text. These notes are created using accompanying Jupyter notebooks which you can find in this repository (and modify yourself).** <br><br> 
+**Note:** a select number of Chapters/Sections are highlighted below and are linked to HTML notes that served as an early draft for the second edition of the text. You can find these html files as well as Jupyter notebooks which created them in the `notes` subdirectory. <br><br> 
 
 <p align="center"><img src="html/gifs/ipynb.gif" width="60%" height="auto"></p>
 <br>
