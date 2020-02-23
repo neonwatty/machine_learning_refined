@@ -356,9 +356,9 @@ The table of contents for the second edition of the text is provided below.
 
 A.1 Introduction<br>
 [A.2 Momentum-Accelerated Gradient Descent](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_8_Momentum.html)<br> 
-[A.3 Normalized Gradient Descent](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_9_Normalized.html) 
+[A.3 Normalized Gradient Descent](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_9_Normalized.html)<br>
 [A.4 Advanced Gradient-Based Methods](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_10_Advanced.html)    
-[A.5 Mini-Batch Optimization](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_11_Minibatch.html)
+[A.5 Mini-Batch Optimization](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_11_Minibatch.html)<br>
 [A.6 Conservative Steplength Rules](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_12_Conservative.html)  
 A.7 Newton’s Method, Regularization, and Nonconvex Functions<br>
 A.8 Hessian-Free Methods<br> 
