@@ -9,7 +9,6 @@ Published by Cambridge University Press <br>
 - [Who is the audience for this book?](#who-is-the-audience-for-this-book)
 - [Pedagogy](#pedagogy)
 - [What is new in the second edition?](#what-is-new-in-the-second-edition)
-- [Reviews and Endorsements](reviews-and-endorsements)
 - [What topics does the book cover?](#what-topics-does-the-book-cover)
 - [How to use the book](#how-to-use-the-book)
 - [Technical prerequisites](#technical-prerequisites)
@@ -17,6 +16,7 @@ Published by Cambridge University Press <br>
 - [Resources for instructors](#resources-for-instructors)
 - [Errata](#errata)
 - [Get a copy of the book](#get-a-copy-of-the-book)
+- [Reviews and Endorsements](reviews-and-endorsements)
 - [Software installation and dependencies](#software-installation-and-dependencies)
 - [Contact](#contact)
 
@@ -138,34 +138,6 @@ polished. A swath of new topics have been added throughout the text, from
 derivative-free optimization to weighted supervised learning, feature selection,
 nonlinear feature engineering, boosting-based cross-validation, and more.
 While heftier in size, the intent of our original attempt has remained unchanged: to explain machine learning, from first principles to practical implementation, in the simplest possible terms.<br><br> 
-
-## Reviews and Endorsements
-[(Back to top)](#table-of-contents)
-
-> An excellent book that treats the fundamentals of machine learning from basic principles to practical implementation. The book is suitable as a text for senior-level and first-year graduate courses in engineering and computer science. It is well organized and covers basic concepts and algorithms in mathematical optimization methods, linear learning, and nonlinear learning techniques. The book is nicely illustrated in multiple colors and contains numerous examples and coding exercises using Python.
-
-**John G. Proakis**, University of California, San Diego
-<br><br><br>
-
-> Some machine learning books cover only programming aspects, often relying on outdated software tools; some focus exclusively on neural networks; others, solely on theoretical foundations; and yet more books detail advanced topics for the specialist. This fully revised and expanded text provides a broad and accessible introduction to machine learning for engineering and computer science students. The presentation builds on first principles and geometric intuition, while offering real-world examples, commented implementations in Python, and computational exercises. I expect this book to become a key resource for students and researchers.
-
-**Osvaldo Simeone**, Kings College London
-<br><br><br>
-
-> This book is great for getting started in machine learning. It builds up the tools of the trade from first principles, provides lots of examples, and explains one thing at a time at a steady pace. The level of detail and runnable code show what's really going when we run a learning algorithm.
-
-**David Duvenaud**, University of Toronto
-<br><br><br>
-
-> This book covers various essential machine learning methods (e.g., regression, classification, clustering, dimensionality reduction, and deep learning) from a unified mathematical perspective of seeking the optimal model parameters that minimize a cost function. Every method is explained in a comprehensive, intuitive way, and mathematical understanding is aided and enhanced with many geometric illustrations and elegant Python implementations.
-
-**Kimiaki Sihrahama**, Kindai University, Japan
-<br><br><br>
-
-> Books featuring machine learning are many, but those which are simple, intuitive, and yet theoretical are extraordinary 'outliers'. This book is a fantastic and easy way to launch yourself into the exciting world of machine learning, grasp its core concepts, and code them up in Python or Matlab. It was my inspiring guide in preparing my 'Machine Learning Blinks' on my BASIRA YouTube channel for both undergraduate and graduate levels.
-
-**Islem Rekik**, Director of the Brain And SIgnal Research and Analysis (BASIRA) Laboratory
-<br><br><br>
 
 
 ## What topics does the book cover?
@@ -399,11 +371,11 @@ Example ”roadmaps” shown below provide suggested paths
 for navigating the text based on a variety of learning outcomes and university
 courses taught using the present book.
 
-Recommended study roadmap for a course on the essentials of machine learning, including requisite chapters (left column), sections (middle column), and corresponding topics (right column). This essentials plan is suitable for time-constrained courses (in quarter-based programs and universities) or self-study, or where machine learning is not the sole focus but a key component of some broader course of study. 
-<p align="center"><img src="html/gifs/C1.png" width="60%" height="auto"></p>
+##### Recommended study roadmap for a course on the essentials of machine learning, including requisite chapters (left column), sections (middle column), and corresponding topics (right column). This essentials plan is suitable for time-constrained courses (in quarter-based programs and universities) or self-study, or where machine learning is not the sole focus but a key component of some broader course of study. 
+<p align="center"><img src="html/gifs/C1.png" width="70%" height="auto"></p>
 <br>
 
-Recommended study roadmap for a full treatment of standard machine
+#### Recommended study roadmap for a full treatment of standard machine
 learning subjects, including chapters, sections, as well as corresponding topics to cover.
 This plan entails a more in-depth coverage of machine learning topics compared to the
 essentials roadmap given above, and is best suited for senior undergraduate/early
@@ -456,6 +428,36 @@ See [here]() for a regularly updated errata sheet for the second edition of the 
 - From the [publisher's website](https://www.cambridge.org/us/academic/subjects/engineering/communications-and-signal-processing/machine-learning-refined-foundations-algorithms-and-applications-2nd-edition?format=HB)
 - From [Amazon](https://www.amazon.com/Machine-Learning-Refined-Foundations-Applications/dp/1108480721)
 - From [Barnes & Noble](https://www.barnesandnoble.com/w/machine-learning-refined-jeremy-watt/1136155294?ean=9781108480727)
+
+
+## Reviews and Endorsements
+[(Back to top)](#table-of-contents)
+
+> An excellent book that treats the fundamentals of machine learning from basic principles to practical implementation. The book is suitable as a text for senior-level and first-year graduate courses in engineering and computer science. It is well organized and covers basic concepts and algorithms in mathematical optimization methods, linear learning, and nonlinear learning techniques. The book is nicely illustrated in multiple colors and contains numerous examples and coding exercises using Python.
+
+**John G. Proakis**, University of California, San Diego
+<br><br><br>
+
+> Some machine learning books cover only programming aspects, often relying on outdated software tools; some focus exclusively on neural networks; others, solely on theoretical foundations; and yet more books detail advanced topics for the specialist. This fully revised and expanded text provides a broad and accessible introduction to machine learning for engineering and computer science students. The presentation builds on first principles and geometric intuition, while offering real-world examples, commented implementations in Python, and computational exercises. I expect this book to become a key resource for students and researchers.
+
+**Osvaldo Simeone**, Kings College London
+<br><br><br>
+
+> This book is great for getting started in machine learning. It builds up the tools of the trade from first principles, provides lots of examples, and explains one thing at a time at a steady pace. The level of detail and runnable code show what's really going when we run a learning algorithm.
+
+**David Duvenaud**, University of Toronto
+<br><br><br>
+
+> This book covers various essential machine learning methods (e.g., regression, classification, clustering, dimensionality reduction, and deep learning) from a unified mathematical perspective of seeking the optimal model parameters that minimize a cost function. Every method is explained in a comprehensive, intuitive way, and mathematical understanding is aided and enhanced with many geometric illustrations and elegant Python implementations.
+
+**Kimiaki Sihrahama**, Kindai University, Japan
+<br><br><br>
+
+> Books featuring machine learning are many, but those which are simple, intuitive, and yet theoretical are extraordinary 'outliers'. This book is a fantastic and easy way to launch yourself into the exciting world of machine learning, grasp its core concepts, and code them up in Python or Matlab. It was my inspiring guide in preparing my 'Machine Learning Blinks' on my BASIRA YouTube channel for both undergraduate and graduate levels.
+
+**Islem Rekik**, Director of the Brain And SIgnal Research and Analysis (BASIRA) Laboratory
+<br><br><br>
+
 
 ## Software installation and dependencies
 [(Back to top)](#table-of-contents)
