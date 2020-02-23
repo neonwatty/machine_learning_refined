@@ -37,11 +37,11 @@ If you're looking for a practical yet rigorous treatment of machine learning, th
 [(Back to top)](#table-of-contents)
 We believe mastery of a certain machine learning concept/topic is achieved only when the answer to each of the following three questions is affirmative.
 
-- **[Intuition]** Can you describe the idea with a simple picture?
+- **`Intuition`** Can you describe the idea with a simple picture?
 - **`Mathematical derivation`** Can you express your intuition in mathematical notation and derive underlying models/cost functions?   
-- `Implementation` Can you code up your derivations in a programming language, say Python, without using high-level libraries? 
+- **`Implementation`** Can you code up your derivations in a programming language, say Python, without using high-level libraries? 
 
-### Intuition comes first.
+**`Intuition comes first`** <br>
 Intuitive leaps precede intellectual ones, and because of this we have included over 300 color illustrations in the book that have been meticulously designed to enable an intuitive grasp
 of technical concepts. Many of those illustrations are snapshots of animations that show convergence of certain algorithms, 
 evolution of certain models from underfitting all the way to overfitting, etc. This sort of concepts can be illustrated and intuited best using animations (as opposed to static figures).
@@ -106,6 +106,7 @@ Feature selection via regularization | Secant planes
 Function approximation with a neural network | A regression tree
 
 <br><br>
+
 ### Mathematical optimization: the workhorse of machine learning
 We highly emphasize the importance of mathematical optimization in our treatment of machine learning. Optimization is the workhorse of machine learning
 and is fundamental at many levels – from the tuning of individual models to
@@ -115,7 +116,9 @@ wishes to deeply understand machine learning, and if one wishes to be able to
 implement fundamental algorithms. Part I of the book provides a complete introduction to mathematical optimization, covering zero-, first-, and second-order methods, that are relied upon later in deriving and tuning machine learning models.  
 
 <br>
+
 ### Learning by doing
+
 We place significant emphasis on the design and implementation of algorithms throughout the text with implementations of fundamental
 algorithms given in Python. These fundamental examples can then be used as
 building blocks for the reader to help complete the text’s programming exercises, allowing them to ”get their hands dirty” and ”learn by doing,” practicing
