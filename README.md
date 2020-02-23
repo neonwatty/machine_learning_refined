@@ -35,6 +35,7 @@ If you're looking for a practical yet rigorous treatment of machine learning, th
 
 ## Pedagogy  
 [(Back to top)](#table-of-contents)
+
 We believe mastery of a certain machine learning concept/topic is achieved only when the answer to each of the following three questions is affirmative.
 
 1. **`Intuition`** Can you describe the idea with a simple picture?
@@ -128,6 +129,7 @@ as starter notebooks can be found in this repository.<br><br>
 
 ## What is new in the second edition?
 [(Back to top)](#table-of-contents)
+
 The second edition of this text is a complete revision of our first endeavor, with
 virtually every chapter of the original rewritten from the ground up and eight
 new chapters of material added, doubling the size of the first edition. Topics from
@@ -135,9 +137,10 @@ the first edition, from expositions on gradient descent to those on One-versusAl
 polished. A swath of new topics have been added throughout the text, from
 derivative-free optimization to weighted supervised learning, feature selection,
 nonlinear feature engineering, boosting-based cross-validation, and more.
-While heftier in size, the intent of our original attempt has remained unchanged: to explain machine learning, from first principles to practical implementation, in the simplest possible terms.<br> 
+While heftier in size, the intent of our original attempt has remained unchanged: to explain machine learning, from first principles to practical implementation, in the simplest possible terms.<br><br> 
 
-## Reviews and Endorsements[(Back to top)](#table-of-contents)
+## Reviews and Endorsements[(Back to top)]
+(#table-of-contents)
 
 > An excellent book that treats the fundamentals of machine learning from basic principles to practical implementation. The book is suitable as a text for senior-level and first-year graduate courses in engineering and computer science. It is well organized and covers basic concepts and algorithms in mathematical optimization methods, linear learning, and nonlinear learning techniques. The book is nicely illustrated in multiple colors and contains numerous examples and coding exercises using Python.
 
@@ -167,6 +170,7 @@ While heftier in size, the intent of our original attempt has remained unchanged
 
 ## What topics does the book cover?
 [(Back to top)](#table-of-contents)
+
 The table of contents for the second edition of the text is provided below.
 
 **Note: a select number of Chapters/Sections are linked to HTML notes that served as an early draft for the second edition of the text. These notes are created using accompanying Jupyter notebooks which you can find in this repository (and modify yourself).** <br><br> 
@@ -390,6 +394,7 @@ C.1 Introduction<br>
 
 ## How to use the book?
 [(Back to top)](#table-of-contents)
+
 Example ”roadmaps” shown below provide suggested paths
 for navigating the text based on a variety of learning outcomes and university
 courses taught using the present book.
@@ -419,7 +424,8 @@ deep learning, including chapters, sections, as well as topics to cover.
 
 
 ## Technical prerequisites
-[(Back to top)](#table-of-contents) 
+[(Back to top)](#table-of-contents)
+
 To make full use of the text one needs only a basic understanding of vector algebra (mathematical
 functions, vector arithmetic, etc.) and computer programming (for example,
 basic proficiency with a dynamically typed language like Python). We provide
@@ -430,25 +436,30 @@ text.
 
 ## Coding exercises
 [(Back to top)](#table-of-contents)
+
 In the `mlrefined_exercises` directory you can find starting wrappers for coding exercises from the first and second editions of the text.
 
 
 ## Resources for instructors
 [(Back to top)](#table-of-contents)
+
 Instructors may request a copy of this text for examination from the [publisher's website](http://cambridge.force.com/Samples?isbn=9781108480727&Title=Machine%20Learning%20Refined&Author=Watt/Borhani/Katsaggelos). Cambridge University Press can also provide you with the **solution manual** to both editions of the text as well as a complete set of educational **slides**. 
 
 ## Errata
 [(Back to top)](#table-of-contents)
+
 See [here]() for a regularly updated errata sheet for the second edition of the text. Please report any typos, bugs, broken links, etc., in the **Issues Section** of this repository or by contacting us directly via email (see contact section for more info).    
 
 ## Get a copy of the book
 [(Back to top)](#table-of-contents)
+
 - From the [publisher's website](https://www.cambridge.org/us/academic/subjects/engineering/communications-and-signal-processing/machine-learning-refined-foundations-algorithms-and-applications-2nd-edition?format=HB)
 - From [Amazon](https://www.amazon.com/Machine-Learning-Refined-Foundations-Applications/dp/1108480721)
 - From [Barnes & Noble](https://www.barnesandnoble.com/w/machine-learning-refined-jeremy-watt/1136155294?ean=9781108480727)
 
 ## Software installation and dependencies
 [(Back to top)](#table-of-contents)
+
 To successfully run the Jupyter notebooks contained in this repository we highly recommend downloading the [Anaconda Python 3 distribution](https://www.anaconda.com/download/#macos). Many of these notebooks also employ the Automatic Differentiator [autograd](https://github.com/HIPS/autograd) which can be installed by typing the following command at your terminal
       
       pip install autograd
@@ -458,4 +469,5 @@ With minor adjustment users can also run these notebooks using the GPU/TPU exten
 
 ## Contact
 [(Back to top)](#table-of-contents)
+
 This repository is in active development by [Jeremy Watt](mailto:jeremy@dgsix.com) and [Reza Borhani](mailto:reza@dgsix.com). Please do not hesitate to reach out with comments, questions, typos, etc.
