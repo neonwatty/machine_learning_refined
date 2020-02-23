@@ -31,7 +31,7 @@ serviceable treatment than what is currently available today. With this book we 
 with books that are either mathematically rigorous but not practical, or vice-versa.
 
 Conventional textbooks usually place little to no emphasis on coding, leaving the reader struggling to put what they learned into practice. On the other hand the more hands-on books in the market typically lack rigor, leaving machine learning a 'black box' to the reader.
-If you're looking for a practical yet rigorous treatment of machine learning, then this book is for you.
+If you're looking for a practical yet rigorous treatment of machine learning, then this book is for you.>
 
 ## Pedagogy  
 [(Back to top)](#table-of-contents)
@@ -43,9 +43,7 @@ We believe mastery of a certain machine learning concept/topic is achieved only 
 
 <br>
 
-1. **`Intuition comes first`**
-<br>
-Intuitive leaps precede intellectual ones, and because of this we have included over 300 color illustrations in the book that have been meticulously designed to enable an intuitive grasp
+**`Intuition comes first`**. Intuitive leaps precede intellectual ones, and because of this we have included over 300 color illustrations in the book that have been meticulously designed to enable an intuitive grasp
 of technical concepts. Many of those illustrations are snapshots of animations that show convergence of certain algorithms, 
 evolution of certain models from underfitting all the way to overfitting, etc. This sort of concepts can be illustrated and intuited best using animations (as opposed to static figures).
  You'll find a large number of such animations in this repository -- which you can modify yourself too via the raw Jupyter notebook version of these notes. Here are just a few examples:<br><br> 
@@ -117,13 +115,9 @@ and is fundamental at many levels – from the tuning of individual models to
 the general selection of appropriate nonlinearities via cross-validation. Because
 of this a strong understanding of mathematical optimization is requisite if one
 wishes to deeply understand machine learning, and if one wishes to be able to
-implement fundamental algorithms. Part I of the book provides a complete introduction to mathematical optimization, covering zero-, first-, and second-order methods, that are relied upon later in deriving and tuning machine learning models.  
+implement fundamental algorithms. Part I of the book provides a complete introduction to mathematical optimization, covering zero-, first-, and second-order methods, that are relied upon later in deriving and tuning machine learning models.<br>
 
-<br>
-
-3. **`Learning by doing`**
-<br>
-We place significant emphasis on the design and implementation of algorithms throughout the text with implementations of fundamental
+**`Learning by doing`**. We place significant emphasis on the design and implementation of algorithms throughout the text with implementations of fundamental
 algorithms given in Python. These fundamental examples can then be used as
 building blocks for the reader to help complete the text’s programming exercises, allowing them to ”get their hands dirty” and ”learn by doing,” practicing
 the concepts introduced in the body of the text. While in principle any programming language can be used to complete the text’s coding exercises, we highly
@@ -131,9 +125,9 @@ recommend using Python for its ease of use and large support community. We
 also recommend using the open-source Python libraries NumPy, autograd, and
 matplotlib, as well as the Jupyter notebook editor to make implementing and
 testing code easier. A complete set of installation instructions, datasets, as well
-as starter notebooks can be found in this repository.
+as starter notebooks can be found in this repository.<br><br>
 
-<br><br>
+
 ## What is new in the second edition?
 [(Back to top)](#table-of-contents)
 The second edition of this text is a complete revision of our first endeavor, with
