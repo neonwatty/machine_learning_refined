@@ -1,6 +1,6 @@
 The material in this repository is licensed under the
 **Creative Commons Attribution 4.0 International License (CC BY-NC-SA 4.0)** attributed to Jeremy Watt and Reza Borhani. 
-To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/4.0/
+To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/4.0/ and the legal code therein. 
 
 ## You are free to:
 **Share** — copy and redistribute the material in any medium or format
