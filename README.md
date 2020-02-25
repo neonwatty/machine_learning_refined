@@ -8,7 +8,7 @@ Published by Cambridge University Press <br>
 # Table of Contents
 - [A sampler of widgets / pedagogy](#pedagogy)
 - [Online notes](#online-notes)
-- [What is new in the second edition?](#what-is-new-in-the-second-edition)
+- [What's new in the second edition?](#what-is-new-in-the-second-edition)
 - [How to use the book](#how-to-use-the-book)
 - [Technical prerequisites](#technical-prerequisites)
 - [Coding exercises](#coding-exercises)
