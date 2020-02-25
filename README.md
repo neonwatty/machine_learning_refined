@@ -6,10 +6,9 @@ Published by Cambridge University Press <br>
 2nd edition (2020) <br><br><br>
 
 # Table of Contents
-- [Who is the audience for this book?](#who-is-the-audience-for-this-book)
 - [A sampler of widgets / pedagogy](#pedagogy)
+- [Online notes](#online-notes)
 - [What is new in the second edition?](#what-is-new-in-the-second-edition)
-- [What topics does the book cover?](#what-topics-does-the-book-cover)
 - [How to use the book](#how-to-use-the-book)
 - [Technical prerequisites](#technical-prerequisites)
 - [Coding exercises](#coding-exercises)
@@ -22,18 +21,7 @@ Published by Cambridge University Press <br>
 
 <br><br><br>
 
-## Who is the audience for this book?
-[(Back to top)](#table-of-contents)
-
-This textbook was written with first-time learners of the subject in mind, as
-well as for more knowledgeable readers who yearn for a more intuitive and
-serviceable treatment than what is currently available today. With this book we aim to bridge the existing gap between practicality and rigor in machine learning education, in a market saturated 
-with books that are either mathematically rigorous but not practical, or vice-versa.
-
-Conventional textbooks usually place little to no emphasis on coding, leaving the reader struggling to put what they learned into practice. On the other hand the more hands-on books in the market typically lack rigor, leaving machine learning a 'black box' to the reader.
-If you're looking for a practical yet rigorous treatment of machine learning, then this book is for you.<br><br>
-
-## A sampler of widgets / pedagogy  
+## A sampler of widgets / our pedagogy  
 [(Back to top)](#table-of-contents)
 
 We believe mastery of a certain machine learning concept/topic is achieved only when the answer to each of the following three questions is affirmative.
@@ -127,23 +115,8 @@ testing code easier. A complete set of installation instructions, datasets, as w
 as starter notebooks can be found in this repository.<br><br>
 
 
-## What is new in the second edition?
+## Online notes
 [(Back to top)](#table-of-contents)
-
-The second edition of this text is a complete revision of our first endeavor, with
-virtually every chapter of the original rewritten from the ground up and eight
-new chapters of material added, doubling the size of the first edition. Topics from
-the first edition, from expositions on gradient descent to those on One-versusAll classification and Principal Component Analysis have been reworked and
-polished. A swath of new topics have been added throughout the text, from
-derivative-free optimization to weighted supervised learning, feature selection,
-nonlinear feature engineering, boosting-based cross-validation, and more.
-While heftier in size, the intent of our original attempt has remained unchanged: to explain machine learning, from first principles to practical implementation, in the simplest possible terms.<br><br> 
-
-
-## What topics does the book cover?
-[(Back to top)](#table-of-contents)
-
-The table of contents for the second edition of the text is provided below.
 
 **Note:** a select number of Chapters/Sections are highlighted below and are linked to HTML notes that served as an early draft for the second edition of the text. You can find these html files as well as Jupyter notebooks which created them in the `notes` subdirectory. <br><br> 
 
@@ -362,6 +335,18 @@ C.1 Introduction<br>
 [C.4 Eigenvalues and Eigenvectors](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_4_Eigen.html)<br> 
 [C.5 Vector and Matrix Norms](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_5_Norms.html)<br><br><br>
 
+
+## What is new in the second edition?
+[(Back to top)](#table-of-contents)
+
+The second edition of this text is a complete revision of our first endeavor, with
+virtually every chapter of the original rewritten from the ground up and eight
+new chapters of material added, doubling the size of the first edition. Topics from
+the first edition, from expositions on gradient descent to those on One-versusAll classification and Principal Component Analysis have been reworked and
+polished. A swath of new topics have been added throughout the text, from
+derivative-free optimization to weighted supervised learning, feature selection,
+nonlinear feature engineering, boosting-based cross-validation, and more.
+While heftier in size, the intent of our original attempt has remained unchanged: to explain machine learning, from first principles to practical implementation, in the simplest possible terms.<br><br> 
 
 
 ## How to use the book?
