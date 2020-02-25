@@ -21,7 +21,8 @@ Welcome to the github repo for the 2nd edition of Machine Learning Refined (publ
 
 <br><br><br>
 
-## A sampler of widgets / our pedagogy(#a-sampler-of-widgets-/-our-pedagogy)
+## A sampler of widgets / our pedagogy
+(#a-sampler-of-widgets-/-our-pedagogy)
 [(Back to top)](#table-of-contents)
 
 We believe mastery of a certain machine learning concept/topic is achieved only when the answer to each of the following three questions is affirmative.
