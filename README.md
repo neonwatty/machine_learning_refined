@@ -3,7 +3,7 @@
 <img align="right" src="html/gifs/cover_2nd.png" height="420">
 
 
-Welcome to the github repo for the 2nd edition of Machine Learning Refined - below you will find a range of resources that complement the textbook!
+Welcome to the github repo for the 2nd edition of Machine Learning Refined (published by Cambridge University Press) - below you will find a range of resources that complement the textbook!
 
 # Table of Contents
 - [A sampler of widgets / pedagogy](#pedagogy)
