@@ -7,7 +7,7 @@ Published by Cambridge University Press <br>
 
 # Table of Contents
 - [Who is the audience for this book?](#who-is-the-audience-for-this-book)
-- [Pedagogy](#pedagogy)
+- [A sampler of widgets / pedagogy](#pedagogy)
 - [What is new in the second edition?](#what-is-new-in-the-second-edition)
 - [What topics does the book cover?](#what-topics-does-the-book-cover)
 - [How to use the book](#how-to-use-the-book)
@@ -33,7 +33,7 @@ with books that are either mathematically rigorous but not practical, or vice-ve
 Conventional textbooks usually place little to no emphasis on coding, leaving the reader struggling to put what they learned into practice. On the other hand the more hands-on books in the market typically lack rigor, leaving machine learning a 'black box' to the reader.
 If you're looking for a practical yet rigorous treatment of machine learning, then this book is for you.<br><br>
 
-## Pedagogy  
+## A sampler of widgets / pedagogy  
 [(Back to top)](#table-of-contents)
 
 We believe mastery of a certain machine learning concept/topic is achieved only when the answer to each of the following three questions is affirmative.
