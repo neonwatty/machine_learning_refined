@@ -399,7 +399,7 @@ Instructors may request a copy of this text for examination from the [publisher'
 ## Errata
 [(Back to top)](#table-of-contents)
 
-See [here]() for a regularly updated errata sheet for the second edition of the text. Please report any typos, bugs, broken links, etc., in the **Issues Section** of this repository or by contacting us directly via email (see contact section for more info).<br><br>
+**Coming soon** a regularly updated errata sheet for the second edition of the text. Please report any typos, bugs, broken links, etc., in the **Issues Section** of this repository or by contacting us directly via email (see contact section for more info).<br><br>
 
 
 ## Get a copy of the book
