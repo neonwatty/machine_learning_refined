@@ -6,7 +6,7 @@
 Welcome to the github repo for the 2nd edition of Machine Learning Refined (published by Cambridge University Press) - below you will find a range of resources that complement the textbook!
 
 # Table of Contents
-- [A sampler of widgets / pedagogy](#a-sampler-of-widgets-/-our-pedagogy)
+- [A sampler of widgets / pedagogy](#a-sampler-of-widgets-and-our-pedagogy)
 - [Online notes (jupyter notebooks)](#online-notes-(online-notebooks))
 - [What is new in the second edition?](#what-is-new-in-the-second-edition)
 - [How to use the book](#how-to-use-the-book)
@@ -21,7 +21,7 @@ Welcome to the github repo for the 2nd edition of Machine Learning Refined (publ
 
 <br><br><br>
 
-## A sampler of widgets / our pedagogy
+## A sampler of widgets and our pedagogy
 [(Back to top)](#table-of-contents)
 
 We believe mastery of a certain machine learning concept/topic is achieved only when the answer to each of the following three questions is affirmative.
