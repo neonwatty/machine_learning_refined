@@ -7,7 +7,7 @@ Welcome to the github repo for the 2nd edition of Machine Learning Refined (publ
 
 # Table of Contents
 - [A sampler of widgets / pedagogy](#a-sampler-of-widgets-and-our-pedagogy)
-- [Online notes (jupyter notebooks)](#online-notes-(online-notebooks))
+- [Online notes (jupyter notebooks)](#online-notes-(jupyter-notebooks))
 - [What is new in the second edition?](#what-is-new-in-the-second-edition)
 - [How to use the book](#how-to-use-the-book)
 - [Technical prerequisites](#technical-prerequisites)
