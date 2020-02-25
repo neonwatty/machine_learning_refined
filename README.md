@@ -1,9 +1,7 @@
 # Machine Learning Refined: Notes, Exercises, and Jupyter notebooks [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Machine%20Learning%20Refined:%20notes,%20exercises,%20and%20Jupyter%20notebooks%20&url=https://github.com/jermwatt/machine_learning_refined)
 
 <img align="right" src="html/gifs/cover_2nd.png" height="420">
-Published by Cambridge University Press <br>
-1st edition (2016) <br>
-2nd edition (2020) <br><br><br>
+
 
 Welcome to the github repo for the 2nd edition of Machine Learning Refined - below you will find a range of resources that complement the textbook!
 
