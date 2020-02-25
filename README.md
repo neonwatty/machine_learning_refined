@@ -118,7 +118,7 @@ as starter notebooks can be found in this repository.<br><br>
 ## Online notes
 [(Back to top)](#table-of-contents)
 
-**Note:** a select number of Chapters/Sections are highlighted below and are linked to HTML notes that served as an early draft for the second edition of the text. You can find these html files as well as Jupyter notebooks which created them in the `notes` subdirectory. <br><br> 
+A select number of Chapters/Sections are highlighted below and are linked to HTML notes that served as *early drafts* for the second edition of the textbook. You can find these html files as well as Jupyter notebooks which created them in the `notes` subdirectory. <br><br> 
 
 <p align="center"><img src="html/gifs/ipynb.gif" width="60%" height="auto"></p>
 <br>
