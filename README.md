@@ -5,6 +5,8 @@ Published by Cambridge University Press <br>
 1st edition (2016) <br>
 2nd edition (2020) <br><br><br>
 
+Welcome to the github repo for the 2nd edition of Machine Learning Refined - below you will find a range of resources that complement the textbook!
+
 # Table of Contents
 - [A sampler of widgets / pedagogy](#pedagogy)
 - [Online notes](#online-notes)
