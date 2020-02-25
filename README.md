@@ -387,7 +387,7 @@ text.<br><br>
 ## Coding exercises
 [(Back to top)](#table-of-contents)
 
-In the `mlrefined_exercises` directory you can find starting wrappers for coding exercises from the first and second editions of the text.<br><br>
+In the [mlrefined_exercises](https://github.com/jermwatt/machine_learning_refined/tree/gh-pages/mlrefined_exercises) directory you can find starting wrappers for coding exercises from the first and second editions of the text.<br><br>
 
 
 ## Resources for instructors
