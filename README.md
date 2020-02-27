@@ -399,7 +399,7 @@ Instructors may request a copy of this text for examination from the [publisher'
 ## Errata
 [(Back to top)](#table-of-contents)
 
-<a target="_blank" href="https://github.com/jermwatt/machine_learning_refined/blob/gh-pages/errata.pdf">This is a regularly updated errata sheet</a> for the second edition of the text. Please report any typos, bugs, broken links, etc., in the **Issues Section** of this repository or by contacting us directly via email (see contact section for more info).<br><br>
+<a target="_blank" href="https://github.com/jermwatt/machine_learning_refined/blob/gh-pages/errata.pdf">Here</a> you can find a regularly updated errata sheet for the second edition of the text. Please report any typos, bugs, broken links, etc., in the **Issues Section** of this repository or by contacting us directly via email (see contact section for more info).<br><br>
 
 
 ## Get a copy of the book
