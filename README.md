@@ -15,7 +15,7 @@ Welcome to the github repo for the 2nd edition of Machine Learning Refined (publ
 - [Resources for instructors](#resources-for-instructors)
 - [Errata](#errata)
 - [Get a copy of the book](#get-a-copy-of-the-book)
-- [Reviews and Endorsements](reviews-and-endorsements)
+- [Reviews and Endorsements](#reviews-and-endorsements)
 - [Software installation and dependencies](#software-installation-and-dependencies)
 - [Contact](#contact)
 
