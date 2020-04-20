@@ -3,7 +3,7 @@
 <img align="right" src="html/gifs/cover_2nd.png" height="420">
 
 
-Welcome to the github repo for the 2nd edition of Machine Learning Refined (published by Cambridge University Press) - below you will find a range of resources that complement the textbook!
+Below you will find a range of resources that complement the 2nd edition of Machine Learning Refined (published by Cambridge University Press).
 
 # Table of Contents
 - [A sampler of widgets / pedagogy](#a-sampler-of-widgets-and-our-pedagogy)
@@ -405,7 +405,7 @@ Instructors may request a copy of this text for examination from the [publisher'
 ## Get a copy of the book
 [(Back to top)](#table-of-contents)
 
-- From the [publisher's website](https://www.cambridge.org/us/academic/subjects/engineering/communications-and-signal-processing/machine-learning-refined-foundations-algorithms-and-applications-2nd-edition?format=HB)
+- From [Cambridge University Press](https://www.cambridge.org/us/academic/subjects/engineering/communications-and-signal-processing/machine-learning-refined-foundations-algorithms-and-applications-2nd-edition?format=HB)
 - From [Amazon](https://www.amazon.com/Machine-Learning-Refined-Foundations-Applications/dp/1108480721)
 - From [Barnes & Noble](https://www.barnesandnoble.com/w/machine-learning-refined-jeremy-watt/1136155294?ean=9781108480727)
 <br><br>
@@ -420,7 +420,7 @@ Instructors may request a copy of this text for examination from the [publisher'
 
 > Some machine learning books cover only programming aspects, often relying on outdated software tools; some focus exclusively on neural networks; others, solely on theoretical foundations; and yet more books detail advanced topics for the specialist. This fully revised and expanded text provides a broad and accessible introduction to machine learning for engineering and computer science students. The presentation builds on first principles and geometric intuition, while offering real-world examples, commented implementations in Python, and computational exercises. I expect this book to become a key resource for students and researchers.
 
-**Osvaldo Simeone**, Kings College London
+**Osvaldo Simeone**, King's College, London
 <br><br>
 
 > This book is great for getting started in machine learning. It builds up the tools of the trade from first principles, provides lots of examples, and explains one thing at a time at a steady pace. The level of detail and runnable code show what's really going when we run a learning algorithm.
