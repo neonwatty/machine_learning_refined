@@ -1,3 +1,3 @@
 # Edition 2 sample chapters
 
-Coming third quarter 2019!
+See the file `mlrefined_2ed_nov_2020.pdf` for sample chapters from the 2nd edition.
