@@ -6,6 +6,7 @@
 Below you will find a range of resources that complement the 2nd edition of Machine Learning Refined (published by Cambridge University Press).
 
 # Table of Contents
+- [Sample chapters from the 2nd edition](https://github.com/jermwatt/machine_learning_refined/tree/gh-pages/sample_chapters/2nd_ed)
 - [A sampler of widgets / pedagogy](#a-sampler-of-widgets-and-our-pedagogy)
 - [Online notes (jupyter notebooks)](#online-notes)
 - [What is new in the second edition?](#what-is-new-in-the-second-edition)
