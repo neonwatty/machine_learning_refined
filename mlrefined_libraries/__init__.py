@@ -8,3 +8,6 @@ for importer, modname, ispkg in pkgutil.walk_packages(
         onerror=(lambda x: None)):
     __import__(modname)
   
+
+from matplotlib.axes._axes import _log as matplotlib_axes_logger
+matplotlib_axes_logger.setLevel('ERROR')

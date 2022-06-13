@@ -1,0 +1,6 @@
+notebook
+pandas
+numpy
+autograd
+matplotlib==3.5.1
+scipy==1.7.1
