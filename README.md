@@ -446,6 +446,8 @@ Instructors may request a copy of this text for examination from the [publisher'
 
 After cloning this repository and entering the directory we recommend one of two methods for successfully running the Jupyter notebooks contained therein. 
 
+Please note - to view animations and widgets we strongly recommend using the classic Jupyter Notebook - **not** JupyterLab.
+
 
 ### Docker method
 
