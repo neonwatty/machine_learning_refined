@@ -1,0 +1,6 @@
+notebook
+pandas
+numpy
+matplotlib
+scipy
+autograd

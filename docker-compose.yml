@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+
+  ######## jupyter ide service ########
+  mlr2:
+   image: jermwatt/machine_learning_refined
+   container_name: mlr2
+   ports:
+    - 8888:8888
+   working_dir: /usr/src/mlr2
+   volumes:
+    - ./:/usr/src/mlr2
+   command: >
+      sh -c "find . -name '*.ipynb' -exec jupyter trust {} \; &&
+             jupyter notebook --port=8888 --ip=0.0.0.0 --allow-root --NotebookApp.token=''"
+   restart: "always"

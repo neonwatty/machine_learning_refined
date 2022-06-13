@@ -400,12 +400,13 @@ Instructors may request a copy of this text for examination from the [publisher'
 ## Errata
 [(Back to top)](#table-of-contents)
 
-<a target="_blank" href="https://github.com/jermwatt/machine_learning_refined/blob/gh-pages/errata.pdf">Here</a> you can find a regularly updated errata sheet for the second edition of the text. Please report any typos, bugs, broken links, etc., in the **Issues Section** of this repository or by contacting us directly via email (see contact section for more info).<br><br>
+<a target="_blank" href="https://github.com/jermwatt/machine_learning_refined/blob/gh-pages/errata/errata.pdf">Here</a> you can find a regularly updated errata sheet for the second edition of the text. Please report any typos, bugs, broken links, etc., in the **Issues Section** of this repository or by contacting us directly via email (see contact section for more info).<br><br>
 
 
 ## Get a copy of the book
 [(Back to top)](#table-of-contents)
 
+- [Free sample chapters in pdf format]((https://github.com/jermwatt/machine_learning_refined/tree/gh-pages/sample_chapters/2nd_ed))
 - From [Cambridge University Press](https://www.cambridge.org/us/academic/subjects/engineering/communications-and-signal-processing/machine-learning-refined-foundations-algorithms-and-applications-2nd-edition?format=HB)
 - From [Amazon](https://www.amazon.com/Machine-Learning-Refined-Foundations-Applications/dp/1108480721)
 - From [Barnes & Noble](https://www.barnesandnoble.com/w/machine-learning-refined-jeremy-watt/1136155294?ean=9781108480727)
@@ -443,11 +444,47 @@ Instructors may request a copy of this text for examination from the [publisher'
 ## Software installation and dependencies
 [(Back to top)](#table-of-contents)
 
-To successfully run the Jupyter notebooks contained in this repository we highly recommend downloading the [Anaconda Python 3 distribution](https://www.anaconda.com/download/#macos). Many of these notebooks also employ the Automatic Differentiator [autograd](https://github.com/HIPS/autograd) which can be installed by typing the following command at your terminal
-      
-      pip install autograd
-      
-With minor adjustment users can also run these notebooks using the GPU/TPU extended version of autograd [JAX](https://github.com/google/jax).<br><br>
+After cloning this repository and entering the directory we recommend one of two methods for successfully running the Jupyter notebooks contained therein. 
+
+
+### Docker method
+
+After installing [docker and docker-compose on your machine](https://docs.docker.com/compose/install/)  
+traverse to this repo at your terminal and type 
+
+``docker-compose up -d```
+
+When running this command the first time an associated docker image is pulled from DockerHub.
+
+Then in any web browser go to 
+
+```localhost:8888```
+
+to view the repository contents - including jupyter notebooks.
+
+
+### Anaconda method
+
+After installing [Anaconda Python 3 distribution](https://www.anaconda.com/download) on your machine, cd into this repo's directory and follow these steps to create a conda virtual environment to view its contents and notebooks.
+
+First, create the environment
+
+```conda create python=3.8 --name mlr2 --file requirements.txt```
+
+Then activate it
+
+```conda activate mlr2```
+
+Run jupyter via the command below
+
+```jupyter notebook --port=8888 --ip=0.0.0.0 --allow-root --NotebookApp.token=''```
+
+And finally, open any web browser and traverse to
+
+```localhost:8888```
+
+to view the repository contents - including jupyter notebooks.
+
 
 
 ## Contact
