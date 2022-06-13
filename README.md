@@ -444,9 +444,7 @@ Instructors may request a copy of this text for examination from the [publisher'
 ## Software installation and dependencies
 [(Back to top)](#table-of-contents)
 
-After cloning this repository and entering the directory we recommend one of two methods for successfully running the Jupyter notebooks contained therein. 
-
-Please note - to view animations and widgets we strongly recommend using the classic Jupyter Notebook - **not** JupyterLab.
+After cloning this repository and entering the directory we recommend one of three methods for successfully running the Jupyter notebooks contained therein. 
 
 
 ### Docker method
@@ -487,6 +485,23 @@ And finally, open any web browser and traverse to
 
 to view the repository contents - including jupyter notebooks.
 
+
+### pip3 method
+Using Python3 and pip3 on your machine, cd into this repo's directory and follow these steps to install the required packages.
+
+First install Python requirements
+
+```pip3 install -r requirements.txt```
+
+Run jupyter via the command below
+
+```jupyter notebook --port=8888 --ip=0.0.0.0 --allow-root --NotebookApp.token=''```
+
+And finally, open any web browser and traverse to
+
+```localhost:8888```
+
+to view the repository contents - including jupyter notebooks.
 
 
 ## Contact
