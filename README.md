@@ -452,7 +452,7 @@ After cloning this repository and entering the directory we recommend one of two
 After installing [docker and docker-compose on your machine](https://docs.docker.com/compose/install/)  
 traverse to this repo at your terminal and type 
 
-``docker-compose up -d```
+```docker-compose up -d```
 
 When running this command the first time an associated docker image is pulled from DockerHub.
 
