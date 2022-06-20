@@ -422,7 +422,7 @@ class Visualizer:
             transformer = transformers[i]
             t = weights[0] + weights[1]*transformer(s).flatten()
             ax.plot(s,t,linewidth = 2,color = colors[i],zorder = 3)
-            c+=1
+            #c+=1
     
     # scatter points
     def scatter_pts(self,ax):
