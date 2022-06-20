@@ -447,7 +447,7 @@ Instructors may request a copy of this text for examination from the [publisher'
 After cloning this repository and entering the directory we recommend one of three methods for successfully running the Jupyter notebooks contained therein. 
 
 
-### Docker method
+### Docker method (**strongly recommended**)
 
 After installing [docker and docker-compose on your machine](https://docs.docker.com/compose/install/)  
 traverse to this repo at your terminal and type 
