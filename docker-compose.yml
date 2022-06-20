@@ -12,6 +12,7 @@ services:
    volumes:
     - ./:/usr/src/mlr2
    command: >
-      sh -c "find . -name '*.ipynb' -exec jupyter trust {} \; &&
-             jupyter notebook --port=8888 --ip=0.0.0.0 --allow-root --NotebookApp.token=''"
+      sh -c "jupyter notebook --port=8888 --ip=0.0.0.0 --allow-root --NotebookApp.token=''"
    restart: "always"
+
+# trust all notebooks - add to command: find . -name '*.ipynb' -exec jupyter trust {} \; &&
