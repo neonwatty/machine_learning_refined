@@ -110,9 +110,11 @@ def project_data_from_3d_to_2d(X,C,view):
 
     # create subplot with 3 panels, plot input function in center plot
     gs = gridspec.GridSpec(1, 3, width_ratios=[1.5,1,1.5]) 
-    ax1 = plt.subplot(gs[0],projection='3d',aspect = 'equal');  
+    #ax1 = plt.subplot(gs[0],projection='3d',aspect = 'equal');  
+    ax1 = plt.subplot(gs[0],projection='3d'); 
     ax2 = plt.subplot(gs[1],aspect = 'equal'); 
-    ax3 = plt.subplot(gs[2],projection='3d',aspect = 'equal');  
+    #ax3 = plt.subplot(gs[2],projection='3d',aspect = 'equal');  
+    ax3 = plt.subplot(gs[2],projection='3d'); 
 
     #### plot original data ####
     # scatter normalized data
