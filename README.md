@@ -13,7 +13,7 @@ Below you will find a range of resources that complement the 2nd edition of Mach
 - [How to use the book](#how-to-use-the-book)
 - [Technical prerequisites](#technical-prerequisites)
 - [Coding exercises](#coding-exercises)
-- [Resources for instructors](#resources-for-instructors)
+- [Slides and additional instructor resources](#resources-for-instructors)
 - [Errata](#errata)
 - [Get a copy of the book](#get-a-copy-of-the-book)
 - [Reviews and Endorsements](#reviews-and-endorsements)
@@ -391,10 +391,12 @@ text.<br><br>
 In the [mlrefined_exercises](https://github.com/jermwatt/machine_learning_refined/tree/gh-pages/mlrefined_exercises) directory you can find starting wrappers for coding exercises from the first and second editions of the text.<br><br>
 
 
-## Resources for instructors
+## Slides and additional instructor resources
 [(Back to top)](#table-of-contents)
 
-Instructors may request a copy of this text for examination from the [publisher's website](http://cambridge.force.com/Samples?isbn=9781108480727&Title=Machine%20Learning%20Refined&Author=Watt/Borhani/Katsaggelos). Cambridge University Press can also provide you with the **solution manual** to both editions of the text as well as a complete set of educational **slides**.<br><br>
+[Slides for the 2nd edition of the text](https://github.com/jermwatt/machine_learning_refined/tree/gh-pages/presentations/2nd_edition) are available in pptx, jupyter, and reveal.js formats.  [Slides for the 1st edition of the text](https://github.com/jermwatt/machine_learning_refined/tree/gh-pages/presentations/1st_edition) are also available.
+
+Instructors may request a copy of this text for examination from the [publisher's website](http://cambridge.force.com/Samples?isbn=9781108480727&Title=Machine%20Learning%20Refined&Author=Watt/Borhani/Katsaggelos). Cambridge University Press can also provide you with the **solution manual** to both editions of the text.<br><br>
 
 
 ## Errata
