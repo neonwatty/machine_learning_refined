@@ -13,7 +13,7 @@ Below you will find a range of resources that complement the 2nd edition of Mach
 - [How to use the book](#how-to-use-the-book)
 - [Technical prerequisites](#technical-prerequisites)
 - [Coding exercises](#coding-exercises)
-- [Slides and additional instructor resources](#resources-for-instructors)
+- [Slides and additional instructor resources](#slides-and-additional-instructor-resources)
 - [Errata](#errata)
 - [Get a copy of the book](#get-a-copy-of-the-book)
 - [Reviews and Endorsements](#reviews-and-endorsements)
