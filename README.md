@@ -471,7 +471,7 @@ After installing [Anaconda Python 3 distribution](https://www.anaconda.com/downl
 
 First, create the environment
 
-```conda create python=3.8 --name mlr2 --file requirements.txt```
+```conda create python=3.6 --name mlr2 --file requirements.txt```
 
 Then activate it
 
