@@ -5,6 +5,5 @@ __pycache__
 ### remove redundant files ###
 .pyc
 .DS_Store
-.Trash-0
 .*  # ignore all hidden files and folders
 !/.gitignore  # explicitly do not ignore .gitignore
