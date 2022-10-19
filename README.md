@@ -509,4 +509,4 @@ to view the repository contents - including jupyter notebooks.
 ## Contact
 [(Back to top)](#table-of-contents)
 
-This repository is in active development by [Jeremy Watt](mailto:jeremy@dgsix.com) and [Reza Borhani](mailto:reza@dgsix.com). Please do not hesitate to reach out with comments, questions, typos, etc.
+This repository is in active development by [Jeremy Watt](mailto:jeremy@dgsix.com) and [Reza Borhani](mailto:rzbrhn@gmail.com). Please do not hesitate to reach out with comments, questions, typos, etc.
