@@ -6,8 +6,8 @@ from IPython.display import display, HTML, clear_output
 from matplotlib import gridspec
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-from mpl_toolkits.mplot3d import Axes3D
-
+from mpl_toolkits.mplot3d import Axes3D        
+        
 # simple plot of 2d vector addition / paralellagram law
 def vector_add_plot(vec1,vec2,ax):   
     # plot each vector
