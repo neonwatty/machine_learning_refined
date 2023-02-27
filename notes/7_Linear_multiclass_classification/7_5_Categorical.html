@@ -14672,16 +14672,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This code cell will not be shown in the HTML version of this notebook</span>
-<span class="c1"># import custom library</span>
+<span class="c1"># append path for local library, data, and image import</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../../&#39;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">mlrefined_libraries</span> <span class="kn">import</span> <span class="n">superlearn_library</span> <span class="k">as</span> <span class="n">superlearn</span>
-<span class="kn">from</span> <span class="nn">mlrefined_libraries</span> <span class="kn">import</span> <span class="n">math_optimization_library</span> <span class="k">as</span> <span class="n">optlib</span>
-<span class="n">optimizers</span> <span class="o">=</span> <span class="n">optlib</span><span class="o">.</span><span class="n">optimizers</span>
-<span class="n">classif_plotter</span> <span class="o">=</span> <span class="n">superlearn</span><span class="o">.</span><span class="n">multi_lin_classification_demo</span>
-<span class="n">cost_lib</span> <span class="o">=</span> <span class="n">superlearn</span><span class="o">.</span><span class="n">cost_functions</span>
-<span class="n">normalizers</span> <span class="o">=</span> <span class="n">superlearn</span><span class="o">.</span><span class="n">normalizers</span> 
-<span class="n">datapath</span> <span class="o">=</span> <span class="s1">&#39;../../mlrefined_datasets/superlearn_datasets/&#39;</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;./chapter_7_library&#39;</span><span class="p">)</span> 
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;./chapter_7_images&#39;</span><span class="p">)</span> 
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;./chapter_7_datasets&#39;</span><span class="p">)</span> 
 
 <span class="c1"># standard imports</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -14690,9 +14685,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="kn">import</span> <span class="nn">autograd.numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># this is needed to compensate for matplotlib notebook&#39;s tendancy to blow up images when plotted inline</span>
-<span class="o">%</span><span class="k">matplotlib</span> notebook
+<span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
 <span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.autolayout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
 </pre></div>
 
      </div>
@@ -14731,7 +14729,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <figure>
-  <img src= "../../mlrefined_images/superlearn_images/discrete_prob_dist.png" width="80%" height="60%" alt=""/>
+  <img src= "chapter_7_images/discrete_prob_dist.png" width="80%" height="60%" alt=""/>
   <figcaption>   
 <strong>Figure 1:</strong> <em> (left panel) A length $C = 3$ vector $\mathbf{s}$ shown as a *histogram*.  The entries of this vector - from left to right - represent the number of individuals (out of $10$ in total) who own neither a cat or dog, own a cat, or own a dog.  (right panel)  Normalizing this vector by dividing off its sum from each allows us to treat it as a discrete probability distribution.  Now we can speak 
 </em>  </figcaption> 
@@ -14844,7 +14842,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <figure>
-  <img src= "../../mlrefined_images/superlearn_images/exponentially_normalized_histogram.png" width="80%" height="60%" alt=""/>
+  <img src= "chapter_7_images/exponentially_normalized_histogram.png" width="80%" height="60%" alt=""/>
   <figcaption>   
 <strong>Figure 1:</strong> <em> A length $C = 3$ vector $\mathbf{s}$ shown as a *histogram*.  In this particular example the first and third entry of $\mathbf{s}$ are positive with the middle entry being negative.  (right panel)  Taking teh normalized exponential of this produces a new vector of all nonnegative entries whose numerical order is preserved, and whose total value sums to $1$.
 </em>  </figcaption> 
@@ -14971,7 +14969,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <figure>
-  <img src= "../../mlrefined_images/superlearn_images/multiclass_histogram.png" width="80%" height="60%" alt=""/>
+  <img src= "chapter_7_images/multiclass_histogram.png" width="80%" height="60%" alt=""/>
   <figcaption>   
 <strong>Figure 1:</strong> <em> 
 (left panel) Histogram visualizations of signed distance measurements of three exemplar points in a $C = 3$ class dataset.  (right panel) Exponentially normalized signed distance measurements visualized as histograms for the same three points.

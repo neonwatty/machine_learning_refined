@@ -14660,20 +14660,22 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This code cell will not be shown in the HTML version of this notebook</span>
-<span class="c1"># imports from custom library</span>
+<span class="c1"># append path for local library, data, and image import</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../../&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.gridspec</span> <span class="k">as</span> <span class="nn">gridspec</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;./chapter_8_library&#39;</span><span class="p">)</span> 
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;./chapter_8_images&#39;</span><span class="p">)</span> 
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;./chapter_8_datasets&#39;</span><span class="p">)</span> 
 
-<span class="c1"># custom libs</span>
-<span class="kn">from</span> <span class="nn">mlrefined_libraries</span> <span class="kn">import</span> <span class="n">unsupervised_library</span> <span class="k">as</span> <span class="n">unsuplib</span>
-<span class="n">datapath</span> <span class="o">=</span> <span class="s1">&#39;../../mlrefined_datasets/unsuperlearn_datasets/&#39;</span>
+<span class="c1"># standard imports</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">gridspec</span>
+<span class="kn">import</span> <span class="nn">copy</span>
 
-<span class="c1"># This is needed to compensate for matplotlib notebook&#39;s tendancy to blow up images when plotted inline</span>
-<span class="o">%</span><span class="k">matplotlib</span> notebook
+<span class="c1"># import autograd-wrapped numpy</span>
+<span class="kn">import</span> <span class="nn">autograd.numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># this is needed to compensate for matplotlib notebook&#39;s tendancy to blow up images when plotted inline</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
 <span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.autolayout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 
@@ -14797,7 +14799,7 @@ g\left(\mathbf{W},\mathbf{C}\right) = \frac{1}{P}\left \Vert \left.\left\{ \math
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <figure>
-  <img src= '../../mlrefined_images/unsupervised_images/Fig_9_3.png' width="95%" height="auto" alt=""/>
+  <img src= 'chapter_8_images/Fig_9_3.png' width="95%" height="auto" alt=""/>
   <figcaption>   
 <strong>Figure 1:</strong> <em> K-means clustering relations described in a compact matrix form. Cluster centroids in $C$ lie close to their corresponding cluster points in $X$. The $p^{th}$ column of the assignment matrix $W$ contains the standard basis vector corresponding to the data point's cluster centroid. </em>  </figcaption> 
 </figure>
