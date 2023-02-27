@@ -17,7 +17,7 @@ from scipy.spatial import ConvexHull
 # import optimizer class from same library
 from . import optimizers
 
-class Visualizer:
+class MulticlassVisualizer:
     '''
     Demonstrate multiclass logistic regression classification
     
@@ -285,8 +285,8 @@ class Visualizer:
         
         # plot contour in right panel
         C = len(np.unique(self.y))
-        ax2.contour(w1_vals,w2_vals,g_vals,colors = 'k',levels = range(-1,C),linewidths = 2.75,zorder = 4)
-        ax2.contourf(w1_vals,w2_vals,g_vals,colors = self.colors[:],alpha = 0.2,levels = range(-1,C))
+        ax2.contour(w1_vals,w2_vals,g_vals,colors = 'k',levels = range(-1,C-1),linewidths = 2.75,zorder = 4);
+        ax2.contourf(w1_vals,w2_vals,g_vals,colors = self.colors[:],alpha = 0.2,levels = range(-1,C));
         
         ### plot discrete step function ###
         # to plot the step function, plot the bottom and top steps separately - z1 and z2
@@ -308,8 +308,11 @@ class Visualizer:
                 g_copy[i] = step
             
             # reshape and plot
-            g_copy.shape = (len(r),len(r))
-            ax.plot_surface(w1_vals,w2_vals,g_copy,alpha = 0.25,color = 'w',zorder = 0,edgecolor = 'k',linewidth=0.25,cstride = 200, rstride = 200,shade=10,antialiased=True)
+            try:
+                g_copy.shape = (len(r),len(r))
+                ax.plot_surface(w1_vals,w2_vals,g_copy,alpha = 0.25,color = 'w',zorder = 0,edgecolor = 'k',linewidth=0.25,cstride = 200, rstride = 200,shade=10,antialiased=True);
+            except Exception as e: # hack for plotting - exception useful for debug mode
+                pass
 
         # plot zplane = 0 in left 3d panel - showing intersection of regressor with z = 0 (i.e., its contour, the separator, in the 3d plot too)?
         if zplane == 'on':
@@ -318,12 +321,14 @@ class Visualizer:
             
             # loop over each class and color in z-plane
             for c in class_nums:
-                # plot separator curve in left plot z plane
-                ax.contour(w1_vals,w2_vals,g_vals - c,colors = 'k',levels = [0],linewidths = 3,zorder = 1)
-                        
-                # color parts of plane with correct colors
-                ax.contourf(w1_vals,w2_vals, g_vals - 0.5 - c ,colors = self.colors[(int(c)):],alpha = 0.1,levels = range(0,2))
-                
+                try:
+                    # plot separator curve in left plot z plane
+                    ax.contour(w1_vals,w2_vals,g_vals - (c+1),colors = 'k',levels = [0],linewidths = 3,zorder = 1);
+
+                    # color parts of plane with correct colors
+                    ax.contourf(w1_vals,w2_vals, g_vals - 0.5 - c ,colors = self.colors[(int(c)):],alpha = 0.1,levels = range(0,2));
+                except Exception as e: # hack for plotting - exception useful for debug mode
+                    pass
                 
         # scatter points in 3d
         for c in range(C):
@@ -379,7 +384,7 @@ class Visualizer:
         g_count = self.counting_cost
         
         # create instance of optimizers
-        self.opt = optimizers.MyOptimizers()
+        self.opt = BasicOptimizer()
         
         # run optimizer
         big_w_hist = []
