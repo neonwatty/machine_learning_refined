@@ -1,118 +1,176 @@
 import autograd.numpy as np
+from inspect import signature
 
-'''
-A list of cost functions for supervised learning.  Use the choose_cost function
-to choose the desired cost with input data (x_in,y_in).  The aim here was to 
-create a library of cost functions while keeping things as simple as possible 
-(i.e., without the use of object oriented programming).  
-'''
-
-def choose_cost(x_in,y_in,cost,**kwargs):
-    # define x and y as globals so all cost functions are aware of them
-    global x,y
-    x = x_in
-    y = y_in
-    
-    # make any other variables not explicitly input into cost functions globally known
-    global lam
-    lam = 0
-    if 'lam' in kwargs:
-        lam = kwargs['lam']
-    
-    # make cost function choice
-    cost_func = 0
-    if cost == 'least_squares':
-        cost_func = least_squares
-    if cost == 'least_absolute_deviations':
-        cost_func = least_absolute_deviations
-    if cost == 'softmax':
-        cost_func = softmax
-    if cost == 'relu':
-        cost_func = relu
-    if cost == 'counter':
-        cost_func = counting_cost
-
-    if cost == 'multiclass_perceptron':
-        cost_func = multiclass_perceptron
-    if cost == 'multiclass_softmax':
-        cost_func = multiclass_softmax
-    if cost == 'multiclass_counter':
-        cost_func = multiclass_counting_cost
+class Setup:
+    def __init__(self,cost_name,reg_name):             
+        ### make cost function choice ###
+        # for regression
+        if cost_name == 'least_squares':
+            self.cost = self.least_squares
+        if cost_name == 'least_absolute_deviations':
+            self.cost = self.least_absolute_deviations
+            
+        # for two-class classification
+        if cost_name == 'softmax':
+            self.cost = self.softmax
+        if cost_name == 'perceptron':
+            self.cost = self.perceptron
+        if cost_name == 'twoclass_counter':
+            self.cost = self.counting_cost
+            
+        # for multiclass classification
+        if cost_name == 'multiclass_perceptron':
+            self.cost = self.multiclass_perceptron
+        if cost_name == 'multiclass_softmax':
+            self.cost = self.multiclass_softmax
+        if cost_name == 'multiclass_counter':
+            self.cost = self.multiclass_counting_cost
+            
+        # choose regularizer
+        self.lam = 0
+        if reg_name == 'L2':
+            self.reg = self.L2
+        if reg_name == 'L1':
+            self.reg = self.L1
+            
+    ### regularizers ###
+    def L1(self,w):
+         return self.lam*np.sum(np.abs(w[1:]))
+  
+    def L2(self,w):
+         return self.lam*np.sum((w[1:])**2)
         
-    return cost_func
-
-###### basic model ######
-# compute linear combination of input point
-def model(x,w):
-    a = w[0] + np.dot(x.T,w[1:])
-    return a.T
-
-###### cost functions #####
-# an implementation of the least squares cost function for linear regression
-def least_squares(w):
-    cost = np.sum((model(x,w) - y)**2)
-    return cost/float(np.size(y))
-
-# a compact least absolute deviations cost function
-def least_absolute_deviations(w):
-    cost = np.sum(np.abs(model(x,w) - y))
-    return cost/float(np.size(y))
-
-# the convex softmax cost function
-def softmax(w):
-    cost = np.sum(np.log(1 + np.exp(-y*model(x,w))))
-    return cost/float(np.size(y))
-
-# the convex relu cost function
-def relu(w):
-    cost = np.sum(np.maximum(0,-y*model(x,w)))
-    return cost/float(np.size(y))
-
-# the counting cost function
-def counting_cost(w):
-    cost = np.sum((np.sign(model(x,w)) - y)**2)
-    return 0.25*cost 
-
-# multiclass perceptron
-def multiclass_perceptron(w):        
-    # pre-compute predictions on all points
-    all_evals = model(x,w)
+    # set lambda value (regularization penalty)
+    def set_lambda(self,lam):
+        self.lam = lam
+        
+    ### setup model ###
+    def model(self,x,w):
+        a = w[0] + np.dot(x.T,w[1:])
+        return a.T
     
-    # compute maximum across data points
-    a = np.max(all_evals,axis = 0)    
+    ###### regression costs #######
+    # an implementation of the least squares cost function for linear regression
+    def least_squares(self,w,x,y,iter):
+        # get batch of points
+        x_p = x[:,iter]
+        y_p = y[:,iter]
+        
+        # compute cost
+        cost = np.sum((self.model(x_p,w) - y_p)**2)
+        
+        # add regularizer 
+        cost += self.reg(w)
+        
+        # return average
+        return cost/float(np.size(y_p))
 
-    # compute cost in compact form using numpy broadcasting
-    b = all_evals[y.astype(int).flatten(),np.arange(np.size(y))]
-    cost = np.sum(a - b)
+    # a compact least absolute deviations cost function
+    def least_absolute_deviations(self,w,x,y,iter):
+        # get batch of points
+        x_p = x[:,iter]
+        y_p = y[:,iter]
+        
+        # compute cost
+        cost = np.sum(np.abs(self.model(x_p,w) - y_p))
+        
+        # add regularizer 
+        cost += self.reg(w)
+        
+        # return average
+        return cost/float(np.size(y_p))
 
-    # return average
-    return cost/float(np.size(y))
+    ###### two-class classification costs #######
+    # the convex softmax cost function
+    def softmax(self,w,x,y,iter):
+        # get batch of points
+        x_p = x[:,iter]
+        y_p = y[:,iter]
+        
+        # compute cost over batch
+        cost = np.sum(np.log(1 + np.exp(-y_p*(self.model(x_p,w)))))
+        
+        # add regularizer 
+        cost += self.reg(w)
+        
+        # return average
+        return cost/float(np.size(y_p))
 
-# multiclass softmax
-def multiclass_softmax(w):        
-    # pre-compute predictions on all points
-    all_evals = model(x,w)
+    # the convex relu cost function
+    def relu(self,w,x,y,iter):
+        # get batch of points
+        x_p = x[:,iter]
+        y_p = y[:,iter]
+        
+        # compute cost over batch
+        cost = np.sum(np.maximum(0,-y_p*self.model(x_p,w)))
+        
+        # add regularizer 
+        cost += self.reg(w)
+        
+        # return average
+        return cost/float(np.size(y_p))
     
-    # compute softmax across data points
-    a = np.log(np.sum(np.exp(all_evals),axis = 0)) 
-    
-    # compute cost in compact form using numpy broadcasting
-    b = all_evals[y.astype(int).flatten(),np.arange(np.size(y))]
-    cost = np.sum(a - b)
+    # the counting cost function
+    def counting_cost(self,w,x,y,iter):
+        cost = np.sum(np.abs(np.sign(self.model(x,w)) - self.y))
+        return cost 
 
-    # return average
-    return cost/float(np.size(y))
+    ###### multiclass classification costs #######
+    # multiclass perceptron
+    def multiclass_perceptron(self,w,x,y,iter):
+        # get subset of points
+        x_p = x[:,iter]
+        y_p = y[:,iter]
 
-# multiclass misclassification cost function - aka the fusion rule
-def multiclass_counting_cost(w):                
-    # pre-compute predictions on all points
-    all_evals = model(x,w)
+        # pre-compute predictions on all points
+        all_evals = self.model(x_p,w)
 
-    # compute predictions of each input point
-    y_predict = (np.argmax(all_evals,axis = 0))[np.newaxis,:]
+        # compute maximum across data points
+        a =  np.max(all_evals,axis = 0)        
 
-    # compare predicted label to actual label
-    count = np.sum(np.abs(np.sign(y - y_predict)))
+        # compute cost in compact form using numpy broadcasting
+        b = all_evals[y_p.astype(int).flatten(),np.arange(np.size(y_p))]
+        cost = np.sum(a - b)
 
-    # return number of misclassifications
-    return count
+        # add regularizer 
+        cost += self.reg(w)
+        
+        # return average
+        return cost/float(np.size(y_p))
+
+    # multiclass softmax
+    def multiclass_softmax(self,w,x,y,iter):
+        # get subset of points
+        x_p = x[:,iter]
+        y_p = y[:,iter]
+        
+        # pre-compute predictions on all points
+        all_evals = self.model(x_p,w)
+
+        # compute softmax across data points
+        a = np.log(np.sum(np.exp(all_evals),axis = 0)) 
+
+        # compute cost in compact form using numpy broadcasting
+        b = all_evals[y_p.astype(int).flatten(),np.arange(np.size(y_p))]
+        cost = np.sum(a - b)
+
+        # add regularizer 
+        cost += self.reg(w)
+        
+        # return average
+        return cost/float(np.size(y_p))
+
+    # multiclass misclassification cost function - aka the fusion rule
+    def multiclass_counting_cost(self,w,x,y,iter):            
+        # pre-compute predictions on all points
+        all_evals = self.model(x,w)
+
+        # compute predictions of each input point
+        y_predict = (np.argmax(all_evals,axis = 0))[np.newaxis,:]
+
+        # compare predicted label to actual label
+        count = np.sum(np.abs(np.sign(y - y_predict)))
+
+        # return number of misclassifications
+        return count
