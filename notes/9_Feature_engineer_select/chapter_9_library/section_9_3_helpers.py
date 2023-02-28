@@ -1274,7 +1274,7 @@ class NormalizeVisualizer:
         self.cost_func = cost
         
         # make cost function choice
-        self.cost_func = 0
+#         self.cost_func = cost
         if cost == 'least_squares':
             self.cost_func = self.least_squares
         if cost == 'least_absolute_deviations':
