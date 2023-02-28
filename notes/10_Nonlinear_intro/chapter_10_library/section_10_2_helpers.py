@@ -7,13 +7,11 @@ from matplotlib import gridspec
 from inspect import signature
 from matplotlib.ticker import FormatStrFormatter
 
-# import autograd functionality
 import autograd.numpy as np
 from autograd import grad as compute_grad   
 from autograd import value_and_grad 
 from autograd import hessian as compute_hess
 from autograd.misc.flatten import flatten_func
-
 
 
 class StaticVisualizer:
