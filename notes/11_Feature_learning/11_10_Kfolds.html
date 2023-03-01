@@ -14624,7 +14624,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14632,32 +14632,29 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## This code cell will not be shown in the HTML version of this notebook</span>
-<span class="c1"># imports from custom library</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../../&#39;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">mlrefined_libraries</span> <span class="kn">import</span> <span class="n">math_optimization_library</span> <span class="k">as</span> <span class="n">optlib</span>
-<span class="kn">from</span> <span class="nn">mlrefined_libraries</span> <span class="kn">import</span> <span class="n">nonlinear_superlearn_library</span> <span class="k">as</span> <span class="n">nonlib</span>
-<span class="kn">from</span> <span class="nn">mlrefined_libraries</span> <span class="kn">import</span> <span class="n">basics_library</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This code cell will not be shown in the HTML version of this notebook</span>
+<span class="c1"># append path for local library, data, and image import</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">copy</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;./chapter_11_library&#39;</span><span class="p">)</span> 
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;./chapter_11_images&#39;</span><span class="p">)</span> 
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;./chapter_11_datasets&#39;</span><span class="p">)</span> 
 
-<span class="c1"># demos for this notebook</span>
-<span class="n">regress_plotter</span> <span class="o">=</span> <span class="n">nonlib</span><span class="o">.</span><span class="n">nonlinear_regression_demos_multiple_panels</span>
-<span class="n">classif_plotter</span> <span class="o">=</span> <span class="n">nonlib</span><span class="o">.</span><span class="n">nonlinear_classification_visualizer_multiple_panels</span>
-<span class="n">static_plotter</span> <span class="o">=</span> <span class="n">optlib</span><span class="o">.</span><span class="n">static_plotter</span><span class="o">.</span><span class="n">Visualizer</span><span class="p">()</span>
-<span class="n">basic_runner</span> <span class="o">=</span> <span class="n">nonlib</span><span class="o">.</span><span class="n">basic_runner</span>
-<span class="n">classif_plotter_crossval</span> <span class="o">=</span> <span class="n">nonlib</span><span class="o">.</span><span class="n">crossval_classification_visualizer</span>
-<span class="n">datapath</span> <span class="o">=</span> <span class="s1">&#39;../../mlrefined_datasets/nonlinear_superlearn_datasets/&#39;</span>
+<span class="c1"># image paths</span>
+<span class="n">image_path_1</span> <span class="o">=</span> <span class="s2">&quot;chapter_11_images/Figure_11_52.png&quot;</span>
+<span class="n">image_path_2</span> <span class="o">=</span> <span class="s2">&quot;chapter_11_images/Figure_11_53.png&quot;</span>
+<span class="n">image_path_3</span> <span class="o">=</span> <span class="s2">&quot;chapter_11_images/Figure_11_54.png&quot;</span>
+<span class="n">image_path_4</span> <span class="o">=</span> <span class="s2">&quot;chapter_11_images/Figure_11_55.png&quot;</span>
 
-<span class="c1"># import autograd functionality to bulid function&#39;s properly for optimizers</span>
+<span class="c1"># standard imports</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">gridspec</span>
+<span class="kn">import</span> <span class="nn">IPython</span><span class="o">,</span> <span class="nn">copy</span>
+
+<span class="c1"># import autograd-wrapped numpy</span>
 <span class="kn">import</span> <span class="nn">autograd.numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="c1"># import timer</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span> 
-<span class="kn">import</span> <span class="nn">copy</span>
-<span class="kn">import</span> <span class="nn">math</span>
-
-<span class="c1"># this is needed to compensate for %matplotlib notebook&#39;s tendancy to blow up images when plotted inline</span>
-<span class="o">%</span><span class="k">matplotlib</span> notebook
+<span class="c1"># this is needed to compensate for matplotlib notebook&#39;s tendancy to blow up images when plotted inline</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
 <span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.autolayout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 
@@ -14668,36 +14665,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ImportError</span>                               Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [1]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 7&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">mlrefined_libraries</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> math_optimization_library <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> optlib
-<span class="ansi-green-intense-fg ansi-bold">      6</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">mlrefined_libraries</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> nonlinear_superlearn_library <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> nonlib
-<span class="ansi-green-fg">----&gt; 7</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">mlrefined_libraries</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> basics_library 
-<span class="ansi-green-intense-fg ansi-bold">      9</span> <span style="color: rgb(95,135,135)"># demos for this notebook</span>
-<span class="ansi-green-intense-fg ansi-bold">     10</span> regress_plotter <span style="color: rgb(98,98,98)">=</span> nonlib<span style="color: rgb(98,98,98)">.</span>nonlinear_regression_demos_multiple_panels
-
-<span class="ansi-red-fg">ImportError</span>: cannot import name &#39;basics_library&#39; from &#39;mlrefined_libraries&#39; (/usr/src/mlr2/notes/11_Feature_learning/../../mlrefined_libraries/__init__.py)</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -14739,6 +14706,44 @@ types of universal approximators are more commonly employed with the K-folds tec
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;img src=&quot;&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">image_path_1</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39;&quot; width=&quot;80%&quot; height=&quot;auto&quot; alt=&quot;&quot;/&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<img src="chapter_11_images/Figure_11_52.png" width="80%" height="auto" alt=""/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14749,7 +14754,6 @@ types of universal approximators are more commonly employed with the K-folds tec
 <p><a id='figure-11-52'></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_52.png' width="80%"  alt=""/>
 </p>
 <figcaption> <strong>Figure: 11.52 </strong> <em> 
 Schematic illustration of K-folds cross-validation for
@@ -14838,6 +14842,44 @@ single model with the lowest *average* validation error over all folds, with thi
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;img src=&quot;&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">image_path_2</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39;&quot; width=&quot;90%&quot; height=&quot;auto&quot; alt=&quot;&quot;/&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<img src="chapter_11_images/Figure_11_53.png" width="90%" height="auto" alt=""/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14848,7 +14890,6 @@ single model with the lowest *average* validation error over all folds, with thi
 <p><a id='figure-11-53'></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_53.png' width="80%"  alt=""/>
 </p>
 <figcaption> <strong>Figure: 11.53 </strong> <em> 
 left column) The resulting $K=6$ cross-validated models, each trained on all but one point from the dataset (here the validation portion of each fold is highlighted in yellow).  (right panel) The K-fold average validation error minimizing model, a quadratic, shown in red.  See text for further details
@@ -14906,6 +14947,44 @@ left column) The resulting $K=6$ cross-validated models, each trained on all but
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;img src=&quot;&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">image_path_3</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39;&quot; width=&quot;100%&quot; height=&quot;auto&quot; alt=&quot;&quot;/&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<img src="chapter_11_images/Figure_11_54.png" width="100%" height="auto" alt=""/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14916,7 +14995,6 @@ left column) The resulting $K=6$ cross-validated models, each trained on all but
 <p><a id='figure-11-54'></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_54.png' width="90%"  alt=""/>
 </p>
 <figcaption> <strong>Figure: 11.54 </strong> <em> 
 (left panel) Two instances of overfitting by a high capacity model to a nonlinear regression dataset.  (right panel) These two models - as viewed in the \emph{feature transformed space} - are linear.  See text for further details.
@@ -14999,6 +15077,44 @@ left column) The resulting $K=6$ cross-validated models, each trained on all but
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;img src=&quot;&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">image_path_4</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39;&quot; width=&quot;90%&quot; height=&quot;auto&quot; alt=&quot;&quot;/&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<img src="chapter_11_images/Figure_11_55.png" width="90%" height="auto" alt=""/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15009,7 +15125,6 @@ left column) The resulting $K=6$ cross-validated models, each trained on all but
 <p><a id='figure-11-55'></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_55.png' width="80%"  alt=""/>
 </p>
 <figcaption> <strong>Figure: 11.55 </strong> <em> 
 Figure associated with Example 11.20. See text for details. 

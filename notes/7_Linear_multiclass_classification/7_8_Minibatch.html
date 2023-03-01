@@ -14656,7 +14656,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This code cell will not be shown in the HTML version of this notebook</span>
@@ -14669,8 +14669,16 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="c1"># import section helper</span>
 <span class="kn">import</span> <span class="nn">section_7_8_helpers</span>
 
+<span class="c1"># dataset paths</span>
+<span class="n">dataset_path_1</span> <span class="o">=</span> <span class="s2">&quot;chapter_7_datasets/MNIST_subset.pickle&quot;</span>
+
+<span class="c1"># image paths</span>
+<span class="n">image_path_1</span> <span class="o">=</span> <span class="s2">&quot;chapter_7_images/ml_stochastic.png&quot;</span>
+<span class="n">image_path_2</span> <span class="o">=</span> <span class="s2">&quot;chapter_7_images/MNIST_examples.png&quot;</span>
+
 <span class="c1"># standard imports</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">IPython</span>
 
 <span class="c1"># import autograd-wrapped numpy</span>
 <span class="kn">import</span> <span class="nn">autograd.numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -14733,6 +14741,44 @@ g_p\left(\mathbf{w}_{0}^{\,},\,...,\mathbf{w}_{C-1}^{\,}\right) =\text{log}\left
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;img src=&quot;&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">image_path_1</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39;&quot; width=&quot;100%&quot; height=&quot;auto&quot; alt=&quot;&quot;/&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<img src="chapter_7_images/ml_stochastic.png" width="100%" height="auto" alt=""/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14741,7 +14787,6 @@ g_p\left(\mathbf{w}_{0}^{\,},\,...,\mathbf{w}_{C-1}^{\,}\right) =\text{log}\left
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <figure>
-<img src= 'chapter_7_images/ml_stochastic.png' width="100%" height="auto"/>
 <figcaption> <strong>Figure 1:</strong> <em> Schematic comparison of first iteration of (top panel) full batch and (bottom) stochastic gradient descent, through the lens of machine learning using (for the sake of simplicity) a small dataset of points.  In the full batch sweep we take a step in all points *simultaneously*, whereas (bottom panel) in the mini-batch approach we sweep through these points *sequentially*.  </em>
 </figcaption>
 </figure>
@@ -14784,6 +14829,44 @@ g_p\left(\mathbf{w}_{0}^{\,},\,...,\mathbf{w}_{C-1}^{\,}\right) =\text{log}\left
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;img src=&quot;&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">image_path_2</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39;&quot; width=&quot;45%&quot; height=&quot;auto&quot; alt=&quot;&quot; class=&quot;center&quot;/&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<img src="chapter_7_images/MNIST_examples.png" width="45%" height="auto" alt="" class="center"/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14792,7 +14875,6 @@ g_p\left(\mathbf{w}_{0}^{\,},\,...,\mathbf{w}_{C-1}^{\,}\right) =\text{log}\left
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <figure>
-<img src= 'chapter_7_images/MNIST_examples.png' width="45%" height="auto"/>
 <figcaption> <strong>Figure 2:</strong> <em> An illustration of various handwritten digits in a feature space. Handwritten digit recognition is a common multiclass classification problem. The goal here is to determine regions in the feature space where current (and future) instances of each type of handwritten digit are present.</em>
 </figcaption>
 </figure>
@@ -14823,7 +14905,7 @@ g_p\left(\mathbf{w}_{0}^{\,},\,...,\mathbf{w}_{C-1}^{\,}\right) =\text{log}\left
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This code cell will not be shown in the HTML version of this notebook</span>
 <span class="c1"># load data</span>
 <span class="kn">import</span> <span class="nn">pickle</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;chapter_7_datasets/MNIST_subset.pickle&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">input_file</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dataset_path_1</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">input_file</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
     
 <span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>

@@ -14632,20 +14632,45 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## This code cell will not be shown in the HTML version of this notebook</span>
-<span class="c1"># imports from custom library</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This code cell will not be shown in the HTML version of this notebook</span>
+<span class="c1"># append path for local library, data, and image import</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../../&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">autograd.numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">mlrefined_libraries</span> <span class="kn">import</span> <span class="n">nonlinear_superlearn_library</span> <span class="k">as</span> <span class="n">nonlib</span>
-<span class="n">datapath</span> <span class="o">=</span> <span class="s1">&#39;../../mlrefined_datasets/nonlinear_superlearn_datasets/&#39;</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;./chapter_11_library&#39;</span><span class="p">)</span> 
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;./chapter_11_images&#39;</span><span class="p">)</span> 
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;./chapter_11_datasets&#39;</span><span class="p">)</span> 
 
-<span class="c1"># plotting tools</span>
+<span class="c1"># backend file</span>
+<span class="kn">import</span> <span class="nn">section_11_3_helpers</span>
+<span class="kn">import</span> <span class="nn">intro_general_library</span>
+
+<span class="c1"># data path</span>
+<span class="n">data_path_1</span> <span class="o">=</span> <span class="s1">&#39;chapter_11_datasets/noisy_sin_sample.csv&#39;</span>
+<span class="n">data_path_2</span> <span class="o">=</span> <span class="s1">&#39;chapter_11_datasets/new_circle_data.csv&#39;</span>
+
+<span class="c1"># image paths</span>
+<span class="n">image_path_1</span> <span class="o">=</span> <span class="s2">&quot;chapter_11_images/Figure_11_18.png&quot;</span>
+<span class="n">image_path_2</span> <span class="o">=</span> <span class="s2">&quot;chapter_11_images/Figure_11_21.png&quot;</span>
+<span class="n">image_path_3</span> <span class="o">=</span> <span class="s2">&quot;chapter_11_images/Figure_11_24.png&quot;</span>
+<span class="n">image_path_4</span> <span class="o">=</span> <span class="s2">&quot;chapter_11_images/Figure_11_25.png&quot;</span>
+<span class="n">image_path_5</span> <span class="o">=</span> <span class="s2">&quot;chapter_11_images/Figure_11_26.png&quot;</span>
+<span class="n">image_path_6</span> <span class="o">=</span> <span class="s2">&quot;chapter_11_images/Figure_11_27.png&quot;</span>
+
+<span class="c1"># video paths</span>
+<span class="n">video_path_1</span> <span class="o">=</span> <span class="s1">&#39;chapter_11_videos/animation_2.mp4&#39;</span>
+<span class="n">video_path_2</span> <span class="o">=</span> <span class="s1">&#39;chapter_11_videos/animation_3.mp4&#39;</span>
+<span class="n">video_path_3</span> <span class="o">=</span> <span class="s1">&#39;chapter_11_videos/animation_4.mp4&#39;</span>
+<span class="n">video_path_4</span> <span class="o">=</span> <span class="s1">&#39;chapter_11_videos/animation_5.mp4&#39;</span>
+
+<span class="c1"># standard imports</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">gridspec</span>
+<span class="kn">import</span> <span class="nn">IPython</span><span class="o">,</span> <span class="nn">copy</span>
 
-<span class="c1"># this is needed to compensate for %matplotlib notebook&#39;s tendancy to blow up images when plotted inline</span>
-<span class="o">%</span><span class="k">matplotlib</span> notebook
+<span class="c1"># import autograd-wrapped numpy</span>
+<span class="kn">import</span> <span class="nn">autograd.numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># this is needed to compensate for matplotlib notebook&#39;s tendancy to blow up images when plotted inline</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
 <span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.autolayout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 
@@ -14716,6 +14741,44 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;img src=&quot;&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">image_path_1</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39;&quot; width=&quot;90%&quot; height=&quot;auto&quot; alt=&quot;&quot;/&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<img src="chapter_11_images/Figure_11_18.png" width="90%" height="auto" alt=""/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14726,7 +14789,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <p><a id='figure-11-18'></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_18.png' width="85%"  alt=""/>
 </p>
 <figcaption> <strong>Figure: 11.18 </strong> <em> 
 (left panel) The original *near-perfect* sinusoidal dataset from Example 11.5. (right panel) A *real* regression dataset formed by adding random noise to the output of a small subset of the near-perfect dataset's points. See text for further details.
@@ -14773,6 +14835,26 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## This code cell will not be shown in the HTML version of this notebook</span>
+<span class="c1"># # produce visual comparison of different universal approximator fits</span>
+<span class="c1"># demo = section_11_3_helpers.Visualizer()</span>
+<span class="c1"># demo.load_data(data_path_1)</span>
+<span class="c1"># demo.brows_fits(video_path_1,num_elements = [v for v in range(1,21,1)],scatter = &#39;on&#39;,fps=2)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14782,17 +14864,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## This code cell will not be shown in the HTML version of this notebook</span>
-<span class="c1"># produce visual comparison of different universal approximator fits</span>
-<span class="n">demo</span> <span class="o">=</span> <span class="n">nonlib</span><span class="o">.</span><span class="n">regression_basis_comparison_2d</span><span class="o">.</span><span class="n">Visualizer</span><span class="p">()</span>
-<span class="n">csvname</span> <span class="o">=</span> <span class="n">datapath</span> <span class="o">+</span> <span class="s1">&#39;noisy_sin_sample.csv&#39;</span>
-<span class="n">demo</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">csvname</span><span class="p">)</span>
-<span class="n">demo</span><span class="o">.</span><span class="n">brows_fits</span><span class="p">(</span><span class="n">savepath</span> <span class="o">=</span> <span class="s1">&#39;videos/animation_2.mp4&#39;</span><span class="p">,</span><span class="n">num_elements</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">1</span><span class="p">)],</span><span class="n">scatter</span> <span class="o">=</span> <span class="s1">&#39;on&#39;</span><span class="p">,</span><span class="n">fps</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-
 <span class="c1"># load in video and display</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
 <span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">&lt;video width=&quot;700&quot; height=&quot;400&quot; controls loop&gt;</span>
-<span class="s2">  &lt;source src=&quot;videos/animation_2.mp4&quot; type=&quot;video/mp4&quot;&gt;</span>
+<span class="s2">  &lt;source src=&#39;&quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">video_path_1</span> <span class="o">+</span> <span class="s2">&quot;&quot;&quot;&#39; type=&quot;video/mp4&quot;&gt;</span>
 <span class="s2">  &lt;/video&gt;</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
@@ -14817,7 +14893,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 
 <video width="700" height="400" controls loop>
-  <source src="videos/animation_2.mp4" type="video/mp4">
+  <source src='chapter_11_videos/animation_2.mp4' type="video/mp4">
   </video>
 
 </div>
@@ -14852,6 +14928,26 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This code cell will not be shown in the HTML version of this notebook</span>
+<span class="c1"># # produce visual comparison of different universal approximator fits</span>
+<span class="c1"># demo2 = section_11_3_helpers.SingleVisualizer()</span>
+<span class="c1"># demo2.load_data(data_path_1)</span>
+<span class="c1"># demo2.browse_single_fit(savepath=video_path_2,basis=&#39;poly&#39;,num_units = [v for v in range(1,21,1)],fps=1)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14861,16 +14957,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This code cell will not be shown in the HTML version of this notebook</span>
-<span class="n">demo2</span> <span class="o">=</span> <span class="n">nonlib</span><span class="o">.</span><span class="n">regression_basis_single</span><span class="o">.</span><span class="n">Visualizer</span><span class="p">()</span>
-<span class="n">csvname</span> <span class="o">=</span> <span class="n">datapath</span> <span class="o">+</span> <span class="s1">&#39;noisy_sin_sample.csv&#39;</span>
-<span class="n">demo2</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">csvname</span><span class="p">)</span>
-<span class="n">demo2</span><span class="o">.</span><span class="n">browse_single_fit</span><span class="p">(</span><span class="n">savepath</span><span class="o">=</span><span class="s1">&#39;videos/animation_3.mp4&#39;</span><span class="p">,</span><span class="n">basis</span><span class="o">=</span><span class="s1">&#39;poly&#39;</span><span class="p">,</span><span class="n">num_units</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">1</span><span class="p">)],</span><span class="n">fps</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
 <span class="c1"># load in video and display</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
 <span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">&lt;video width=&quot;800&quot; height=&quot;400&quot; controls loop&gt;</span>
-<span class="s2">  &lt;source src=&quot;videos/animation_3.mp4&quot; type=&quot;video/mp4&quot;&gt;</span>
+<span class="s2">  &lt;source src=&#39;&quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">video_path_2</span> <span class="o">+</span> <span class="s2">&quot;&quot;&quot;&#39; type=&quot;video/mp4&quot;&gt;</span>
 <span class="s2">  &lt;/video&gt;</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
@@ -14895,7 +14986,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 
 <video width="800" height="400" controls loop>
-  <source src="videos/animation_3.mp4" type="video/mp4">
+  <source src='chapter_11_videos/animation_3.mp4' type="video/mp4">
   </video>
 
 </div>
@@ -14953,6 +15044,44 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;img src=&quot;&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">image_path_2</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39;&quot; width=&quot;90%&quot; height=&quot;auto&quot; alt=&quot;&quot;/&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<img src="chapter_11_images/Figure_11_21.png" width="90%" height="auto" alt=""/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14962,7 +15091,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_21.png' width="85%"  alt=""/>
 </p>
 <figcaption> <strong>Figure: 11.18 </strong> <em> 
 (left panel) The original near-perfect classification dataset from Example 11.6, with the true circular boundary used to generate the data shown in dashed black (this is the boundary we hope to recover using classification). (right panel) A real dataset formed from a noisy subset of these points. See text for further details. 
@@ -14997,33 +15125,47 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This code cell will not be shown in the HTML version of this notebook</span>
+<span class="c1"># # load in data</span>
+<span class="c1"># demo3 = section_11_3_helpers.ClassificationVisualizer(data_path_2)</span>
+
+<span class="c1"># # run approximators</span>
+<span class="c1"># demo3.runs1 = demo3.run_poly(5)</span>
+<span class="c1"># demo3.runs2 = demo3.run_net(12)</span>
+<span class="c1"># demo3.runs3 = demo3.run_trees(20)</span>
+
+<span class="c1"># # animate</span>
+<span class="c1"># frames = 5</span>
+<span class="c1"># demo3.animate_comparisons(savepath = video_path_3,frames=frames,fps=1)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This code cell will not be shown in the HTML version of this notebook</span>
-<span class="c1"># load in data</span>
-<span class="n">csvname</span> <span class="o">=</span> <span class="n">datapath</span> <span class="o">+</span> <span class="s1">&#39;new_circle_data.csv&#39;</span>
-<span class="n">demo3</span> <span class="o">=</span> <span class="n">nonlib</span><span class="o">.</span><span class="n">main_classification_comparison</span><span class="o">.</span><span class="n">Visualizer</span><span class="p">(</span><span class="n">csvname</span><span class="p">)</span>
-
-<span class="c1"># run approximators</span>
-<span class="n">demo3</span><span class="o">.</span><span class="n">runs1</span> <span class="o">=</span> <span class="n">demo3</span><span class="o">.</span><span class="n">run_poly</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">demo3</span><span class="o">.</span><span class="n">runs2</span> <span class="o">=</span> <span class="n">demo3</span><span class="o">.</span><span class="n">run_net</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">demo3</span><span class="o">.</span><span class="n">runs3</span> <span class="o">=</span> <span class="n">demo3</span><span class="o">.</span><span class="n">run_trees</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-
-<span class="c1"># animate</span>
-<span class="n">frames</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">demo3</span><span class="o">.</span><span class="n">animate_comparisons</span><span class="p">(</span><span class="n">savepath</span> <span class="o">=</span> <span class="s1">&#39;videos/animation_4.mp4&#39;</span><span class="p">,</span><span class="n">frames</span><span class="o">=</span><span class="n">frames</span><span class="p">,</span><span class="n">fps</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
 <span class="c1"># load in video and display</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
 <span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">&lt;video width=&quot;800&quot; height=&quot;400&quot; controls loop&gt;</span>
-<span class="s2">  &lt;source src=&quot;videos/animation_4.mp4&quot; type=&quot;video/mp4&quot;&gt;</span>
+<span class="s2">  &lt;source src=&#39;&quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">video_path_3</span> <span class="o">+</span> <span class="s2">&quot;&quot;&quot;&#39; type=&quot;video/mp4&quot;&gt;</span>
 <span class="s2">  &lt;/video&gt;</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
@@ -15041,14 +15183,14 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 
 <video width="800" height="400" controls loop>
-  <source src="videos/animation_4.mp4" type="video/mp4">
+  <source src='chapter_11_videos/animation_4.mp4' type="video/mp4">
   </video>
 
 </div>
@@ -15071,61 +15213,73 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This code cell will not be shown in the HTML version of this notebook</span>
+<span class="c1"># import copy</span>
+
+<span class="c1"># # the mid-point between each set of consecutive inputs along each input dimension</span>
+<span class="c1"># data = np.loadtxt(data_path_2,delimiter = &#39;,&#39;)</span>
+<span class="c1"># x = data[:-1,:]</span>
+<span class="c1"># y = data[-1:,:]</span>
+
+<span class="c1"># ### boosting ###</span>
+<span class="c1"># num_units = 6</span>
+<span class="c1"># run1 = []</span>
+<span class="c1"># for j in range(num_units):</span>
+<span class="c1">#     print (&#39;fitting &#39; + str(j + 1) + &#39; units&#39;)</span>
+    
+<span class="c1">#     # import the v1 library</span>
+<span class="c1">#     mylib1 = intro_general_library.superlearn_setup.Setup(x,y)</span>
+
+<span class="c1">#     # choose features</span>
+<span class="c1">#     mylib1.choose_features(name = &#39;multilayer_perceptron&#39;,layer_sizes = [2,j+1,1],activation = &#39;tanh&#39;)</span>
+
+<span class="c1">#     # choose normalizer</span>
+<span class="c1">#     mylib1.choose_normalizer(name = &#39;standard&#39;)</span>
+
+<span class="c1">#     # pick training set</span>
+<span class="c1">#     mylib1.make_train_valid_split(train_portion=1)</span>
+            
+<span class="c1">#     # choose cost</span>
+<span class="c1">#     mylib1.choose_cost(name = &#39;softmax&#39;)</span>
+
+<span class="c1">#     # fit an optimization</span>
+<span class="c1">#     mylib1.fit(max_its = 6000,alpha_choice = 10**(0),optimizer = &#39;gradient_descent&#39;)</span>
+
+<span class="c1">#     # add model to list</span>
+<span class="c1">#     run1.append(copy.deepcopy(mylib1))</span>
+    
+<span class="c1"># # animate the business</span>
+<span class="c1"># demo3 = section_11_3_helpers.AnimateClassificationVisualizer(data_path_2)</span>
+<span class="c1"># demo3.animate_classifications(video_path_4,run1,num_units,fps=0.5)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This code cell will not be shown in the HTML version of this notebook</span>
-<span class="kn">import</span> <span class="nn">copy</span>
-
-<span class="c1"># the mid-point between each set of consecutive inputs along each input dimension</span>
-<span class="n">csvname</span> <span class="o">=</span> <span class="n">datapath</span> <span class="o">+</span> <span class="s1">&#39;new_circle_data.csv&#39;</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">csvname</span><span class="p">,</span><span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:,:]</span>
-
-<span class="c1">### boosting ###</span>
-<span class="n">num_units</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="n">run1</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_units</span><span class="p">):</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;fitting &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; units&#39;</span><span class="p">)</span>
-    
-    <span class="c1"># import the v1 library</span>
-    <span class="n">mylib1</span> <span class="o">=</span> <span class="n">nonlib</span><span class="o">.</span><span class="n">intro_general_library</span><span class="o">.</span><span class="n">superlearn_setup</span><span class="o">.</span><span class="n">Setup</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-
-    <span class="c1"># choose features</span>
-    <span class="n">mylib1</span><span class="o">.</span><span class="n">choose_features</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;multilayer_perceptron&#39;</span><span class="p">,</span><span class="n">layer_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;tanh&#39;</span><span class="p">)</span>
-
-    <span class="c1"># choose normalizer</span>
-    <span class="n">mylib1</span><span class="o">.</span><span class="n">choose_normalizer</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;standard&#39;</span><span class="p">)</span>
-
-    <span class="c1"># pick training set</span>
-    <span class="n">mylib1</span><span class="o">.</span><span class="n">make_train_valid_split</span><span class="p">(</span><span class="n">train_portion</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-            
-    <span class="c1"># choose cost</span>
-    <span class="n">mylib1</span><span class="o">.</span><span class="n">choose_cost</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;softmax&#39;</span><span class="p">)</span>
-
-    <span class="c1"># fit an optimization</span>
-    <span class="n">mylib1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">max_its</span> <span class="o">=</span> <span class="mi">6000</span><span class="p">,</span><span class="n">alpha_choice</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="n">optimizer</span> <span class="o">=</span> <span class="s1">&#39;gradient_descent&#39;</span><span class="p">)</span>
-
-    <span class="c1"># add model to list</span>
-    <span class="n">run1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">mylib1</span><span class="p">))</span>
-    
-<span class="c1"># animate the business</span>
-<span class="n">frames</span> <span class="o">=</span> <span class="n">num_units</span>
-<span class="n">demo</span> <span class="o">=</span> <span class="n">nonlib</span><span class="o">.</span><span class="n">main_classification_animators</span><span class="o">.</span><span class="n">Visualizer</span><span class="p">(</span><span class="n">csvname</span><span class="p">)</span>
-<span class="n">savepath</span> <span class="o">=</span> <span class="s1">&#39;videos/animation_5.mp4&#39;</span>
-<span class="n">demo</span><span class="o">.</span><span class="n">animate_classifications</span><span class="p">(</span><span class="n">savepath</span><span class="p">,</span><span class="n">run1</span><span class="p">,</span><span class="n">frames</span><span class="p">,</span><span class="n">fps</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-
 <span class="c1"># load in video and display</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
 <span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">&lt;video width=&quot;800&quot; height=&quot;400&quot; controls loop&gt;</span>
-<span class="s2">  &lt;source src=&quot;videos/animation_5.mp4&quot; type=&quot;video/mp4&quot;&gt;</span>
+<span class="s2">  &lt;source src=&#39;&quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">video_path_4</span> <span class="o">+</span> <span class="s2">&quot;&quot;&quot;&#39; type=&quot;video/mp4&quot;&gt;</span>
 <span class="s2">  &lt;/video&gt;</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
@@ -15143,14 +15297,14 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 
 <video width="800" height="400" controls loop>
-  <source src="videos/animation_5.mp4" type="video/mp4">
+  <source src='chapter_11_videos/animation_5.mp4' type="video/mp4">
   </video>
 
 </div>
@@ -15234,6 +15388,44 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;img src=&quot;&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">image_path_3</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39;&quot; width=&quot;90%&quot; height=&quot;auto&quot; alt=&quot;&quot;/&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<img src="chapter_11_images/Figure_11_24.png" width="90%" height="auto" alt=""/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15244,7 +15436,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <p><a id='figure-11-24'></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_24.png' width="85%"  alt=""/>
 </p>
 <figcaption> <strong>Figure: 11.24 </strong> <em> 
 (top row) With *perfect data* if we set our optimization dial to all the way to the right, as we increase the capacity of our model by turning the capacity dial from left to right (starting all the way to the left) the corresponding representation gets better and better. (bottom row) With *real data* a similar effect occurs, however here as we turn the capacity further to the right each tuned model will tend to become more and more complex, eventually overfitting the given data. See text for further details.
@@ -15291,6 +15482,44 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;img src=&quot;&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">image_path_4</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39;&quot; width=&quot;90%&quot; height=&quot;auto&quot; alt=&quot;&quot;/&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<img src="chapter_11_images/Figure_11_25.png" width="90%" height="auto" alt=""/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15301,7 +15530,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <p><a id='figure-11-25'></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_25.png' width="85%"  alt=""/>
 </p>
 <figcaption> <strong>Figure: 11.25 </strong> <em> 
 (top row) With perfect data if we set our capacity dial all the way to the right, as we increase the amount we optimize our model by turning the optimization dial from left to right (starting all the way on the left where for simplicity we assume all model parameters are  initialized at zero) the corresponding representation gets better and better. (bottom row) With real data a similar effect occurs, but only up to a certain point where overfitting begins. See text for further details.
@@ -15365,6 +15593,44 @@ represent the underlying phenomenon generating our current data and, as a result
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;img src=&quot;&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">image_path_5</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39;&quot; width=&quot;90%&quot; height=&quot;auto&quot; alt=&quot;&quot;/&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<img src="chapter_11_images/Figure_11_26.png" width="90%" height="auto" alt=""/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15375,7 +15641,6 @@ represent the underlying phenomenon generating our current data and, as a result
 <p><a id='figure-11-26'></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_26.png' width="95%"  alt=""/>
 </p>
 <figcaption> <strong>Figure: 11.26 </strong> <em> 
 (top row) Three models for the regression dataset from Example 11.6: an underfitting model (top left panel), an overfitting model (top middle panel), and a "just right" one (top right panel). (bottom row) Three models for the two-class classification dataset from Example 11.7: an underfitting model that simply classifies everything as part of the blue class (bottom left panel), an overfitting model (bottom middle panel), and a "just right" fit (bottom right panel). See text for further details. 
@@ -15434,6 +15699,44 @@ represent the underlying phenomenon generating our current data and, as a result
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;img src=&quot;&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">image_path_6</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39;&quot; width=&quot;90%&quot; height=&quot;auto&quot; alt=&quot;&quot;/&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<img src="chapter_11_images/Figure_11_27.png" width="90%" height="auto" alt=""/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15444,7 +15747,6 @@ represent the underlying phenomenon generating our current data and, as a result
 <p><a id='figure-11-27'></a></p>
 <figure>
 <p>
-  <img src= '../../mlrefined_images/nonlinear_superlearn_images/Figure_11_27.png' width="85%"  alt=""/>
 </p>
 <figcaption> <strong>Figure: 11.27 </strong> <em> 
 Splitting the data into training and validation sets. The

@@ -14657,7 +14657,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This code cell will not be shown in the HTML version of this notebook</span>
@@ -14670,8 +14670,26 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="c1"># import section helper</span>
 <span class="kn">import</span> <span class="nn">section_8_2_helpers</span>
 
+<span class="c1"># dataset paths</span>
+<span class="n">dataset_path_1</span> <span class="o">=</span> <span class="s1">&#39;chapter_8_datasets/2d_span_data.csv&#39;</span>
+<span class="n">dataset_path_2</span> <span class="o">=</span> <span class="s1">&#39;chapter_8_datasets/3d_span_data.csv&#39;</span>
+
+<span class="c1"># image paths</span>
+<span class="n">image_path_1</span> <span class="o">=</span> <span class="s2">&quot;chapter_8_images/vector_dot_perspective.png&quot;</span>
+<span class="n">image_path_2</span> <span class="o">=</span> <span class="s2">&quot;chapter_8_images/feature_space_rep.png&quot;</span>
+<span class="n">image_path_3</span> <span class="o">=</span> <span class="s2">&quot;chapter_8_images/PCA_proj.png&quot;</span>
+<span class="n">image_path_4</span> <span class="o">=</span> <span class="s2">&quot;chapter_8_images/feature_space.png&quot;</span>
+<span class="n">image_path_5</span> <span class="o">=</span> <span class="s2">&quot;chapter_8_images/autoencoder_geometry.png&quot;</span>
+<span class="n">image_path_6</span> <span class="o">=</span> <span class="s2">&quot;chapter_8_images/vectorize.png&quot;</span>
+<span class="n">image_path_7</span> <span class="o">=</span> <span class="s2">&quot;chapter_8_images/Fig_9_9.png&quot;</span>
+<span class="n">image_path_8</span> <span class="o">=</span> <span class="s2">&quot;chapter_8_images/Fig_9_10.png&quot;</span>
+
+<span class="c1"># video paths</span>
+<span class="n">video_path_1</span> <span class="o">=</span> <span class="s1">&#39;chapter_8_videos/animation_1.mp4&#39;</span>
+
 <span class="c1"># standard imports</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">IPython</span>
 
 <span class="c1"># import autograd-wrapped numpy</span>
 <span class="kn">import</span> <span class="nn">autograd.numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -14713,6 +14731,44 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;img src=&quot;&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">image_path_1</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39;&quot; width=&quot;100%&quot; height=&quot;auto&quot; alt=&quot;&quot;/&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<img src="chapter_8_images/vector_dot_perspective.png" width="100%" height="auto" alt=""/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14721,7 +14777,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <figure>
-  <img src= 'chapter_8_images/vector_dot_perspective.png' width="110%"  height="auto" alt=""/>
   <figcaption>   
 <strong>Figure 1:</strong> <em> (left) vectors as points. (middle) vectors as arrows. (right) some vectors shown as dots, others as arrows.  Those shown as arrows are a *basis or spanning set* over which we aim to represent the other vectors. </em>  </figcaption> 
 </figure>
@@ -14813,6 +14868,44 @@ w_{n,\,p} = x_{n,\,p}
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;img src=&quot;&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">image_path_2</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39;&quot; width=&quot;110%&quot; height=&quot;auto&quot; alt=&quot;&quot;/&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<img src="chapter_8_images/feature_space_rep.png" width="110%" height="auto" alt=""/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14902,7 +14995,7 @@ w_{1,\,p}\mathbf{c}_1 + w_{2,\,p}\mathbf{c}_2 = \mathbf{x}_p
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This code cell will not be shown in the HTML version of this notebook</span>
 <span class="c1"># animate a two-dimensional spanning set ranging over a coarse set of points in the space</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
-<span class="n">savepath</span> <span class="o">=</span> <span class="s1">&#39;chapter_8_videos/animation_1.mp4&#39;</span>
+<span class="n">savepath</span> <span class="o">=</span> <span class="n">video_path_1</span>
 <span class="n">section_8_2_helpers</span><span class="o">.</span><span class="n">perfect_visualize_transform</span><span class="p">(</span><span class="n">savepath</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">num_frames</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span><span class="n">fps</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
@@ -14924,7 +15017,7 @@ w_{1,\,p}\mathbf{c}_1 + w_{2,\,p}\mathbf{c}_2 = \mathbf{x}_p
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
 <span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">&lt;video width=&quot;1000&quot; height=&quot;400&quot; controls loop&gt;</span>
-<span class="s2">  &lt;source src=&quot;chapter_8_videos/animation_1.mp4&quot; type=&quot;video/mp4&quot;&gt;</span>
+<span class="s2">  &lt;source src=&#39;&quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">video_path_1</span> <span class="o">+</span> <span class="s2">&quot;&quot;&quot;&#39; type=&quot;video/mp4&quot;&gt;</span>
 <span class="s2">  &lt;/video&gt;</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
@@ -14993,7 +15086,7 @@ w_{1,\,p}\mathbf{c}_1 + w_{2,\,p}\mathbf{c}_2 = \mathbf{x}_p
     <span class="k">return</span> <span class="n">X_normalized</span>
 
 <span class="c1"># load in dataset to perform PCA on</span>
-<span class="n">X_original</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;chapter_8_datasets/2d_span_data.csv&#39;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">X_original</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">dataset_path_1</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
 
 <span class="c1"># center data</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">center</span><span class="p">(</span><span class="n">X_original</span><span class="p">)</span>
@@ -15324,6 +15417,44 @@ g\left(\mathbf{w}_1,...,\mathbf{w}_P\right) = \frac{1}{P}\sum_{p = 1}^P \left \V
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;img src=&quot;&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">image_path_3</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39;&quot; width=&quot;120%&quot; height=&quot;auto&quot; alt=&quot;&quot;/&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<img src="chapter_8_images/PCA_proj.png" width="120%" height="auto" alt=""/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15332,7 +15463,6 @@ g\left(\mathbf{w}_1,...,\mathbf{w}_P\right) = \frac{1}{P}\sum_{p = 1}^P \left \V
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <figure>
-  <img src= 'chapter_8_images/PCA_proj.png' width="120%"  height="auto" alt=""/>
   <figcaption>   
 <strong>Figure 3:</strong> <em> (left top) An example of data in $N = 2$ dimensions projected onto a $K=1$ dimensional subspace. (right top) An example of data projected in $N = 3$ dimensional space projected onto a $K=2$ dimensional subspace.  </em>  </figcaption> 
 </figure>
@@ -15405,6 +15535,44 @@ g\left(w_{1,\,p},...w_{K,\,p}\right) = \left(\sum_{n=1}^K \mathbf{c}_n w_{n,\,p}
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;img src=&quot;&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">image_path_4</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39;&quot; width=&quot;85%&quot; height=&quot;auto&quot; alt=&quot;&quot;/&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<img src="chapter_8_images/feature_space.png" width="85%" height="auto" alt=""/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15413,7 +15581,6 @@ g\left(w_{1,\,p},...w_{K,\,p}\right) = \left(\sum_{n=1}^K \mathbf{c}_n w_{n,\,p}
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <figure>
-  <img src= 'chapter_8_images/feature_space.png' width="85%"  height="auto" alt=""/>
   <figcaption>   
 <strong>Figure 4:</strong> <em> 
 (left panel)A dataset of points $\mathbf{x}_p$ in $N=3$ dimensions.  The linear subspace spanned of two vectors $\mathbf{c}_1$ and $\mathbf{c}_2$ is shown in red.   (middel panel) The encoding space spanned by $\mathbf{c}_1$ and $\mathbf{c}_2$, where our encoded vectors live e.g., $\mathbf{w}_p$ is the encoded version of $\mathbf{x}_p$.   (right panel)  The projected or *decoded* versions of each data point $\mathbf{x}_p$ shown in the subspace spanned by $\mathbf{C} = 
@@ -15439,6 +15606,44 @@ g\left(w_{1,\,p},...w_{K,\,p}\right) = \left(\sum_{n=1}^K \mathbf{c}_n w_{n,\,p}
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;img src=&quot;&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">image_path_5</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39;&quot; width=&quot;85%&quot; height=&quot;auto&quot; alt=&quot;&quot;/&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<img src="chapter_8_images/autoencoder_geometry.png" width="85%" height="auto" alt=""/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15447,7 +15652,6 @@ g\left(w_{1,\,p},...w_{K,\,p}\right) = \left(\sum_{n=1}^K \mathbf{c}_n w_{n,\,p}
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <figure>
-  <img src= 'chapter_8_images/autoencoder_geometry.png' width="95%" height="auto" alt=""/>
   <figcaption>   
 <strong>Figure 5:</strong> <em> 
 The geometry of projecting a point $\mathbf{x}$ onto a basis of orthogonal vectors, shown when using $K = 1$ vectors in the left panel and $K = 2$ in the right.  (left panel) The general projection (or decoding) of a point $\mathbf{x}$ onto a single basis vector $\mathbf{c}$ simplifies from $\mathbf{c}\frac{\mathbf{c}^T\mathbf{x}}{\mathbf{c}^T\mathbf{c}}$ to just $\mathbf{c}\mathbf{c}^T\mathbf{x}$ when $\mathbf{c}$ is orthogonal. This decoded point - living in the space spanned by $\mathbf{c}$ - is the point on $\mathbf{c}$ that lies closest to $\mathbf{x}$ and so minimizes the distance $\left\Vert \mathbf{c}\mathbf{c}^T\mathbf{x} - \mathbf{x}\right\Vert_2$.  (right panel)  The analogous scenario with two orthogonal vectors.  The projection / decoding of a point $\mathbf{x}$ over two orthogonal basis vectors $\mathbf{C} = 
@@ -15564,7 +15768,7 @@ The geometry of projecting a point $\mathbf{x}$ onto a basis of orthogonal vecto
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This code cell will not be shown in the HTML version of this notebook</span>
 <span class="c1"># load in dataset to perform PCA on</span>
-<span class="n">X_original</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;chapter_8_datasets/3d_span_data.csv&#39;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">X_original</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">dataset_path_2</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
 
 <span class="c1"># center data</span>
 <span class="n">X_centered</span> <span class="o">=</span> <span class="n">center</span><span class="p">(</span><span class="n">X_original</span><span class="p">)</span>
@@ -15633,6 +15837,44 @@ class="
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;img src=&quot;&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">image_path_6</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39;&quot; width=&quot;110%&quot; height=&quot;auto&quot; alt=&quot;&quot;/&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<img src="chapter_8_images/vectorize.png" width="110%" height="auto" alt=""/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15641,7 +15883,6 @@ class="
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <figure>
-  <img src= 'chapter_8_images/vectorize.png' width="110%" height="auto" alt=""/>
   <figcaption>   
 <strong>Figure 6:</strong> <em> In a prototypical image compression scheme the input image is cut into $8 \times 8$ blocks. Each block is then vectorized to make a $64 \times 1$ column vector $y$ which will be input to the compression algorithm.
   </em>  </figcaption> 
@@ -15662,6 +15903,44 @@ class="
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;img src=&quot;&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">image_path_7</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39;&quot; width=&quot;75%&quot; height=&quot;auto&quot; alt=&quot;&quot;/&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<img src="chapter_8_images/Fig_9_9.png" width="75%" height="auto" alt=""/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15670,7 +15949,6 @@ class="
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <figure>
-  <img src= 'chapter_8_images/Fig_9_9.png' width="75%" height="auto" alt=""/>
   <figcaption>   
 <strong>Figure 7:</strong> <em>(left) The set of $64$ DCT basis elements used for compression of $8 \times 8$ image blocks. For visualization purposes pixel values in each basis patch are gray-coded so that white and black colors correspond to the minimum and maximum value in that patch, respectively. (right) The set of $64$ standard basis elements, each having only one nonzero entry. Pixel values are gray-coded so that white and black colors correspond to entry values of $1$ and $0$, respectively. Most natural image blocks can be approximated as a linear combination of just a few DCT basis elements while the same cannot be said of the standard basis.
  </em>  </figcaption> 
@@ -15717,6 +15995,44 @@ class="
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;img src=&quot;&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">image_path_8</span> <span class="o">+</span> <span class="s1">&#39;&#39;&#39;&quot; width=&quot;90%&quot; height=&quot;auto&quot; alt=&quot;&quot;/&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<img src="chapter_8_images/Fig_9_10.png" width="90%" height="auto" alt=""/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15725,7 +16041,6 @@ class="
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <figure>
-  <img src= 'chapter_8_images/Fig_9_10.png' width="90%" height="auto" alt=""/>
   <figcaption>   
 <strong>Figure 8:</strong> <em> From left to right, the original $256 \times 256$ input image along with its three decoded / compressed versions where we keep only the largest $20\%$, $5\%$, and $1\%$ of the DCT coefficients to represent the image, resulting in compression by a factor of $5$, $20$, and $100$, respectively. Although, as expected, the visual quality deteriorates as the compression factor increases, the $1\%$ image still captures a considerable amount of information. This example is a testament to the efficiency of DCT basis in representing natural image data.
  </em>  </figcaption> 

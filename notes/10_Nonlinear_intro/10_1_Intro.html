@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Introduction</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>10_1_Intro</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14597,7 +14597,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Chapter-13:-Multi-layer-Perceptrons">Chapter 13: Multi-layer Perceptrons<a class="anchor-link" href="#Chapter-13:-Multi-layer-Perceptrons">&#182;</a></h2>
+<h2 id="Chapter-10:-Nonlinear-Learning-and-Feature-Engineering">Chapter 10: Nonlinear Learning and Feature Engineering<a class="anchor-link" href="#Chapter-10:-Nonlinear-Learning-and-Feature-Engineering">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -14608,7 +14608,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="13.1-Introduction">13.1 Introduction<a class="anchor-link" href="#13.1-Introduction">&#182;</a></h1>
+<h1 id="10.1-Introduction">10.1 Introduction<a class="anchor-link" href="#10.1-Introduction">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -14619,7 +14619,111 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>As we first saw in Section 11.1 single layer neural networks, unlike polynomials and other fixed-shape approximators, have internal parameters that allow each of their units to take on a variety of shapes.  In this Chapter we expand on that introduction extensively, discussing multi-layer neural networks, also referred to as multi-layer perceptrons, feedforward neural networks, or fully connected networks.</p>
+<h2 id="10.1.1-Mathematical,-algorithmic,-and-empirical-functions">10.1.1 Mathematical, algorithmic, and empirical functions<a class="anchor-link" href="#10.1.1-Mathematical,-algorithmic,-and-empirical-functions">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Throughout this text we have often used the word <em>function</em> to refer to mathematical formulae like that of a line, a quadratic, a logistic sigmoid, etc. Such formulae are often called <em>mathematical functions</em> as well, hence our use of the phrase 'function' to refer to them.  However the word 'function' is a much more general term, and broadly encompasses any rule or set of rules for assigning or transforming some kind of 'input' into some kind of 'output'.  For example a recipe for chocolate cake is an example of a function, that is a set of rules for how to take certain inputs - like eggs, flour, sugar, cocoa powder, etc., - and transform them into an 'output' chocolate cake.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Another very common type of function is an <em>algorithm</em>, or one that is naturally expressed programaticaly (that is, in code).  A classic example of an <em>algorithmic function</em> is a basic <em>sorting scheme</em>.  Sorting schemes take in <em>input</em>  lists of numbers like the following</p>
+\begin{equation}
+[18,25,10,33,16,75,50,14]
+\end{equation}<p>and return as <em>output</em> its sorted version</p>
+\begin{equation}
+[10, 14, 16, 18, 25, 33, 50, 75].
+\end{equation}<p>Such a function is easy to express as code, and not so much in mathematical formulae.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We have also seen a variety of algorithmic functions in prior Chapters.  For example <em>gradient descent</em> which (see Section 3.5) is an algorithmic function that takes in various inputs - a mathematical function to minimize, an initial point, a steplength, and a maximum number of steps to take - and returns certain outputs (e.g., a history of descent steps).  The process of building a Bag of Words histogram - as detailed at a high level in Section 9.1 - is another an example of an algorithmic function.  Here the input, raw text, is transformed into a numerical histogram representing counts of the words the input contains.  Such a function is much more easily detailed programatically, in code, than it is mathematically, using formulae.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Data is the third sort of function we deal with regularly - each instance of which we refer to as an <em>emprical function</em>.  The generic set of supervised learning data which we often denote by $\left\{\mathbf{x}_p,y_p\right\}_{p=1}^P$ always defines a trivial rule for assigning input to output: pairing.  The input $\mathbf{x}_p$ is simply paired with its output $y_p$.  This perahps can be more easily see by listing off each data pair in a table, as shown below.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<br>
+<table>
+    <thead style="background-color: #eee;">
+        <tr>
+            <th>input: &nbsp;$\mathbf{x}_p$</th>
+            <th>output: &nbsp;$y_p$</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="centered">$\mathbf{x}_1$</td>
+            <td class="centered">$y_1$</td>
+        </tr>
+        <tr>
+            <td class="centered">$\mathbf{x}_2$</td>
+            <td class="centered">$y_2$</td>
+        </tr>
+        <tr>
+            <td class="centered">$\vdots$</td>
+            <td class="centered">$\vdots$</td>
+        </tr>
+        <tr>
+            <td class="centered">$\mathbf{x}_P$</td>
+            <td class="centered">$y_P$</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>These three categories of functions - <em>mathematical</em>, <em>algorithmic</em>, and <em>empircal</em> - are not mutually exclusive by any means.  For example, we can write down the formula of a line (a mathematical function) and implement it in code (an algorithmic function).  To visualize this line we can plug in a fine range of inputs into our implementation (an algorithmic function), producing a corresponding set of outputs, and plot the input/output pairs (an empircal dataset).</p>
 
 </div>
 </div>
