@@ -376,7 +376,7 @@ class OvaVsualizer:
     # show data
     def show_dataset(self):
         # initialize figure
-        fig = plt.figure(figsize = (8,4))
+        fig = plt.figure(figsize = (17,6))
         artist = fig
         gs = gridspec.GridSpec(1, 3,width_ratios = [1,3,1]) 
 
@@ -409,7 +409,7 @@ class OvaVsualizer:
         maxx += gapx
         
         # initialize figure
-        fig = plt.figure(figsize = (8,4))
+        fig = plt.figure(figsize = (17,6))
         artist = fig
         gs = gridspec.GridSpec(1, 3,width_ratios = [1,3,1]) 
 
@@ -438,7 +438,7 @@ class OvaVsualizer:
         maxx += gapx
         
         # initialize figure
-        fig = plt.figure(figsize = (8,4))
+        fig = plt.figure(figsize = (17,6))
         gs = gridspec.GridSpec(1, 2,width_ratios = [1,1]) 
 
         # setup current axis
@@ -490,7 +490,7 @@ class OvaVsualizer:
         maxx += gapx
         
         # initialize figure
-        fig = plt.figure(figsize = (8,4))
+        fig = plt.figure(figsize = (17,6))
         gs = gridspec.GridSpec(1, 2,width_ratios = [1,1]) 
 
         # setup current axis
@@ -801,7 +801,7 @@ class OvaVsualizer:
         self.W = w_hist[-1]
         
         # initialize figure
-        fig = plt.figure(figsize = (9,4))
+        fig = plt.figure(figsize = (17,6))
         gs = gridspec.GridSpec(1, 2,width_ratios = [1.5,1]) 
             
         # setup current axis

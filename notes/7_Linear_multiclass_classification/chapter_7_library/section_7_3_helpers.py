@@ -251,7 +251,7 @@ class MulticlassVisualizer(BasicOptimizer):
     # show data
     def show_dataset(self):
         # initialize figure
-        fig = plt.figure(figsize = (8,4))
+        fig = plt.figure(figsize = (17,6))
         artist = fig
         gs = gridspec.GridSpec(1, 3,width_ratios = [1,3,1]) 
 
@@ -290,7 +290,7 @@ class MulticlassVisualizer(BasicOptimizer):
         self.W = w_hist[-1]
         
         # initialize figure
-        fig = plt.figure(figsize = (9,4))
+        fig = plt.figure(figsize = (10,5))
         
         show_cost = False
         if 'show_cost' in kwargs:
@@ -416,7 +416,7 @@ class MulticlassVisualizer(BasicOptimizer):
         self.W = w_hist[-1]
         
         # initialize figure
-        fig = plt.figure(figsize = (9,4))
+        fig = plt.figure(figsize = (17,6))
         gs = gridspec.GridSpec(1, 2,width_ratios = [1.5,1]) 
             
         # setup current axis
@@ -577,7 +577,7 @@ class MulticlassVisualizer(BasicOptimizer):
             
         ##### setup figure to plot #####
         # initialize figure
-        fig = plt.figure(figsize = (8,4))
+        fig = plt.figure(figsize = (17,6))
         artist = fig
         
         # create subplot with 3 panels, plot input function in center plot
