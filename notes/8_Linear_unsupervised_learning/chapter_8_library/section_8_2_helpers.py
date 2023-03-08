@@ -332,7 +332,7 @@ def perfect_visualize_transform_static(C,**kwargs):
     vec2copy.shape = (len(vec2copy),1)
      
     # renderer    
-    fig = plt.figure(figsize = (10,4))
+    fig = plt.figure(figsize = (15,5))
     artist = fig
     
     # create subplot with 3 panels, plot input function in center plot
@@ -503,7 +503,7 @@ def plot_hyperplane(data,slopes,ax):
     
 def project_data_from_3d_to_2d(X,C,view):
     # create plotting panel
-    fig = plt.figure(figsize = (10,4))
+    fig = plt.figure(figsize = (15,5))
 
     # create subplot with 3 panels, plot input function in center plot
     gs = gridspec.GridSpec(1, 3, width_ratios=[1.5,1,1.5]) 
