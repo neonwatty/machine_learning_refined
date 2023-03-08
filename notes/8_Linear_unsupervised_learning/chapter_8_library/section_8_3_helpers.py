@@ -15,7 +15,7 @@ from autograd.misc.flatten import flatten_func
 
 def pca_visualizer(X,W,pcs):
     # renderer    
-    fig = plt.figure(figsize = (10,5))
+    fig = plt.figure(figsize = (15,5))
     
     # create subplot with 3 panels, plot input function in center plot
     gs = gridspec.GridSpec(1, 2) 
@@ -132,7 +132,7 @@ def plot_hyperplane(data,slopes,ax):
 def project_data_from_3d_to_2d(X,C,view):
 
     # create plotting panel
-    fig = plt.figure(figsize = (10,4))
+    fig = plt.figure(figsize = (15,4))
 
     # create subplot with 3 panels, plot input function in center plot
     gs = gridspec.GridSpec(1, 3, width_ratios=[1.5,1,1.5]) 
@@ -226,7 +226,7 @@ def visual_comparison(x,weights):
     num_runs = np.ndim(weights)
     
     # plot data
-    fig = plt.figure(figsize = (10,4))
+    fig = plt.figure(figsize = (15,4))
     gs = gridspec.GridSpec(1, num_runs) 
     for run in range(num_runs):
         # create subplot
@@ -303,7 +303,7 @@ def perfect_visualize_transform_static(C,**kwargs):
     vec2copy.shape = (len(vec2copy),1)
      
     # renderer    
-    fig = plt.figure(figsize = (10,4))
+    fig = plt.figure(figsize = (15,4))
     artist = fig
     
     # create subplot with 3 panels, plot input function in center plot
@@ -420,7 +420,7 @@ def plot_cost_histories(histories,start,**kwargs):
     colors = ['k','magenta','aqua','blueviolet','chocolate']
 
     # initialize figure
-    fig = plt.figure(figsize = (10,3))
+    fig = plt.figure(figsize = (15,4))
 
     # create subplot with 1 panel
     gs = gridspec.GridSpec(1, 1) 

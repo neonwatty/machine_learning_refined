@@ -26,7 +26,7 @@ def compare_histories(histories,**kwargs):
 
     ##### setup figure to plot #####
     # initialize figure
-    fig = plt.figure(figsize = (7,3))
+    fig = plt.figure(figsize = (15,4))
 
     # create subplot with 3 panels, plot input function in center plot
     gs = gridspec.GridSpec(1, 1) 
@@ -55,7 +55,7 @@ def plot_cost_histories(histories,start,**kwargs):
     colors = ['k','magenta','aqua','blueviolet','chocolate']
 
     # initialize figure
-    fig = plt.figure(figsize = (10,3))
+    fig = plt.figure(figsize = (15,4))
 
     # create subplot with 1 panel
     gs = gridspec.GridSpec(1, 1) 
