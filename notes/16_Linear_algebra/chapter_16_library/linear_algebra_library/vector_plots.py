@@ -13,7 +13,7 @@ def single_plot(vec1,**kwargs):
         guides = kwargs['guides']
     
     # create figure
-    fig = plt.figure(figsize = (12,4))
+    fig = plt.figure(figsize = (15,5))
 
     # create subplot with 2 panels
     gs = gridspec.GridSpec(1, 2, width_ratios=[1, 1]) 
@@ -73,7 +73,7 @@ def vector_add_plot(vec1,vec2):
     # renderer
     plt.style.use('ggplot')
     
-    fig = plt.figure(figsize = (12,4))
+    fig = plt.figure(figsize = (15,5))
 
     # create subplot with 3 panels, plot input function in center plot
     gs = gridspec.GridSpec(1, 3, width_ratios=[1,3, 1]) 
@@ -131,7 +131,7 @@ def vector_add_plot(vec1,vec2):
 # simple plot of 2d vector linear combination / paralellagram law
 def vector_linear_combination_plot(vec1, vec2, alpha1, alpha2):     
     # renderer
-    fig = plt.figure(figsize = (12,4))
+    fig = plt.figure(figsize = (15,5))
 
     # create subplot with 3 panels, plot input function in center plot
     gs = gridspec.GridSpec(1, 3, width_ratios=[1,3, 1]) 
