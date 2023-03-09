@@ -51,7 +51,7 @@ def show_encode_decode(x,wrapper,**kwargs):
     w_best = weight_history[ind]
 
     ###### figure 1 - original data, encoded data, decoded data ######
-    fig = plt.figure(figsize = (10,3))
+    fig = plt.figure(figsize = (15,10))
     gs = gridspec.GridSpec(1, 3) 
     ax1 = plt.subplot(gs[0],aspect = 'equal'); 
     ax2 = plt.subplot(gs[1],aspect = 'equal'); 
@@ -117,7 +117,7 @@ def show_encode_decode(x,wrapper,**kwargs):
         
     ##### bottom panels - plot subspace and quiver plot of projections ####
     if projmap == True:
-        fig = plt.figure(figsize = (10,4))
+        fig = plt.figure(figsize = (10,10))
         gs = gridspec.GridSpec(1, 1) 
         ax1 = plt.subplot(gs[0],aspect = 'equal'); 
         ax1.scatter(p[0,:],p[1,:],c = 'r',s = 9.5)

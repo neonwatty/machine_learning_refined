@@ -1,4 +1,6 @@
 import autograd.numpy as np
+from matplotlib.axes._axes import _log as matplotlib_axes_logger
+matplotlib_axes_logger.setLevel('ERROR')
 
 class Setup:
     def __init__(self,name,**kwargs):                    

@@ -383,7 +383,7 @@ class ClassificationVisualizer:
     ###### plot plotting functions ######
     def plot_data(self):
         # construct figure
-        fig, axs = plt.subplots(1, 3, figsize=(9,4))
+        fig, axs = plt.subplots(1, 3, figsize=(14,4))
 
         # create subplot with 2 panels
         gs = gridspec.GridSpec(1, 3, width_ratios=[1,5,1]) 
@@ -405,7 +405,7 @@ class ClassificationVisualizer:
     # plot regression fits
     def plot_fit(self,w,model,**kwargs):        
         # construct figure
-        fig = plt.figure(figsize=(9,4))
+        fig = plt.figure(figsize=(14,4))
 
         # create subplot with 2 panels
         gs = gridspec.GridSpec(1, 3, width_ratios=[1,5,1]) 
@@ -442,7 +442,7 @@ class ClassificationVisualizer:
     # plot regression fits
     def plot_fit_and_feature_space(self,w,model,feat,**kwargs):        
         # construct figure
-        fig = plt.figure(figsize=(9,4))
+        fig = plt.figure(figsize=(14,4))
 
         # create subplot with 2 panels
         gs = gridspec.GridSpec(1, 2, width_ratios=[1,1]) 
@@ -681,7 +681,7 @@ class NonlinearVisualizer:
         self.w = w_best
         
         # initialize figure
-        fig = plt.figure(figsize = (9,4))
+        fig = plt.figure(figsize = (15,5))
         
         show_cost = False
         if show_cost == True:   
@@ -1034,7 +1034,7 @@ class NonlinearVisualizer:
         self.w = w_best
 
         # construct figure
-        fig, axs = plt.subplots(1, 2, figsize=(9,4))
+        fig, axs = plt.subplots(1, 2, figsize=(14,4))
 
         # create subplot with 2 panels
         gs = gridspec.GridSpec(1, 2) 
@@ -1303,7 +1303,7 @@ class NonlinearVisualizer:
         g_vals.shape = (len(r),len(r))
 
         # create figure to plot
-        fig = plt.figure(num=None, figsize=(12,4), dpi=80, facecolor='w', edgecolor='k')
+        fig = plt.figure(num=None, figsize=(15,5), dpi=80, facecolor='w', edgecolor='k')
 
         ### create 3d plot in left panel
         #ax1 = plt.subplot(121,projection = '3d')

@@ -1,11 +1,12 @@
-from matplotlib.axes._axes import _log as matplotlib_axes_logger
-matplotlib_axes_logger.setLevel('ERROR')
 import autograd.numpy as np
 from . import unsuper_optimizers 
 from . import unsuper_cost_functions
 from . import normalizers
 from . import multilayer_perceptron
 from . import history_plotters
+
+from matplotlib.axes._axes import _log as matplotlib_axes_logger
+matplotlib_axes_logger.setLevel('ERROR')
 
 class Setup:
     def __init__(self,X,**kwargs):

@@ -6,6 +6,8 @@ from mpl_toolkits.mplot3d import proj3d
 from matplotlib.patches import FancyArrowPatch
 from matplotlib.text import Annotation
 from mpl_toolkits.mplot3d.proj3d import proj_transform
+from matplotlib.axes._axes import _log as matplotlib_axes_logger
+matplotlib_axes_logger.setLevel('ERROR')
 
 import autograd.numpy as np
 from autograd import value_and_grad 
@@ -165,7 +167,7 @@ def show_encode_decode(x,cost_history,weight_history,**kwargs):
         num_params = np.ndim(w_best) - 1
 
     ###### figure 1 - original data, encoded data, decoded data ######
-    fig = plt.figure(figsize = (10,4))
+    fig = plt.figure(figsize = (15,10))
     gs = gridspec.GridSpec(1, 3) 
     ax1 = plt.subplot(gs[0],aspect = 'equal'); 
     ax2 = plt.subplot(gs[1],aspect = 'equal'); 
@@ -265,7 +267,7 @@ def show_encode_decode(x,cost_history,weight_history,**kwargs):
         
     ##### bottom panels - plot subspace and quiver plot of projections ####
     if projmap == True:
-        fig = plt.figure(figsize = (10,4))
+        fig = plt.figure(figsize = (15,15))
         gs = gridspec.GridSpec(1, 1) 
         ax1 = plt.subplot(gs[0],aspect = 'equal'); 
         ax1.scatter(p[0,:],p[1,:],c = 'r',s = 9.5)

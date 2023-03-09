@@ -199,7 +199,7 @@ class StaticVisualizer:
             onerun_perplot = kwargs['onerun_perplot']
             
         ### initialize figure
-        fig = plt.figure(figsize = (9,4))
+        fig = plt.figure(figsize = (15,5))
         artist = fig
         
         # remove whitespace from figure
@@ -280,7 +280,7 @@ class StaticVisualizer:
             
         ##### construct figure with panels #####
         # construct figure
-        fig = plt.figure(figsize = (11,5))
+        fig = plt.figure(figsize = (15,5))
 
         # create subplot with 3 panels, plot input function in center plot
         # this seems to be the best option for whitespace management when using
@@ -309,7 +309,7 @@ class StaticVisualizer:
     def two_input_contour_plot(self,g,w_hist,**kwargs):
         ##### construct figure with panels #####
         # construct figure
-        fig = plt.figure(figsize = (10,4.5))
+        fig = plt.figure(figsize = (15,5))
         
         # show original contour function as well?
         show_original = True
@@ -343,7 +343,7 @@ class StaticVisualizer:
     def compare_runs_contour_plots(self,g,weight_histories,**kwargs):
         ##### construct figure with panels #####
         # construct figure
-        fig = plt.figure(figsize = (10,4.5))
+        fig = plt.figure(figsize = (15,5))
          
         # create figure with single plot for contour
         gs = gridspec.GridSpec(1, 2) 
@@ -373,7 +373,7 @@ class StaticVisualizer:
         colors = ['k','magenta','springgreen','blueviolet','chocolate']
         
         # initialize figure
-        fig = plt.figure(figsize = (10,3))
+        fig = plt.figure(figsize = (15,5))
 
         # create subplot with 1 panel
         gs = gridspec.GridSpec(1, 1) 
@@ -674,7 +674,7 @@ class RegressionVisualizer(StaticVisualizer):
         
         ##### setup figure to plot #####
         # initialize figure
-        fig = plt.figure(figsize = (8,3))
+        fig = plt.figure(figsize = (15,5))
         artist = fig
         
         # create subplot with 3 panels, plot input function in center plot
@@ -802,7 +802,7 @@ class RegressionVisualizer(StaticVisualizer):
         
         ##### setup figure to plot #####
         # initialize figure
-        fig = plt.figure(figsize = (8,3))
+        fig = plt.figure(figsize = (15,5))
         artist = fig
         
         # create subplot with 3 panels, plot input function in center plot
@@ -970,7 +970,7 @@ class RegressionVisualizer(StaticVisualizer):
     ###### plot plotting functions ######
     def plot_data(self):
         # construct figure
-        fig, axs = plt.subplots(1, 3, figsize=(9,4))
+        fig, axs = plt.subplots(1, 3, figsize=(15,4))
 
         # create subplot with 2 panels
         gs = gridspec.GridSpec(1, 3, width_ratios=[1,5,1]) 
@@ -986,7 +986,7 @@ class RegressionVisualizer(StaticVisualizer):
         
     def plot_regression_fits(self,final_weights):
         # construct figure
-        fig, axs = plt.subplots(1, 3, figsize=(8,3))
+        fig, axs = plt.subplots(1, 3, figsize=(15,5))
 
         # create subplot with 2 panels
         gs = gridspec.GridSpec(1, 3, width_ratios=[1,2,1]) 
@@ -1004,7 +1004,7 @@ class RegressionVisualizer(StaticVisualizer):
     # plot regression fits
     def plot_fit(self,plotting_weights,**kwargs):
         # construct figure
-        fig, axs = plt.subplots(1, 3, figsize=(9,4))
+        fig, axs = plt.subplots(1, 3, figsize=(15,5))
 
         # create subplot with 2 panels
         gs = gridspec.GridSpec(1, 3, width_ratios=[1,5,1]) 
@@ -1143,7 +1143,7 @@ class RegressionVisualizer(StaticVisualizer):
     ###### function plotting functions #######
     def plot_ls_cost(self,**kwargs):
         # construct figure
-        fig, axs = plt.subplots(1, 2, figsize=(8,3))
+        fig, axs = plt.subplots(1, 2, figsize=(15,5))
 
         # create subplot with 2 panels
         gs = gridspec.GridSpec(1, 2, width_ratios=[1,1]) 
@@ -1288,7 +1288,7 @@ class NormalizeVisualizer:
     #####   #####
     def animate_transition(self,savepath,num_frames,**kwargs):
         # initialize figure
-        fig = plt.figure(figsize = (10,5))
+        fig = plt.figure(figsize = (15,5))
         artist = fig
 
         # create subplot with 3 panels, plot input function in center plot
@@ -1451,7 +1451,7 @@ class NormalizeVisualizer:
     # a small Python function for plotting the distributions of input features
     def feature_distributions(self,x):
         # create figure 
-        fig = plt.figure(figsize = (10,4))
+        fig = plt.figure(figsize = (15,5))
 
         # create subplots
         N = x.shape[0]
@@ -1506,7 +1506,7 @@ class ClassificationVisualizer:
     ###### plot plotting functions ######
     def plot_data(self):
         # construct figure
-        fig, axs = plt.subplots(1, 3, figsize=(9,4))
+        fig, axs = plt.subplots(1, 3, figsize=(15,5))
 
         # create subplot with 2 panels
         gs = gridspec.GridSpec(1, 3, width_ratios=[1,5,1]) 
@@ -1520,7 +1520,7 @@ class ClassificationVisualizer:
     # plot regression fits
     def plot_fit(self,plotting_weights,**kwargs):
         # construct figure
-        fig, axs = plt.subplots(1, 3, figsize=(9,4))
+        fig, axs = plt.subplots(1, 3, figsize=(15,5))
 
         # create subplot with 2 panels
         gs = gridspec.GridSpec(1, 3, width_ratios=[1,5,1]) 
@@ -1665,7 +1665,7 @@ class ClassificationVisualizer:
     ###### function plotting functions #######
     def plot_ls_cost(self,**kwargs):
         # construct figure
-        fig, axs = plt.subplots(1, 2, figsize=(8,3))
+        fig, axs = plt.subplots(1, 2, figsize=(15,5))
 
         # create subplot with 2 panels
         gs = gridspec.GridSpec(1, 2, width_ratios=[1,1]) 
