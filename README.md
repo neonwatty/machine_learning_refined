@@ -212,11 +212,11 @@ A select number of Chapters/Sections are highlighted below and are linked to HTM
 ### Chapter 8. Linear Unsupervised Learning
 
 8.1 Introduction<br>
-8.2 Fixed Spanning Sets, Orthonormality, and Projections<br> 
-8.3 The Linear Autoencoder and Principal Component Analysis<br> 
-[8.4 Recommender Systems](https://jermwatt.github.io/machine_learning_refined/notes/8_Linear_unsupervised_learning/8_4_Recommender.html)<br> 
-[8.5 K-Means Clustering](https://jermwatt.github.io/machine_learning_refined/notes/8_Linear_unsupervised_learning/8_5_Kmeans.html)<br>
-[8.6 General Matrix Factorization Techniques](https://jermwatt.github.io/machine_learning_refined/notes/8_Linear_unsupervised_learning/8_6_Factorization.html)<br> 
+[8.2 Fixed Spanning Sets, Orthonormality, and Projections](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/8_Linear_unsupervised_learning/8_2_Spanning.ipynb) [![8.2](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/8_Linear_unsupervised_learning/8_2_Spanning.ipynb) \
+[8.3 The Linear Autoencoder and Principal Component Analysis](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/8_Linear_unsupervised_learning/8_3_PCA.ipynb) [![8.3](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/8_Linear_unsupervised_learning/8_3_PCA.ipynb) \
+[8.4 Recommender Systems](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/8_Linear_unsupervised_learning/8_4_Recommender.ipynb) [![8.4](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/8_Linear_unsupervised_learning/8_4_Recommender.ipynb) \
+[8.5 K-Means Clustering](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/8_Linear_unsupervised_learning/8_5_Kmeans.ipynb) [![8.5](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/8_Linear_unsupervised_learning/8_5_Kmeans.ipynb) \
+[8.6 General Matrix Factorization Techniques](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/8_Linear_unsupervised_learning/8_6_Factorization.ipynb) [![7.8](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/8_Linear_unsupervised_learning/8_6_Factorization.ipynb) \
 8.7 Conclusion<br> 
 8.8 Exercises<br>
 8.9 Endnotes<br>
