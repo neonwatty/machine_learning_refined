@@ -279,12 +279,12 @@ A select number of Chapters/Sections are highlighted below and are linked to HTM
 ### Chapter 13. Fully Connected Neural Networks
 
 13.1 Introduction<br>
-[13.2 Fully Connected Neural Networks](https://jermwatt.github.io/machine_learning_refined/notes/13_Multilayer_perceptrons/13_2_Multi_layer_perceptrons.html)  
-13.3 Activation Functions<br>
+[13.2 Fully Connected Neural Networks](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/13_Multilayer_perceptrons/13_2_Multi_layer_perceptrons.ipynb) [![13.2](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/13_Multilayer_perceptrons/13_2_Multi_layer_perceptrons.ipynb) \ 
+[13.3 Activation Functions](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/13_Multilayer_perceptrons/13_3_Optimization.ipynb) [![13.3](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/13_Multilayer_perceptrons/13_3_Optimization.ipynb) \ 
 13.4 The Backpropagation Algorithm<br>
-[13.5 Optimization of Neural Network Models](https://jermwatt.github.io/machine_learning_refined/notes/13_Multilayer_perceptrons/13_3_Optimization.html)   
-[13.6 Batch Normalization](https://jermwatt.github.io/machine_learning_refined/notes/13_Multilayer_perceptrons/13_6_Batch_normalization.html)  
-[13.7 Cross-Validation via Early Stopping](https://jermwatt.github.io/machine_learning_refined/notes/13_Multilayer_perceptrons/13_7_early_stopping.html)  
+[13.5 Optimization of Neural Network Models](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/13_Multilayer_perceptrons/13_5_Activation.ipynb) [![13.5](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/13_Multilayer_perceptrons/13_5_Activation.ipynb) \ 
+[13.6 Batch Normalization](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/13_Multilayer_perceptrons/13_6_Batch_normalization.ipynb) [![13.6](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/13_Multilayer_perceptrons/13_6_Batch_normalization.ipynb) \ 
+[13.7 Cross-Validation via Early Stopping](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/13_Multilayer_perceptrons/13_7_early_stopping.ipynb) [![13.7](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/13_Multilayer_perceptrons/13_7_early_stopping.ipynb) \ 
 13.8 Conclusion<br>
 13.9 Exercises<br> 
 
@@ -331,10 +331,10 @@ B.9 Taylor Series<br>
 ### Appendix C. Linear Algebra
 
 C.1 Introduction<br>
-[C.2 Vectors and Vector Operations](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_2_Vectors.html)  
-[C.3 Matrices and Matrix Operations](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_3_Matrices.html)<br> 
-[C.4 Eigenvalues and Eigenvectors](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_4_Eigen.html)<br> 
-[C.5 Vector and Matrix Norms](https://jermwatt.github.io/machine_learning_refined/notes/16_Linear_algebra/16_5_Norms.html)<br><br><br>
+[C.2 Vectors and Vector Operations](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/16_Linear_algebra/16_2_Vectors.ipynb) [![16.2](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/16_Linear_algebra/16_2_Vectors.ipynb) \
+[C.3 Matrices and Matrix Operations](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/16_Linear_algebra/16_3_Matrices.ipynb) [![16.3](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/16_Linear_algebra/16_3_Matrices.ipynb) \
+[C.4 Eigenvalues and Eigenvectors](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/16_Linear_algebra/16_4_Eigen.ipynb) [![16.4](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/16_Linear_algebra/16_4_Eigen.ipynb) \
+[C.5 Vector and Matrix Norms](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/16_Linear_algebra/16_5_Norms.ipynb) [![16.5](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/16_Linear_algebra/16_5_Norms.ipynb) \
 
 
 ## What is new in the second edition?
