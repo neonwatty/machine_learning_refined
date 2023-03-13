@@ -1,9 +1,9 @@
-# Machine Learning Refined: Notes, Exercises, and Jupyter notebooks [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Machine%20Learning%20Refined:%20notes,%20exercises,%20and%20Jupyter%20notebooks%20&url=https://github.com/jermwatt/machine_learning_refined)
+# Machine Learning Refined: Notes, Exercises, and Collab/Jupyter notebooks 
 
-<img align="right" src="html/gifs/cover_2nd.png" height="420">
+<img align="right" src="readme_imgs/gifs/cover_2nd.png" height="420">
 
 
-Below you will find a range of resources that complement the 2nd edition of Machine Learning Refined (published by Cambridge University Press).
+Below you will find a range of resources - including extensive interactive Collab / Jupyter notebooks - that complement the 2nd edition of Machine Learning Refined (published by Cambridge University Press).
 
 # Table of Contents
 - [Sample chapters from the 2nd edition](https://github.com/jermwatt/machine_learning_refined/tree/gh-pages/sample_chapters/2nd_ed)
