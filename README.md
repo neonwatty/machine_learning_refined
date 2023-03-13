@@ -159,10 +159,10 @@ A select number of Chapters/Sections are highlighted below and are linked to HTM
 
 ### Chapter 4. Second-Order Optimization Techniques
 
-[4.1 The Second-Order Optimality Condition](https://jermwatt.github.io/machine_learning_refined/notes/4_Second_order_methods/4_3_Second.html)   
-4.2 The Geometry of Second-Order Taylor Series<br>
-[4.3 Newton’s Method](https://jermwatt.github.io/machine_learning_refined/notes/4_Second_order_methods/4_4_Newtons.html)   
-[4.4 Two Natural Weaknesses of Newton’s Method](https://jermwatt.github.io/machine_learning_refined/notes/4_Second_order_methods/4_5_Problems.html)   
+[4.1 The Second-Order Optimality Condition](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/4_Second_order_methods/4_1_Second.ipynb) [![4.1](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/4_Second_order_methods/4_1_Second.ipynb) \
+[4.2 The Geometry of Second-Order Taylor Series](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/4_Second_order_methods/4_2_Quadratic.ipynb) [![4.2](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/4_Second_order_methods/4_2_Quadratic.ipynb) \
+[4.3 Newton’s Method](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/4_Second_order_methods/4_3_Newtons.ipynb) [![4.3](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/4_Second_order_methods/4_3_Newtons.ipynb) \   
+[4.4 Two Natural Weaknesses of Newton’s Method](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/4_Second_order_methods/4_4_Problems.ipynb) [![4.4](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/4_Second_order_methods/4_4_Problems.ipynb) \  
 4.5 Conclusion<br>
 4.6 Exercises<br> 
 
@@ -311,8 +311,9 @@ A.1 Introduction<br>
 [A.5 Mini-Batch Optimization](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/A_5_Minibatch.ipynb) [![A.5](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/A_5_Minibatch.ipynb) \
 [A.6 Conservative Steplength Rules](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/A_6_Conservative.ipynb) [![A.6](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/A_6_Conservative.ipynb) \
 [A.7 General Steepest Descent](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/A_7_General_steepest_descent.ipynb) [![A.7](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/A_7_General_steepest_descent.ipynb) \
-A.8 Newton’s Method, Regularization, and Nonconvex Functions<br>
-A.9 Hessian-Free Methods<br> 
+[A.8 Newton’s Method, Regularization, and Nonconvex Functions](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/4_Second_order_methods/A_8_Nonconvex.ipynb) [![A.8](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/4_Second_order_methods/A_8_Nonconvex.ipynb) \
+[A.9 Hessian-Free Methods](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/4_Second_order_methods/A_9_Quasi.ipynb) [![A.9](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/4_Second_order_methods/A_9_Quasi.ipynb) \
+
 
 
 ### Appendix B. Derivatives and Automatic Differentiation
