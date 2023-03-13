@@ -358,19 +358,19 @@ for navigating the text based on a variety of learning outcomes and university
 courses taught using the present book.
 
 ##### Recommended study roadmap for a course on the essentials of machine learning, including requisite chapters (left column), sections (middle column), and corresponding topics (right column). This essentials plan is suitable for time-constrained courses (in quarter-based programs and universities) or self-study, or where machine learning is not the sole focus but a key component of some broader course of study. 
-<p align="center"><img src="html/gifs/C1.png" width="70%" height="auto"></p>
+<p align="center"><img src="readme_imgs/gifs/C1.png" width="70%" height="auto"></p>
 <br><br><br>
 
 ##### Recommended study roadmap for a full treatment of standard machine learning subjects, including chapters, sections, as well as corresponding topics to cover. This plan entails a more in-depth coverage of machine learning topics compared to the essentials roadmap given above, and is best suited for senior undergraduate/early graduate students in semester-based programs and passionate independent readers.
-<p align="center"><img src="html/gifs/C2.png" width="70%" height="auto"></p>
+<p align="center"><img src="readme_imgs/gifs/C2.png" width="70%" height="auto"></p>
 <br><br><br>
 
 ##### Recommended study roadmap for a course on mathematical optimization for machine learning and deep learning, including chapters, sections, as well as topics to cover.
-<p align="center"><img src="html/gifs/C3.png" width="70%" height="auto"></p>
+<p align="center"><img src="readme_imgs/gifs/C3.png" width="70%" height="auto"></p>
 <br><br><br>
 
 ##### Recommended study roadmap for an introductory portion of a course on deep learning, including chapters, sections, as well as topics to cover.
-<p align="center"><img src="html/gifs/C4.png" width="70%" height="auto"></p>
+<p align="center"><img src="readme_imgs/gifs/C4.png" width="70%" height="auto"></p>
 <br><br><br>
 
 
