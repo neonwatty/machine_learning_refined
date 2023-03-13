@@ -249,16 +249,16 @@ A select number of Chapters/Sections are highlighted below and are linked to HTM
 
 ### Chapter 11. Principles of Feature Learning
 
-[11.1 Introduction](https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_1_Introduction.html) <br>
-[11.2 Universal Approximators](https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_2_Universal.html) <br>
-[11.3 Universal Approximation of Real Data](https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_3_Real_approximation.html)  <br>
-[11.4 Naive Cross-Validation](https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_4_Cross_validation.html)  <br>
-[11.5 Efficient Cross-Validation via Boosting](https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_5_Boosting.html)   <br>
-[11.6 Efficient Cross-Validation via Regularization](https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_6_Regularization.html)  <br>
+[11.1 Introduction](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/11_Feature_learning/11_1_Intro.ipynb) [![11.1](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/11_Feature_learning/11_1_Intro.ipynb) \
+[11.2 Universal Approximators](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/11_Feature_learning/11_2_Universal.ipynb) [![11.2](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/11_Feature_learning/11_2_Universal.ipynb) \
+[11.3 Universal Approximation of Real Data](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/11_Feature_learning/11_3_Real_approximation.ipynb) [![11.3](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/11_Feature_learning/11_3_Real_approximation.ipynb) \
+[11.4 Naive Cross-Validation](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/11_Feature_learning/11_4_Cross_validation.ipynb) [![11.4](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/11_Feature_learning/11_4_Cross_validation.ipynb) \
+[11.5 Efficient Cross-Validation via Boosting](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/11_Feature_learning/11_5_Boosting.ipynb) [![11.5](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/11_Feature_learning/11_5_Boosting.ipynb) \
+[11.6 Efficient Cross-Validation via Regularization](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/11_Feature_learning/11_6_Regularization.ipynb) [![11.6](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/11_Feature_learning/11_6_Regularization.ipynb) \
 11.7 Testing Data<br>
 11.8 Which Universal Approximator Works Best in Practice?<br>
-[11.9 Bagging Cross-Validated Models](https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_9_Bagging.html) <br>
-[11.10 K-Fold Cross-Validation](https://jermwatt.github.io/machine_learning_refined/notes/11_Feature_learning/11_10_Kfolds.html)  <br>
+[11.9 Bagging Cross-Validated Models](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/11_Feature_learning/11_9_Bagging.ipynb) [![11.9](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/11_Feature_learning/11_9_Bagging.ipynb) \
+[11.10 K-Fold Cross-Validation](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/11_Feature_learning/11_10_Kfolds.ipynb) [![11.10](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/11_Feature_learning/11_10_Kfolds.ipynb) \
 11.11 When Feature Learning Fails<br>
 11.12 Conclusion<br>
 11.13 Exercises<br>
