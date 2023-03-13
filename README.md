@@ -198,7 +198,7 @@ A select number of Chapters/Sections are highlighted below and are linked to HTM
 ### Chapter 7. Linear Multi-Class Classification
 
 7.1 Introduction<br>
-[![7.2 One-versus-All Multi-Class Classification](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/7_Linear_multiclass_classification/7_2_OvA.ipynb)](https://colab.research.google.com/assets/colab-badge.svg)
+7.2 One-versus-All Multi-Class Classification [![7.2](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/7_Linear_multiclass_classification/7_2_OvA.ipynb)
 [7.3 Multi-Class Classification and the Perceptron](https://jermwatt.github.io/machine_learning_refined/notes/7_Linear_multiclass_classification/7_3_Perceptron.html)   
 [7.4 Which Approach Produces the Best Results?](https://jermwatt.github.io/machine_learning_refined/notes/7_Linear_multiclass_classification/7_4_Comparison.html)   
 [7.5 The Categorical Cross Entropy Cost Function](https://jermwatt.github.io/machine_learning_refined/notes/7_Linear_multiclass_classification/7_5_Categorical.html)   
