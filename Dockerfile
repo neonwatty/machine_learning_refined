@@ -8,6 +8,7 @@ RUN apt-get update
 RUN apt-get install -y python3-pip
 RUN apt-get update
 RUN apt-get install -y python3.8-dev 
+RUN apt-get install python-is-python3
 RUN apt-get update
 RUN apt-get install -y default-libmysqlclient-dev build-essential
 RUN apt-get update
