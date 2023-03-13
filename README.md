@@ -135,24 +135,24 @@ A select number of Chapters/Sections are highlighted below and are linked to HTM
 
 ### Chapter 2. Zero-Order Optimization Techniques
 
-2.1 Introduction<br> 
-[2.2 The Zero-Order Optimality Condition](https://jermwatt.github.io/machine_learning_refined/notes/2_Zero_order_methods/2_2_Zero.html)  
-[2.3 Global Optimization Methods](https://jermwatt.github.io/machine_learning_refined/notes/2_Zero_order_methods/2_3_Global.html)    
-[2.4 Local Optimization Methods](https://jermwatt.github.io/machine_learning_refined/notes/2_Zero_order_methods/2_4_Local.html)   
-[2.5 Random Search](https://jermwatt.github.io/machine_learning_refined/notes/2_Zero_order_methods/2_5_Random.html)  
-[2.6 Coordinate Search and Descent](https://jermwatt.github.io/machine_learning_refined/notes/2_Zero_order_methods/2_6_Coordinate.html)<br>
+[2.1 Introduction](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/2_Zero_order_methods/2_1_Introduction.ipynb) [![2.1](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/2_Zero_order_methods/2_1_Introduction.ipynb) \
+[2.2 The Zero-Order Optimality Condition](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/2_Zero_order_methods/2_2_Zero.ipynb) [![2.2](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/2_Zero_order_methods/2_2_Zero.ipynb) \ 
+[2.3 Global Optimization Methods](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/2_Zero_order_methods/2_3_Global.ipynb) [![2.3](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/2_Zero_order_methods/2_3_Global.ipynb) \
+[2.4 Local Optimization Methods](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/2_Zero_order_methods/2_4_Local.ipynb) [![2.4](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/2_Zero_order_methods/2_4_Local.ipynb) \   
+[2.5 Random Search](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/2_Zero_order_methods/2_5_Random.ipynb) [![2.5](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/2_Zero_order_methods/2_5_Random.ipynb) \
+[2.6 Coordinate Search and Descent](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/2_Zero_order_methods/2_6_Coordinate.ipynb) [![2.6](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/2_Zero_order_methods/2_6_Coordinate.ipynb) \
 2.7 Conclusion<br>
 2.8 Exercises<br>
  
  
 ### Chapter 3. First-Order Optimization Techniques
 
-3.1 Introduction<br> 
-[3.2 The First-Order Optimality Condition](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_2_First.html)       
-[3.3 The Geometry of First-Order Taylor Series](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_4_Tangent.html)<br> 
+[3.1 Introduction](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_1_Introduction.ipynb) [![3.1](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_1_Introduction.ipynb) \
+[3.2 The First-Order Optimality Condition](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_2_First.ipynb) [![3.2](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_2_First.ipynb) \   
+[3.3 The Geometry of First-Order Taylor Series](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_4_Geometry.ipynb) [![3.3](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_4_Geometry.ipynb) \
 3.4 Computing Gradients Efficiently    
-[3.5 Gradient Descent](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_6_Descent.html)   
-[3.6 Two Natural Weaknesses of Gradient Descent](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_7_Problems.html)   
+[3.5 Gradient Descent](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_5_Descent.ipynb) [![3.5](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_5_Descent.ipynb) \  
+[3.6 Two Natural Weaknesses of Gradient Descent](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) [![3.6](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) \
 3.7 Conclusion<br>
 3.8 Exercises<br>
 
@@ -305,11 +305,11 @@ A select number of Chapters/Sections are highlighted below and are linked to HTM
 ### Appendix A. Advanced First- and Second-Order Optimization Methods
 
 A.1 Introduction<br>
-[A.2 Momentum-Accelerated Gradient Descent](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_8_Momentum.html)<br> 
-[A.3 Normalized Gradient Descent](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_9_Normalized.html)<br>
-[A.4 Advanced Gradient-Based Methods](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_10_Advanced.html)    
-[A.5 Mini-Batch Optimization](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_11_Minibatch.html)<br>
-[A.6 Conservative Steplength Rules](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_12_Conservative.html)  
+[A.2 Momentum-Accelerated Gradient Descent](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) [![3.6](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) \
+[A.3 Normalized Gradient Descent](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) [![3.6](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) \
+[A.4 Advanced Gradient-Based Methods](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) [![3.6](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) \   
+[A.5 Mini-Batch Optimization](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) [![3.6](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) \
+[A.6 Conservative Steplength Rules](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) [![3.6](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) \
 A.7 Newton’s Method, Regularization, and Nonconvex Functions<br>
 A.8 Hessian-Free Methods<br> 
 
