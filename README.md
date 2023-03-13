@@ -445,9 +445,9 @@ Instructors may request a copy of this text for examination from the [publisher'
 [(Back to top)](#table-of-contents)
 
 
-### Google Collab ![collab sticker](https://colab.research.google.com/assets/colab-badge.svg)
+### Google Collab !
 
-The majority of the notes and exercise wrappers in this repository can be run for free on Google Collab. Click the Collab sticker ![collab sticker](https://colab.research.google.com/assets/colab-badge.svg) at the top of a notebook to open it in Collab.
+The majority of the notes and exercise wrappers in this repository can be run without the need to install anything locally - for free on Google Collab. Click the Collab sticker ![collab sticker](https://colab.research.google.com/assets/colab-badge.svg) at the top of a notebook to open it in Collab.
 
 
 ### Running locally
