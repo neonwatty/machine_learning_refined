@@ -237,12 +237,12 @@ A select number of Chapters/Sections are highlighted below and are linked to HTM
 
 ### Chapter 10. Principles of Nonlinear Feature Engineering
 
-10.1 Introduction<br>
-[10.2 Nonlinear Regression](https://jermwatt.github.io/machine_learning_refined/notes/10_Nonlinear_intro/10_2_Regression.html)  
-[10.3 Nonlinear Multi-Output Regression](https://jermwatt.github.io/machine_learning_refined/notes/10_Nonlinear_intro/10_3_MultReg.html)  
-[10.4 Nonlinear Two-Class Classification](https://jermwatt.github.io/machine_learning_refined/notes/10_Nonlinear_intro/10_4_Twoclass.html)  
-[10.5 Nonlinear Multi-Class Classification](https://jermwatt.github.io/machine_learning_refined/notes/10_Nonlinear_intro/10_5_Multiclass.html)  
-[10.6 Nonlinear Unsupervised Learning](https://jermwatt.github.io/machine_learning_refined/notes/10_Nonlinear_intro/10_6_Unsupervised.html)<br>
+[10.1 Introduction](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/10_Nonlinear_intro/10_1_Intro.ipynb) [![10.1](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/10_Nonlinear_intro/10_1_Intro.ipynb) \
+[10.2 Nonlinear Regression](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/10_Nonlinear_intro/10_2_Regression.ipynb) [![10.2](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/10_Nonlinear_intro/10_2_Regression.ipynb) \
+[10.3 Nonlinear Multi-Output Regression](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/10_Nonlinear_intro/10_3_MultReg.ipynb) [![10.3](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/10_Nonlinear_intro/10_3_MultReg.ipynb) \
+[10.4 Nonlinear Two-Class Classification](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/10_Nonlinear_intro/10_4_Twoclass.ipynb) [![10.4](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/10_Nonlinear_intro/10_4_Twoclass.ipynb) \
+[10.5 Nonlinear Multi-Class Classification](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/10_Nonlinear_intro/10_5_Multiclass.ipynb) [![10.5](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/10_Nonlinear_intro/10_5_Multiclass.ipynb) \
+[10.6 Nonlinear Unsupervised Learning](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/10_Nonlinear_intro/10_6_Unsupervised.ipynb) [![10.6](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/10_Nonlinear_intro/10_6_Unsupervised.ipynb) \
 10.7 Conclusion<br>
 10.8 Exercises<br>  
 
