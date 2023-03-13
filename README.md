@@ -444,10 +444,17 @@ Instructors may request a copy of this text for examination from the [publisher'
 ## Software installation and dependencies
 [(Back to top)](#table-of-contents)
 
+
+### Google Collab ![collab sticker](https://colab.research.google.com/assets/colab-badge.svg)
+
+The majority of the notes and exercise wrappers in this repository can be run for free on Google Collab. Click the Collab sticker ![collab sticker](https://colab.research.google.com/assets/colab-badge.svg) at the top of a notebook to open it in Collab.
+
+
+### Running locally
+
 After cloning this repository and entering the directory we recommend one of three methods for successfully running the Jupyter notebooks contained therein. 
 
-
-### Docker method (**strongly recommended**)
+#### Docker method (**strongly recommended**)
 
 After installing [docker and docker-compose on your machine](https://docs.docker.com/compose/install/)  
 traverse to this repo at your terminal and type 
@@ -463,7 +470,7 @@ Then in any web browser go to
 to view the repository contents - including jupyter notebooks.
 
 
-### Anaconda method
+#### Anaconda method
 
 After installing [Anaconda Python 3 distribution](https://www.anaconda.com/download) on your machine, cd into this repo's directory and follow these steps to create a conda virtual environment to view its contents and notebooks.
 
@@ -486,12 +493,12 @@ And finally, open any web browser and traverse to
 to view the repository contents - including jupyter notebooks.
 
 
-### pip3 method
-Using Python3 and pip3 on your machine, cd into this repo's directory and follow these steps to install the required packages.
+#### pip method
+Using Python3 and pip on your machine, cd into this repo's directory and follow these steps to install the required packages.
 
 First install Python requirements
 
-```pip3 install -r requirements.txt```
+```pip install -r requirements.txt```
 
 Run jupyter via the command below
 
