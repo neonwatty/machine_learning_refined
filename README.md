@@ -3,7 +3,7 @@
 <img align="right" src="readme_imgs/gifs/cover_2nd.png" height="420">
 
 
-Below you will find a range of resources - including extensive interactive Collab / Jupyter notebooks [(https://colab.research.google.com/assets/colab-badge.svg)] - that complement the 2nd edition of Machine Learning Refined (published by Cambridge University Press).
+Below you will find a range of resources - including extensive interactive Collab / Jupyter notebooks ![collab sticker](https://colab.research.google.com/assets/colab-badge.svg) - that complement the 2nd edition of Machine Learning Refined (published by Cambridge University Press).
 
 # Table of Contents
 - [Sample chapters from the 2nd edition](https://github.com/jermwatt/machine_learning_refined/tree/gh-pages/sample_chapters/2nd_ed)
