@@ -313,9 +313,6 @@ A.1 Introduction<br>
 [A.7 General Steepest Descent](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/A_7_General_steepest_descent.ipynb) [![A.7](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/A_7_General_steepest_descent.ipynb) \
 [A.8 Newton’s Method, Regularization, and Nonconvex Functions](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/4_Second_order_methods/A_8_Nonconvex.ipynb) [![A.8](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/4_Second_order_methods/A_8_Nonconvex.ipynb) \
 [A.9 Hessian-Free Methods](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/4_Second_order_methods/A_9_Quasi.ipynb) [![A.9](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/4_Second_order_methods/A_9_Quasi.ipynb) \
-
-
-
 ### Appendix B. Derivatives and Automatic Differentiation
 
 B.1 Introduction<br> 
@@ -328,7 +325,6 @@ B.7 The Reverse Mode of Automatic Differentiation<br>
 B.8 Higher-Order Derivatives<br>
 B.9 Taylor Series<br>
 [B.10 Using the autograd Library](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/B_10_Automatic.ipynb) [![B.10](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/B_10_Automatic.ipynb) \
-
 ### Appendix C. Linear Algebra
 
 C.1 Introduction<br>
@@ -336,8 +332,6 @@ C.1 Introduction<br>
 [C.3 Matrices and Matrix Operations](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/16_Linear_algebra/16_3_Matrices.ipynb) [![16.3](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/16_Linear_algebra/16_3_Matrices.ipynb) \
 [C.4 Eigenvalues and Eigenvectors](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/16_Linear_algebra/16_4_Eigen.ipynb) [![16.4](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/16_Linear_algebra/16_4_Eigen.ipynb) \
 [C.5 Vector and Matrix Norms](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/16_Linear_algebra/16_5_Norms.ipynb) [![16.5](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/16_Linear_algebra/16_5_Norms.ipynb) \
-
-
 ## What is new in the second edition?
 [(Back to top)](#table-of-contents)
 
