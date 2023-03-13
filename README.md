@@ -305,13 +305,14 @@ A select number of Chapters/Sections are highlighted below and are linked to HTM
 ### Appendix A. Advanced First- and Second-Order Optimization Methods
 
 A.1 Introduction<br>
-[A.2 Momentum-Accelerated Gradient Descent](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) [![3.6](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) \
-[A.3 Normalized Gradient Descent](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) [![3.6](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) \
-[A.4 Advanced Gradient-Based Methods](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) [![3.6](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) \   
-[A.5 Mini-Batch Optimization](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) [![3.6](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) \
-[A.6 Conservative Steplength Rules](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) [![3.6](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/3_6_Problems.ipynb) \
-A.7 Newton’s Method, Regularization, and Nonconvex Functions<br>
-A.8 Hessian-Free Methods<br> 
+[A.2 Momentum-Accelerated Gradient Descent](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/A_2_Momentum.ipynb) [![A.2](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/A_2_Momentum.ipynb) \
+[A.3 Normalized Gradient Descent](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/A_3_Normalized.ipynb) [![A.3](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/A_3_Normalized.ipynb) \
+[A.4 Advanced Gradient-Based Methods](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/A_4_Advanced.ipynb) [![A.4](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/A_4_Advanced.ipynb) \   
+[A.5 Mini-Batch Optimization](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/A_5_Minibatch.ipynb) [![A.5](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/A_5_Minibatch.ipynb) \
+[A.6 Conservative Steplength Rules](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/A_6_Conservative.ipynb) [![A.6](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/A_6_Conservative.ipynb) \
+[A.7 General Steepest Descent](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/A_7_General_steepest_descent.ipynb) [![A.7](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/A_7_General_steepest_descent.ipynb) \
+A.8 Newton’s Method, Regularization, and Nonconvex Functions<br>
+A.9 Hessian-Free Methods<br> 
 
 
 ### Appendix B. Derivatives and Automatic Differentiation
@@ -325,8 +326,7 @@ B.6 The Forward Mode of Automatic Differentiation<br>
 B.7 The Reverse Mode of Automatic Differentiation<br>
 B.8 Higher-Order Derivatives<br>
 B.9 Taylor Series<br>
-[B.10 Using the autograd Library](https://jermwatt.github.io/machine_learning_refined/notes/3_First_order_methods/3_5_Automatic.html)
-
+[B.10 Using the autograd Library](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/B_10_Automatic.ipynb) [![B.10](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/3_First_order_methods/B_10_Automatic.ipynb) \
 
 ### Appendix C. Linear Algebra
 
