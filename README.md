@@ -170,27 +170,27 @@ A select number of Chapters/Sections are highlighted below and are linked to HTM
 ### Chapter 5. Linear Regression
 
 5.1 Introduction<br>
-[5.2 Least Squares Linear Regression](https://jermwatt.github.io/machine_learning_refined/notes/5_Linear_regression/5_2_Least.html)   
-[5.3 Least Absolute Deviations](https://jermwatt.github.io/machine_learning_refined/notes/5_Linear_regression/5_3_Absolute.html)   
-[5.4 Regression Quality Metrics](https://jermwatt.github.io/machine_learning_refined/notes/5_Linear_regression/5_4_Metrics.html)   
-[5.5 Weighted Regression](https://jermwatt.github.io/machine_learning_refined/notes/5_Linear_regression/5_5_Weighted.html)   
-[5.6 Multi-Output Regression](https://jermwatt.github.io/machine_learning_refined/notes/5_Linear_regression/5_6_Multi.html)<br>
+[5.2 Least Squares Linear Regression](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/5_Linear_regression/5_2_Least.ipynb) [![5.2](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/5_Linear_regression/5_2_Least.ipynb) \
+[5.3 Least Absolute Deviations](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/5_Linear_regression/5_3_Absolute.ipynb) [![5.3](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/5_Linear_regression/5_3_Absolute.ipynb) \   
+[5.4 Regression Quality Metrics](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/5_Linear_regression/5_4_Metrics.ipynb) [![5.4](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/5_Linear_regression/5_4_Metrics.ipynb) \   
+[5.5 Weighted Regression](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/5_Linear_regression/5_5_Weighted.ipynb) [![5.5](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/5_Linear_regression/5_5_Weighted.ipynb) \ 
+[5.6 Multi-Output Regression](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/5_Linear_regression/5_6_Multi.ipynb) [![5.6](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/5_Linear_regression/5_6_Multi.ipynb) \
 5.7 Conclusion<br>
 5.8 Exercises<br>
-5.9 Endnotes<br> 
+[5.9 Endnotes: Probabilistic interpretation of linear regression](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/5_Linear_regression/5_7_Probabilistic.ipynb) [![5.9](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/5_Linear_regression/5_7_Probabilistic.ipynb) \
 
 
 ### Chapter 6. Linear Two-Class Classification
 
 6.1 Introduction<br>
-[6.2 Logistic Regression and the Cross Entropy Cost](https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_2_Cross_entropy.html)   
-[6.3 Logistic Regression and the Softmax Cost](https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_3_Softmax.html)   
-[6.4 The Perceptron](https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_4_Perceptron.html)   
-[6.5 Support Vector Machines](https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_5_SVMs.html)  
-[6.6 Which Approach Produces the Best Results?](https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_7_Comparison.html)<br>
-[6.7 The Categorical Cross Entropy Cost](https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_6_Categorical.html)    
-[6.8 Classification Quality Metrics](https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_8_Metrics.html)   
-[6.9 Weighted Two-Class Classification](https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_9_Weighted.html)<br>
+[6.2 Logistic Regression and the Cross Entropy Cost](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_2_Cross_entropy.ipynb) [![6.2](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_2_Cross_entropy.ipynb) \
+[6.3 Logistic Regression and the Softmax Cost](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_3_Softmax.ipynb) [![6.3](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_3_Softmax.ipynb) \
+[6.4 The Perceptron](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_4_Perceptron.ipynb) [![6.4](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_4_Perceptron.ipynb) \
+[6.5 Support Vector Machines](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_5_SVMs.ipynb) [![6.5](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_5_SVMs.ipynb) \
+[6.6 Which Approach Produces the Best Results?](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_6_Categorical.ipynb) [![6.6](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_6_Categorical.ipynb) \
+[6.7 The Categorical Cross Entropy Cost](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_7_Comparison.ipynb) [![6.7](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_7_Comparison.ipynb) \
+[6.8 Classification Quality Metrics](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_8_Metrics.ipynb) [![6.8](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_8_Metrics.ipynb) \
+[6.9 Weighted Two-Class Classification](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/5_Linear_regression/5_7_Probabilistic.ipynb) [![6.9](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/5_Linear_regression/5_7_Probabilistic.ipynb) \
 6.10 Conclusion<br>
 6.11 Exercises<br>  
 
